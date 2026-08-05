@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arcane Mage rotation review — 12.1 PTR</title>
+<meta name="description" content="Two rounds of Arcane Mage dummy-pull analysis against the Raidbots sim: isolating Arcane Salvo spending as the systemic damage leak, and what replaced it once it was fixed.">
+<style>
+  /* ---------- reset ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body, h1, h2, h3, p, ul, figure { margin: 0; }
+  ul { padding: 0; }
+  button { font: inherit; color: inherit; }
+  img, svg { display: block; max-width: 100%; }
+
+  /* ---------- tokens ---------- */
+  :root {
+    color-scheme: light;
+    --plane:      #f2f0f7;
+    --surface:    #fdfdff;
+    --surface-2:  #f7f6fa;
+    --ink:        #17141f;
+    --ink-2:      #55506a;
+    --muted:      #857f9c;
+    --grid:       #e6e3ef;
+    --baseline:   #cdc8dc;
+    --hair:       rgba(23,20,31,0.11);
+    --accent:     #4a3aa7;
+    --accent-sub: #ece9f8;
+    --you:        #eb6834;
+    --sim:        #2a78d6;
+    --good:       #0ca30c;
+
+    --f-display: "Iowan Old Style","Hoefler Text","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --f-body: system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --f-mono: ui-monospace,"Cascadia Mono","SF Mono",Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --plane: #0b0910; --surface: #17141d; --surface-2: #1e1a27;
+      --ink: #ffffff; --ink-2: #c0bad2; --muted: #8b85a3;
+      --grid: #272233; --baseline: #38324c; --hair: rgba(255,255,255,0.12);
+      --accent: #9085e9; --accent-sub: #211c33;
+      --you: #d95926; --sim: #3987e5;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --plane: #0b0910; --surface: #17141d; --surface-2: #1e1a27;
+    --ink: #ffffff; --ink-2: #c0bad2; --muted: #8b85a3;
+    --grid: #272233; --baseline: #38324c; --hair: rgba(255,255,255,0.12);
+    --accent: #9085e9; --accent-sub: #211c33;
+    --you: #d95926; --sim: #3987e5;
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --plane: #f2f0f7; --surface: #fdfdff; --surface-2: #f7f6fa;
+    --ink: #17141f; --ink-2: #55506a; --muted: #857f9c;
+    --grid: #e6e3ef; --baseline: #cdc8dc; --hair: rgba(23,20,31,0.11);
+    --accent: #4a3aa7; --accent-sub: #ece9f8;
+    --you: #eb6834; --sim: #2a78d6;
+  }
+
+  body {
+    background: var(--plane); color: var(--ink);
+    font-family: var(--f-body); font-size: 16px; line-height: 1.6;
+    padding: 0 20px 96px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  .prose { max-width: 68ch; }
+
+  /* ---------- topbar ---------- */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 18px 0 0; flex-wrap: wrap;
+  }
+  .navlinks { display: flex; gap: 20px; font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; }
+  .navlinks a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+  .navlinks a:hover, .navlinks a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+  .themebtn {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    background: none; border: 1px solid var(--hair); color: var(--ink-2);
+    padding: 6px 12px; border-radius: 3px; cursor: pointer;
+  }
+  .themebtn:hover { background: var(--surface); color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- masthead ---------- */
+  .masthead { padding: 52px 0 30px; border-bottom: 1px solid var(--hair); }
+  .eyebrow {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+  }
+  h1 {
+    font-family: var(--f-display); font-weight: 600; font-size: clamp(34px,5.4vw,58px);
+    line-height: 1.06; letter-spacing: -0.015em; margin-bottom: 20px; text-wrap: balance;
+  }
+  .standfirst {
+    font-family: var(--f-display); font-size: clamp(17px,2.1vw,21px); line-height: 1.55;
+    color: var(--ink-2); max-width: 62ch; margin-bottom: 28px;
+  }
+  .standfirst strong { color: var(--ink); font-weight: 600; }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px 26px; font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+  .meta b { color: var(--ink-2); font-weight: 500; }
+
+  section { padding-top: 60px; }
+  h2 {
+    font-family: var(--f-display); font-weight: 600; font-size: clamp(24px,3vw,31px);
+    line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 8px; text-wrap: balance;
+  }
+  h3 { font-family: var(--f-body); font-weight: 650; font-size: 16px; letter-spacing: -0.005em; margin: 30px 0 6px; }
+  .lede { color: var(--ink-2); margin-bottom: 26px; max-width: 68ch; }
+  p { margin-bottom: 16px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .sec-mark {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 12px;
+  }
+  .sec-mark::after { content: ""; flex: 1; height: 1px; background: var(--hair); }
+
+  /* round divider */
+  .roundrule { margin-top: 84px; padding-top: 30px; border-top: 3px double var(--hair); }
+  .roundrule .sec-mark { color: var(--accent); }
+
+  /* ---------- KPI ---------- */
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 3px; overflow: hidden; margin-top: 32px; }
+  .kpi { background: var(--surface); padding: 22px; }
+  .k-label { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .k-val { font-size: 40px; line-height: 1; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 8px; }
+  .k-sub { font-size: 13px; color: var(--ink-2); margin-bottom: 0; }
+  .k-sub b { font-weight: 600; }
+  .swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; }
+  .sw-you { background: var(--you); } .sw-sim { background: var(--sim); }
+
+  /* ---------- cards ---------- */
+  .card { background: var(--surface); border: 1px solid var(--hair); border-radius: 3px; padding: 26px 26px 20px; margin: 26px 0; }
+  .card-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; justify-content: space-between; }
+  .card-title { font-family: var(--f-body); font-weight: 650; font-size: 16px; margin-bottom: 0; }
+  .card-note { color: var(--ink-2); font-size: 13.5px; margin: 6px 0 20px; max-width: 74ch; }
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink-2); font-family: var(--f-mono); margin-bottom: 14px; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .chart-scroll { overflow-x: auto; }
+  svg text { font-family: var(--f-body); }
+
+  .tbtn {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    background: none; border: 1px solid var(--hair); color: var(--ink-2);
+    padding: 6px 11px; border-radius: 3px; cursor: pointer;
+  }
+  .tbtn:hover { background: var(--surface-2); color: var(--ink); }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; margin-top: 16px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: right; padding: 7px 12px; border-bottom: 1px solid var(--hair); }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  [hidden] { display: none !important; }
+
+  .tip {
+    position: fixed; pointer-events: none; z-index: 60; opacity: 0;
+    background: var(--ink); color: var(--surface); font-family: var(--f-mono); font-size: 11.5px;
+    padding: 7px 10px; border-radius: 3px; line-height: 1.5; white-space: nowrap; transition: opacity .1s;
+  }
+  .tip.on { opacity: 1; }
+
+  /* ---------- findings ---------- */
+  .finding { border-top: 1px solid var(--hair); padding: 26px 0 4px; display: grid; grid-template-columns: 46px 1fr; gap: 20px; }
+  .finding .rank { font-family: var(--f-mono); font-size: 12px; color: var(--accent); padding-top: 4px; letter-spacing: .05em; margin-bottom: 0; }
+  .finding h3 { margin-top: 0; font-size: 17px; }
+  .finding p:last-child { margin-bottom: 0; }
+  .tag {
+    display: inline-block; font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+    padding: 3px 7px; border-radius: 2px; margin-left: 8px; background: var(--accent-sub); color: var(--accent); vertical-align: 2px;
+  }
+  .tag.done { background: rgba(12,163,12,0.12); color: var(--good); }
+  .clear { border-left: 2px solid var(--good); padding-left: 18px; margin-bottom: 20px; }
+  .clear p { margin-bottom: 0; color: var(--ink-2); font-size: 14.5px; }
+  .clear b { color: var(--ink); }
+
+  .apl {
+    font-family: var(--f-mono); font-size: 12.5px; line-height: 1.75; background: var(--surface-2);
+    border: 1px solid var(--hair); border-radius: 3px; padding: 16px 18px; overflow-x: auto;
+    color: var(--ink-2); margin-bottom: 8px; white-space: pre;
+  }
+  .apl b { color: var(--ink); font-weight: 600; }
+  .apl .cm { color: var(--accent); }
+  .apl .hi { color: var(--you); }
+  code { font-family: var(--f-mono); font-size: 0.92em; }
+  .caption { font-size: 12.5px; color: var(--muted); margin-bottom: 24px; }
+
+  .flow { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 3px; overflow: hidden; margin-bottom: 10px; }
+  .flow div { background: var(--surface); padding: 16px; }
+  .fl-t { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .fl-v { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .fl-s { font-size: 12.5px; color: var(--ink-2); margin-bottom: 0; line-height: 1.45; }
+
+  ul.fix { list-style: none; margin-top: 12px; }
+  ul.fix li { padding: 12px 0 12px 26px; border-bottom: 1px solid var(--hair); position: relative; color: var(--ink-2); }
+  ul.fix li::before { content: "\2192"; position: absolute; left: 0; color: var(--accent); font-family: var(--f-mono); }
+  ul.fix li b { color: var(--ink); font-weight: 600; }
+
+  .banner {
+    background: var(--surface); border: 1px solid var(--hair); border-left: 3px solid var(--good);
+    border-radius: 3px; padding: 20px 24px; margin-top: 32px;
+  }
+  .banner p { margin-bottom: 0; color: var(--ink-2); }
+  .banner b { color: var(--ink); }
+  .banner .bl { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--good); margin-bottom: 10px; }
+
+  footer { margin-top: 70px; padding-top: 26px; border-top: 1px solid var(--hair); font-size: 13px; color: var(--muted); }
+  footer b { color: var(--ink-2); font-weight: 500; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  @media (max-width: 620px) {
+    .finding { grid-template-columns: 1fr; gap: 6px; }
+    .k-val { font-size: 33px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <nav class="navlinks" aria-label="Sections">
+      <a href="#engine">The engine</a>
+      <a href="#round1">Round 1</a>
+      <a href="#round2">Round 2</a>
+      <a href="#method">Method</a>
+    </nav>
+    <button class="themebtn" id="themebtn" type="button">Theme: auto</button>
+  </div>
+
+  <header class="masthead">
+    <p class="eyebrow">Arcane Mage · 12.1 PTR · Sunfury · two sessions</p>
+    <h1>You were casting fast and spending early. Now you fill too far.</h1>
+    <p class="standfirst">
+      Round one: across five 300-second dummy pulls the mechanical execution was near-flawless, but
+      <strong>Arcane Barrage fired below maximum Arcane Salvo far more often than it should</strong> — in every
+      pull, without improving. Round two, after the fix: that habit is gone and now runs ahead of the sim.
+      What replaced it is <strong>the mirror image — Arcane Missiles channels started so high they overflow the
+      25-stack cap</strong>.
+    </p>
+    <div class="meta">
+      <span><b>Round 1</b> vAtQGNpDqJHyw9mn · 5 × 300s</span>
+      <span><b>Round 2</b> Y2yMVdpb3NRLrkT7 · 2 × 300s</span>
+      <span><b>Benchmark</b> Raidbots 38BorEbHSzMrsQmgug8J2B</span>
+      <span><b>Gear &amp; talents</b> identical throughout</span>
+    </div>
+  </header>
+
+  <!-- ============ ENGINE ============ -->
+  <section id="engine">
+    <p class="sec-mark">How the spec actually works</p>
+    <h2>Salvo is the engine, and only one payoff is non-linear</h2>
+    <p class="lede">Arcane Salvo caps at <b>25</b> — 20 from the base talent, +5 from Spellfire Salvo.
+      Confirmed against the logs, where the buff never exceeds 25 stacks.</p>
+
+    <div class="prose">
+      <p>Generation is concentrated, not spread across the kit. Arcane Missiles is the engine; Blast and
+        Prismatic Bolt are the fine adjustment that bridges the last few stacks.</p>
+    </div>
+
+    <div class="flow">
+      <div><p class="fl-t">Arcane Missiles</p><p class="fl-v">+11.8</p><p class="fl-s">calibrated from 66 uncapped channels; median 12</p></div>
+      <div><p class="fl-t">Overpowered Missiles</p><p class="fl-v">&rarr; 25 instantly</p><p class="fl-s">proc grants maximum stacks outright</p></div>
+      <div><p class="fl-t">Prismatic Bolt</p><p class="fl-v">+4</p><p class="fl-s">Expanded Mind</p></div>
+      <div><p class="fl-t">Arcane Blast</p><p class="fl-v">+2</p><p class="fl-s">the top-off tool</p></div>
+      <div><p class="fl-t">Arcane Orb</p><p class="fl-v">+1</p><p class="fl-s">charge fallback, not damage</p></div>
+    </div>
+    <p class="caption">Missiles is also your main Arcane Charge generator — High Voltage, ~3.5 charges per channel. Not Arcane Blast.</p>
+
+    <div class="prose">
+      <h3>Barrage is the only spender, and it pays out four ways at once</h3>
+      <p>Salvo damage bonus (3%/stack) · Prismatic Bolt proc (<b>2% per stack consumed</b> — 1% base plus 1%
+        from the third apex node, so 50% at cap) · one Meteorite per 5 stacks consumed · Orb Barrage
+        (4% per stack <em>held</em>).</p>
+      <p><strong>Three of those four are linear in stacks consumed.</strong> Dumping at 12 twice yields roughly
+        the same procs as dumping at 25 once. The one genuinely non-linear payoff is
+        <b>Intuition: +25% Barrage damage, only on reaching max stacks</b>. That, plus the fixed GCD cost of
+        every Barrage, is the entire case for holding to 25.</p>
+      <p>The same arithmetic runs in reverse, and that is round two's finding: a channel is worth ~12 stacks,
+        so <b>starting one above 13 pushes the surplus into the ceiling</b>, where it buys nothing.</p>
+    </div>
+
+    <div class="apl"><span class="cm"># the two legal Barrage triggers, from the sim's own priority list</span>
+arcane_missiles,if=buff.clearcasting.react&amp;<b>buff.arcane_salvo.stack&lt;12</b>,chain=1
+arcane_barrage,if=arcane_charge=4&amp;( (clearcasting&amp;<b>salvo&gt;=12</b>) | <b>salvo=25</b> ) | buff.arcane_soul.up</div>
+    <p class="caption">The <code>salvo&lt;12</code> gate on Missiles exists precisely because a channel adds ~12 — starting one above that overflows the cap.</p>
+  </section>
+
+  <!-- ============ ROUND 1 ============ -->
+  <section id="round1" class="roundrule">
+    <p class="sec-mark">Round one — report vAtQGNpDqJHyw9mn</p>
+    <h2>Five pulls, one repeating habit</h2>
+    <p class="lede">Same character, same gear as the sim profile — all five tier pieces, both trinkets and the
+      weapon match, so 161,530 DPS is a valid target rather than a generic one.</p>
+
+    <div class="kpis">
+      <div class="kpi">
+        <p class="k-label">Best pull vs sim</p>
+        <p class="k-val">136k</p>
+        <p class="k-sub">against <b>161.5k</b> simulated — a <b>15.6%</b> gap on matched gear</p>
+      </div>
+      <div class="kpi">
+        <p class="k-label">Barrages at 25 Salvo</p>
+        <p class="k-val" style="color:var(--you)">42%</p>
+        <p class="k-sub"><span class="swatch sw-sim"></span>sim reaches max on <b>71%</b></p>
+      </div>
+      <div class="kpi">
+        <p class="k-label">Intuition captured</p>
+        <p class="k-val" style="color:var(--you)">47%</p>
+        <p class="k-sub"><span class="swatch sw-sim"></span>sim <b>65%</b> — this is the +25% Barrage buff</p>
+      </div>
+      <div class="kpi">
+        <p class="k-label">Barrage casts / 300s</p>
+        <p class="k-val">58</p>
+        <p class="k-sub"><span class="swatch sw-sim"></span>sim uses <b>48</b> for the same total Salvo</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">Finding 00 — sample hygiene</p>
+    <h2>Two of the five pulls had no food buff</h2>
+    <p class="lede">Before reading anything into pull-to-pull variance: pulls 1 and 3 are missing the Well Fed
+      buff entirely. Their rotation metrics are identical to the others — the damage difference is consumables, not play.</p>
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">Damage per pull vs simulated ceiling</p>
+        <button class="tbtn" data-toggle="t-dps" type="button">Table view</button>
+      </div>
+      <p class="card-note">Bars are your pulls; the rule marks the simulated ceiling.</p>
+      <div class="legend">
+        <span><span class="swatch sw-you"></span>Your pulls</span>
+        <span><svg width="22" height="9" aria-hidden="true"><line x1="0" y1="4.5" x2="22" y2="4.5" stroke="var(--sim)" stroke-width="2"/></svg>Simulated 161,530</span>
+      </div>
+      <div class="chart-scroll"><div id="c-dps"></div></div>
+      <div id="t-dps" hidden></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">Finding 01 — the systemic one</p>
+    <h2>Barrage fires below maximum Salvo</h2>
+    <p class="lede">This was the finding. It appeared in all five pulls at the same rate and did not improve
+      across the session — the signature of a habit rather than a bad pull.</p>
+
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">Arcane Salvo consumed per Barrage</p>
+        <button class="tbtn" data-toggle="t-hist" type="button">Table view</button>
+      </div>
+      <p class="card-note">Barrages cast outside the Arcane Soul window, where Salvo is not consumed.
+        292 of yours across five pulls; 48 in the simulated iteration.</p>
+      <div class="legend">
+        <span><span class="swatch sw-you"></span>Your play — round 1</span>
+        <span><span class="swatch sw-sim"></span>Sim optimum</span>
+      </div>
+      <div class="chart-scroll"><div id="c-hist"></div></div>
+      <div id="t-hist" hidden></div>
+    </div>
+
+    <div class="prose">
+      <p>The distributions have the same right edge but a very different mass. The sim lives on the cap; your
+        casts spread down through the 12–19 band. Average Salvo consumed per Barrage: <b>19.6</b> against the
+        sim's <b>22.4</b>.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">Finding 01 — sequence</p>
+    <h2>The same 48 seconds, side by side</h2>
+    <p class="lede">Arcane Salvo sampled at every cast. Both windows are 48 seconds on an identical scale, so
+      the shapes are directly comparable — this is the clearest picture of the difference.</p>
+
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">Salvo trajectory — cast by cast</p>
+        <button class="tbtn" data-toggle="t-seq" type="button">Table view</button>
+      </div>
+      <p class="card-note">Circles mark Arcane Barrage. Filled circles are Barrages that captured Intuition
+        (Salvo at 25). Hover or tab to any point for the full state at that cast.</p>
+      <div class="legend">
+        <span><span class="swatch sw-you"></span>Your play — pull 4, 40–88s</span>
+        <span><span class="swatch sw-sim"></span>Sim optimum — 24–72s</span>
+        <span><svg width="22" height="9" aria-hidden="true"><line x1="0" y1="4.5" x2="22" y2="4.5" stroke="var(--baseline)" stroke-width="2"/></svg>Salvo cap (25)</span>
+      </div>
+      <div class="chart-scroll"><div id="c-seq"></div></div>
+      <div id="t-seq" hidden></div>
+    </div>
+
+    <div class="prose">
+      <p>The sim's line rides the ceiling: it reaches 25, dumps, rebuilds, reaches 25 again. Yours is a
+        sawtooth that frequently turns over at 16, 19 or 11 — one Missiles channel short of the cap.</p>
+      <p>Look at 63.9s in your tape. Prismatic Bolt resets Salvo to 0, one Missiles channel carries it to 16,
+        and Barrage fires there. Compare it with 45.3s, four cycles earlier: identical opening, but a
+        <em>second</em> channel takes it to 25 and the Barrage lands with Intuition. Same situation, two
+        different decisions, roughly 25% Barrage damage between them.</p>
+      <p>Notice too what the sim does at 62–67s when Clearcasting runs dry: four consecutive Arcane Blasts,
+        walking Salvo 14 → 16 → 18 → 20 → 22, then Barrage. That is what the extra Blasts in the next chart
+        are for — and the same move is the fix for round two's finding.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">Findings 02–04</p>
+    <h2>Where the GCDs actually go</h2>
+    <p class="lede">You out-cast the sim on total GCDs. The difference is in the mix, and it points at the same
+      root cause.</p>
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">Casts per 300 seconds</p>
+        <button class="tbtn" data-toggle="t-cast" type="button">Table view</button>
+      </div>
+      <p class="card-note">Your figures are the mean of five round-1 pulls; the sim is its sampled iteration.</p>
+      <div class="legend">
+        <span><span class="swatch sw-you"></span>Your play — round 1</span>
+        <span><span class="swatch sw-sim"></span>Sim optimum</span>
+      </div>
+      <div class="chart-scroll"><div id="c-cast"></div></div>
+      <div id="t-cast" hidden></div>
+    </div>
+
+    <div class="finding">
+      <p class="rank">02</p>
+      <div>
+        <h3>Ten extra Barrages, ten fewer Blasts<span class="tag">root cause</span></h3>
+        <p>You consumed roughly the same total Salvo as the sim — spread across ten more Barrage GCDs.
+          The sim spends those GCDs on Arcane Blast to bridge 21 → 25; you spent them on additional,
+          weaker Barrages. Salvo also sat pinned at the 25 cap for <b>~22 seconds per pull</b>, and
+          <b>18% of Missiles casts started above the <code>&lt;12</code> gate</b>, so the drift already ran in
+          both directions. It is cycle timing, not a one-way bias.</p>
+      </div>
+    </div>
+
+    <div class="finding">
+      <p class="rank">03</p>
+      <div>
+        <h3>Arcane Orb hard-cast eight times a pull<span class="tag done">fixed in round 2</span></h3>
+        <p>The sim hard-casts it <b>once</b>. Orb is gated to <code>arcane_charge &lt; 1</code> — a charge
+          fallback, not a damage button, and Orb Barrage already hands you roughly 48 free orbs per pull.
+          That was about seven GCDs per pull on your lowest-value spell.</p>
+      </div>
+    </div>
+
+    <div class="finding">
+      <p class="rank">04</p>
+      <div>
+        <h3>Arcane Soul windows entered nearly empty<span class="tag">secondary</span></h3>
+        <p>The window lands a fixed <b>17.4 seconds after Arcane Surge</b> — entirely predictable. Barrage does
+          not consume Salvo inside it, so every Barrage fires at whatever you brought in. You entered
+          <b>7 of 15 windows at 3 Salvo or fewer</b>. Weighted lower than the items above because the sim is
+          not clean here either.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">Do not spend effort here</p>
+    <h2>Four things that were already right</h2>
+    <p class="lede">Each was checked and cleared. Two looked like problems until they were compared against the sim.</p>
+
+    <div class="clear"><p><b>Downtime.</b> Median delay after a Missiles channel is <b>0.12s</b>. You fire 210 GCDs
+      against the sim's 198. Mechanically you are fast — there is nothing to win here.</p></div>
+    <div class="clear"><p><b>Cooldowns.</b> Surge → Touch of the Magi pairing lands within 0.2–0.6s every time,
+      with 4 Surges and 7 Touches per pull. Both ahead of the sim.</p></div>
+    <div class="clear"><p><b>Prismatic Bolt.</b> 93% of casts at Cumulative Power 8/8, correct under your
+      4-piece. Holding the proc around 3 seconds is intended behaviour, not a mistake.</p></div>
+    <div class="clear"><p><b>Clearcasting overcap.</b> Nearly flagged — 58–74 wasted procs per pull looks alarming.
+      But the sim has Clearcasting up on 94% of its Barrages too, with a comparable capped rate. Structural
+      oversupply, not your error.</p></div>
+  </section>
+
+  <!-- ============ ROUND 2 ============ -->
+  <section id="round2" class="roundrule">
+    <p class="sec-mark">Round two — report Y2yMVdpb3NRLrkT7</p>
+    <h2>The habit is gone. It overcorrected.</h2>
+    <p class="lede">Two 300-second pulls run deliberately without Arcane Surge, Touch of the Magi or Time Warp,
+      to isolate the Blast / Missiles / Barrage / Prismatic cycle. Identical talents and gear. Sixteen Barrages
+      cast below 20% mana are excluded from scoring.</p>
+
+    <div class="banner">
+      <p class="bl">Finding 01 — resolved</p>
+      <p><b>Barrage now reaches maximum Salvo on 92% of casts, up from 42%, against the sim's 71%.</b>
+        Intuition capture moved 47% → 92%. Off-plan Barrages fell from 19% to 3%, and both remaining cases in
+        pull 1 match the lag artifacts described at the time. Arcane Orb hard casts fell from 8 per pull to 2 and 4.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">Round 1 &rarr; Round 2, against the sim</p>
+        <button class="tbtn" data-toggle="t-dumb" type="button">Table view</button>
+      </div>
+      <p class="card-note">All three measures are oriented so that higher is better. The tick marks where the
+        simulated optimum sits.</p>
+      <div class="legend">
+        <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="4.5" fill="var(--surface)" stroke="var(--you)" stroke-width="2"/></svg>Round 1</span>
+        <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="4.5" fill="var(--you)"/></svg>Round 2</span>
+        <span><svg width="16" height="16" aria-hidden="true"><line x1="8" y1="1" x2="8" y2="15" stroke="var(--sim)" stroke-width="2"/></svg>Sim optimum</span>
+      </div>
+      <div class="chart-scroll"><div id="c-dumb"></div></div>
+      <div id="t-dumb" hidden></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">Arcane Salvo consumed per Barrage — round 2</p>
+        <button class="tbtn" data-toggle="t-hist2" type="button">Table view</button>
+      </div>
+      <p class="card-note">The same chart as round 1, redrawn. 62 scored Barrages against the sim's 48.</p>
+      <div class="legend">
+        <span><span class="swatch sw-you"></span>Your play — round 2</span>
+        <span><span class="swatch sw-sim"></span>Sim optimum</span>
+      </div>
+      <div class="chart-scroll"><div id="c-hist2"></div></div>
+      <div id="t-hist2" hidden></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">Finding 05 — the new one</p>
+    <h2>Missiles channels started too high</h2>
+    <p class="lede">You went from spending too early to filling too far. <b>32% of Missiles casts now start at
+      Salvo ≥12</b>, up from 18%; <b>21% start at ≥15</b>. The sim never does.</p>
+
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">Where a Missiles channel begins</p>
+        <button class="tbtn" data-toggle="t-mis" type="button">Table view</button>
+      </div>
+      <p class="card-note">112 channels across both round-2 pulls. A channel is worth 11.8 stacks, calibrated
+        from your own 66 uncapped channels — so anything begun above 13 pushes the surplus into the ceiling.</p>
+      <div class="legend">
+        <span><span class="swatch sw-you"></span>Missiles casts — round 2</span>
+        <span><svg width="22" height="9" aria-hidden="true"><rect x="0" y="0" width="22" height="9" fill="var(--you)" opacity="0.13"/></svg>Overflow zone</span>
+      </div>
+      <div class="chart-scroll"><div id="c-mis"></div></div>
+      <div id="t-mis" hidden></div>
+    </div>
+
+    <div class="prose">
+      <p><b>~62 Salvo stacks per pull go into the ceiling.</b> At 2% Prismatic Bolt chance per stack consumed and
+        one Meteorite per five, that is roughly 1.2 Prismatic Bolts and 12 Meteorites not fired each pull.</p>
+      <h3>What triggers it</h3>
+      <p>Of the 24 channels started at ≥15, the cast immediately before was <b>Prismatic Bolt in 13 cases</b> —
+        it lands mid-cycle, adds its +4, pushes you from ~13 into the high teens, and the channel goes out
+        anyway — and <b>another Missiles in 10 cases</b>. The signature, from pull 1:</p>
+    </div>
+
+    <div class="apl">102.5  Missiles    salvo 1
+106.3  PrismBolt   salvo 13   <span class="cm">&rarr; +4 pushes you to ~18</span>
+106.4  Missiles    salvo 18   <span class="hi">&larr; channel caps, ~5 stacks binned</span>
+108.3  BARRAGE     salvo 25</div>
+    <p class="caption">Compare 116.6s in the same pull, which is textbook: Missiles(5) → Blast(16) → Blast(19) → Blast(21) → Blast(23) → Barrage(25). You already do this correctly; it is just inconsistent.</p>
+
+    <div class="prose">
+      <h3>The objection I checked, and it does not hold</h3>
+      <p>The obvious counter is that holding the channel would overcap Clearcasting. It would not: at those 24
+        casts Clearcasting sat at 1–2 stacks in <b>20 of 24</b> cases. Holding was free almost every time.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">Read this before comparing damage</p>
+    <h2>Round 2's DPS is not a regression</h2>
+    <div class="prose">
+      <p>90.7k and 97.9k against round 1's 134–136k. That is the cooldowns deliberately removed from the test,
+        not the rotation: no Arcane Surge (a 35% spell-damage window, four times, plus the Phoenix and the
+        Arcane Soul window), no Touch of the Magi (6% of damage outright plus its amp), no Time Warp. Mana
+        starvation without Surge's 425% regen costs more on top — pull 2 spent a stretch under 20%.</p>
+      <p>The two rounds are not comparable on damage and should not be. On the rotational measures they isolate,
+        round 2 is a clear improvement.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">What to change next</p>
+    <h2>One rule, replacing the old one</h2>
+    <div class="apl"><b>Salvo ≤ 13</b>  &rarr;  Arcane Missiles
+<b>Salvo 14–24</b> &rarr;  Arcane Blast, or Prismatic Bolt if Cumulative Power is 8
+<b>Salvo 25</b>    &rarr;  Arcane Barrage</div>
+    <p class="caption">13 is the threshold because 13 + 11.8 lands on 25 exactly.</p>
+    <ul class="fix">
+      <li><b>After a Prismatic Bolt, re-check Salvo before starting a channel.</b> That single habit covers 13 of
+        the 24 overflow cases.</li>
+      <li><b>Two Missiles channels per Barrage cycle, then top off with Blast.</b> A third channel in the same
+        cycle is where the rest of the overflow comes from.</li>
+      <li><b>Keep doing what round 2 fixed.</b> Holding to 25 and leaving Arcane Orb alone are both working —
+        do not trade one back for the other.</li>
+    </ul>
+  </section>
+
+  <footer id="method">
+    <p><b>Method.</b> Cast, buff, damage and resource events pulled from the WarcraftLogs v2 GraphQL API for
+      reports <code>vAtQGNpDqJHyw9mn</code> and <code>Y2yMVdpb3NRLrkT7</code>; talents resolved from each log's
+      own <code>CombatantInfo</code> node IDs against the Raidbots PTR talent feed, confirming full Sunfury and
+      5 tier pieces, unchanged between rounds. Benchmark is Raidbots report
+      <code>38BorEbHSzMrsQmgug8J2B</code>, 100,000 iterations, simc build 4 Aug 2026 with
+      <code>ptr_enabled</code>. Missiles yield calibrated from 66 uncapped channels rather than assumed.</p>
+    <p><b>Caveat worth carrying.</b> The sim models <em>no Arcane Phoenix damage at all</em> and Arcane Orb at
+      0.06%, while the logs show 2.9% and 3.2%. Per-ability damage shares are therefore not comparable across
+      sim and log — only the behavioural metrics used here are.</p>
+  </footer>
+</div>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- theme ---------------- */
+  var btn = document.getElementById("themebtn");
+  var modes = ["auto", "light", "dark"];
+  var mode = null;
+  try { mode = localStorage.getItem("wow-theme"); } catch (e) { mode = null; }
+  if (modes.indexOf(mode) < 0) mode = "auto";
+  function applyTheme() {
+    if (mode === "auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", mode);
+    btn.textContent = "Theme: " + mode;
+  }
+  applyTheme();
+  btn.addEventListener("click", function () {
+    mode = modes[(modes.indexOf(mode) + 1) % modes.length];
+    try { localStorage.setItem("wow-theme", mode); } catch (e) { /* private mode */ }
+    applyTheme();
+  });
+
+  /* ---------------- tooltip ---------------- */
+  var tip = document.getElementById("tip");
+  function showTip(e, html) {
+    tip.innerHTML = html;
+    tip.classList.add("on");
+    var pad = 14, w = tip.offsetWidth, h = tip.offsetHeight;
+    var x = e.clientX + pad, y = e.clientY - h - pad;
+    if (x + w > window.innerWidth - 8) x = e.clientX - w - pad;
+    if (y < 8) y = e.clientY + pad;
+    tip.style.left = x + "px";
+    tip.style.top = y + "px";
+  }
+  function hideTip() { tip.classList.remove("on"); }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function el(n, a) {
+    var m = document.createElementNS(NS, n);
+    for (var k in a) if (a.hasOwnProperty(k)) m.setAttribute(k, a[k]);
+    return m;
+  }
+  function svgRoot(w, h, minw) {
+    var s = el("svg", { viewBox: "0 0 " + w + " " + h, role: "img" });
+    s.style.width = "100%"; s.style.height = "auto";
+    s.style.minWidth = Math.min(w, minw || 680) + "px";
+    return s;
+  }
+  function fmt(n) { return n.toLocaleString("en-US"); }
+  function barPath(x, y, w, h) {
+    var r = Math.min(4, w / 2, h);
+    return "M" + x + "," + (y + h) + " V" + (y + r) + " a" + r + "," + r + " 0 0 1 " + r + ",-" + r +
+           " H" + (x + w - r) + " a" + r + "," + r + " 0 0 1 " + r + "," + r + " V" + (y + h) + " Z";
+  }
+
+  /* ---------------- data ---------------- */
+
+  var DPS = [
+    { pull: "Pull 1", v: 120377, fed: false }, { pull: "Pull 2", v: 117134, fed: false },
+    { pull: "Pull 3", v: 136259, fed: true }, { pull: "Pull 4", v: 136317, fed: true },
+    { pull: "Pull 5", v: 134254, fed: true }
+  ];
+  var SIM_DPS = 161530;
+
+  var HIST = [
+    { b: "25 (cap)", you: 42.1, sim: 70.8, yn: 123, sn: 34 },
+    { b: "20–24", you: 16.8, sim: 8.3, yn: 49, sn: 4 },
+    { b: "15–19", you: 18.2, sim: 12.5, yn: 53, sn: 6 },
+    { b: "12–14", you: 14.7, sim: 4.2, yn: 43, sn: 2 },
+    { b: "under 12", you: 8.2, sim: 4.2, yn: 24, sn: 2 }
+  ];
+  var HIST2 = [
+    { b: "25 (cap)", you: 91.9, sim: 70.8, yn: 57, sn: 34 },
+    { b: "20–24", you: 4.8, sim: 8.3, yn: 3, sn: 4 },
+    { b: "15–19", you: 1.6, sim: 12.5, yn: 1, sn: 6 },
+    { b: "12–14", you: 0.0, sim: 4.2, yn: 0, sn: 2 },
+    { b: "under 12", you: 1.6, sim: 4.2, yn: 1, sn: 2 }
+  ];
+
+  var CASTS = [
+    { a: "Arcane Missiles", you: 70.0, sim: 69 }, { a: "Arcane Barrage", you: 66.6, sim: 56 },
+    { a: "Prismatic Bolt", you: 24.8, sim: 28 }, { a: "Arcane Blast", you: 21.4, sim: 31 },
+    { a: "Arcane Orb", you: 8.0, sim: 1 }, { a: "Touch of the Magi", you: 7.0, sim: 6 },
+    { a: "Arcane Surge", you: 4.0, sim: 3 }
+  ];
+
+  var DUMB = [
+    { m: "Barrages at max Salvo", r1: 42, r2: 92, sim: 71 },
+    { m: "Intuition captured", r1: 47, r2: 92, sim: 65 },
+    { m: "On-plan Barrages", r1: 81, r2: 97, sim: null }
+  ];
+
+  var MIS = [
+    { b: "0–4", n: 42, p: 37.5, bad: false },
+    { b: "5–11", n: 34, p: 30.4, bad: false },
+    { b: "12–14", n: 12, p: 10.7, bad: false },
+    { b: "15–19", n: 20, p: 17.9, bad: true },
+    { b: "20+", n: 4, p: 3.6, bad: true }
+  ];
+
+  var YOU_SEQ = [{"t":40.84,"a":"PB","s":10,"cc":2,"i":false},{"t":41.02,"a":"AM","s":14,"cc":3,"i":false},{"t":42.19,"a":"AB!","s":25,"cc":2,"i":true},{"t":45.3,"a":"PB","s":0,"cc":3,"i":false},{"t":45.31,"a":"AM","s":1,"cc":3,"i":false},{"t":47.26,"a":"AM","s":16,"cc":2,"i":false},{"t":49.23,"a":"AB!","s":25,"cc":1,"i":true},{"t":49.52,"a":"ToM","s":0,"cc":1,"i":false},{"t":52.36,"a":"PB","s":0,"cc":2,"i":false},{"t":52.36,"a":"AM","s":5,"cc":3,"i":false},{"t":54.15,"a":"AM","s":18,"cc":2,"i":false},{"t":55.85,"a":"AB!","s":25,"cc":1,"i":true},{"t":59,"a":"PB","s":0,"cc":2,"i":false},{"t":59,"a":"AM","s":1,"cc":3,"i":false},{"t":60.7,"a":"AB!","s":25,"cc":2,"i":true},{"t":63.85,"a":"PB","s":0,"cc":3,"i":false},{"t":63.86,"a":"AM","s":5,"cc":3,"i":false},{"t":65.59,"a":"AB!","s":16,"cc":3,"i":false},{"t":66.76,"a":"AM","s":1,"cc":3,"i":false},{"t":68.42,"a":"AM","s":12,"cc":3,"i":false},{"t":70.28,"a":"AB!","s":25,"cc":2,"i":true},{"t":73.41,"a":"PB","s":0,"cc":3,"i":false},{"t":73.42,"a":"AM","s":1,"cc":3,"i":false},{"t":75.5,"a":"AB!","s":19,"cc":2,"i":false},{"t":76.6,"a":"AM","s":1,"cc":2,"i":false},{"t":78.45,"a":"AM","s":14,"cc":2,"i":false},{"t":80.15,"a":"AB!","s":25,"cc":1,"i":true},{"t":81.25,"a":"AM","s":0,"cc":1,"i":false},{"t":83.9,"a":"AB!","s":11,"cc":0,"i":false},{"t":85,"a":"AO","s":0,"cc":0,"i":false},{"t":86.26,"a":"AM","s":1,"cc":1,"i":false}];
+
+  var SIM_SEQ = [{"t":24.31,"a":"PB","s":25,"cc":2,"i":false},{"t":25.80,"a":"AB!","s":25,"cc":3,"i":false},{"t":26.7,"a":"AM","s":0,"cc":3,"i":false},{"t":27.77,"a":"AM","s":10,"cc":2,"i":false},{"t":29.47,"a":"AB!","s":25,"cc":2,"i":true},{"t":30.38,"a":"AM","s":0,"cc":2,"i":false},{"t":31.45,"a":"AM","s":7,"cc":1,"i":false},{"t":33.22,"a":"PB","s":21,"cc":0,"i":false},{"t":34.74,"a":"AB!","s":25,"cc":1,"i":true},{"t":35.65,"a":"AM","s":0,"cc":1,"i":false},{"t":37.22,"a":"PB","s":25,"cc":1,"i":true},{"t":38.74,"a":"AB!","s":25,"cc":2,"i":true},{"t":39.64,"a":"AM","s":0,"cc":2,"i":false},{"t":41.12,"a":"AB!","s":25,"cc":2,"i":true},{"t":42.30,"a":"AM","s":0,"cc":2,"i":false},{"t":43.69,"a":"AM","s":9,"cc":2,"i":false},{"t":45.79,"a":"PB","s":25,"cc":1,"i":true},{"t":47.79,"a":"ToM","s":25,"cc":2,"i":true},{"t":47.84,"a":"AB!","s":25,"cc":3,"i":true},{"t":49.03,"a":"AM","s":0,"cc":3,"i":false},{"t":50.44,"a":"AM","s":10,"cc":2,"i":false},{"t":52.57,"a":"AB!","s":23,"cc":1,"i":false},{"t":53.76,"a":"AM","s":0,"cc":1,"i":false},{"t":55.16,"a":"AM","s":11,"cc":1,"i":false},{"t":57.33,"a":"PB","s":25,"cc":0,"i":true},{"t":59.32,"a":"AB!","s":25,"cc":1,"i":true},{"t":60.50,"a":"AM","s":0,"cc":1,"i":false},{"t":62.42,"a":"ABl","s":14,"cc":0,"i":false},{"t":63.62,"a":"ABl","s":16,"cc":0,"i":false},{"t":64.82,"a":"ABl","s":18,"cc":0,"i":false},{"t":66.02,"a":"ABl","s":20,"cc":1,"i":false},{"t":67.21,"a":"AB!","s":22,"cc":1,"i":false},{"t":68.38,"a":"AM","s":0,"cc":1,"i":false},{"t":70.24,"a":"PB","s":25,"cc":0,"i":true}];
+
+  var ABBR = { "AM": "Arcane Missiles", "AB!": "Arcane Barrage", "PB": "Prismatic Bolt", "ABl": "Arcane Blast", "AO": "Arcane Orb", "ToM": "Touch of the Magi", "AS": "Arcane Surge" };
+
+  /* ---------------- table helper ---------------- */
+  function table(id, head, rows) {
+    var host = document.getElementById(id);
+    var t = document.createElement("table");
+    var th = document.createElement("thead"), tr = document.createElement("tr");
+    head.forEach(function (h) { var c = document.createElement("th"); c.textContent = h; tr.appendChild(c); });
+    th.appendChild(tr); t.appendChild(th);
+    var tb = document.createElement("tbody");
+    rows.forEach(function (r) {
+      var row = document.createElement("tr");
+      r.forEach(function (v) { var c = document.createElement("td"); c.textContent = v; row.appendChild(c); });
+      tb.appendChild(row);
+    });
+    t.appendChild(tb); host.appendChild(t);
+  }
+
+  /* ---------------- 1. DPS ---------------- */
+  (function () {
+    var W = 900, H = 330, L = 66, R = 24, T = 34, B = 62;
+    var pw = W - L - R, ph = H - T - B, max = 175000;
+    var s = svgRoot(W, H);
+    s.setAttribute("aria-label", "Damage per pull against the simulated ceiling of 161,530");
+
+    [0, 50000, 100000, 150000].forEach(function (v) {
+      var y = T + ph - (v / max) * ph;
+      s.appendChild(el("line", { x1: L, y1: y, x2: L + pw, y2: y, stroke: "var(--grid)", "stroke-width": 1 }));
+      var tx = el("text", { x: L - 12, y: y + 4, "text-anchor": "end", "font-size": 11.5, fill: "var(--muted)" });
+      tx.textContent = v === 0 ? "0" : (v / 1000) + "k";
+      s.appendChild(tx);
+    });
+
+    var bw = pw / DPS.length;
+    DPS.forEach(function (d, i) {
+      var h = (d.v / max) * ph, x = L + i * bw + bw * 0.24, w = bw * 0.52, y = T + ph - h;
+      var r = el("path", { d: barPath(x, y, w, h), fill: "var(--you)" });
+      r.style.cursor = "crosshair";
+      var lbl = d.fed ? "food buff active" : "NO food buff";
+      r.addEventListener("mousemove", function (e) {
+        showTip(e, "<b>" + d.pull + "</b><br>" + fmt(d.v) + " DPS<br>" + lbl + "<br>" + (100 * d.v / SIM_DPS).toFixed(1) + "% of sim");
+      });
+      r.addEventListener("mouseleave", hideTip);
+      s.appendChild(r);
+
+      var v = el("text", { x: x + w / 2, y: y - 10, "text-anchor": "middle", "font-size": 12.5, fill: "var(--ink)", "font-weight": 600 });
+      v.textContent = Math.round(d.v / 1000) + "k"; s.appendChild(v);
+      var nm = el("text", { x: x + w / 2, y: T + ph + 20, "text-anchor": "middle", "font-size": 12, fill: "var(--ink-2)" });
+      nm.textContent = d.pull; s.appendChild(nm);
+      if (!d.fed) {
+        var f = el("text", { x: x + w / 2, y: T + ph + 38, "text-anchor": "middle", "font-size": 10.5, fill: "var(--muted)" });
+        f.textContent = "no food buff"; s.appendChild(f);
+      }
+    });
+
+    var sy = T + ph - (SIM_DPS / max) * ph;
+    s.appendChild(el("line", { x1: L, y1: sy, x2: L + pw, y2: sy, stroke: "var(--sim)", "stroke-width": 2 }));
+    var st = el("text", { x: L + pw, y: sy - 10, "text-anchor": "end", "font-size": 12, fill: "var(--sim)", "font-weight": 600 });
+    st.textContent = "Sim 161,530"; s.appendChild(st);
+    s.appendChild(el("line", { x1: L, y1: T + ph, x2: L + pw, y2: T + ph, stroke: "var(--baseline)", "stroke-width": 1 }));
+    document.getElementById("c-dps").appendChild(s);
+
+    table("t-dps", ["Pull", "DPS", "Food buff", "% of sim"], DPS.map(function (d) {
+      return [d.pull, fmt(d.v), d.fed ? "yes" : "no", (100 * d.v / SIM_DPS).toFixed(1) + "%"];
+    }));
+  })();
+
+  /* ---------------- 2 & 5. histograms ---------------- */
+  function histChart(mountId, tableId, data, label) {
+    var W = 900, H = 340, L = 66, R = 24, T = 20, B = 54;
+    var pw = W - L - R, ph = H - T - B, max = 100;
+    var s = svgRoot(W, H);
+    s.setAttribute("aria-label", label);
+
+    [0, 25, 50, 75, 100].forEach(function (v) {
+      var y = T + ph - (v / max) * ph;
+      s.appendChild(el("line", { x1: L, y1: y, x2: L + pw, y2: y, stroke: "var(--grid)", "stroke-width": 1 }));
+      var tx = el("text", { x: L - 12, y: y + 4, "text-anchor": "end", "font-size": 11.5, fill: "var(--muted)" });
+      tx.textContent = v + "%"; s.appendChild(tx);
+    });
+
+    var gw = pw / data.length;
+    data.forEach(function (d, i) {
+      var cx = L + i * gw + gw / 2, bw = Math.min(46, gw * 0.3);
+      [["you", "var(--you)", -bw - 1], ["sim", "var(--sim)", 1]].forEach(function (p) {
+        var val = d[p[0]], h = (val / max) * ph, x = cx + p[2], y = T + ph - h;
+        if (h > 0.5) {
+          var r = el("path", { d: barPath(x, y, bw, h), fill: p[1] });
+          r.style.cursor = "crosshair";
+          var who = p[0] === "you" ? "Your play" : "Sim optimum";
+          var n = p[0] === "you" ? d.yn : d.sn;
+          r.addEventListener("mousemove", function (e) {
+            showTip(e, "<b>" + who + "</b><br>Salvo " + d.b + "<br>" + val.toFixed(1) + "% &nbsp;(" + n + " casts)");
+          });
+          r.addEventListener("mouseleave", hideTip);
+          s.appendChild(r);
+        }
+        if (i === 0) {
+          var vt = el("text", { x: x + bw / 2, y: y - 9, "text-anchor": "middle", "font-size": 12.5, "font-weight": 600, fill: "var(--ink)" });
+          vt.textContent = Math.round(val) + "%"; s.appendChild(vt);
+        }
+      });
+      var nm = el("text", { x: cx, y: T + ph + 22, "text-anchor": "middle", "font-size": 12, fill: "var(--ink-2)" });
+      nm.textContent = d.b; s.appendChild(nm);
+    });
+
+    var ax = el("text", { x: L + pw / 2, y: H - 8, "text-anchor": "middle", "font-size": 11.5, fill: "var(--muted)" });
+    ax.textContent = "Arcane Salvo stacks consumed by the Barrage"; s.appendChild(ax);
+    s.appendChild(el("line", { x1: L, y1: T + ph, x2: L + pw, y2: T + ph, stroke: "var(--baseline)", "stroke-width": 1 }));
+    document.getElementById(mountId).appendChild(s);
+
+    table(tableId, ["Salvo consumed", "Your play", "count", "Sim", "count"], data.map(function (d) {
+      return [d.b, d.you.toFixed(1) + "%", d.yn, d.sim.toFixed(1) + "%", d.sn];
+    }));
+  }
+  histChart("c-hist", "t-hist", HIST, "Round 1: Salvo consumed per Barrage, your play versus sim");
+  histChart("c-hist2", "t-hist2", HIST2, "Round 2: Salvo consumed per Barrage, your play versus sim");
+
+  /* ---------------- 3. sequence tapes ---------------- */
+  (function () {
+    var W = 960, PH = 150, GAP = 46, L = 60, R = 20, T = 26;
+    var H = T + PH * 2 + GAP + 44, pw = W - L - R, max = 25, span = 48;
+    var s = svgRoot(W, H, 760);
+    s.setAttribute("aria-label", "Arcane Salvo trajectory cast by cast, your play compared with the sim");
+
+    function panel(data, t0, top, color, label) {
+      var x = function (t) { return L + ((t - t0) / span) * pw; };
+      var y = function (v) { return top + PH - (v / max) * PH; };
+
+      var lb = el("text", { x: L, y: top - 9, "font-size": 12, "font-weight": 600, fill: color });
+      lb.textContent = label; s.appendChild(lb);
+
+      [0, 12, 25].forEach(function (v) {
+        var yy = y(v);
+        s.appendChild(el("line", { x1: L, y1: yy, x2: L + pw, y2: yy, stroke: v === 25 ? "var(--baseline)" : "var(--grid)", "stroke-width": v === 25 ? 2 : 1 }));
+        var tx = el("text", { x: L - 10, y: yy + 4, "text-anchor": "end", "font-size": 11, fill: "var(--muted)" });
+        tx.textContent = v; s.appendChild(tx);
+      });
+
+      var d = "M" + x(data[0].t) + "," + y(data[0].s);
+      for (var i = 1; i < data.length; i++) {
+        d += " L" + x(data[i].t) + "," + y(data[i - 1].s) + " L" + x(data[i].t) + "," + y(data[i].s);
+      }
+      var area = d + " L" + x(data[data.length - 1].t) + "," + y(0) + " L" + x(data[0].t) + "," + y(0) + " Z";
+      s.appendChild(el("path", { d: area, fill: color, opacity: 0.11 }));
+      s.appendChild(el("path", { d: d, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round" }));
+
+      data.forEach(function (p) {
+        var isB = p.a === "AB!", px = x(p.t), py = y(p.s);
+        if (isB) {
+          s.appendChild(el("circle", { cx: px, cy: py, r: 6.5, fill: "var(--surface)" }));
+          s.appendChild(el("circle", { cx: px, cy: py, r: 4.5, fill: p.i ? color : "var(--surface)", stroke: color, "stroke-width": 2 }));
+        } else {
+          s.appendChild(el("circle", { cx: px, cy: py, r: 2.4, fill: color, opacity: 0.5 }));
+        }
+        var hit = el("circle", { cx: px, cy: py, r: 13, fill: "transparent", tabindex: "0" });
+        hit.style.cursor = "crosshair";
+        var body = "<b>" + ABBR[p.a] + "</b><br>t = " + p.t.toFixed(1) + "s<br>Salvo " + p.s + " / 25<br>Clearcasting " + p.cc + (isB ? "<br>" + (p.i ? "Intuition captured" : "no Intuition") : "");
+        hit.addEventListener("mousemove", function (e) { showTip(e, body); });
+        hit.addEventListener("mouseleave", hideTip);
+        hit.addEventListener("focus", function () {
+          var rc = hit.getBoundingClientRect();
+          showTip({ clientX: rc.left + rc.width / 2, clientY: rc.top }, body);
+        });
+        hit.addEventListener("blur", hideTip);
+        s.appendChild(hit);
+      });
+
+      for (var t = 0; t <= span; t += 8) {
+        var tx2 = el("text", { x: x(t0 + t), y: top + PH + 17, "text-anchor": "middle", "font-size": 10.5, fill: "var(--muted)" });
+        tx2.textContent = "+" + t + "s"; s.appendChild(tx2);
+      }
+      s.appendChild(el("line", { x1: L, y1: top + PH, x2: L + pw, y2: top + PH, stroke: "var(--baseline)", "stroke-width": 1 }));
+    }
+
+    panel(YOU_SEQ, 40, T, "var(--you)", "Your play, round 1 — turns over at 16, 19, 11");
+    panel(SIM_SEQ, 24, T + PH + GAP, "var(--sim)", "Sim optimum — rides the 25 cap");
+    document.getElementById("c-seq").appendChild(s);
+
+    var rows = [];
+    YOU_SEQ.forEach(function (p) { rows.push(["You", p.t.toFixed(2) + "s", ABBR[p.a], p.s, p.cc, p.a === "AB!" ? (p.i ? "yes" : "no") : "—"]); });
+    SIM_SEQ.forEach(function (p) { rows.push(["Sim", p.t.toFixed(2) + "s", ABBR[p.a], p.s, p.cc, p.a === "AB!" ? (p.i ? "yes" : "no") : "—"]); });
+    table("t-seq", ["Source", "Time", "Cast", "Salvo", "Clearcasting", "Intuition"], rows);
+  })();
+
+  /* ---------------- 4. cast composition ---------------- */
+  (function () {
+    var W = 900, rowH = 46, T = 16, L = 150, R = 60;
+    var H = T + CASTS.length * rowH + 34, pw = W - L - R, max = 75;
+    var s = svgRoot(W, H);
+    s.setAttribute("aria-label", "Casts per 300 seconds, your play versus sim");
+
+    [0, 25, 50, 75].forEach(function (v) {
+      var x = L + (v / max) * pw;
+      s.appendChild(el("line", { x1: x, y1: T, x2: x, y2: T + CASTS.length * rowH, stroke: "var(--grid)", "stroke-width": 1 }));
+      var tx = el("text", { x: x, y: H - 12, "text-anchor": "middle", "font-size": 11.5, fill: "var(--muted)" });
+      tx.textContent = v; s.appendChild(tx);
+    });
+
+    CASTS.forEach(function (d, i) {
+      var top = T + i * rowH;
+      var nm = el("text", { x: L - 14, y: top + rowH / 2 + 4, "text-anchor": "end", "font-size": 13, fill: "var(--ink)" });
+      nm.textContent = d.a; s.appendChild(nm);
+      var bh = 13;
+      [["you", "var(--you)", top + rowH / 2 - bh - 1], ["sim", "var(--sim)", top + rowH / 2 + 1]].forEach(function (p) {
+        var val = d[p[0]], w = Math.max((val / max) * pw, 2), y = p[2];
+        var r = el("path", { d: "M" + L + "," + y + " H" + (L + w - 4) + " a4,4 0 0 1 4,4 v" + (bh - 8) + " a4,4 0 0 1 -4,4 H" + L + " Z", fill: p[1] });
+        r.style.cursor = "crosshair";
+        var who = p[0] === "you" ? "Your play (mean of 5 pulls)" : "Sim optimum";
+        r.addEventListener("mousemove", function (e) { showTip(e, "<b>" + d.a + "</b><br>" + who + "<br>" + val + " casts / 300s"); });
+        r.addEventListener("mouseleave", hideTip);
+        s.appendChild(r);
+        var vt = el("text", { x: L + w + 8, y: y + bh - 3, "font-size": 11.5, fill: "var(--ink-2)" });
+        vt.textContent = val; s.appendChild(vt);
+      });
+    });
+    s.appendChild(el("line", { x1: L, y1: T, x2: L, y2: T + CASTS.length * rowH, stroke: "var(--baseline)", "stroke-width": 1 }));
+    document.getElementById("c-cast").appendChild(s);
+
+    table("t-cast", ["Ability", "Round 1 / 300s", "Sim / 300s", "Difference"], CASTS.map(function (d) {
+      var diff = d.you - d.sim;
+      return [d.a, d.you, d.sim, (diff > 0 ? "+" : "") + diff.toFixed(1)];
+    }));
+  })();
+
+  /* ---------------- 6. dumbbell ---------------- */
+  (function () {
+    var W = 900, rowH = 74, T = 30, L = 210, R = 60;
+    var H = T + DUMB.length * rowH + 30, pw = W - L - R, max = 100;
+    var s = svgRoot(W, H);
+    s.setAttribute("aria-label", "Round 1 to round 2 change on three Barrage measures, against the sim");
+
+    [0, 25, 50, 75, 100].forEach(function (v) {
+      var x = L + (v / max) * pw;
+      s.appendChild(el("line", { x1: x, y1: T - 10, x2: x, y2: T + DUMB.length * rowH - 20, stroke: "var(--grid)", "stroke-width": 1 }));
+      var tx = el("text", { x: x, y: H - 10, "text-anchor": "middle", "font-size": 11.5, fill: "var(--muted)" });
+      tx.textContent = v + "%"; s.appendChild(tx);
+    });
+
+    DUMB.forEach(function (d, i) {
+      var cy = T + i * rowH + rowH / 2 - 20;
+      var x1 = L + (d.r1 / max) * pw, x2 = L + (d.r2 / max) * pw;
+
+      var nm = el("text", { x: L - 16, y: cy + 4, "text-anchor": "end", "font-size": 13, fill: "var(--ink)" });
+      nm.textContent = d.m; s.appendChild(nm);
+
+      s.appendChild(el("line", { x1: x1, y1: cy, x2: x2, y2: cy, stroke: "var(--you)", "stroke-width": 2, opacity: 0.4 }));
+
+      if (d.sim !== null) {
+        var sx = L + (d.sim / max) * pw;
+        s.appendChild(el("line", { x1: sx, y1: cy - 13, x2: sx, y2: cy + 13, stroke: "var(--sim)", "stroke-width": 2 }));
+        var sl = el("text", { x: sx, y: cy + 27, "text-anchor": "middle", "font-size": 10.5, fill: "var(--sim)" });
+        sl.textContent = "sim " + d.sim + "%"; s.appendChild(sl);
+      }
+
+      s.appendChild(el("circle", { cx: x1, cy: cy, r: 7, fill: "var(--surface)" }));
+      s.appendChild(el("circle", { cx: x1, cy: cy, r: 5, fill: "var(--surface)", stroke: "var(--you)", "stroke-width": 2 }));
+      s.appendChild(el("circle", { cx: x2, cy: cy, r: 7.5, fill: "var(--surface)" }));
+      s.appendChild(el("circle", { cx: x2, cy: cy, r: 5.5, fill: "var(--you)" }));
+
+      var a = el("text", { x: x1 - 14, y: cy + 4, "text-anchor": "end", "font-size": 12, fill: "var(--muted)" });
+      a.textContent = d.r1 + "%"; s.appendChild(a);
+      var b = el("text", { x: x2 + 14, y: cy + 4, "font-size": 12.5, "font-weight": 600, fill: "var(--ink)" });
+      b.textContent = d.r2 + "%"; s.appendChild(b);
+
+      [[x1, "Round 1", d.r1], [x2, "Round 2", d.r2]].forEach(function (h) {
+        var hit = el("circle", { cx: h[0], cy: cy, r: 14, fill: "transparent", tabindex: "0" });
+        hit.style.cursor = "crosshair";
+        var body = "<b>" + h[1] + "</b><br>" + d.m + "<br>" + h[2] + "%" + (d.sim !== null ? "<br>sim " + d.sim + "%" : "");
+        hit.addEventListener("mousemove", function (e) { showTip(e, body); });
+        hit.addEventListener("mouseleave", hideTip);
+        hit.addEventListener("focus", function () {
+          var rc = hit.getBoundingClientRect();
+          showTip({ clientX: rc.left + rc.width / 2, clientY: rc.top }, body);
+        });
+        hit.addEventListener("blur", hideTip);
+        s.appendChild(hit);
+      });
+    });
+    document.getElementById("c-dumb").appendChild(s);
+
+    table("t-dumb", ["Measure", "Round 1", "Round 2", "Sim"], DUMB.map(function (d) {
+      return [d.m, d.r1 + "%", d.r2 + "%", d.sim === null ? "—" : d.sim + "%"];
+    }));
+  })();
+
+  /* ---------------- 7. Missiles start distribution ---------------- */
+  (function () {
+    var W = 900, H = 330, L = 66, R = 24, T = 30, B = 62;
+    var pw = W - L - R, ph = H - T - B, max = 40;
+    var s = svgRoot(W, H);
+    s.setAttribute("aria-label", "Where a Missiles channel begins, round 2, with the overflow zone marked");
+
+    var gw = pw / MIS.length;
+    // overflow zone behind the marks
+    s.appendChild(el("rect", { x: L + gw * 3, y: T - 12, width: gw * 2, height: ph + 12, fill: "var(--you)", opacity: 0.09 }));
+    var zl = el("text", { x: L + gw * 4, y: T - 18, "text-anchor": "middle", "font-size": 11, fill: "var(--you)", "font-weight": 600 });
+    zl.textContent = "started at 15+ — surplus hits the ceiling"; s.appendChild(zl);
+
+    [0, 10, 20, 30, 40].forEach(function (v) {
+      var y = T + ph - (v / max) * ph;
+      s.appendChild(el("line", { x1: L, y1: y, x2: L + pw, y2: y, stroke: "var(--grid)", "stroke-width": 1 }));
+      var tx = el("text", { x: L - 12, y: y + 4, "text-anchor": "end", "font-size": 11.5, fill: "var(--muted)" });
+      tx.textContent = v + "%"; s.appendChild(tx);
+    });
+
+    MIS.forEach(function (d, i) {
+      var h = (d.p / max) * ph, bw = Math.min(64, gw * 0.46);
+      var x = L + i * gw + (gw - bw) / 2, y = T + ph - h;
+      var r = el("path", { d: barPath(x, y, bw, h), fill: "var(--you)", opacity: d.bad ? 1 : 0.45 });
+      r.style.cursor = "crosshair";
+      r.addEventListener("mousemove", function (e) {
+        showTip(e, "<b>Salvo " + d.b + " at channel start</b><br>" + d.n + " channels &nbsp;(" + d.p.toFixed(1) + "%)" + (d.bad ? "<br>overflows the cap" : ""));
+      });
+      r.addEventListener("mouseleave", hideTip);
+      s.appendChild(r);
+
+      var vt = el("text", { x: x + bw / 2, y: y - 9, "text-anchor": "middle", "font-size": 12.5, "font-weight": 600, fill: "var(--ink)" });
+      vt.textContent = d.p.toFixed(1) + "%"; s.appendChild(vt);
+      var nm = el("text", { x: x + bw / 2, y: T + ph + 20, "text-anchor": "middle", "font-size": 12, fill: "var(--ink-2)" });
+      nm.textContent = d.b; s.appendChild(nm);
+    });
+
+    var ax = el("text", { x: L + pw / 2, y: H - 10, "text-anchor": "middle", "font-size": 11.5, fill: "var(--muted)" });
+    ax.textContent = "Arcane Salvo already held when the channel started"; s.appendChild(ax);
+    s.appendChild(el("line", { x1: L, y1: T + ph, x2: L + pw, y2: T + ph, stroke: "var(--baseline)", "stroke-width": 1 }));
+    document.getElementById("c-mis").appendChild(s);
+
+    table("t-mis", ["Salvo at start", "Channels", "Share", "Overflows?"], MIS.map(function (d) {
+      return [d.b, d.n, d.p.toFixed(1) + "%", d.bad ? "yes" : "no"];
+    }));
+  })();
+
+  /* ---------------- table toggles ---------------- */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-toggle]"), function (b) {
+    b.addEventListener("click", function () {
+      var t = document.getElementById(b.getAttribute("data-toggle"));
+      if (t.hasAttribute("hidden")) { t.removeAttribute("hidden"); b.textContent = "Hide table"; }
+      else { t.setAttribute("hidden", ""); b.textContent = "Table view"; }
+    });
+  });
+
+  window.addEventListener("scroll", hideTip, { passive: true });
+})();
+</script>
+</body>
+</html>
