@@ -1,0 +1,1 @@
+{"query": "query { reportData { report(code: \"vAtQGNpDqJHyw9mn\") { table(dataType: Buffs, fightIDs: [5], sourceID: 1) } } }"}

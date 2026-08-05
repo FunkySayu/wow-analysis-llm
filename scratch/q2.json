@@ -1,0 +1,1 @@
+{"query": "query { reportData { report(code: \"Y2yMVdpb3NRLrkT7\") { title startTime endTime zone { name } fights { id name kill difficulty encounterID startTime endTime } masterData { actors(type: \"Player\") { id name subType } } } } }"}

@@ -1,0 +1,1 @@
+{"query": "query { reportData { report(code: \"Y2yMVdpb3NRLrkT7\") { events(dataType: Casts, fightIDs: [2], sourceID: 1, limit: 3000, includeResources: true) { data } } } }"}

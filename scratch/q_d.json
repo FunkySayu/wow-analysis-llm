@@ -1,0 +1,1 @@
+{"query": "query { reportData { report(code: \"vAtQGNpDqJHyw9mn\") { events(dataType: DamageDone, fightIDs: [9], sourceID: 1, limit: 10000) { data nextPageTimestamp } } } }"}
