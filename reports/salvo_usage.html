@@ -1,0 +1,842 @@
+<head><!-- frame-runtime --><base href="/_f/1785957678-5ac1/"><script>window.__FRAME_PREAMBLE={"capabilities":{"db":"db.CfOZ1CRq.js","downloads":"downloads.BXsoAvg9.js","mcp":"mcp.CYSdpjo0.js","permissions":"permissions.DdITF2Mk.js","self":"self.DtZoNC4q.js","user":"user.Cr_h1ETf.js"},"transforms":"_transforms.VaITkagF.js","comments":"_comments.Dste1LsC.js","translate":"_translate.BOzFH2D9.js"}</script><script>(function(){"use strict";var re=["light","dark","system"];function ne(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function Y(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function se(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&re.includes(r)}function oe(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}var K=Object.freeze(Object.assign(Object.create(null),{user:Object.freeze(Object.assign(Object.create(null),{id:null,isOwner:!1,canEdit:!1,name:null,avatarUrl:null,email:null}))}));function x(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let r=null;for(let f=0;f<t.length;f++){const a=t[f];if(a&&a.matches&&a.matches("a[href],area[href]")){r=a;break}}if(!r&&e.target&&e.target.closest&&(r=e.target.closest("a[href],area[href]")),!r)return;const c=r.getAttribute("href");if(!c)return;let i,s;try{i=new URL(c,document.baseURI),s=new URL(document.baseURI).origin}catch{return}(i.protocol==="http:"||i.protocol==="https:")&&i.origin!==s&&(e.preventDefault(),parent.postMessage({__frame_nav:!0,url:i.href},"*"))}var J={};function I(e){if(window===top)return;const t=Date.now();t-(J[e]||0)<500||(J[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}var ie=2e3,G=["wheel","touchstart","touchmove","keydown","pointerdown"],X=0;function ae(e){e.isTrusted&&(X=Date.now())}function ce(){addEventListener("click",x,!0),addEventListener("auxclick",x,!0)}function le(){for(let e=0;e<G.length;e++)addEventListener(G[e],ae,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-X<ie&&I("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&I("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&I("click")},{capture:!0,passive:!0})}var D="__frame_scroll",ue=150,fe=310,de=160,pe=3e4;function me(){let e=0,t=!1,r=!1,c=!1,i=0;const s=p=>{try{sessionStorage.setItem(D,JSON.stringify({y:p}))}catch{}},f=()=>{if(t){t=!1;return}r=!0,clearTimeout(e),e=setTimeout(()=>s(scrollY),ue)};try{addEventListener("scroll",f,{passive:!0}),addEventListener("pagehide",()=>{clearTimeout(e),s(scrollY)})}catch{}const a=()=>{let p;try{p=sessionStorage.getItem(D)}catch{return null}if(p===null)return null;let h;try{h=JSON.parse(p)}catch{h=null}const u=h?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(D)}catch{}return null}return u};let _=!1;const y=p=>{try{const h=scrollY;scrollTo({top:p,left:0,behavior:"instant"}),i=p,c=!0,s(p);const u=scrollY;u!==h&&(t=!0),u!==p&&!_&&(_=!0,addEventListener("load",()=>{try{if(scrollY===u){const g=a();y(g!==null?g:i)}}catch{}},{once:!0}))}catch{}},o=()=>{try{return!!location.hash}catch{return!0}};let l=!1;const d=()=>{try{if(l||innerWidth>fe||innerHeight>de)return;l=!0;const p=Date.now(),h=()=>{try{removeEventListener("resize",h)}catch{}if(Date.now()-p>pe||r||o())return;const u=a();y(u!==null?u:i)};addEventListener("resize",h)}catch{}};let m=!1,v=!1;return{restore(){if(m||(m=!0,o()))return;const p=a();p!==null&&(y(p),d())},promoted(){if(v||(v=!0,o()))return;const p=a();p!==null?(y(p),d()):c&&y(i)}}}function he(e,t,r){const c=[...t.values()].filter(i=>i.targets.some(s=>s.startsWith(e+".")));return{wrap(i,s){const f=`${e}.${i}`,a=c.filter(_=>_.targets.includes(f));return a.length===0?(..._)=>{try{return s(..._)}catch(y){return Promise.reject(y)}}:(..._)=>{let y=_;for(const l of a){const d=l.module.parameters;if(d)try{y=d(y)}catch{return Promise.reject({code:"transform_error",id:l.id,scope:e,message:"parameters transform failed"})}}let o;try{o=s(...y)}catch(l){o=Promise.reject(l)}return o.then(l=>{for(let d=a.length-1;d>=0;d--){const m=a[d],v=m.module.returns;if(v)try{l=v(l)}catch{return r({id:m.id,scope:e,leg:"returns"}),l}}return l},l=>{for(let d=a.length-1;d>=0;d--){const m=a[d],v=m.module.throws;if(v)try{l=v(l)}catch{return r({id:m.id,scope:e,leg:"throws"}),Promise.reject(l)}}return Promise.reject(l)})}}}}function ge(e,t,r,c=()=>{}){const i=new Set(e.changes??[]),s=new Map;for(const f of i){const a=t[f];a&&s.set(f,a)}return{contract:e.contract,changes:i,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:s,shellOrigin:r.shellOrigin,mount:r.mount,pipe:f=>he(f,s,c)}}var we="modulepreload",Oe=function(e){return"/"+e},Se={},ve=function(t,r,c){let i=Promise.resolve();function s(f){const a=new Event("vite:preloadError",{cancelable:!0});if(a.payload=f,window.dispatchEvent(a),!a.defaultPrevented)throw f}return i.then(f=>{for(const a of f||[])a.status==="rejected"&&s(a.reason);return t().catch(s)})};(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let c=0;for(let i=0;i<r.length;i++){const s=r[i];try{e(t,s,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[s]}catch{}try{e(t,s,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[s]=="function"&&c++}if(c&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:c},"*")}catch{}})();var _e=1e4,ye=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function Q(e){for(const t of ye)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var k=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),q=window.__FRAME_PREAMBLE?.transforms,z=window.__FRAME_PREAMBLE?.comments,$=window.__FRAME_PREAMBLE?.translate,N=/^[\w.-]+\.js$/,be=/^[a-z][a-z0-9_-]{0,63}$/,V=null,M=null;function B(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var F=!1;function Z(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,F=!0):F&&(delete t.dataset.theme,t.style.colorScheme="",F=!1)}var ee=256,R=Object.assign(Object.create(null),{mcp:Object.assign(Object.create(null),{watchTool:{handlerArg:3}})}),L=new Map;function te(e,t){const r=L.get(e);if(!r)return;const c=Object.assign(Object.create(null),t);Object.assign(r.impl,c),r.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const i=r.queue;r.queue=[];for(const s of i){const f=c[s.method];if(f)if(R[e]?.[s.method])try{s.resolve(f(...s.args))}catch{T(s,R[e][s.method].handlerArg,{code:"transform_error",message:`${e}.${s.method} rejected its arguments`})}else f(...s.args).then(s.resolve,s.reject);else{const a={code:"capability_removed",message:`${e}.${s.method} is not in this runtime`},_=R[e]?.[s.method];if(_){T(s,_.handlerArg,a);continue}s.reject(a)}}}function Ee(e,t){const r=L.get(e);if(!r)return;r.impl.__settled=()=>Promise.reject(t);const c=r.queue;r.queue=[];for(const i of c){const s=R[e]?.[i.method];if(s){T(i,s.handlerArg,t);continue}i.reject(t)}}function C(e,t){const r=K[e];if(!r){Ee(e,t);return}te(e,Object.fromEntries(Object.entries(r).map(([c,i])=>[c,()=>Promise.resolve(i)])))}function T(e,t,r){if(e.syncState?.dead)return;const c=e.args[t];typeof c=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{c({type:"error",error:r})}catch(i){oe(i)}})}var H=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(H&&H.writable===!1)){ce(),le();let e=null;try{e=me()}catch{}const t=H?.value??{};B(window,"claude",t);const r=o=>{const l={impl:Object.create(null),queue:[]};L.set(o,l);const d=l.impl,m=h=>({code:"queue_overflow",message:`${o}.${h}: pre-init call queue is full`}),v=(h,u)=>{if(l.queue.length>=ee){const g=K[o];return g&&h in g?Promise.resolve(g[h]):Promise.reject(m(h))}return new Promise((g,b)=>{l.queue.push({method:h,args:u,resolve:g,reject:b})})},p=new Proxy(d,{get:(h,u)=>{if(typeof u!="string"||u==="then"||u==="toJSON"||u==="valueOf")return;if(u==="toString")return Object.prototype.toString;const g=R[o]?.[u];return g?(...b)=>{if(typeof b[g.handlerArg]!="function")throw new TypeError(`${o}.${u} requires a handler function`);const S=d[u];if(S)return S(...b);if(d.__settled){const E={dead:!1},P={args:[...b],syncState:E};return d.__settled().catch(U=>T(P,g.handlerArg,U)),()=>{E.dead=!0}}if(l.queue.length>=ee){const E={dead:!1};return T({args:[...b],syncState:E},g.handlerArg,m(u)),()=>{E.dead=!0}}let w=null;const j={dead:!1};return l.queue.push({method:u,args:b,resolve:E=>{w=typeof E=="function"?E:null,j.dead&&w?.()},reject:()=>{},syncState:j}),()=>{j.dead=!0,w?.()}}:(...b)=>{const S=d[u]??d.__settled;return S?S(...b):v(u,b)}},set:()=>!1});B(t,o,p)};for(const o of Object.keys(k)){if(t[o]!==void 0){B(t,o,t[o]);continue}r(o)}let c=null,i=null,s=0;const f=o=>{o.source!==parent||!Q(o.origin)||ne(o.data)&&(c=o.data.__frame_init,M=o.origin,removeEventListener("message",f),clearTimeout(s),i?.())};addEventListener("message",f),parent.postMessage({__frame_connect:!0},"*");const a=new Promise(o=>{i=o,s=setTimeout(()=>{removeEventListener("message",f),o()},_e)}),_=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();_.then(()=>{try{e?.restore()}catch{}});const y=o=>{if(!(o.source!==parent||!Q(o.origin))&&Y(o.data)){removeEventListener("message",y);try{e?.promoted()}catch{}}};addEventListener("message",y),a.then(async()=>{if(!c||!M){for(const n of L.keys())C(n,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}Z(c.theme);const o=M;let l=!1,d=!1;addEventListener("message",n=>{if(n.source!==parent||n.origin!==o)return;se(n.data)&&Z(n.data.__frame_theme.theme);const O=n.data?.__fc_mode;O&&typeof O=="object"&&!l&&z&&N.test(z)&&(l=!0,m(z).then(W=>W.install?.(o,O.on===!0)).catch(()=>{}));const A=n.data?.__ft_cmd;A&&typeof A=="object"&&!d&&$&&N.test($)&&(d=!0,m($).then(W=>W.install?.(o,A)).catch(()=>{}))});const m=n=>ve(()=>import("/_runtime/"+n),void 0),v=Object.keys(c.capabilities??{});for(const n of v)Object.hasOwn(k,n)||be.test(n)&&t[n]===void 0&&(r(n),C(n,{code:"capability_disabled",message:"capability not in this runtime generation"}));const p=v.filter(n=>Object.hasOwn(k,n)).map(n=>[n,k[n]]).filter(n=>typeof n[1]=="string"&&N.test(n[1])),[h,...u]=await Promise.allSettled([q&&N.test(q)?m(q):Promise.resolve({}),...p.map(([,n])=>m(n))]),g=M;V=ge(c,h.status==="fulfilled"&&h.value?.TRANSFORMS||{},{shellOrigin:g,mount:te},n=>parent.postMessage({__frame_cap_telemetry:n},g));const b=n=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:n}},g),S=V;u.forEach((n,O)=>{const A=p[O][0];if(n.status!=="fulfilled"){b(A);return}try{n.value?.install?.(S)}catch{b(A)}});for(const[n,O]of L)if(!(O.queue.length===0&&Object.keys(O.impl).length>0)){if(v.includes(n)){C(n,{code:"capability_disabled",message:"capability not available in this session"});continue}C(n,{code:"not_granted",message:"capability not available in this session"})}await _,parent.postMessage({__frame_ready:!0},M);let w=-1,j=0;const E=()=>{j=0;const n=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);n!==w&&(w=n,parent.postMessage({__frame_size:!0,h:n},g))},P=()=>{j||(j=setTimeout(E,200))},U=new ResizeObserver(P);U.observe(document.documentElement),document.body&&U.observe(document.body),document.addEventListener("load",P,!0),document.fonts?.ready.then(P,()=>{}),addEventListener("beforeprint",()=>{w=-1,E()}),P(),addEventListener("message",n=>{if(!(n.source!==parent||n.origin!==g)&&Y(n.data)){try{e?.promoted()}catch{}w=-1,P()}})})}})();</script><!-- /frame-runtime --><meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Arcane Mage rotation review — 12.1 PTR</title>
+<style>
+  :root {
+    color-scheme: light;
+    --plane:      #f2f0f7;
+    --surface:    #fdfdff;
+    --surface-2:  #f7f6fa;
+    --ink:        #17141f;
+    --ink-2:      #55506a;
+    --muted:      #857f9c;
+    --grid:       #e6e3ef;
+    --baseline:   #cdc8dc;
+    --hair:       rgba(23,20,31,0.11);
+    --accent:     #4a3aa7;
+    --accent-sub: #ece9f8;
+    --you:        #eb6834;
+    --sim:        #2a78d6;
+    --good:       #0ca30c;
+    --crit:       #d03b3b;
+
+    --f-display: "Iowan Old Style","Hoefler Text","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --f-body: system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --f-mono: ui-monospace,"Cascadia Mono","SF Mono",Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --plane:      #0b0910;
+      --surface:    #17141d;
+      --surface-2:  #1e1a27;
+      --ink:        #ffffff;
+      --ink-2:      #c0bad2;
+      --muted:      #8b85a3;
+      --grid:       #272233;
+      --baseline:   #38324c;
+      --hair:       rgba(255,255,255,0.12);
+      --accent:     #9085e9;
+      --accent-sub: #211c33;
+      --you:        #d95926;
+      --sim:        #3987e5;
+      --good:       #0ca30c;
+      --crit:       #d03b3b;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --plane:      #0b0910;
+    --surface:    #17141d;
+    --surface-2:  #1e1a27;
+    --ink:        #ffffff;
+    --ink-2:      #c0bad2;
+    --muted:      #8b85a3;
+    --grid:       #272233;
+    --baseline:   #38324c;
+    --hair:       rgba(255,255,255,0.12);
+    --accent:     #9085e9;
+    --accent-sub: #211c33;
+    --you:        #d95926;
+    --sim:        #3987e5;
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --plane:      #f2f0f7;
+    --surface:    #fdfdff;
+    --surface-2:  #f7f6fa;
+    --ink:        #17141f;
+    --ink-2:      #55506a;
+    --muted:      #857f9c;
+    --grid:       #e6e3ef;
+    --baseline:   #cdc8dc;
+    --hair:       rgba(23,20,31,0.11);
+    --accent:     #4a3aa7;
+    --accent-sub: #ece9f8;
+    --you:        #eb6834;
+    --sim:        #2a78d6;
+  }
+
+  body {
+    background: var(--plane);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 20px 96px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  .prose { max-width: 68ch; }
+
+  /* ---------- masthead ---------- */
+  .masthead { padding: 68px 0 30px; border-bottom: 1px solid var(--hair); }
+  .eyebrow {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 20px;
+  }
+  h1 {
+    font-family: var(--f-display); font-weight: 600; font-size: clamp(34px, 5.4vw, 58px);
+    line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 20px; text-wrap: balance;
+  }
+  .standfirst {
+    font-family: var(--f-display); font-size: clamp(17px,2.1vw,21px); line-height: 1.55;
+    color: var(--ink-2); max-width: 62ch; margin: 0 0 28px;
+  }
+  .standfirst strong { color: var(--ink); font-weight: 600; }
+  .meta {
+    display: flex; flex-wrap: wrap; gap: 10px 26px;
+    font-family: var(--f-mono); font-size: 12px; color: var(--muted);
+  }
+  .meta b { color: var(--ink-2); font-weight: 500; }
+
+  /* ---------- sections ---------- */
+  section { padding-top: 60px; }
+  h2 {
+    font-family: var(--f-display); font-weight: 600; font-size: clamp(24px,3vw,31px);
+    line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 8px; text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--f-body); font-weight: 650; font-size: 16px;
+    letter-spacing: -0.005em; margin: 30px 0 6px;
+  }
+  .lede { color: var(--ink-2); margin: 0 0 26px; max-width: 68ch; }
+  p { margin: 0 0 16px; }
+  .sec-mark {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .sec-mark::after { content: ""; flex: 1; height: 1px; background: var(--hair); }
+
+  /* ---------- KPI ---------- */
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 3px; overflow: hidden; margin: 32px 0 0; }
+  .kpi { background: var(--surface); padding: 22px 22px 20px; }
+  .kpi .k-label { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  .kpi .k-val { font-size: 40px; line-height: 1; font-weight: 600; letter-spacing: -0.03em; margin: 0 0 8px; }
+  .kpi .k-sub { font-size: 13px; color: var(--ink-2); margin: 0; }
+  .kpi .k-sub b { font-weight: 600; }
+  .swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; vertical-align: baseline; }
+  .sw-you { background: var(--you); } .sw-sim { background: var(--sim); }
+
+  /* ---------- cards ---------- */
+  .card { background: var(--surface); border: 1px solid var(--hair); border-radius: 3px; padding: 26px 26px 20px; margin: 26px 0; }
+  .card-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; justify-content: space-between; margin-bottom: 4px; }
+  .card-title { font-family: var(--f-body); font-weight: 650; font-size: 16px; margin: 0; }
+  .card-note { color: var(--ink-2); font-size: 13.5px; margin: 6px 0 20px; max-width: 74ch; }
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink-2); font-family: var(--f-mono); }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .chart-scroll { overflow-x: auto; }
+  svg { display: block; width: 100%; height: auto; }
+  svg text { font-family: var(--f-body); }
+
+  .tbtn {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    background: none; border: 1px solid var(--hair); color: var(--ink-2);
+    padding: 6px 11px; border-radius: 3px; cursor: pointer;
+  }
+  .tbtn:hover { background: var(--surface-2); color: var(--ink); }
+  .tbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; margin-top: 16px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: right; padding: 7px 12px; border-bottom: 1px solid var(--hair); }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  [hidden] { display: none !important; }
+
+  /* ---------- tooltip ---------- */
+  .tip {
+    position: fixed; pointer-events: none; z-index: 60; opacity: 0;
+    background: var(--ink); color: var(--surface); font-family: var(--f-mono); font-size: 11.5px;
+    padding: 7px 10px; border-radius: 3px; line-height: 1.5; white-space: nowrap;
+    transition: opacity .1s;
+  }
+  .tip.on { opacity: 1; }
+
+  /* ---------- findings ---------- */
+  .finding { border-top: 1px solid var(--hair); padding: 26px 0 4px; display: grid; grid-template-columns: 46px 1fr; gap: 20px; }
+  .finding .rank { font-family: var(--f-mono); font-size: 12px; color: var(--accent); padding-top: 4px; letter-spacing: .05em; }
+  .finding h3 { margin-top: 0; font-size: 17px; }
+  .tag {
+    display: inline-block; font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em;
+    text-transform: uppercase; padding: 3px 7px; border-radius: 2px; margin-left: 8px;
+    background: var(--accent-sub); color: var(--accent); vertical-align: 2px;
+  }
+  .clear { border-left: 2px solid var(--good); padding-left: 18px; margin: 0 0 20px; }
+  .clear p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+  .clear b { color: var(--ink); }
+
+  /* ---------- code / rotation ---------- */
+  .apl {
+    font-family: var(--f-mono); font-size: 12.5px; line-height: 1.75; background: var(--surface-2);
+    border: 1px solid var(--hair); border-radius: 3px; padding: 16px 18px; overflow-x: auto;
+    color: var(--ink-2); margin: 0 0 8px;
+  }
+  .apl b { color: var(--ink); font-weight: 600; }
+  .apl .cm { color: var(--accent); }
+  .caption { font-size: 12.5px; color: var(--muted); margin: 0 0 24px; }
+
+  .flow { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 3px; overflow: hidden; margin: 0 0 10px; }
+  .flow div { background: var(--surface); padding: 16px 16px 14px; }
+  .flow .fl-t { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  .flow .fl-v { font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+  .flow .fl-s { font-size: 12.5px; color: var(--ink-2); margin: 0; line-height: 1.45; }
+
+  ul.fix { list-style: none; padding: 0; margin: 12px 0 0; }
+  ul.fix li { padding: 12px 0 12px 26px; border-bottom: 1px solid var(--hair); position: relative; color: var(--ink-2); }
+  ul.fix li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-family: var(--f-mono); }
+  ul.fix li b { color: var(--ink); font-weight: 600; }
+
+  footer { margin-top: 70px; padding-top: 26px; border-top: 1px solid var(--hair); font-size: 13px; color: var(--muted); }
+  footer b { color: var(--ink-2); font-weight: 500; }
+  footer code { font-family: var(--f-mono); font-size: 12px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  @media (max-width: 620px) {
+    .finding { grid-template-columns: 1fr; gap: 6px; }
+    .kpi .k-val { font-size: 33px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Arcane Mage · 12.1 PTR · Sunfury</p>
+    <h1>You are casting fast and spending early.</h1>
+    <p class="standfirst">
+      Across five 300-second dummy pulls the mechanical execution is close to flawless — near-zero
+      downtime, cooldowns on time, procs used correctly. The damage is leaking somewhere else:
+      <strong>Arcane Barrage fires below maximum Arcane Salvo far more often than it should</strong>,
+      and that single habit repeats in every pull without improving.
+    </p>
+    <div class="meta">
+      <span><b>Report</b> vAtQGNpDqJHyw9mn</span>
+      <span><b>Pulls</b> 5 × 300s single target</span>
+      <span><b>Benchmark</b> Raidbots 38BorEbHSzMrsQmgug8J2B</span>
+      <span><b>Gear</b> identical sim ↔ log</span>
+    </div>
+  </header>
+
+  <section>
+    <p class="sec-mark">The headline</p>
+    <div class="kpis">
+      <div class="kpi">
+        <p class="k-label">Best pull vs sim</p>
+        <p class="k-val">136k</p>
+        <p class="k-sub">against <b>161.5k</b> simulated — a <b>15.6%</b> gap on matched gear</p>
+      </div>
+      <div class="kpi">
+        <p class="k-label">Barrages at 25 Salvo</p>
+        <p class="k-val" style="color:var(--you)">42%</p>
+        <p class="k-sub"><span class="swatch sw-sim"></span>sim reaches max on <b>71%</b></p>
+      </div>
+      <div class="kpi">
+        <p class="k-label">Intuition captured</p>
+        <p class="k-val" style="color:var(--you)">47%</p>
+        <p class="k-sub"><span class="swatch sw-sim"></span>sim <b>65%</b> — this is the +25% Barrage buff</p>
+      </div>
+      <div class="kpi">
+        <p class="k-label">Barrage casts / 300s</p>
+        <p class="k-val">58</p>
+        <p class="k-sub"><span class="swatch sw-sim"></span>sim uses <b>48</b> for the same total Salvo</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">How the spec actually works</p>
+    <h2>Salvo is the engine, and only one payoff is non-linear</h2>
+    <p class="lede">Arcane Salvo caps at <b>25</b> — 20 from the base talent, +5 from Spellfire Salvo.
+      Confirmed against the logs, where the buff never exceeds 25 stacks.</p>
+
+    <div class="prose">
+      <p>Generation is concentrated, not spread across the kit. Arcane Missiles is the engine; Blast and
+        Prismatic Bolt are the fine adjustment that bridges the last few stacks.</p>
+    </div>
+
+    <div class="flow">
+      <div><p class="fl-t">Arcane Missiles</p><p class="fl-v">+11 to 15</p><p class="fl-s">7 waves × Focusing Crystal's 50%/wave</p></div>
+      <div><p class="fl-t">Overpowered Missiles</p><p class="fl-v">→ 25 instantly</p><p class="fl-s">proc grants maximum stacks outright</p></div>
+      <div><p class="fl-t">Prismatic Bolt</p><p class="fl-v">+4</p><p class="fl-s">Expanded Mind</p></div>
+      <div><p class="fl-t">Arcane Blast</p><p class="fl-v">+2</p><p class="fl-s">the top-off tool</p></div>
+      <div><p class="fl-t">Arcane Orb</p><p class="fl-v">+1</p><p class="fl-s">charge fallback, not damage</p></div>
+    </div>
+    <p class="caption">Missiles is also your main Arcane Charge generator — High Voltage, ~3.5 charges per channel. Not Arcane Blast.</p>
+
+    <div class="prose">
+      <h3>Barrage is the only spender, and it pays out four ways at once</h3>
+      <p>Salvo damage bonus (3%/stack) · Prismatic Bolt proc (<b>2% per stack consumed</b> — 1% base plus 1%
+        from the third apex node, so 50% at cap) · one Meteorite per 5 stacks consumed · Orb Barrage
+        (4% per stack <em>held</em>).</p>
+      <p><strong>Three of those four are linear in stacks consumed.</strong> Dumping at 12 twice yields roughly
+        the same procs as dumping at 25 once. The one genuinely non-linear payoff is
+        <b>Intuition: +25% Barrage damage, only on reaching max stacks</b>. That, plus the fixed GCD cost of
+        every Barrage, is the entire case for holding to 25 — and it is exactly what is being left behind.</p>
+    </div>
+
+    <div class="apl">
+<span class="cm"># the two legal Barrage triggers, from the sim's own priority list</span>
+arcane_missiles,if=buff.clearcasting.react&amp;<b>buff.arcane_salvo.stack&lt;12</b>,chain=1
+arcane_barrage,if=arcane_charge=4&amp;( (clearcasting&amp;<b>salvo&gt;=12</b>) | <b>salvo=25</b> ) | buff.arcane_soul.up
+    </div>
+    <p class="caption">The <code style="font-family:var(--f-mono)">salvo&lt;12</code> gate on Missiles exists because a channel adds 11–15 — starting one above 12 overflows the cap.</p>
+  </section>
+
+  <section>
+    <p class="sec-mark">Finding 00 — sample hygiene</p>
+    <h2>Two of the five pulls had no food buff</h2>
+    <p class="lede">Before reading anything into pull-to-pull variance: pulls 1 and 3 are missing the Well Fed
+      buff entirely. Their rotation metrics are identical to the others — the damage difference is consumables, not play.</p>
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">Damage per pull vs simulated ceiling</p>
+        <button class="tbtn" data-toggle="t-dps">Table view</button>
+      </div>
+      <p class="card-note">Same character, same gear as the sim profile — all five tier pieces, both trinkets and the weapon match.</p>
+      <div class="legend" style="margin-bottom:14px">
+        <span><span class="swatch sw-you"></span>Your pulls</span>
+        <span><svg width="22" height="9" aria-hidden="true"><line x1="0" y1="4.5" x2="22" y2="4.5" stroke="var(--sim)" stroke-width="2"></line></svg>Simulated 161,530</span>
+      </div>
+      <div class="chart-scroll"><div id="c-dps"><svg viewBox="0 0 900 330" role="img" style="min-width: 680px;" aria-label="Damage per pull against the simulated ceiling of 161,530"><line x1="66" y1="268" x2="876" y2="268" stroke="var(--grid)" stroke-width="1"></line><text x="54" y="272" text-anchor="end" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">0</text><line x1="66" y1="201.14285714285717" x2="876" y2="201.14285714285717" stroke="var(--grid)" stroke-width="1"></line><text x="54" y="205.14285714285717" text-anchor="end" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">50k</text><line x1="66" y1="134.2857142857143" x2="876" y2="134.2857142857143" stroke="var(--grid)" stroke-width="1"></line><text x="54" y="138.2857142857143" text-anchor="end" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">100k</text><line x1="66" y1="67.42857142857144" x2="876" y2="67.42857142857144" stroke="var(--grid)" stroke-width="1"></line><text x="54" y="71.42857142857144" text-anchor="end" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">150k</text><path d="M104.88,268 V111.0387542857143 a4,4 0 0 1 4,-4 H185.12 a4,4 0 0 1 4,4 V268 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="147" y="97.0387542857143" text-anchor="middle" font-size="12.5" fill="var(--ink)" font-weight="600">120k</text><text x="147" y="288" text-anchor="middle" font-size="12" fill="var(--ink-2)">Pull 1</text><text x="147" y="306" text-anchor="middle" font-size="10.5" fill="var(--muted)">no food buff</text><path d="M266.88,268 V115.37510857142857 a4,4 0 0 1 4,-4 H347.12 a4,4 0 0 1 4,4 V268 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="309" y="101.37510857142857" text-anchor="middle" font-size="12.5" fill="var(--ink)" font-weight="600">117k</text><text x="309" y="288" text-anchor="middle" font-size="12" fill="var(--ink-2)">Pull 2</text><text x="309" y="306" text-anchor="middle" font-size="10.5" fill="var(--muted)">no food buff</text><path d="M428.88,268 V89.80225142857142 a4,4 0 0 1 4,-4 H509.12 a4,4 0 0 1 4,4 V268 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="471" y="75.80225142857142" text-anchor="middle" font-size="12.5" fill="var(--ink)" font-weight="600">136k</text><text x="471" y="288" text-anchor="middle" font-size="12" fill="var(--ink-2)">Pull 3</text><path d="M590.88,268 V89.72469714285714 a4,4 0 0 1 4,-4 H671.12 a4,4 0 0 1 4,4 V268 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="633" y="75.72469714285714" text-anchor="middle" font-size="12.5" fill="var(--ink)" font-weight="600">136k</text><text x="633" y="288" text-anchor="middle" font-size="12" fill="var(--ink-2)">Pull 4</text><path d="M752.88,268 V92.48322285714283 a4,4 0 0 1 4,-4 H833.12 a4,4 0 0 1 4,4 V268 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="795" y="78.48322285714283" text-anchor="middle" font-size="12.5" fill="var(--ink)" font-weight="600">134k</text><text x="795" y="288" text-anchor="middle" font-size="12" fill="var(--ink-2)">Pull 5</text><line x1="66" y1="52.01131428571429" x2="876" y2="52.01131428571429" stroke="var(--sim)" stroke-width="2"></line><text x="876" y="42.01131428571429" text-anchor="end" font-size="12" fill="var(--sim)" font-weight="600">Sim 161,530</text><line x1="66" y1="268" x2="876" y2="268" stroke="var(--baseline)" stroke-width="1"></line></svg></div></div>
+      <div id="t-dps" hidden=""><table><thead><tr><th>Pull</th><th>DPS</th><th>Food buff</th><th>% of sim</th></tr></thead><tbody><tr><td>Pull 1</td><td>120,377</td><td>no</td><td>74.5%</td></tr><tr><td>Pull 2</td><td>117,134</td><td>no</td><td>72.5%</td></tr><tr><td>Pull 3</td><td>136,259</td><td>yes</td><td>84.4%</td></tr><tr><td>Pull 4</td><td>136,317</td><td>yes</td><td>84.4%</td></tr><tr><td>Pull 5</td><td>134,254</td><td>yes</td><td>83.1%</td></tr></tbody></table></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">Finding 01 — the systemic one</p>
+    <h2>Barrage fires below maximum Salvo</h2>
+    <p class="lede">This is the finding. It appears in all five pulls at the same rate, and does not improve
+      across the session — the signature of a habit rather than a bad pull.</p>
+
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">Arcane Salvo consumed per Barrage</p>
+        <button class="tbtn" data-toggle="t-hist">Table view</button>
+      </div>
+      <p class="card-note">Barrages cast outside the Arcane Soul window, where Salvo is not consumed.
+        292 of yours across five pulls; 48 in the simulated iteration.</p>
+      <div class="legend" style="margin-bottom:14px">
+        <span><span class="swatch sw-you"></span>Your play</span>
+        <span><span class="swatch sw-sim"></span>Sim optimum</span>
+      </div>
+      <div class="chart-scroll"><div id="c-hist"><svg viewBox="0 0 900 340" role="img" style="min-width: 680px;" aria-label="Distribution of Arcane Salvo consumed per Barrage, your play versus sim"><line x1="66" y1="286" x2="876" y2="286" stroke="var(--grid)" stroke-width="1"></line><text x="54" y="290" text-anchor="end" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">0%</text><line x1="66" y1="197.33333333333334" x2="876" y2="197.33333333333334" stroke="var(--grid)" stroke-width="1"></line><text x="54" y="201.33333333333334" text-anchor="end" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">25%</text><line x1="66" y1="108.66666666666669" x2="876" y2="108.66666666666669" stroke="var(--grid)" stroke-width="1"></line><text x="54" y="112.66666666666669" text-anchor="end" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">50%</text><line x1="66" y1="20" x2="876" y2="20" stroke="var(--grid)" stroke-width="1"></line><text x="54" y="24" text-anchor="end" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">75%</text><path d="M77,286 V140.68533333333332 a4,4 0 0 1 4,-4 H119 a4,4 0 0 1 4,4 V286 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="100" y="127.68533333333332" text-anchor="middle" font-size="12.5" font-weight="600" fill="var(--ink)">42%</text><path d="M171,286 V38.896000000000015 a4,4 0 0 1 4,-4 H213 a4,4 0 0 1 4,4 V286 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="194" y="25.896000000000015" text-anchor="middle" font-size="12.5" font-weight="600" fill="var(--ink)">71%</text><text x="147" y="308" text-anchor="middle" font-size="12" fill="var(--ink-2)">25 (cap)</text><path d="M239,286 V230.416 a4,4 0 0 1 4,-4 H281 a4,4 0 0 1 4,4 V286 Z" fill="var(--you)" style="cursor: crosshair;"></path><path d="M333,286 V260.56266666666664 a4,4 0 0 1 4,-4 H375 a4,4 0 0 1 4,4 V286 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="309" y="308" text-anchor="middle" font-size="12" fill="var(--ink-2)">20–24</text><path d="M401,286 V225.45066666666668 a4,4 0 0 1 4,-4 H443 a4,4 0 0 1 4,4 V286 Z" fill="var(--you)" style="cursor: crosshair;"></path><path d="M495,286 V245.66666666666669 a4,4 0 0 1 4,-4 H537 a4,4 0 0 1 4,4 V286 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="471" y="308" text-anchor="middle" font-size="12" fill="var(--ink-2)">15–19</text><path d="M563,286 V237.864 a4,4 0 0 1 4,-4 H605 a4,4 0 0 1 4,4 V286 Z" fill="var(--you)" style="cursor: crosshair;"></path><path d="M657,286 V275.104 a4,4 0 0 1 4,-4 H699 a4,4 0 0 1 4,4 V286 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="633" y="308" text-anchor="middle" font-size="12" fill="var(--ink-2)">12–14</text><path d="M725,286 V260.9173333333333 a4,4 0 0 1 4,-4 H767 a4,4 0 0 1 4,4 V286 Z" fill="var(--you)" style="cursor: crosshair;"></path><path d="M819,286 V275.104 a4,4 0 0 1 4,-4 H861 a4,4 0 0 1 4,4 V286 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="795" y="308" text-anchor="middle" font-size="12" fill="var(--ink-2)">under 12</text><text x="471" y="332" text-anchor="middle" font-size="11.5" fill="var(--muted)">Arcane Salvo stacks consumed by the Barrage</text><line x1="66" y1="286" x2="876" y2="286" stroke="var(--baseline)" stroke-width="1"></line></svg></div></div>
+      <div id="t-hist" hidden=""><table><thead><tr><th>Salvo consumed</th><th>Your play</th><th>count</th><th>Sim</th><th>count</th></tr></thead><tbody><tr><td>25 (cap)</td><td>42.1%</td><td>123</td><td>70.8%</td><td>34</td></tr><tr><td>20–24</td><td>16.8%</td><td>49</td><td>8.3%</td><td>4</td></tr><tr><td>15–19</td><td>18.2%</td><td>53</td><td>12.5%</td><td>6</td></tr><tr><td>12–14</td><td>14.7%</td><td>43</td><td>4.2%</td><td>2</td></tr><tr><td>under 12</td><td>8.2%</td><td>24</td><td>4.2%</td><td>2</td></tr></tbody></table></div>
+    </div>
+
+    <div class="prose">
+      <p>The distributions have the same right edge but a very different mass. The sim lives on the cap; your
+        casts spread down through the 12–19 band. Average Salvo consumed per Barrage: <b>19.6</b> against the
+        sim's <b>22.4</b>.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">Finding 01 — sequence</p>
+    <h2>The same 48 seconds, side by side</h2>
+    <p class="lede">Arcane Salvo sampled at every cast. Both windows are 48 seconds on an identical scale, so
+      the shapes are directly comparable — this is the clearest picture of the difference.</p>
+
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">Salvo trajectory — cast by cast</p>
+        <button class="tbtn" data-toggle="t-seq">Table view</button>
+      </div>
+      <p class="card-note">Circles mark Arcane Barrage. Filled circles are Barrages that captured Intuition
+        (Salvo at 25). Hover any point for the full state at that cast.</p>
+      <div class="legend" style="margin-bottom:14px">
+        <span><span class="swatch sw-you"></span>Your play — pull 4, 40–88s</span>
+        <span><span class="swatch sw-sim"></span>Sim optimum — 24–72s</span>
+        <span><svg width="22" height="9" aria-hidden="true"><line x1="0" y1="4.5" x2="22" y2="4.5" stroke="var(--baseline)" stroke-width="2"></line></svg>Salvo cap (25)</span>
+      </div>
+      <div class="chart-scroll"><div id="c-seq"><svg viewBox="0 0 960 416" role="img" style="min-width: 680px;" aria-label="Arcane Salvo trajectory cast by cast, your play compared with the sim"><text x="60" y="17" font-size="12" font-weight="600" fill="var(--you)">Your play — turns over at 16, 19, 11</text><line x1="60" y1="176" x2="940" y2="176" stroke="var(--grid)" stroke-width="1"></line><text x="50" y="180" text-anchor="end" font-size="11" fill="var(--muted)" style="font-variant-numeric:tabular-nums">0</text><line x1="60" y1="104" x2="940" y2="104" stroke="var(--grid)" stroke-width="1"></line><text x="50" y="108" text-anchor="end" font-size="11" fill="var(--muted)" style="font-variant-numeric:tabular-nums">12</text><line x1="60" y1="26" x2="940" y2="26" stroke="var(--baseline)" stroke-width="2"></line><text x="50" y="30" text-anchor="end" font-size="11" fill="var(--muted)" style="font-variant-numeric:tabular-nums">25</text><path d="M75.40000000000006,116 L78.70000000000006,116 L78.70000000000006,91.99999999999999 L100.14999999999995,91.99999999999999 L100.14999999999995,26 L157.16666666666663,26 L157.16666666666663,176 L157.35000000000002,176 L157.35000000000002,170 L193.09999999999997,170 L193.09999999999997,80 L229.2166666666666,80 L229.2166666666666,26 L234.5333333333334,26 L234.5333333333334,176 L286.6,176 L286.6,176 L286.6,176 L286.6,146 L319.41666666666663,146 L319.41666666666663,68 L350.58333333333337,68 L350.58333333333337,26 L408.3333333333333,26 L408.3333333333333,176 L408.3333333333333,176 L408.3333333333333,170 L439.50000000000006,170 L439.50000000000006,26 L497.25,26 L497.25,176 L497.43333333333334,176 L497.43333333333334,146 L529.1500000000001,146 L529.1500000000001,80 L550.6000000000001,80 L550.6000000000001,170 L581.0333333333334,170 L581.0333333333334,104 L615.1333333333333,104 L615.1333333333333,26 L672.5166666666665,26 L672.5166666666665,176 L672.7,176 L672.7,170 L710.8333333333334,170 L710.8333333333334,62 L730.9999999999999,62 L730.9999999999999,170 L764.9166666666667,170 L764.9166666666667,91.99999999999999 L796.0833333333334,91.99999999999999 L796.0833333333334,26 L816.25,26 L816.25,176 L864.8333333333334,176 L864.8333333333334,110 L885,110 L885,176 L908.1000000000001,176 L908.1000000000001,170 L908.1000000000001,176 L75.40000000000006,176 Z" fill="var(--you)" opacity="0.11"></path><path d="M75.40000000000006,116 L78.70000000000006,116 L78.70000000000006,91.99999999999999 L100.14999999999995,91.99999999999999 L100.14999999999995,26 L157.16666666666663,26 L157.16666666666663,176 L157.35000000000002,176 L157.35000000000002,170 L193.09999999999997,170 L193.09999999999997,80 L229.2166666666666,80 L229.2166666666666,26 L234.5333333333334,26 L234.5333333333334,176 L286.6,176 L286.6,176 L286.6,176 L286.6,146 L319.41666666666663,146 L319.41666666666663,68 L350.58333333333337,68 L350.58333333333337,26 L408.3333333333333,26 L408.3333333333333,176 L408.3333333333333,176 L408.3333333333333,170 L439.50000000000006,170 L439.50000000000006,26 L497.25,26 L497.25,176 L497.43333333333334,176 L497.43333333333334,146 L529.1500000000001,146 L529.1500000000001,80 L550.6000000000001,80 L550.6000000000001,170 L581.0333333333334,170 L581.0333333333334,104 L615.1333333333333,104 L615.1333333333333,26 L672.5166666666665,26 L672.5166666666665,176 L672.7,176 L672.7,170 L710.8333333333334,170 L710.8333333333334,62 L730.9999999999999,62 L730.9999999999999,170 L764.9166666666667,170 L764.9166666666667,91.99999999999999 L796.0833333333334,91.99999999999999 L796.0833333333334,26 L816.25,26 L816.25,176 L864.8333333333334,176 L864.8333333333334,110 L885,110 L885,176 L908.1000000000001,176 L908.1000000000001,170" fill="none" stroke="var(--you)" stroke-width="2" stroke-linejoin="round"></path><circle cx="75.40000000000006" cy="116" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="75.40000000000006" cy="116" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="78.70000000000006" cy="91.99999999999999" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="78.70000000000006" cy="91.99999999999999" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="100.14999999999995" cy="26" r="6.5" fill="var(--surface)"></circle><circle cx="100.14999999999995" cy="26" r="4.5" fill="var(--you)" stroke="var(--you)" stroke-width="2"></circle><circle cx="100.14999999999995" cy="26" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="157.16666666666663" cy="176" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="157.16666666666663" cy="176" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="157.35000000000002" cy="170" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="157.35000000000002" cy="170" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="193.09999999999997" cy="80" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="193.09999999999997" cy="80" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="229.2166666666666" cy="26" r="6.5" fill="var(--surface)"></circle><circle cx="229.2166666666666" cy="26" r="4.5" fill="var(--you)" stroke="var(--you)" stroke-width="2"></circle><circle cx="229.2166666666666" cy="26" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="234.5333333333334" cy="176" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="234.5333333333334" cy="176" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="286.6" cy="176" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="286.6" cy="176" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="286.6" cy="146" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="286.6" cy="146" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="319.41666666666663" cy="68" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="319.41666666666663" cy="68" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="350.58333333333337" cy="26" r="6.5" fill="var(--surface)"></circle><circle cx="350.58333333333337" cy="26" r="4.5" fill="var(--you)" stroke="var(--you)" stroke-width="2"></circle><circle cx="350.58333333333337" cy="26" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="408.3333333333333" cy="176" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="408.3333333333333" cy="176" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="408.3333333333333" cy="170" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="408.3333333333333" cy="170" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="439.50000000000006" cy="26" r="6.5" fill="var(--surface)"></circle><circle cx="439.50000000000006" cy="26" r="4.5" fill="var(--you)" stroke="var(--you)" stroke-width="2"></circle><circle cx="439.50000000000006" cy="26" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="497.25" cy="176" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="497.25" cy="176" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="497.43333333333334" cy="146" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="497.43333333333334" cy="146" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="529.1500000000001" cy="80" r="6.5" fill="var(--surface)"></circle><circle cx="529.1500000000001" cy="80" r="4.5" fill="var(--surface)" stroke="var(--you)" stroke-width="2"></circle><circle cx="529.1500000000001" cy="80" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="550.6000000000001" cy="170" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="550.6000000000001" cy="170" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="581.0333333333334" cy="104" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="581.0333333333334" cy="104" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="615.1333333333333" cy="26" r="6.5" fill="var(--surface)"></circle><circle cx="615.1333333333333" cy="26" r="4.5" fill="var(--you)" stroke="var(--you)" stroke-width="2"></circle><circle cx="615.1333333333333" cy="26" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="672.5166666666665" cy="176" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="672.5166666666665" cy="176" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="672.7" cy="170" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="672.7" cy="170" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="710.8333333333334" cy="62" r="6.5" fill="var(--surface)"></circle><circle cx="710.8333333333334" cy="62" r="4.5" fill="var(--surface)" stroke="var(--you)" stroke-width="2"></circle><circle cx="710.8333333333334" cy="62" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="730.9999999999999" cy="170" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="730.9999999999999" cy="170" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="764.9166666666667" cy="91.99999999999999" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="764.9166666666667" cy="91.99999999999999" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="796.0833333333334" cy="26" r="6.5" fill="var(--surface)"></circle><circle cx="796.0833333333334" cy="26" r="4.5" fill="var(--you)" stroke="var(--you)" stroke-width="2"></circle><circle cx="796.0833333333334" cy="26" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="816.25" cy="176" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="816.25" cy="176" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="864.8333333333334" cy="110" r="6.5" fill="var(--surface)"></circle><circle cx="864.8333333333334" cy="110" r="4.5" fill="var(--surface)" stroke="var(--you)" stroke-width="2"></circle><circle cx="864.8333333333334" cy="110" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="885" cy="176" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="885" cy="176" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="908.1000000000001" cy="170" r="2.4" fill="var(--you)" opacity="0.5"></circle><circle cx="908.1000000000001" cy="170" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><text x="60" y="193" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+0s</text><text x="206.66666666666666" y="193" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+8s</text><text x="353.3333333333333" y="193" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+16s</text><text x="500" y="193" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+24s</text><text x="646.6666666666666" y="193" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+32s</text><text x="793.3333333333334" y="193" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+40s</text><text x="940" y="193" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+48s</text><line x1="60" y1="176" x2="940" y2="176" stroke="var(--baseline)" stroke-width="1"></line><text x="60" y="213" font-size="12" font-weight="600" fill="var(--sim)">Sim optimum — rides the 25 cap</text><line x1="60" y1="372" x2="940" y2="372" stroke="var(--grid)" stroke-width="1"></line><text x="50" y="376" text-anchor="end" font-size="11" fill="var(--muted)" style="font-variant-numeric:tabular-nums">0</text><line x1="60" y1="300" x2="940" y2="300" stroke="var(--grid)" stroke-width="1"></line><text x="50" y="304" text-anchor="end" font-size="11" fill="var(--muted)" style="font-variant-numeric:tabular-nums">12</text><line x1="60" y1="222" x2="940" y2="222" stroke="var(--baseline)" stroke-width="2"></line><text x="50" y="226" text-anchor="end" font-size="11" fill="var(--muted)" style="font-variant-numeric:tabular-nums">25</text><path d="M65.68333333333331,222 L93.00000000000001,222 L93.00000000000001,222 L109.49999999999999,222 L109.49999999999999,372 L129.11666666666667,372 L129.11666666666667,312 L160.2833333333333,312 L160.2833333333333,222 L176.96666666666664,222 L176.96666666666664,372 L196.58333333333331,372 L196.58333333333331,330 L229.0333333333333,330 L229.0333333333333,246 L256.90000000000003,246 L256.90000000000003,222 L273.5833333333333,222 L273.5833333333333,372 L302.3666666666667,372 L302.3666666666667,222 L330.23333333333335,222 L330.23333333333335,222 L346.73333333333335,222 L346.73333333333335,372 L373.8666666666666,372 L373.8666666666666,222 L395.49999999999994,222 L395.49999999999994,372 L420.9833333333333,372 L420.9833333333333,318 L459.4833333333333,318 L459.4833333333333,222 L496.15,222 L496.15,222 L497.0666666666667,222 L497.0666666666667,222 L518.8833333333333,222 L518.8833333333333,372 L544.7333333333333,372 L544.7333333333333,312 L583.7833333333333,312 L583.7833333333333,234 L605.6,234 L605.6,372 L631.2666666666665,372 L631.2666666666665,306 L671.05,306 L671.05,222 L707.5333333333333,222 L707.5333333333333,222 L729.1666666666666,222 L729.1666666666666,372 L764.3666666666667,372 L764.3666666666667,288 L786.3666666666666,288 L786.3666666666666,276 L808.3666666666666,276 L808.3666666666666,264 L830.3666666666667,264 L830.3666666666667,252 L852.1833333333332,252 L852.1833333333332,240 L873.6333333333332,240 L873.6333333333332,372 L907.7333333333332,372 L907.7333333333332,222 L907.7333333333332,372 L65.68333333333331,372 Z" fill="var(--sim)" opacity="0.11"></path><path d="M65.68333333333331,222 L93.00000000000001,222 L93.00000000000001,222 L109.49999999999999,222 L109.49999999999999,372 L129.11666666666667,372 L129.11666666666667,312 L160.2833333333333,312 L160.2833333333333,222 L176.96666666666664,222 L176.96666666666664,372 L196.58333333333331,372 L196.58333333333331,330 L229.0333333333333,330 L229.0333333333333,246 L256.90000000000003,246 L256.90000000000003,222 L273.5833333333333,222 L273.5833333333333,372 L302.3666666666667,372 L302.3666666666667,222 L330.23333333333335,222 L330.23333333333335,222 L346.73333333333335,222 L346.73333333333335,372 L373.8666666666666,372 L373.8666666666666,222 L395.49999999999994,222 L395.49999999999994,372 L420.9833333333333,372 L420.9833333333333,318 L459.4833333333333,318 L459.4833333333333,222 L496.15,222 L496.15,222 L497.0666666666667,222 L497.0666666666667,222 L518.8833333333333,222 L518.8833333333333,372 L544.7333333333333,372 L544.7333333333333,312 L583.7833333333333,312 L583.7833333333333,234 L605.6,234 L605.6,372 L631.2666666666665,372 L631.2666666666665,306 L671.05,306 L671.05,222 L707.5333333333333,222 L707.5333333333333,222 L729.1666666666666,222 L729.1666666666666,372 L764.3666666666667,372 L764.3666666666667,288 L786.3666666666666,288 L786.3666666666666,276 L808.3666666666666,276 L808.3666666666666,264 L830.3666666666667,264 L830.3666666666667,252 L852.1833333333332,252 L852.1833333333332,240 L873.6333333333332,240 L873.6333333333332,372 L907.7333333333332,372 L907.7333333333332,222" fill="none" stroke="var(--sim)" stroke-width="2" stroke-linejoin="round"></path><circle cx="65.68333333333331" cy="222" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="65.68333333333331" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="93.00000000000001" cy="222" r="6.5" fill="var(--surface)"></circle><circle cx="93.00000000000001" cy="222" r="4.5" fill="var(--surface)" stroke="var(--sim)" stroke-width="2"></circle><circle cx="93.00000000000001" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="109.49999999999999" cy="372" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="109.49999999999999" cy="372" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="129.11666666666667" cy="312" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="129.11666666666667" cy="312" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="160.2833333333333" cy="222" r="6.5" fill="var(--surface)"></circle><circle cx="160.2833333333333" cy="222" r="4.5" fill="var(--sim)" stroke="var(--sim)" stroke-width="2"></circle><circle cx="160.2833333333333" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="176.96666666666664" cy="372" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="176.96666666666664" cy="372" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="196.58333333333331" cy="330" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="196.58333333333331" cy="330" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="229.0333333333333" cy="246" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="229.0333333333333" cy="246" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="256.90000000000003" cy="222" r="6.5" fill="var(--surface)"></circle><circle cx="256.90000000000003" cy="222" r="4.5" fill="var(--sim)" stroke="var(--sim)" stroke-width="2"></circle><circle cx="256.90000000000003" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="273.5833333333333" cy="372" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="273.5833333333333" cy="372" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="302.3666666666667" cy="222" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="302.3666666666667" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="330.23333333333335" cy="222" r="6.5" fill="var(--surface)"></circle><circle cx="330.23333333333335" cy="222" r="4.5" fill="var(--sim)" stroke="var(--sim)" stroke-width="2"></circle><circle cx="330.23333333333335" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="346.73333333333335" cy="372" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="346.73333333333335" cy="372" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="373.8666666666666" cy="222" r="6.5" fill="var(--surface)"></circle><circle cx="373.8666666666666" cy="222" r="4.5" fill="var(--sim)" stroke="var(--sim)" stroke-width="2"></circle><circle cx="373.8666666666666" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="395.49999999999994" cy="372" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="395.49999999999994" cy="372" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="420.9833333333333" cy="318" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="420.9833333333333" cy="318" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="459.4833333333333" cy="222" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="459.4833333333333" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="496.15" cy="222" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="496.15" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="497.0666666666667" cy="222" r="6.5" fill="var(--surface)"></circle><circle cx="497.0666666666667" cy="222" r="4.5" fill="var(--sim)" stroke="var(--sim)" stroke-width="2"></circle><circle cx="497.0666666666667" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="518.8833333333333" cy="372" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="518.8833333333333" cy="372" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="544.7333333333333" cy="312" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="544.7333333333333" cy="312" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="583.7833333333333" cy="234" r="6.5" fill="var(--surface)"></circle><circle cx="583.7833333333333" cy="234" r="4.5" fill="var(--surface)" stroke="var(--sim)" stroke-width="2"></circle><circle cx="583.7833333333333" cy="234" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="605.6" cy="372" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="605.6" cy="372" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="631.2666666666665" cy="306" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="631.2666666666665" cy="306" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="671.05" cy="222" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="671.05" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="707.5333333333333" cy="222" r="6.5" fill="var(--surface)"></circle><circle cx="707.5333333333333" cy="222" r="4.5" fill="var(--sim)" stroke="var(--sim)" stroke-width="2"></circle><circle cx="707.5333333333333" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="729.1666666666666" cy="372" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="729.1666666666666" cy="372" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="764.3666666666667" cy="288" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="764.3666666666667" cy="288" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="786.3666666666666" cy="276" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="786.3666666666666" cy="276" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="808.3666666666666" cy="264" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="808.3666666666666" cy="264" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="830.3666666666667" cy="252" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="830.3666666666667" cy="252" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="852.1833333333332" cy="240" r="6.5" fill="var(--surface)"></circle><circle cx="852.1833333333332" cy="240" r="4.5" fill="var(--surface)" stroke="var(--sim)" stroke-width="2"></circle><circle cx="852.1833333333332" cy="240" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="873.6333333333332" cy="372" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="873.6333333333332" cy="372" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><circle cx="907.7333333333332" cy="222" r="2.4" fill="var(--sim)" opacity="0.5"></circle><circle cx="907.7333333333332" cy="222" r="13" fill="transparent" style="cursor: crosshair;" tabindex="0"></circle><text x="60" y="389" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+0s</text><text x="206.66666666666666" y="389" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+8s</text><text x="353.3333333333333" y="389" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+16s</text><text x="500" y="389" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+24s</text><text x="646.6666666666666" y="389" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+32s</text><text x="793.3333333333334" y="389" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+40s</text><text x="940" y="389" text-anchor="middle" font-size="10.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">+48s</text><line x1="60" y1="372" x2="940" y2="372" stroke="var(--baseline)" stroke-width="1"></line></svg></div></div>
+      <div id="t-seq" hidden=""><table><thead><tr><th>Source</th><th>Time</th><th>Cast</th><th>Salvo</th><th>Clearcasting</th><th>Intuition</th></tr></thead><tbody><tr><td>You</td><td>40.84s</td><td>Prismatic Bolt</td><td>10</td><td>2</td><td>—</td></tr><tr><td>You</td><td>41.02s</td><td>Arcane Missiles</td><td>14</td><td>3</td><td>—</td></tr><tr><td>You</td><td>42.19s</td><td>Arcane Barrage</td><td>25</td><td>2</td><td>yes</td></tr><tr><td>You</td><td>45.30s</td><td>Prismatic Bolt</td><td>0</td><td>3</td><td>—</td></tr><tr><td>You</td><td>45.31s</td><td>Arcane Missiles</td><td>1</td><td>3</td><td>—</td></tr><tr><td>You</td><td>47.26s</td><td>Arcane Missiles</td><td>16</td><td>2</td><td>—</td></tr><tr><td>You</td><td>49.23s</td><td>Arcane Barrage</td><td>25</td><td>1</td><td>yes</td></tr><tr><td>You</td><td>49.52s</td><td>Touch of the Magi</td><td>0</td><td>1</td><td>—</td></tr><tr><td>You</td><td>52.36s</td><td>Prismatic Bolt</td><td>0</td><td>2</td><td>—</td></tr><tr><td>You</td><td>52.36s</td><td>Arcane Missiles</td><td>5</td><td>3</td><td>—</td></tr><tr><td>You</td><td>54.15s</td><td>Arcane Missiles</td><td>18</td><td>2</td><td>—</td></tr><tr><td>You</td><td>55.85s</td><td>Arcane Barrage</td><td>25</td><td>1</td><td>yes</td></tr><tr><td>You</td><td>59.00s</td><td>Prismatic Bolt</td><td>0</td><td>2</td><td>—</td></tr><tr><td>You</td><td>59.00s</td><td>Arcane Missiles</td><td>1</td><td>3</td><td>—</td></tr><tr><td>You</td><td>60.70s</td><td>Arcane Barrage</td><td>25</td><td>2</td><td>yes</td></tr><tr><td>You</td><td>63.85s</td><td>Prismatic Bolt</td><td>0</td><td>3</td><td>—</td></tr><tr><td>You</td><td>63.86s</td><td>Arcane Missiles</td><td>5</td><td>3</td><td>—</td></tr><tr><td>You</td><td>65.59s</td><td>Arcane Barrage</td><td>16</td><td>3</td><td>no</td></tr><tr><td>You</td><td>66.76s</td><td>Arcane Missiles</td><td>1</td><td>3</td><td>—</td></tr><tr><td>You</td><td>68.42s</td><td>Arcane Missiles</td><td>12</td><td>3</td><td>—</td></tr><tr><td>You</td><td>70.28s</td><td>Arcane Barrage</td><td>25</td><td>2</td><td>yes</td></tr><tr><td>You</td><td>73.41s</td><td>Prismatic Bolt</td><td>0</td><td>3</td><td>—</td></tr><tr><td>You</td><td>73.42s</td><td>Arcane Missiles</td><td>1</td><td>3</td><td>—</td></tr><tr><td>You</td><td>75.50s</td><td>Arcane Barrage</td><td>19</td><td>2</td><td>no</td></tr><tr><td>You</td><td>76.60s</td><td>Arcane Missiles</td><td>1</td><td>2</td><td>—</td></tr><tr><td>You</td><td>78.45s</td><td>Arcane Missiles</td><td>14</td><td>2</td><td>—</td></tr><tr><td>You</td><td>80.15s</td><td>Arcane Barrage</td><td>25</td><td>1</td><td>yes</td></tr><tr><td>You</td><td>81.25s</td><td>Arcane Missiles</td><td>0</td><td>1</td><td>—</td></tr><tr><td>You</td><td>83.90s</td><td>Arcane Barrage</td><td>11</td><td>0</td><td>no</td></tr><tr><td>You</td><td>85.00s</td><td>Arcane Orb</td><td>0</td><td>0</td><td>—</td></tr><tr><td>You</td><td>86.26s</td><td>Arcane Missiles</td><td>1</td><td>1</td><td>—</td></tr><tr><td>Sim</td><td>24.31s</td><td>Prismatic Bolt</td><td>25</td><td>2</td><td>—</td></tr><tr><td>Sim</td><td>25.80s</td><td>Arcane Barrage</td><td>25</td><td>3</td><td>no</td></tr><tr><td>Sim</td><td>26.70s</td><td>Arcane Missiles</td><td>0</td><td>3</td><td>—</td></tr><tr><td>Sim</td><td>27.77s</td><td>Arcane Missiles</td><td>10</td><td>2</td><td>—</td></tr><tr><td>Sim</td><td>29.47s</td><td>Arcane Barrage</td><td>25</td><td>2</td><td>yes</td></tr><tr><td>Sim</td><td>30.38s</td><td>Arcane Missiles</td><td>0</td><td>2</td><td>—</td></tr><tr><td>Sim</td><td>31.45s</td><td>Arcane Missiles</td><td>7</td><td>1</td><td>—</td></tr><tr><td>Sim</td><td>33.22s</td><td>Prismatic Bolt</td><td>21</td><td>0</td><td>—</td></tr><tr><td>Sim</td><td>34.74s</td><td>Arcane Barrage</td><td>25</td><td>1</td><td>yes</td></tr><tr><td>Sim</td><td>35.65s</td><td>Arcane Missiles</td><td>0</td><td>1</td><td>—</td></tr><tr><td>Sim</td><td>37.22s</td><td>Prismatic Bolt</td><td>25</td><td>1</td><td>—</td></tr><tr><td>Sim</td><td>38.74s</td><td>Arcane Barrage</td><td>25</td><td>2</td><td>yes</td></tr><tr><td>Sim</td><td>39.64s</td><td>Arcane Missiles</td><td>0</td><td>2</td><td>—</td></tr><tr><td>Sim</td><td>41.12s</td><td>Arcane Barrage</td><td>25</td><td>2</td><td>yes</td></tr><tr><td>Sim</td><td>42.30s</td><td>Arcane Missiles</td><td>0</td><td>2</td><td>—</td></tr><tr><td>Sim</td><td>43.69s</td><td>Arcane Missiles</td><td>9</td><td>2</td><td>—</td></tr><tr><td>Sim</td><td>45.79s</td><td>Prismatic Bolt</td><td>25</td><td>1</td><td>—</td></tr><tr><td>Sim</td><td>47.79s</td><td>Touch of the Magi</td><td>25</td><td>2</td><td>—</td></tr><tr><td>Sim</td><td>47.84s</td><td>Arcane Barrage</td><td>25</td><td>3</td><td>yes</td></tr><tr><td>Sim</td><td>49.03s</td><td>Arcane Missiles</td><td>0</td><td>3</td><td>—</td></tr><tr><td>Sim</td><td>50.44s</td><td>Arcane Missiles</td><td>10</td><td>2</td><td>—</td></tr><tr><td>Sim</td><td>52.57s</td><td>Arcane Barrage</td><td>23</td><td>1</td><td>no</td></tr><tr><td>Sim</td><td>53.76s</td><td>Arcane Missiles</td><td>0</td><td>1</td><td>—</td></tr><tr><td>Sim</td><td>55.16s</td><td>Arcane Missiles</td><td>11</td><td>1</td><td>—</td></tr><tr><td>Sim</td><td>57.33s</td><td>Prismatic Bolt</td><td>25</td><td>0</td><td>—</td></tr><tr><td>Sim</td><td>59.32s</td><td>Arcane Barrage</td><td>25</td><td>1</td><td>yes</td></tr><tr><td>Sim</td><td>60.50s</td><td>Arcane Missiles</td><td>0</td><td>1</td><td>—</td></tr><tr><td>Sim</td><td>62.42s</td><td>Arcane Blast</td><td>14</td><td>0</td><td>—</td></tr><tr><td>Sim</td><td>63.62s</td><td>Arcane Blast</td><td>16</td><td>0</td><td>—</td></tr><tr><td>Sim</td><td>64.82s</td><td>Arcane Blast</td><td>18</td><td>0</td><td>—</td></tr><tr><td>Sim</td><td>66.02s</td><td>Arcane Blast</td><td>20</td><td>1</td><td>—</td></tr><tr><td>Sim</td><td>67.21s</td><td>Arcane Barrage</td><td>22</td><td>1</td><td>no</td></tr><tr><td>Sim</td><td>68.38s</td><td>Arcane Missiles</td><td>0</td><td>1</td><td>—</td></tr><tr><td>Sim</td><td>70.24s</td><td>Prismatic Bolt</td><td>25</td><td>0</td><td>—</td></tr></tbody></table></div>
+    </div>
+
+    <div class="prose">
+      <p>The sim's line rides the ceiling: it reaches 25, dumps, rebuilds, reaches 25 again. Yours is a
+        sawtooth that frequently turns over at 16, 19 or 11 — one Missiles channel short of the cap.</p>
+      <p>Look at 63.9s in your tape. Prismatic Bolt resets Salvo to 0, one Missiles channel carries it to 16,
+        and Barrage fires there. Compare it with 45.3s, four cycles earlier: identical opening, but a
+        <em>second</em> channel takes it to 25 and the Barrage lands with Intuition. Same situation, two
+        different decisions, roughly 25% Barrage damage between them.</p>
+      <p>Notice too what the sim does at 62–67s when Clearcasting runs dry: four consecutive Arcane Blasts,
+        walking Salvo 14 → 16 → 18 → 20 → 22, then Barrage. That is what the extra Blasts in the next chart
+        are for.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">Finding 02 &amp; 03</p>
+    <h2>Where the GCDs actually go</h2>
+    <p class="lede">You out-cast the sim on total GCDs. The difference is in the mix, and it points at the same
+      root cause.</p>
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">Casts per 300 seconds</p>
+        <button class="tbtn" data-toggle="t-cast">Table view</button>
+      </div>
+      <p class="card-note">Your figures are the mean of five pulls; the sim is its sampled iteration.</p>
+      <div class="legend" style="margin-bottom:14px">
+        <span><span class="swatch sw-you"></span>Your play</span>
+        <span><span class="swatch sw-sim"></span>Sim optimum</span>
+      </div>
+      <div class="chart-scroll"><div id="c-cast"><svg viewBox="0 0 900 372" role="img" style="min-width: 680px;" aria-label="Casts per 300 seconds, your play versus sim"><line x1="150" y1="16" x2="150" y2="338" stroke="var(--grid)" stroke-width="1"></line><text x="150" y="360" text-anchor="middle" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">0</text><line x1="380" y1="16" x2="380" y2="338" stroke="var(--grid)" stroke-width="1"></line><text x="380" y="360" text-anchor="middle" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">25</text><line x1="610" y1="16" x2="610" y2="338" stroke="var(--grid)" stroke-width="1"></line><text x="610" y="360" text-anchor="middle" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">50</text><line x1="840" y1="16" x2="840" y2="338" stroke="var(--grid)" stroke-width="1"></line><text x="840" y="360" text-anchor="middle" font-size="11.5" fill="var(--muted)" style="font-variant-numeric:tabular-nums">75</text><text x="136" y="43" text-anchor="end" font-size="13" fill="var(--ink)">Arcane Missiles</text><path d="M150,25 H790 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="802" y="35" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">70</text><path d="M150,40 H780.8000000000001 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="792.8000000000001" y="50" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">69</text><text x="136" y="89" text-anchor="end" font-size="13" fill="var(--ink)">Arcane Barrage</text><path d="M150,71 H758.7199999999999 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="770.7199999999999" y="81" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">66.6</text><path d="M150,86 H661.2 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="673.2" y="96" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">56</text><text x="136" y="135" text-anchor="end" font-size="13" fill="var(--ink)">Prismatic Bolt</text><path d="M150,117 H374.15999999999997 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="386.15999999999997" y="127" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">24.8</text><path d="M150,132 H403.6 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="415.6" y="142" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">28</text><text x="136" y="181" text-anchor="end" font-size="13" fill="var(--ink)">Arcane Blast</text><path d="M150,163 H342.88 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="354.88" y="173" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">21.4</text><path d="M150,178 H431.2 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="443.2" y="188" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">31</text><text x="136" y="227" text-anchor="end" font-size="13" fill="var(--ink)">Arcane Orb</text><path d="M150,209 H219.60000000000002 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="231.60000000000002" y="219" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">8</text><path d="M150,224 H155.2 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="167.2" y="234" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">1</text><text x="136" y="273" text-anchor="end" font-size="13" fill="var(--ink)">Touch of the Magi</text><path d="M150,255 H210.4 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="222.4" y="265" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">7</text><path d="M150,270 H201.2 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="213.2" y="280" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">6</text><text x="136" y="319" text-anchor="end" font-size="13" fill="var(--ink)">Arcane Surge</text><path d="M150,301 H182.8 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--you)" style="cursor: crosshair;"></path><text x="194.8" y="311" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">4</text><path d="M150,316 H173.6 a4,4 0 0 1 4,4 v5 a4,4 0 0 1 -4,4 H150 Z" fill="var(--sim)" style="cursor: crosshair;"></path><text x="185.6" y="326" font-size="11.5" fill="var(--ink-2)" style="font-variant-numeric:tabular-nums">3</text><line x1="150" y1="16" x2="150" y2="338" stroke="var(--baseline)" stroke-width="1"></line></svg></div></div>
+      <div id="t-cast" hidden=""><table><thead><tr><th>Ability</th><th>Your play / 300s</th><th>Sim / 300s</th><th>Difference</th></tr></thead><tbody><tr><td>Arcane Missiles</td><td>70</td><td>69</td><td>+1.0</td></tr><tr><td>Arcane Barrage</td><td>66.6</td><td>56</td><td>+10.6</td></tr><tr><td>Prismatic Bolt</td><td>24.8</td><td>28</td><td>-3.2</td></tr><tr><td>Arcane Blast</td><td>21.4</td><td>31</td><td>-9.6</td></tr><tr><td>Arcane Orb</td><td>8</td><td>1</td><td>+7.0</td></tr><tr><td>Touch of the Magi</td><td>7</td><td>6</td><td>+1.0</td></tr><tr><td>Arcane Surge</td><td>4</td><td>3</td><td>+1.0</td></tr></tbody></table></div>
+    </div>
+
+    <div class="finding">
+      <p class="rank">02</p>
+      <div>
+        <h3>Ten extra Barrages, ten fewer Blasts<span class="tag">root cause</span></h3>
+        <p>You consume roughly the same total Salvo as the sim — spread across ten more Barrage GCDs.
+          The sim spends those GCDs on Arcane Blast to bridge 21 → 25; you spend them on additional,
+          weaker Barrages. Salvo also sits pinned at the 25 cap for <b>~22 seconds per pull</b>, and
+          <b>18% of your Missiles casts start above the <code style="font-family:var(--f-mono)">&lt;12</code> gate</b>,
+          so the drift runs in both directions. It is cycle timing, not a one-way bias.</p>
+      </div>
+    </div>
+
+    <div class="finding">
+      <p class="rank">03</p>
+      <div>
+        <h3>Arcane Orb is being hard-cast eight times a pull<span class="tag">easy fix</span></h3>
+        <p>The sim hard-casts it <b>once</b>. Orb is gated to <code style="font-family:var(--f-mono)">arcane_charge &lt; 1</code> —
+          it is a charge fallback, not a damage button, and Orb Barrage already hands you roughly 48 free orbs
+          per pull. That is about seven GCDs per pull on your lowest-value spell. Arcane Blast strictly beats it
+          as a builder: 2 charges, 2 Salvo, and real damage.</p>
+      </div>
+    </div>
+
+    <div class="finding">
+      <p class="rank">04</p>
+      <div>
+        <h3>Arcane Soul windows are entered nearly empty<span class="tag">secondary</span></h3>
+        <p>The window lands a fixed <b>17.4 seconds after Arcane Surge</b> — entirely predictable. Barrage does
+          not consume Salvo inside it, so every Barrage fires at whatever you brought in. You entered
+          <b>7 of 15 windows at 3 Salvo or fewer</b>. Bank to 25 as it approaches. Weighted lower than the items
+          above because the sim is not clean here either.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-mark">Do not spend effort here</p>
+    <h2>Four things that are already right</h2>
+    <p class="lede">Each of these was checked and cleared. Two of them looked like problems until they were
+      compared against the sim.</p>
+
+    <div class="clear"><p><b>Downtime.</b> Median delay after a Missiles channel is <b>0.12s</b>. You fire 210 GCDs
+      against the sim's 198. Mechanically you are fast — there is nothing to win here.</p></div>
+    <div class="clear"><p><b>Cooldowns.</b> Surge → Touch of the Magi pairing lands within 0.2–0.6s every time,
+      with 4 Surges and 7 Touches per pull. Both ahead of the sim.</p></div>
+    <div class="clear"><p><b>Prismatic Bolt.</b> 93% of casts at Cumulative Power 8/8, which is correct under your
+      4-piece. Holding the proc around 3 seconds is the intended behaviour, not a mistake.</p></div>
+    <div class="clear"><p><b>Clearcasting overcap.</b> Nearly flagged — 58–74 wasted procs per pull looks alarming.
+      But the sim has Clearcasting up on 94% of its Barrages too, with a comparable capped rate. It is structural
+      oversupply, not your error.</p></div>
+  </section>
+
+  <section>
+    <p class="sec-mark">What to change</p>
+    <h2>Three habits, in priority order</h2>
+    <ul class="fix">
+      <li><b>Count to 25 before Barrage.</b> After a Barrage resets you to 0, it takes <em>two</em> full Missiles
+        channels to reach the cap. If you land at 16–21 with no Clearcasting banked, cast Arcane Blast to top off
+        rather than firing Barrage. This is the whole finding.</li>
+      <li><b>Stop hard-casting Arcane Orb.</b> Press it only when you are genuinely out of Arcane Charges. Those
+        GCDs belong to Arcane Blast.</li>
+      <li><b>Bank Salvo into Arcane Soul.</b> It arrives 17.4s after Arcane Surge, every time. Arrive at 25.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p><b>Method.</b> Cast, buff and damage events pulled from the WarcraftLogs v2 API for report
+      <code>vAtQGNpDqJHyw9mn</code>; talents resolved from the log's own <code>CombatantInfo</code> node IDs
+      against the Raidbots PTR talent feed, confirming full Sunfury and 5 tier pieces. Benchmark is Raidbots
+      report <code>38BorEbHSzMrsQmgug8J2B</code>, 100,000 iterations, simc build 4 Aug 2026 with
+      <code>ptr_enabled</code>.</p>
+    <p><b>Caveat worth carrying.</b> The sim models <em>no Arcane Phoenix damage at all</em> and Arcane Orb at
+      0.06%, while your log shows 2.9% and 3.2%. Per-ability damage shares are therefore not comparable across
+      sim and log — only the behavioural metrics used above are.</p>
+  </footer>
+</div>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var tip = document.getElementById("tip");
+  function showTip(e, html) {
+    tip.innerHTML = html;
+    tip.classList.add("on");
+    var pad = 14, w = tip.offsetWidth, h = tip.offsetHeight;
+    var x = e.clientX + pad, y = e.clientY - h - pad;
+    if (x + w > window.innerWidth - 8) x = e.clientX - w - pad;
+    if (y < 8) y = e.clientY + pad;
+    tip.style.left = x + "px";
+    tip.style.top = y + "px";
+  }
+  function hideTip() { tip.classList.remove("on"); }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function el(n, a) {
+    var m = document.createElementNS(NS, n);
+    for (var k in a) if (a.hasOwnProperty(k)) m.setAttribute(k, a[k]);
+    return m;
+  }
+  function svgRoot(w, h) {
+    var s = el("svg", { viewBox: "0 0 " + w + " " + h, role: "img" });
+    s.style.minWidth = Math.min(w, 680) + "px";
+    return s;
+  }
+  function fmt(n) { return n.toLocaleString("en-US"); }
+
+  /* ---------------- data ---------------- */
+
+  var DPS = [
+    { pull: "Pull 1", v: 120377, fed: false },
+    { pull: "Pull 2", v: 117134, fed: false },
+    { pull: "Pull 3", v: 136259, fed: true },
+    { pull: "Pull 4", v: 136317, fed: true },
+    { pull: "Pull 5", v: 134254, fed: true }
+  ];
+  var SIM_DPS = 161530;
+
+  var HIST = [
+    { b: "25 (cap)", you: 42.1, sim: 70.8, yn: 123, sn: 34 },
+    { b: "20–24",    you: 16.8, sim: 8.3,  yn: 49,  sn: 4 },
+    { b: "15–19",    you: 18.2, sim: 12.5, yn: 53,  sn: 6 },
+    { b: "12–14",    you: 14.7, sim: 4.2,  yn: 43,  sn: 2 },
+    { b: "under 12", you: 8.2,  sim: 4.2,  yn: 24,  sn: 2 }
+  ];
+
+  var CASTS = [
+    { a: "Arcane Missiles",   you: 70.0, sim: 69 },
+    { a: "Arcane Barrage",    you: 66.6, sim: 56 },
+    { a: "Prismatic Bolt",    you: 24.8, sim: 28 },
+    { a: "Arcane Blast",      you: 21.4, sim: 31 },
+    { a: "Arcane Orb",        you: 8.0,  sim: 1 },
+    { a: "Touch of the Magi", you: 7.0,  sim: 6 },
+    { a: "Arcane Surge",      you: 4.0,  sim: 3 }
+  ];
+
+  var YOU_SEQ = [{"t":40.84,"a":"PB","s":10,"cc":2,"i":false},{"t":41.02,"a":"AM","s":14,"cc":3,"i":false},{"t":42.19,"a":"AB!","s":25,"cc":2,"i":true},{"t":45.3,"a":"PB","s":0,"cc":3,"i":false},{"t":45.31,"a":"AM","s":1,"cc":3,"i":false},{"t":47.26,"a":"AM","s":16,"cc":2,"i":false},{"t":49.23,"a":"AB!","s":25,"cc":1,"i":true},{"t":49.52,"a":"ToM","s":0,"cc":1,"i":false},{"t":52.36,"a":"PB","s":0,"cc":2,"i":false},{"t":52.36,"a":"AM","s":5,"cc":3,"i":false},{"t":54.15,"a":"AM","s":18,"cc":2,"i":false},{"t":55.85,"a":"AB!","s":25,"cc":1,"i":true},{"t":59,"a":"PB","s":0,"cc":2,"i":false},{"t":59,"a":"AM","s":1,"cc":3,"i":false},{"t":60.7,"a":"AB!","s":25,"cc":2,"i":true},{"t":63.85,"a":"PB","s":0,"cc":3,"i":false},{"t":63.86,"a":"AM","s":5,"cc":3,"i":false},{"t":65.59,"a":"AB!","s":16,"cc":3,"i":false},{"t":66.76,"a":"AM","s":1,"cc":3,"i":false},{"t":68.42,"a":"AM","s":12,"cc":3,"i":false},{"t":70.28,"a":"AB!","s":25,"cc":2,"i":true},{"t":73.41,"a":"PB","s":0,"cc":3,"i":false},{"t":73.42,"a":"AM","s":1,"cc":3,"i":false},{"t":75.5,"a":"AB!","s":19,"cc":2,"i":false},{"t":76.6,"a":"AM","s":1,"cc":2,"i":false},{"t":78.45,"a":"AM","s":14,"cc":2,"i":false},{"t":80.15,"a":"AB!","s":25,"cc":1,"i":true},{"t":81.25,"a":"AM","s":0,"cc":1,"i":false},{"t":83.9,"a":"AB!","s":11,"cc":0,"i":false},{"t":85,"a":"AO","s":0,"cc":0,"i":false},{"t":86.26,"a":"AM","s":1,"cc":1,"i":false}];
+
+  var SIM_SEQ = [{"t":24.31,"a":"PB","s":25,"cc":2,"i":false},{"t":25.80,"a":"AB!","s":25,"cc":3,"i":false},{"t":26.7,"a":"AM","s":0,"cc":3,"i":false},{"t":27.77,"a":"AM","s":10,"cc":2,"i":false},{"t":29.47,"a":"AB!","s":25,"cc":2,"i":true},{"t":30.38,"a":"AM","s":0,"cc":2,"i":false},{"t":31.45,"a":"AM","s":7,"cc":1,"i":false},{"t":33.22,"a":"PB","s":21,"cc":0,"i":false},{"t":34.74,"a":"AB!","s":25,"cc":1,"i":true},{"t":35.65,"a":"AM","s":0,"cc":1,"i":false},{"t":37.22,"a":"PB","s":25,"cc":1,"i":true},{"t":38.74,"a":"AB!","s":25,"cc":2,"i":true},{"t":39.64,"a":"AM","s":0,"cc":2,"i":false},{"t":41.12,"a":"AB!","s":25,"cc":2,"i":true},{"t":42.30,"a":"AM","s":0,"cc":2,"i":false},{"t":43.69,"a":"AM","s":9,"cc":2,"i":false},{"t":45.79,"a":"PB","s":25,"cc":1,"i":true},{"t":47.79,"a":"ToM","s":25,"cc":2,"i":true},{"t":47.84,"a":"AB!","s":25,"cc":3,"i":true},{"t":49.03,"a":"AM","s":0,"cc":3,"i":false},{"t":50.44,"a":"AM","s":10,"cc":2,"i":false},{"t":52.57,"a":"AB!","s":23,"cc":1,"i":false},{"t":53.76,"a":"AM","s":0,"cc":1,"i":false},{"t":55.16,"a":"AM","s":11,"cc":1,"i":false},{"t":57.33,"a":"PB","s":25,"cc":0,"i":true},{"t":59.32,"a":"AB!","s":25,"cc":1,"i":true},{"t":60.50,"a":"AM","s":0,"cc":1,"i":false},{"t":62.42,"a":"ABl","s":14,"cc":0,"i":false},{"t":63.62,"a":"ABl","s":16,"cc":0,"i":false},{"t":64.82,"a":"ABl","s":18,"cc":0,"i":false},{"t":66.02,"a":"ABl","s":20,"cc":1,"i":false},{"t":67.21,"a":"AB!","s":22,"cc":1,"i":false},{"t":68.38,"a":"AM","s":0,"cc":1,"i":false},{"t":70.24,"a":"PB","s":25,"cc":0,"i":true}];
+
+  var ABBR = { "AM": "Arcane Missiles", "AB!": "Arcane Barrage", "PB": "Prismatic Bolt", "ABl": "Arcane Blast", "AO": "Arcane Orb", "ToM": "Touch of the Magi", "AS": "Arcane Surge" };
+
+  /* ---------------- chart 1 — DPS per pull ---------------- */
+
+  (function () {
+    var W = 900, H = 330, L = 66, R = 24, T = 34, B = 62;
+    var pw = W - L - R, ph = H - T - B;
+    var max = 175000;
+    var s = svgRoot(W, H);
+    s.setAttribute("aria-label", "Damage per pull against the simulated ceiling of 161,530");
+
+    [0, 50000, 100000, 150000].forEach(function (v) {
+      var y = T + ph - (v / max) * ph;
+      s.appendChild(el("line", { x1: L, y1: y, x2: L + pw, y2: y, stroke: "var(--grid)", "stroke-width": 1 }));
+      var tx = el("text", { x: L - 12, y: y + 4, "text-anchor": "end", "font-size": 11.5, fill: "var(--muted)", style: "font-variant-numeric:tabular-nums" });
+      tx.textContent = v === 0 ? "0" : (v / 1000) + "k";
+      s.appendChild(tx);
+    });
+
+    var bw = pw / DPS.length;
+    DPS.forEach(function (d, i) {
+      var h = (d.v / max) * ph;
+      var x = L + i * bw + bw * 0.24;
+      var w = bw * 0.52;
+      var y = T + ph - h;
+      var r = el("path", {
+        d: "M" + x + "," + (T + ph) + " V" + (y + 4) + " a4,4 0 0 1 4,-4 H" + (x + w - 4) + " a4,4 0 0 1 4,4 V" + (T + ph) + " Z",
+        fill: "var(--you)"
+      });
+      r.style.cursor = "crosshair";
+      var lbl = d.fed ? "food buff active" : "NO food buff";
+      r.addEventListener("mousemove", function (e) {
+        showTip(e, "<b>" + d.pull + "</b><br>" + fmt(d.v) + " DPS<br>" + lbl + "<br>" + (100 * d.v / SIM_DPS).toFixed(1) + "% of sim");
+      });
+      r.addEventListener("mouseleave", hideTip);
+      s.appendChild(r);
+
+      var v = el("text", { x: x + w / 2, y: y - 10, "text-anchor": "middle", "font-size": 12.5, fill: "var(--ink)", "font-weight": 600 });
+      v.textContent = Math.round(d.v / 1000) + "k";
+      s.appendChild(v);
+
+      var nm = el("text", { x: x + w / 2, y: T + ph + 20, "text-anchor": "middle", "font-size": 12, fill: "var(--ink-2)" });
+      nm.textContent = d.pull;
+      s.appendChild(nm);
+
+      if (!d.fed) {
+        var f = el("text", { x: x + w / 2, y: T + ph + 38, "text-anchor": "middle", "font-size": 10.5, fill: "var(--muted)" });
+        f.textContent = "no food buff";
+        s.appendChild(f);
+      }
+    });
+
+    var sy = T + ph - (SIM_DPS / max) * ph;
+    s.appendChild(el("line", { x1: L, y1: sy, x2: L + pw, y2: sy, stroke: "var(--sim)", "stroke-width": 2 }));
+    var st = el("text", { x: L + pw, y: sy - 10, "text-anchor": "end", "font-size": 12, fill: "var(--sim)", "font-weight": 600 });
+    st.textContent = "Sim 161,530";
+    s.appendChild(st);
+
+    s.appendChild(el("line", { x1: L, y1: T + ph, x2: L + pw, y2: T + ph, stroke: "var(--baseline)", "stroke-width": 1 }));
+    document.getElementById("c-dps").appendChild(s);
+
+    table("t-dps", ["Pull", "DPS", "Food buff", "% of sim"], DPS.map(function (d) {
+      return [d.pull, fmt(d.v), d.fed ? "yes" : "no", (100 * d.v / SIM_DPS).toFixed(1) + "%"];
+    }));
+  })();
+
+  /* ---------------- chart 2 — histogram ---------------- */
+
+  (function () {
+    var W = 900, H = 340, L = 66, R = 24, T = 20, B = 54;
+    var pw = W - L - R, ph = H - T - B, max = 75;
+    var s = svgRoot(W, H);
+    s.setAttribute("aria-label", "Distribution of Arcane Salvo consumed per Barrage, your play versus sim");
+
+    [0, 25, 50, 75].forEach(function (v) {
+      var y = T + ph - (v / max) * ph;
+      s.appendChild(el("line", { x1: L, y1: y, x2: L + pw, y2: y, stroke: "var(--grid)", "stroke-width": 1 }));
+      var tx = el("text", { x: L - 12, y: y + 4, "text-anchor": "end", "font-size": 11.5, fill: "var(--muted)", style: "font-variant-numeric:tabular-nums" });
+      tx.textContent = v + "%";
+      s.appendChild(tx);
+    });
+
+    var gw = pw / HIST.length;
+    HIST.forEach(function (d, i) {
+      var cx = L + i * gw + gw / 2;
+      var bw = Math.min(46, gw * 0.3);
+      [["you", "var(--you)", -bw / 2 - 1], ["sim", "var(--sim)", bw / 2 + 1]].forEach(function (p) {
+        var val = d[p[0]];
+        var h = (val / max) * ph;
+        var x = cx + p[2] - (p[2] < 0 ? bw : 0);
+        var y = T + ph - h;
+        var r = el("path", {
+          d: "M" + x + "," + (T + ph) + " V" + (y + 4) + " a4,4 0 0 1 4,-4 H" + (x + bw - 4) + " a4,4 0 0 1 4,4 V" + (T + ph) + " Z",
+          fill: p[1]
+        });
+        r.style.cursor = "crosshair";
+        var who = p[0] === "you" ? "Your play" : "Sim optimum";
+        var n = p[0] === "you" ? d.yn : d.sn;
+        r.addEventListener("mousemove", function (e) {
+          showTip(e, "<b>" + who + "</b><br>Salvo " + d.b + "<br>" + val.toFixed(1) + "% &nbsp;(" + n + " casts)");
+        });
+        r.addEventListener("mouseleave", hideTip);
+        s.appendChild(r);
+
+        if (i === 0) {
+          var vt = el("text", { x: x + bw / 2, y: y - 9, "text-anchor": "middle", "font-size": 12.5, "font-weight": 600, fill: "var(--ink)" });
+          vt.textContent = val.toFixed(0) + "%";
+          s.appendChild(vt);
+        }
+      });
+
+      var nm = el("text", { x: cx, y: T + ph + 22, "text-anchor": "middle", "font-size": 12, fill: "var(--ink-2)" });
+      nm.textContent = d.b;
+      s.appendChild(nm);
+    });
+
+    var ax = el("text", { x: L + pw / 2, y: H - 8, "text-anchor": "middle", "font-size": 11.5, fill: "var(--muted)" });
+    ax.textContent = "Arcane Salvo stacks consumed by the Barrage";
+    s.appendChild(ax);
+    s.appendChild(el("line", { x1: L, y1: T + ph, x2: L + pw, y2: T + ph, stroke: "var(--baseline)", "stroke-width": 1 }));
+    document.getElementById("c-hist").appendChild(s);
+
+    table("t-hist", ["Salvo consumed", "Your play", "count", "Sim", "count"], HIST.map(function (d) {
+      return [d.b, d.you.toFixed(1) + "%", d.yn, d.sim.toFixed(1) + "%", d.sn];
+    }));
+  })();
+
+  /* ---------------- chart 3 — sequence tapes ---------------- */
+
+  (function () {
+    var W = 960, PH = 150, GAP = 46, L = 60, R = 20, T = 26;
+    var H = T + PH * 2 + GAP + 44;
+    var pw = W - L - R, max = 25, span = 48;
+    var s = svgRoot(W, H);
+    s.setAttribute("aria-label", "Arcane Salvo trajectory cast by cast, your play compared with the sim");
+
+    function panel(data, t0, top, color, label) {
+      var x = function (t) { return L + ((t - t0) / span) * pw; };
+      var y = function (v) { return top + PH - (v / max) * PH; };
+
+      var lb = el("text", { x: L, y: top - 9, "font-size": 12, "font-weight": 600, fill: color });
+      lb.textContent = label;
+      s.appendChild(lb);
+
+      [0, 12, 25].forEach(function (v) {
+        var yy = y(v);
+        s.appendChild(el("line", {
+          x1: L, y1: yy, x2: L + pw, y2: yy,
+          stroke: v === 25 ? "var(--baseline)" : "var(--grid)", "stroke-width": v === 25 ? 2 : 1
+        }));
+        var tx = el("text", { x: L - 10, y: yy + 4, "text-anchor": "end", "font-size": 11, fill: "var(--muted)", style: "font-variant-numeric:tabular-nums" });
+        tx.textContent = v;
+        s.appendChild(tx);
+      });
+
+      // stepped path
+      var d = "M" + x(data[0].t) + "," + y(data[0].s);
+      for (var i = 1; i < data.length; i++) {
+        d += " L" + x(data[i].t) + "," + y(data[i - 1].s) + " L" + x(data[i].t) + "," + y(data[i].s);
+      }
+      var area = d + " L" + x(data[data.length - 1].t) + "," + y(0) + " L" + x(data[0].t) + "," + y(0) + " Z";
+      s.appendChild(el("path", { d: area, fill: color, opacity: 0.11 }));
+      s.appendChild(el("path", { d: d, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round" }));
+
+      data.forEach(function (p) {
+        var isB = p.a === "AB!";
+        var px = x(p.t), py = y(p.s);
+        if (isB) {
+          s.appendChild(el("circle", { cx: px, cy: py, r: 6.5, fill: "var(--surface)" }));
+          s.appendChild(el("circle", {
+            cx: px, cy: py, r: 4.5,
+            fill: p.i ? color : "var(--surface)",
+            stroke: color, "stroke-width": 2
+          }));
+        } else {
+          s.appendChild(el("circle", { cx: px, cy: py, r: 2.4, fill: color, opacity: 0.5 }));
+        }
+        var hit = el("circle", { cx: px, cy: py, r: 13, fill: "transparent" });
+        hit.style.cursor = "crosshair";
+        hit.setAttribute("tabindex", "0");
+        var body = "<b>" + ABBR[p.a] + "</b><br>t = " + p.t.toFixed(1) + "s<br>Salvo " + p.s + " / 25<br>Clearcasting " + p.cc + (isB ? "<br>" + (p.i ? "Intuition captured" : "no Intuition") : "");
+        hit.addEventListener("mousemove", function (e) { showTip(e, body); });
+        hit.addEventListener("mouseleave", hideTip);
+        hit.addEventListener("focus", function () {
+          var r = hit.getBoundingClientRect();
+          showTip({ clientX: r.left + r.width / 2, clientY: r.top }, body);
+        });
+        hit.addEventListener("blur", hideTip);
+        s.appendChild(hit);
+      });
+
+      for (var t = 0; t <= span; t += 8) {
+        var tx2 = el("text", { x: x(t0 + t), y: top + PH + 17, "text-anchor": "middle", "font-size": 10.5, fill: "var(--muted)", style: "font-variant-numeric:tabular-nums" });
+        tx2.textContent = "+" + t + "s";
+        s.appendChild(tx2);
+      }
+      s.appendChild(el("line", { x1: L, y1: top + PH, x2: L + pw, y2: top + PH, stroke: "var(--baseline)", "stroke-width": 1 }));
+    }
+
+    panel(YOU_SEQ, 40, T, "var(--you)", "Your play — turns over at 16, 19, 11");
+    panel(SIM_SEQ, 24, T + PH + GAP, "var(--sim)", "Sim optimum — rides the 25 cap");
+
+    document.getElementById("c-seq").appendChild(s);
+
+    var rows = [];
+    YOU_SEQ.forEach(function (p) { rows.push(["You", p.t.toFixed(2) + "s", ABBR[p.a], p.s, p.cc, p.a === "AB!" ? (p.i ? "yes" : "no") : "—"]); });
+    SIM_SEQ.forEach(function (p) { rows.push(["Sim", p.t.toFixed(2) + "s", ABBR[p.a], p.s, p.cc, p.a === "AB!" ? (p.i ? "yes" : "no") : "—"]); });
+    table("t-seq", ["Source", "Time", "Cast", "Salvo", "Clearcasting", "Intuition"], rows);
+  })();
+
+  /* ---------------- chart 4 — cast composition ---------------- */
+
+  (function () {
+    var W = 900, rowH = 46, T = 16, L = 150, R = 60;
+    var H = T + CASTS.length * rowH + 34;
+    var pw = W - L - R, max = 75;
+    var s = svgRoot(W, H);
+    s.setAttribute("aria-label", "Casts per 300 seconds, your play versus sim");
+
+    [0, 25, 50, 75].forEach(function (v) {
+      var x = L + (v / max) * pw;
+      s.appendChild(el("line", { x1: x, y1: T, x2: x, y2: T + CASTS.length * rowH, stroke: "var(--grid)", "stroke-width": 1 }));
+      var tx = el("text", { x: x, y: H - 12, "text-anchor": "middle", "font-size": 11.5, fill: "var(--muted)", style: "font-variant-numeric:tabular-nums" });
+      tx.textContent = v;
+      s.appendChild(tx);
+    });
+
+    CASTS.forEach(function (d, i) {
+      var top = T + i * rowH;
+      var nm = el("text", { x: L - 14, y: top + rowH / 2 + 4, "text-anchor": "end", "font-size": 13, fill: "var(--ink)" });
+      nm.textContent = d.a;
+      s.appendChild(nm);
+
+      var bh = 13;
+      [["you", "var(--you)", top + rowH / 2 - bh - 1], ["sim", "var(--sim)", top + rowH / 2 + 1]].forEach(function (p) {
+        var val = d[p[0]];
+        var w = Math.max((val / max) * pw, 2);
+        var y = p[2];
+        var r = el("path", {
+          d: "M" + L + "," + y + " H" + (L + w - 4) + " a4,4 0 0 1 4,4 v" + (bh - 8) + " a4,4 0 0 1 -4,4 H" + L + " Z",
+          fill: p[1]
+        });
+        r.style.cursor = "crosshair";
+        var who = p[0] === "you" ? "Your play (mean of 5 pulls)" : "Sim optimum";
+        r.addEventListener("mousemove", function (e) { showTip(e, "<b>" + d.a + "</b><br>" + who + "<br>" + val + " casts / 300s"); });
+        r.addEventListener("mouseleave", hideTip);
+        s.appendChild(r);
+
+        var vt = el("text", { x: L + w + 8, y: y + bh - 3, "font-size": 11.5, fill: "var(--ink-2)", style: "font-variant-numeric:tabular-nums" });
+        vt.textContent = val;
+        s.appendChild(vt);
+      });
+    });
+
+    s.appendChild(el("line", { x1: L, y1: T, x2: L, y2: T + CASTS.length * rowH, stroke: "var(--baseline)", "stroke-width": 1 }));
+    document.getElementById("c-cast").appendChild(s);
+
+    table("t-cast", ["Ability", "Your play / 300s", "Sim / 300s", "Difference"], CASTS.map(function (d) {
+      var diff = (d.you - d.sim);
+      return [d.a, d.you, d.sim, (diff > 0 ? "+" : "") + diff.toFixed(1)];
+    }));
+  })();
+
+  /* ---------------- table view ---------------- */
+
+  function table(id, head, rows) {
+    var host = document.getElementById(id);
+    var t = document.createElement("table");
+    var th = document.createElement("thead");
+    var tr = document.createElement("tr");
+    head.forEach(function (h) { var c = document.createElement("th"); c.textContent = h; tr.appendChild(c); });
+    th.appendChild(tr); t.appendChild(th);
+    var tb = document.createElement("tbody");
+    rows.forEach(function (r) {
+      var row = document.createElement("tr");
+      r.forEach(function (v) { var c = document.createElement("td"); c.textContent = v; row.appendChild(c); });
+      tb.appendChild(row);
+    });
+    t.appendChild(tb);
+    host.appendChild(t);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-toggle]"), function (b) {
+    b.addEventListener("click", function () {
+      var t = document.getElementById(b.getAttribute("data-toggle"));
+      var open = !t.hasAttribute("hidden");
+      if (open) { t.setAttribute("hidden", ""); b.textContent = "Table view"; }
+      else { t.removeAttribute("hidden"); b.textContent = "Hide table"; }
+    });
+  });
+
+  window.addEventListener("scroll", hideTip, { passive: true });
+})();
+</script>
+
+</body>
