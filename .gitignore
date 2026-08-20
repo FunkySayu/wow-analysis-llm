@@ -1,1 +1,6 @@
 .env
+backend/.cache/
+backend/**/__pycache__/
+*.pyc
+vendor/simc/build/
+scratch/
