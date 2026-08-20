@@ -1,0 +1,557 @@
+<title>Balance Druid 12.1 Audit</title>
+<style>
+  :root{
+    --ground:#F6F5F9; --surface:#FFFFFF; --surface-2:#FBFAFD;
+    --ink:#191726; --ink-2:#3D3A52; --muted:#6A6780;
+    --rule:#E3E1EB; --rule-strong:#CFCCDC;
+    --accent:#6B4FBF; --accent-soft:#EDE8FB;
+    --solar:#A9682B; --solar-soft:#FBF1E4;
+    --pos:#2C7A58; --pos-soft:#E4F2EB;
+    --neg:#AC4239; --neg-soft:#FBEAE8;
+    --shadow:0 1px 2px rgba(25,23,38,.05), 0 8px 24px -12px rgba(25,23,38,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0E0D14; --surface:#171622; --surface-2:#1D1B2A;
+      --ink:#DFDDEA; --ink-2:#BAB7CC; --muted:#918EA6;
+      --rule:#292739; --rule-strong:#3A3750;
+      --accent:#A896F2; --accent-soft:#241F3A;
+      --solar:#D8A263; --solar-soft:#2A2114;
+      --pos:#5CBE8E; --pos-soft:#16281F;
+      --neg:#E27A70; --neg-soft:#2C1A18;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0E0D14; --surface:#171622; --surface-2:#1D1B2A;
+    --ink:#DFDDEA; --ink-2:#BAB7CC; --muted:#918EA6;
+    --rule:#292739; --rule-strong:#3A3750;
+    --accent:#A896F2; --accent-soft:#241F3A;
+    --solar:#D8A263; --solar-soft:#2A2114;
+    --pos:#5CBE8E; --pos-soft:#16281F;
+    --neg:#E27A70; --neg-soft:#2C1A18;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+  }
+  *{box-sizing:border-box}
+  body{background:var(--ground); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:16px; line-height:1.62; margin:0; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:64rem; margin:0 auto; padding:0 1.5rem 6rem;}
+  .col{max-width:45rem}
+  h1,h2,h3,h4{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    text-wrap:balance; margin:0; font-weight:600;}
+  h1{font-size:clamp(2.1rem,1.4rem + 2.6vw,3.1rem); line-height:1.12; letter-spacing:-.015em;}
+  h2{font-size:1.6rem; line-height:1.25; letter-spacing:-.01em;}
+  h3{font-size:1.06rem; line-height:1.35;}
+  h4{font-size:1rem}
+  p{margin:0}
+  a{color:var(--accent)}
+  code{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace; font-size:.86em;
+    background:var(--surface-2); border:1px solid var(--rule); border-radius:4px; padding:.08em .34em;}
+
+  header.mast{border-bottom:1px solid var(--rule); padding:4.5rem 0 2.25rem; display:flex; flex-direction:column; gap:1.15rem;}
+  .eyebrow{font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); font-weight:600;}
+  .standfirst{font-size:1.14rem; color:var(--ink-2); max-width:41rem;}
+  .meta{display:flex; flex-wrap:wrap; gap:.4rem 1.5rem; font-size:.8rem; color:var(--muted);
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; padding-top:.35rem;}
+  .meta b{color:var(--ink-2); font-weight:600}
+
+  .verdict{margin-top:2.5rem; background:var(--surface); border:1px solid var(--rule);
+    border-left:3px solid var(--accent); border-radius:6px; padding:1.5rem 1.6rem;
+    box-shadow:var(--shadow); display:flex; flex-direction:column; gap:.75rem;}
+  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(11rem,1fr)); gap:1px; background:var(--rule);
+    border:1px solid var(--rule); border-radius:6px; overflow:hidden; margin-top:2.5rem;}
+  .tile{background:var(--surface); padding:1.15rem 1.2rem; display:flex; flex-direction:column; gap:.3rem;}
+  .tile .k{font-size:.68rem; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); font-weight:600;}
+  .tile .v{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:1.45rem;
+    font-variant-numeric:tabular-nums; line-height:1.1; letter-spacing:-.02em;}
+  .tile .s{font-size:.78rem; color:var(--muted);}
+
+  section{padding-top:3.6rem; display:flex; flex-direction:column; gap:1rem;}
+  .sechead{display:flex; align-items:baseline; gap:.85rem; flex-wrap:wrap; border-bottom:1px solid var(--rule); padding-bottom:.6rem;}
+  .chip{font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+    padding:.2rem .5rem; border-radius:3px; white-space:nowrap; border:1px solid transparent;}
+  .chip.ok{color:var(--pos); background:var(--pos-soft); border-color:color-mix(in srgb,var(--pos) 28%,transparent);}
+  .chip.bad{color:var(--neg); background:var(--neg-soft); border-color:color-mix(in srgb,var(--neg) 28%,transparent);}
+  .chip.flat{color:var(--muted); background:var(--surface-2); border-color:var(--rule-strong);}
+  .chip.st{color:var(--accent); background:var(--accent-soft); border-color:color-mix(in srgb,var(--accent) 28%,transparent);}
+  .chip.aoe{color:var(--solar); background:var(--solar-soft); border-color:color-mix(in srgb,var(--solar) 30%,transparent);}
+
+  .tscroll{overflow-x:auto; border:1px solid var(--rule); border-radius:6px; background:var(--surface);}
+  table{border-collapse:collapse; width:100%; font-size:.875rem;}
+  caption{caption-side:bottom; text-align:left; color:var(--muted); font-size:.78rem; padding:.7rem .9rem 0;}
+  th,td{padding:.5rem .9rem; text-align:left; border-bottom:1px solid var(--rule); white-space:nowrap;}
+  thead th{font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:600; background:var(--surface-2);}
+  tbody tr:last-child td{border-bottom:none}
+  td.n{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums; text-align:right;}
+  .up{color:var(--pos); font-weight:600}
+  .dn{color:var(--neg)}
+  .ns{color:var(--muted)}
+  tr.hl td{background:var(--accent-soft)}
+  .note{font-size:.92rem; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--rule);
+    border-radius:6px; padding:.9rem 1.05rem;}
+  ul{margin:0; padding-left:1.15rem; display:flex; flex-direction:column; gap:.55rem}
+  .strike{color:var(--muted); text-decoration:line-through; text-decoration-color:var(--neg);}
+  footer{margin-top:4rem; padding-top:1.5rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.82rem;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  /* ---- inline spell reference: hover = tooltip, click = wowhead ---- */
+  a.sp{display:inline-flex; align-items:center; gap:.3em; white-space:nowrap;
+      border-bottom:1px dotted var(--rule-strong); cursor:pointer; font-weight:500;
+      text-decoration:none; color:inherit;}
+  a.sp img{width:1.1em; height:1.1em; border-radius:3px; vertical-align:-.16em;
+      box-shadow:0 0 0 1px rgba(0,0,0,.35); flex:none;}
+  a.sp:hover,a.sp:focus-visible{border-bottom-color:var(--accent); color:var(--accent)}
+  td a.sp,th a.sp{border-bottom:none}
+
+  #tt{position:fixed; z-index:99; max-width:23rem; pointer-events:none; opacity:0; visibility:hidden;
+      transition:opacity .09s ease; background:#0B0A12; color:#D6D3E2;
+      border:1px solid #4A4270; border-radius:5px; padding:.7rem .8rem;
+      box-shadow:0 10px 30px -8px rgba(0,0,0,.75); font-size:.83rem; line-height:1.5;
+      left:0; top:0;}
+  #tt.on{opacity:1; visibility:visible}
+  #tt .hd{display:flex; gap:.6rem; align-items:flex-start; margin-bottom:.45rem}
+  #tt .hd img{width:2.6rem; height:2.6rem; border-radius:4px; box-shadow:0 0 0 1px #5A5185; flex:none}
+  #tt .ttl{font-size:.98rem; font-weight:700; color:#FFD98C; line-height:1.25;
+      font-family:"Iowan Old Style",Palatino,Georgia,serif;}
+  #tt .sub{font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:#8E86B8; margin-top:.15rem}
+  #tt .body{color:#C4C0D6; white-space:pre-wrap}
+  #tt .sid{margin-top:.5rem; padding-top:.4rem; border-top:1px solid #2C2740; color:#7E77A6;
+      font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.7rem;
+      display:flex; justify-content:space-between; gap:1rem}
+  @media (prefers-reduced-motion: reduce){ #tt{transition:none} }
+
+  /* ---- copy button ---- */
+  .cbtn{font:600 .72rem/1 system-ui,sans-serif; letter-spacing:.04em; text-transform:uppercase;
+    padding:.45rem .7rem; border-radius:4px; border:1px solid var(--rule-strong);
+    background:var(--surface-2); color:var(--ink-2); cursor:pointer; white-space:nowrap;
+    transition:background .12s, border-color .12s, color .12s;}
+  .cbtn:hover{background:var(--accent-soft); border-color:var(--accent); color:var(--accent)}
+  .cbtn.done{background:var(--pos-soft); border-color:var(--pos); color:var(--pos)}
+
+  /* ---- APL block ---- */
+  .apl{border:1px solid var(--rule); border-radius:6px; background:var(--surface); overflow:hidden}
+  .apl .bar{display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:.7rem .9rem; background:var(--surface-2); border-bottom:1px solid var(--rule)}
+  .apl .bar h4{font-size:.95rem}
+  .apl .bar .nt{font-size:.78rem; color:var(--muted); margin-top:.1rem}
+  .apl pre{margin:0; padding:.85rem .9rem; overflow-x:auto; max-height:19rem; overflow-y:auto;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.73rem; line-height:1.55;
+    color:var(--ink-2); white-space:pre;}
+
+  /* ---- build cards ---- */
+  .builds{display:grid; gap:1rem}
+  .bcard{border:1px solid var(--rule); border-radius:7px; background:var(--surface);
+    box-shadow:var(--shadow); overflow:hidden}
+  .bcard .top{display:flex; align-items:flex-start; justify-content:space-between; gap:1rem;
+    padding:.95rem 1.1rem .8rem; border-bottom:1px solid var(--rule)}
+  .bcard .rank{font:700 .7rem/1 ui-monospace,Menlo,monospace; color:var(--muted);
+    border:1px solid var(--rule-strong); border-radius:3px; padding:.25rem .4rem; margin-right:.6rem}
+  .bcard .nm{font-family:"Iowan Old Style",Palatino,Georgia,serif; font-size:1.1rem; font-weight:600; line-height:1.25}
+  .bcard .sb{font-size:.8rem; color:var(--muted); margin-top:.15rem}
+  .bcard .picks{display:flex; flex-wrap:wrap; gap:.35rem; padding:.75rem 1.1rem; border-bottom:1px solid var(--rule);
+    background:var(--surface-2)}
+  .bcard .dps{display:grid; grid-template-columns:repeat(auto-fit,minmax(6rem,1fr)); gap:1px; background:var(--rule)}
+  .bcard .dps div{background:var(--surface); padding:.6rem .75rem}
+  .bcard .dps .k{font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:600}
+  .bcard .dps .v{font-family:ui-monospace,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums; font-size:.95rem}
+  .bcard .body{padding:.85rem 1.1rem; display:flex; flex-direction:column; gap:.6rem; font-size:.9rem}
+  .bcard .lbl{font-size:.66rem; letter-spacing:.11em; text-transform:uppercase; color:var(--muted); font-weight:700}
+  .bcard .str{display:flex; gap:.6rem; align-items:center; padding:.7rem 1.1rem; border-top:1px solid var(--rule);
+    background:var(--surface-2)}
+  .bcard .str code{flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:.68rem;
+    background:transparent; border:none; padding:0; color:var(--muted)}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="eyebrow">Simulationcraft audit &middot; revision 3 &middot; Funkitty / Anasterian</div>
+  <h1>Balance Druid in&nbsp;12.1</h1>
+  <p class="standfirst col">Two fight shapes, two different answers. On a single target your build already wins. On a council pull it loses by a fifth &mdash; and in both cases the action list matters more than any talent.</p>
+  <div class="meta">
+    <span><b>simc</b> 1210-01 &middot; 12.1.0.69299</span>
+    <span><b>reference</b> 15 Raidbots reports</span>
+    <span><b>ptr delta</b> none measurable</span>
+    <span><b>fight</b> 300s, <code>vary_combat_length=0.2</code></span>
+  </div>
+</header>
+
+<div class="verdict col">
+  <h3>What this audit concluded</h3>
+  <p>The single largest gain available is <b>replacing your action list</b>, not changing talents: <b class="up">+1.3%</b> on a patchwerk fight and <b class="up">+16.3%</b> on a council pull, on your current gear. One line in that list is worth <b class="up">+7,209&nbsp;DPS</b> by itself.</p>
+  <p style="color:var(--ink-2)">Talents split by fight shape. Your Keeper of the Grove build is <b>1st of 20</b> at one target and <b>20th of 20</b> at three to eight. That is a hero-tree problem, not a tuning problem, and it needs a second loadout rather than a fix.</p>
+</div>
+
+<div class="tiles">
+  <div class="tile"><span class="k">Patchwerk &middot; APL gain</span><span class="v up">+1.3%</span><span class="s">+2,255 DPS, your gear</span></div>
+  <div class="tile"><span class="k">Council &middot; APL gain</span><span class="v up">+16.3%</span><span class="s">+53,610 DPS, 5 targets</span></div>
+  <div class="tile"><span class="k">Patchwerk &middot; your rank</span><span class="v up">1st<span style="color:var(--muted)">/20</span></span><span class="s">beats every reference build</span></div>
+  <div class="tile"><span class="k">Council &middot; your rank</span><span class="v dn">20th<span style="color:var(--muted)">/20</span></span><span class="s">&minus;18.8% at 4 targets</span></div>
+</div>
+
+<!-- ===================== PATCHWERK ===================== -->
+<section>
+  <div class="sechead"><h2>Patchwerk</h2><span class="chip st">1 target, always</span></div>
+  <p class="col">A single target for the whole fight. Cooldown alignment and Astral Power efficiency dominate; every AoE-conditional line in any action list is dead here.</p>
+  <div class="tscroll"><table>
+    <thead><tr><th>Configuration</th><th class="n">Community APL</th><th class="n">simc default</th><th class="n">Gain</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>Your gear, your talents</td><td class="n">173,711</td><td class="n">171,456</td><td class="n up">+2,255 (+1.3%)</td></tr>
+      <tr><td>BiS actor, Keeper talents</td><td class="n">226,038</td><td class="n">220,364</td><td class="n up">+5,674 (+2.6%)</td></tr>
+      <tr><td>BiS actor, Elune&rsquo;s Chosen talents</td><td class="n">221,768</td><td class="n">213,551</td><td class="n up">+8,217 (+3.8%)</td></tr>
+    </tbody>
+  </table><caption>Both arms run at 0% idle, so this is rotation quality rather than an actor stalling.</caption></div>
+  <p class="col"><b>Your build is the best single-target loadout tested.</b> Against all 19 reference loadouts on identical gear it placed first at 225,992 DPS. The nearest reference build &mdash; <span class="sp" data-s="rattle-the-stars">Rattle the Stars</span> with <span class="sp" data-s="stellar-amplification">Stellar Amplification</span> and <span class="sp" data-s="total-eclipse">Total Eclipse</span> &mdash; came in at 225,766.</p>
+  <p class="col">Two talents behave as single-target specialists and should be read that way: <span class="sp" data-s="stellar-amplification">Stellar Amplification</span> wins at one target and loses at eight, and <span class="sp" data-s="rattle-the-stars">Rattle the Stars</span> beats <span class="sp" data-s="starweaver">Starweaver</span> by 4,753 here.</p>
+</section>
+
+<!-- ===================== COUNCIL ===================== -->
+<section>
+  <div class="sechead"><h2>Council</h2><span class="chip aoe">3&ndash;5 targets, always</span></div>
+  <p class="col">Three to five targets for the whole fight &mdash; enough that spread damage and <span class="sp" data-s="starfall">Starfall</span> volume dominate, but not so many that pure AoE talents saturate. This is where your build falls apart, and where the action list gain is largest.</p>
+  <div class="tscroll"><table>
+    <thead><tr><th>Configuration</th><th class="n">Community APL</th><th class="n">simc default</th><th class="n">Gain</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>Your gear, your talents &middot; 5 targets</td><td class="n">382,940</td><td class="n">329,330</td><td class="n up">+53,610 (+16.3%)</td></tr>
+    </tbody>
+  </table><caption>Verified at 0% idle in both arms. simc&rsquo;s default AoE branch is simply much weaker for this build.</caption></div>
+  <div class="tscroll"><table id="counciltbl">
+    <thead><tr><th>Targets</th><th class="n">Your Keeper build</th><th class="n">Best reference build</th><th class="n">Gap</th><th>Your rank</th></tr></thead>
+    <tbody id="councilrows"></tbody>
+  </table><caption>All 20 loadouts on the same actor; only talents differ.</caption></div>
+  <p class="col">The <span class="sp" data-s="starweaver">Starweaver</span> / <span class="sp" data-s="rattle-the-stars">Rattle the Stars</span> choice is <b>non-monotonic</b> and worth getting right per fight, not per spec:</p>
+  <div class="tscroll"><table>
+    <thead><tr><th>Best of family</th><th class="n">1T</th><th class="n">4T</th><th class="n">8T</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sp" data-s="rattle-the-stars">Rattle the Stars</span></td><td class="n up">225,766</td><td class="n">509,550</td><td class="n up">908,633</td></tr>
+      <tr><td><span class="sp" data-s="starweaver">Starweaver</span></td><td class="n">221,013</td><td class="n up">513,795</td><td class="n">882,147</td></tr>
+      <tr><td><b>winner</b></td><td><b>Rattle</b> +4,753</td><td><b>Weaver</b> +4,245</td><td><b>Rattle</b> +26,486</td></tr>
+    </tbody>
+  </table><caption>Starweaver wins only in a mid-range window and loses decisively at eight targets.</caption></div>
+</section>
+
+<!-- ===================== APL ===================== -->
+<section>
+  <div class="sechead"><h2>Action lists</h2><span class="chip ok">Copy &amp; paste ready</span></div>
+  <p class="col">Paste either block into a Raidbots custom APL box or a local <code>.simc</code> profile, below your character import.</p>
+  <div id="aplblocks" style="display:flex; flex-direction:column; gap:1.1rem"></div>
+  <h3 style="margin-top:.6rem">What the community list does that the default does not</h3>
+  <ul class="col">
+    <li><b>Anchor-cooldown chaining &mdash; the big one.</b> <code>eclipse,if=prev_gcd.1.force_of_nature</code> fires <span class="sp" data-s="eclipse">Eclipse</span> straight off <span class="sp" data-s="force-of-nature">Force of Nature</span>. Removing this one line costs <b class="dn">7,209 DPS (&minus;3.2%)</b>.</li>
+    <li><b>Modelled passive Astral Power.</b> <code>variable.passive_asp</code> estimates incoming <span class="sp" data-s="astral-power">Astral Power</span> from DoT ticks, <span class="sp" data-s="natures-balance">Nature&rsquo;s Balance</span> and <span class="sp" data-s="fury-of-elune">Fury of Elune</span>, and spends ahead of the overcap.</li>
+    <li><b>Stack management.</b> <code>!buff.starlord.at_max_stacks</code> stops <span class="sp" data-s="starlord">Starlord</span> being wasted &mdash; 410 DPS at one target, 701 at four.</li>
+    <li><b>Burst-hold scheduling.</b> Pooling thresholds sized in whole spender casts, banking into <span class="sp" data-s="celestial-alignment">Celestial Alignment</span>.</li>
+  </ul>
+  <div class="tscroll"><table>
+    <thead><tr><th>Ablation / tuning change</th><th class="n">Keeper @ 1T</th><th class="n">Elune&rsquo;s Chosen @ 4T</th></tr></thead>
+    <tbody id="aplvar"></tbody>
+  </table><caption>Deltas against each archetype&rsquo;s own baseline.</caption></div>
+  <p class="note col"><b>Talent choice changes the optimal list in exactly one place.</b> Dropping the passive-Astral-Power model is worth <b class="up">+36</b> (nothing) on Keeper but <b class="dn">&minus;1,230</b> on Elune&rsquo;s Chosen. That fits the mechanism: Elune&rsquo;s Chosen generates a large, predictable, time-spread block of Astral Power from <span class="sp" data-s="fury-of-elune">Fury of Elune</span>, which is exactly what the model anticipates. Keeper&rsquo;s generation is bursty and proc-driven, so modelling it buys nothing. Every other knob moved both archetypes the same way.</p>
+</section>
+
+<!-- ===================== BUILDS ===================== -->
+<section>
+  <div class="sechead"><h2>Five builds worth running</h2><span class="chip ok">Benchmarked &amp; copyable</span></div>
+  <p class="col">Selected from 20 loadouts simmed on identical gear. Each card carries the import string, what the build is actually built around, and whether it needs the rotation played differently.</p>
+  <div class="builds" id="buildcards"></div>
+</section>
+
+<!-- ===================== CONNECTIONS ===================== -->
+<section>
+  <div class="sechead"><h2>How the talents connect</h2><span class="chip flat">Tooltip-derived</span></div>
+  <p class="col">Seven currencies flow between talents. Almost every connection in the tree is one talent producing a currency and another consuming it.</p>
+  <div class="tscroll"><table>
+    <thead><tr><th>Currency</th><th>Produced by</th><th>Consumed by</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td><b>Eclipse entries</b></td><td><span class="sp" data-s="improved-eclipse">Improved Eclipse</span>, <span class="sp" data-s="sculpt-the-stars">Sculpt the Stars</span></td><td><span class="sp" data-s="ascendant-eclipses">Ascendant Eclipses</span>, <span class="sp" data-s="balance-of-all-things">Balance of All Things</span>, <span class="sp" data-s="total-eclipse">Total Eclipse</span>, <span class="sp" data-s="solstice">Solstice</span>, <span class="sp" data-s="cenarius-might">Cenarius&rsquo; Might</span></td></tr>
+      <tr><td><b>Astral Power</b></td><td><span class="sp" data-s="wild-surges">Wild Surges</span>, <span class="sp" data-s="natures-balance">Nature&rsquo;s Balance</span>, <span class="sp" data-s="shooting-stars">Shooting Stars</span>, <span class="sp" data-s="force-of-nature">Force of Nature</span></td><td><span class="sp" data-s="starsurge">Starsurge</span> and <span class="sp" data-s="starfall">Starfall</span> &mdash; nothing else</td></tr>
+      <tr><td><b>Free spenders</b></td><td><span class="sp" data-s="touch-the-cosmos">Touch the Cosmos</span>, <span class="sp" data-s="starweaver">Starweaver</span>, <span class="sp" data-s="rattle-the-stars">Rattle the Stars</span></td><td><span class="sp" data-s="hail-of-stars">Hail of Stars</span> &mdash; the only talent that reads them</td></tr>
+      <tr><td><b>Periodic damage</b></td><td><span class="sp" data-s="twin-moons">Twin Moons</span>, <span class="sp" data-s="treants-of-the-moon">Treants of the Moon</span>, <span class="sp" data-s="aetherial-kindling">Aetherial Kindling</span></td><td><span class="sp" data-s="shooting-stars">Shooting Stars</span>, <span class="sp" data-s="sunseeker-mushroom">Sunseeker Mushroom</span>, <span class="sp" data-s="stellar-amplification">Stellar Amplification</span></td></tr>
+      <tr><td><b>Treant uptime</b></td><td><span class="sp" data-s="force-of-nature">Force of Nature</span>, <span class="sp" data-s="bounteous-bloom">Bounteous Bloom</span>, <span class="sp" data-s="control-of-the-dream">Control of the Dream</span></td><td><span class="sp" data-s="harmony-of-the-grove">Harmony of the Grove</span>, <span class="sp" data-s="power-of-nature">Power of Nature</span>, <span class="sp" data-s="dryads-dance">Dryad&rsquo;s Dance</span></td></tr>
+      <tr><td><b>Moon instances</b></td><td><span class="sp" data-s="fury-of-elune">Fury of Elune</span>, <span class="sp" data-s="sundered-firmament">Sundered Firmament</span>, <span class="sp" data-s="orbit-breaker">Orbit Breaker</span></td><td><span class="sp" data-s="radiant-moonlight">Radiant Moonlight</span>, <span class="sp" data-s="stellar-command">Stellar Command</span>, <span class="sp" data-s="atmospheric-exposure">Atmospheric Exposure</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="col">The 19 reference loadouts split into two archetypes with <b>zero crossover</b>, and the tooltips explain why &mdash; they are different exits from the spender cluster. <span class="sp" data-s="starweaver">Starweaver</span> + <span class="sp" data-s="orbit-breaker">Orbit Breaker</span> + <span class="sp" data-s="meteorites">Meteorites</span> is a Starfall-<em>volume</em> route (10/10 correlation); <span class="sp" data-s="rattle-the-stars">Rattle the Stars</span> + <span class="sp" data-s="sundered-firmament">Sundered Firmament</span> is an Eclipse-entry&rarr;Fury-of-Elune route (9/9).</p>
+  <p class="col"><span class="sp" data-s="hail-of-stars">Hail of Stars</span> is the highest-leverage bridge in the tree: it closes a loop from fillers &rarr; free spender &rarr; <span class="sp" data-s="solstice">Solstice</span> &rarr; <span class="sp" data-s="shooting-stars">Shooting Stars</span> &rarr; Astral Power &rarr; more spenders. That mechanism is what produces its measured &minus;2,533 complementary synergy with Starweaver.</p>
+  <div class="tscroll"><table>
+    <thead><tr><th>Measured pair</th><th class="n">Synergy</th><th>Reading</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sp" data-s="starweaver">Starweaver</span> &times; <span class="sp" data-s="hail-of-stars">Hail of Stars</span></td><td class="n up">&minus;2,533</td><td>Complementary &mdash; Hail of Stars worth 4,891 alone, <b>7,424</b> together</td></tr>
+      <tr><td><span class="sp" data-s="improved-eclipse">Improved Eclipse</span> &times; <span class="sp" data-s="sculpt-the-stars">Sculpt the Stars</span></td><td class="n up">&minus;1,562</td><td>Complementary &mdash; Eclipse entries show <em>increasing</em> returns</td></tr>
+      <tr><td><span class="sp" data-s="harmony-of-the-grove">Harmony of the Grove</span> &times; <span class="sp" data-s="bounteous-bloom">Bounteous Bloom</span></td><td class="n dn">+1,669</td><td>Substitutive &mdash; Bounteous has no value without Harmony</td></tr>
+      <tr><td><span class="sp" data-s="potent-enchantments">Potent Enchantments</span> &times; <span class="sp" data-s="orbital-strike">Orbital Strike</span></td><td class="n dn">+1,497</td><td>Substitutive &mdash; and the opposite of what the tooltip implies</td></tr>
+    </tbody>
+  </table><caption>Synergy = &Delta;(AB) &minus; &Delta;(A) &minus; &Delta;(B). Negative means worth more together.</caption></div>
+</section>
+
+<!-- ===================== TRAPS ===================== -->
+<section>
+  <div class="sechead"><h2>Tooltip traps</h2><span class="chip bad">Headline clause is dead</span></div>
+  <div class="tscroll"><table>
+    <thead><tr><th>Talent</th><th>Advertised</th><th>Actually live</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td><span class="sp" data-s="radiant-moonlight">Radiant Moonlight</span></td><td class="strike">New/Half/Full Moon +25% damage</td><td>Only the second sentence: <span class="sp" data-s="fury-of-elune">Fury of Elune</span> +50% damage, &minus;15s cooldown. <span class="sp" data-s="new-moon">New Moon</span> is its choice-node rival and is taken 0/19.</td></tr>
+      <tr><td><span class="sp" data-s="potent-enchantments">Potent Enchantments</span></td><td class="strike">Orbital Strike +30% damage</td><td>Only the <span class="sp" data-s="whirling-stars">Whirling Stars</span> haste rider. Worth 2,148 with Whirling Stars, 650 with <span class="sp" data-s="orbital-strike">Orbital Strike</span>.</td></tr>
+      <tr><td><span class="sp" data-s="blooming-infusion">Blooming Infusion</span></td><td class="strike">+100% damage on next filler</td><td>Gated behind five <span class="sp" data-s="regrowth">Regrowth</span> casts &mdash; unreachable in a damage rotation. Measured worth: 509.</td></tr>
+      <tr><td><span class="sp" data-s="durability-of-nature">Durability of Nature</span></td><td class="strike">reads like a treant damage talent</td><td>Treant <em>health</em>. Its rival <span class="sp" data-s="power-of-nature">Power of Nature</span> is the damage one.</td></tr>
+      <tr><td><span class="sp" data-s="lycaras-inspiration">Lycara&rsquo;s Inspiration</span></td><td class="strike">4% Magic Damage</td><td>That is the <em>No Form</em> line. In <span class="sp" data-s="moonkin-form">Moonkin Form</span> you get area damage reduction instead.</td></tr>
+      <tr><td><span class="sp" data-s="sunseeker-mushroom">Sunseeker Mushroom</span></td><td class="strike">generic mushroom proc</td><td><span class="sp" data-s="sunfire">Sunfire</span>-only, so it inherits nothing from <span class="sp" data-s="moonfire">Moonfire</span> amplifiers.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note col">Radiant Moonlight is the sharpest of these: taken in <b>19 of 19</b> reference builds, entirely on a clause its tooltip mentions second.</p>
+</section>
+
+<!-- ===================== EARLY SPRING ===================== -->
+<section>
+  <div class="sechead"><h2>Case study: Early Spring</h2><span class="chip ok">Arithmetic, not a bug</span></div>
+  <p class="col">A Druid Discord report suggested the list looks &ldquo;lost in the weeds&rdquo; with <span class="sp" data-s="early-spring">Early Spring</span>, spending a plain Eclipse on the treant window that carries <span class="sp" data-s="convoke-the-spirits">Convoke the Spirits</span>. I reproduced the deficit (&minus;2,435) and traced it &mdash; it is treant uptime, not scheduling.</p>
+  <div class="tscroll"><table>
+    <thead><tr><th>Build</th><th class="n">FoN casts</th><th class="n">Duration</th><th class="n">Predicted uptime</th><th class="n">Observed</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sp" data-s="early-spring">Early Spring</span> (&minus;15s cooldown)</td><td class="n">7.11</td><td class="n">10s</td><td class="n">71.1s</td><td class="n">71.9s</td></tr>
+      <tr class="hl"><td><span class="sp" data-s="bounteous-bloom">Bounteous Bloom</span> (+4s duration)</td><td class="n">5.52</td><td class="n">14s</td><td class="n">77.3s</td><td class="n">77.5s</td></tr>
+    </tbody>
+  </table><caption>+40% duration beats +29% casts, buying 5.6 more seconds of <span class="sp" data-s="harmony-of-the-grove">Harmony of the Grove</span>.</caption></div>
+  <p class="col">Cast counts are identical between the two builds &mdash; <span class="sp" data-s="celestial-alignment">Celestial Alignment</span> 4.01 vs 4.01, Convoke 5.42 vs 5.45 &mdash; so no cooldown is being dropped. Testing the scheduling fix directly:</p>
+  <div class="tscroll"><table>
+    <thead><tr><th>APL variant</th><th class="n">Early Spring</th><th class="n">Bounteous</th></tr></thead>
+    <tbody id="esfix"></tbody>
+  </table></div>
+  <p class="col"><b>The scheduling hypothesis is not supported.</b> Constraining Convoke to Celestial Alignment windows makes Early Spring <em>worse</em> by a further 3,364 &mdash; the list was already spending it well. Early Spring will not overtake Bounteous through action-list work; it needs enough cooldown reduction to flip the duration arithmetic.</p>
+</section>
+
+<!-- ===================== METHOD ===================== -->
+<section>
+  <div class="sechead"><h2>Method &amp; corrections</h2><span class="chip flat">Reproducibility</span></div>
+  <ul class="col">
+    <li><b>Pipeline validated.</b> Reproduced the reference sim at 221,793 against its published 221,749 &mdash; 0.02%. The reference simc revision is one commit ahead of the vendored one, and that commit is a Hunter action-list change.</li>
+    <li><b>PTR flag is a non-issue.</b> Reference reports run <code>ptr_enabled=1</code>; these run live. Identical configurations differ by under 0.01% for Balance.</li>
+    <li><b>Correction carried forward.</b> SimulationCraft enforces neither choice-node exclusivity, tier gates, connectivity, nor hero-tree membership. Four apparent gains in round one were impossible loadouts; the spec tree is exactly gate-tight, so only 120 of 485 single-point moves are legal.</li>
+    <li><b>Correction to the round-one APL claim.</b> &ldquo;No action-list change is warranted&rdquo; held only for single-line edits of the default list. Replacing the list is worth an order of magnitude more.</li>
+  </ul>
+  <p class="note col">Talent data with names, spellIds, icons and descriptions: <code>data/talents/balance_druid_12.1.json</code>. Connection map: <code>scratch/bdruid/talent_connections.md</code>. Durable findings: <code>.claude/knowledge/balance-druid-12.1.md</code>.</p>
+</section>
+
+<footer class="col">
+  Funkitty &middot; Anasterian &middot; audited 17 August 2026 against SimulationCraft 1210-01 / WoW 12.1.0.69299.
+  Hover a spell for its tooltip, click to open Wowhead.
+</footer>
+</div>
+
+<div id="tt" role="tooltip" aria-hidden="true"></div>
+
+<script>
+const SPELLS = /*ICONDATA*/;
+const APLS   = /*APLDATA*/;
+const BUILDS = /*BUILDDATA*/;
+
+const slug = s => s.toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+
+// --- inline spell references: icon + wowhead link ------------------------
+document.querySelectorAll('.sp').forEach(el => {
+  const d = SPELLS[el.dataset.s];
+  if (!d) { el.style.borderBottomColor = 'transparent'; return; }
+  const img = new Image();
+  img.src = d.i; img.alt = ''; img.decoding = 'async';
+  el.insertBefore(img, el.firstChild);
+  if (d.s) {
+    el.setAttribute('href', 'https://www.wowhead.com/spell=' + d.s + '/' + slug(d.n));
+    el.setAttribute('target', '_blank');
+    el.setAttribute('rel', 'noopener noreferrer');
+  }
+});
+
+// --- tooltip, positioned off the pointer ---------------------------------
+const tt = document.getElementById('tt');
+let cur = null, px = 0, py = 0;
+
+function typeLabel(d){
+  const b = [];
+  if (d.t === 'passive') b.push('Passive talent');
+  else if (d.t === 'active') b.push('Active talent');
+  else if (d.t === 'tierrank') b.push('Apex talent');
+  else b.push('Ability');
+  if (d.r > 1) b.push('Max rank ' + d.r);
+  return b.join(' · ');
+}
+
+function show(el){
+  const d = SPELLS[el.dataset.s];
+  if (!d) return;
+  cur = el;
+  tt.replaceChildren();
+  const hd = document.createElement('div'); hd.className = 'hd';
+  const im = new Image(); im.src = d.i; im.alt = '';
+  const tx = document.createElement('div');
+  const t1 = document.createElement('div'); t1.className = 'ttl'; t1.textContent = d.n;
+  const t2 = document.createElement('div'); t2.className = 'sub'; t2.textContent = typeLabel(d);
+  tx.append(t1, t2); hd.append(im, tx);
+  const bd = document.createElement('div'); bd.className = 'body';
+  bd.textContent = d.d || 'No description available.';
+  tt.append(hd, bd);
+  const ft = document.createElement('div'); ft.className = 'sid';
+  const l = document.createElement('span'); l.textContent = d.s ? 'Spell ID ' + d.s : '';
+  const r = document.createElement('span'); r.textContent = d.s ? 'Click → Wowhead' : '';
+  ft.append(l, r); tt.append(ft);
+  tt.classList.add('on'); tt.setAttribute('aria-hidden','false');
+  place();
+}
+
+// anchor to the pointer, not the element: inline elements can wrap across
+// lines, which makes a bounding-box anchor land in the wrong place.
+function place(){
+  const b = tt.getBoundingClientRect();
+  let x = px + 16, y = py + 18;
+  if (x + b.width  > innerWidth  - 12) x = px - b.width - 14;
+  if (x < 12) x = 12;
+  if (y + b.height > innerHeight - 12) y = py - b.height - 14;
+  if (y < 12) y = 12;
+  tt.style.transform = 'translate(' + Math.round(x) + 'px,' + Math.round(y) + 'px)';
+}
+
+function hide(){ cur = null; tt.classList.remove('on'); tt.setAttribute('aria-hidden','true'); }
+
+document.addEventListener('pointermove', e => {
+  px = e.clientX; py = e.clientY;
+  const el = e.target.closest('.sp');
+  if (el && el !== cur) show(el);
+  else if (el && cur) place();
+  else if (!el && cur) hide();
+});
+document.addEventListener('focusin',  e => { const el = e.target.closest('.sp');
+  if (el){ const r = el.getBoundingClientRect(); px = r.left; py = r.bottom - 8; show(el);} });
+document.addEventListener('focusout', e => { if (e.target.closest('.sp')) hide(); });
+document.addEventListener('keydown',  e => { if (e.key === 'Escape') hide(); });
+addEventListener('scroll', () => { if (cur) hide(); }, {passive:true});
+
+// --- clipboard -----------------------------------------------------------
+function copyBtn(text, label){
+  const b = document.createElement('button');
+  b.className = 'cbtn'; b.type = 'button'; b.textContent = label || 'Copy';
+  b.addEventListener('click', async ev => {
+    ev.preventDefault(); ev.stopPropagation();
+    let ok = true;
+    try { await navigator.clipboard.writeText(text); }
+    catch { // clipboard API can be blocked; fall back to a selection copy
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.append(ta); ta.select();
+      try { ok = document.execCommand('copy'); } catch { ok = false; }
+      ta.remove();
+    }
+    b.textContent = ok ? 'Copied' : 'Press ⌘/Ctrl+C';
+    b.classList.toggle('done', ok);
+    setTimeout(() => { b.textContent = label || 'Copy'; b.classList.remove('done'); }, 1800);
+  });
+  return b;
+}
+
+// --- APL blocks ----------------------------------------------------------
+const aplWrap = document.getElementById('aplblocks');
+Object.values(APLS).forEach(a => {
+  const box = document.createElement('div'); box.className = 'apl';
+  const bar = document.createElement('div'); bar.className = 'bar';
+  const tx = document.createElement('div');
+  const h = document.createElement('h4'); h.textContent = a.label;
+  const n = document.createElement('div'); n.className = 'nt'; n.textContent = a.note;
+  tx.append(h, n);
+  bar.append(tx, copyBtn(a.text, 'Copy APL'));
+  const pre = document.createElement('pre'); pre.textContent = a.text;
+  box.append(bar, pre); aplWrap.append(box);
+});
+
+// --- build cards ---------------------------------------------------------
+const bw = document.getElementById('buildcards');
+BUILDS.forEach((b, i) => {
+  const c = document.createElement('div'); c.className = 'bcard';
+
+  const top = document.createElement('div'); top.className = 'top';
+  const left = document.createElement('div');
+  const nm = document.createElement('div'); nm.className = 'nm';
+  const rk = document.createElement('span'); rk.className = 'rank'; rk.textContent = String(i + 1).padStart(2,'0');
+  nm.append(rk, document.createTextNode(b.name));
+  const sb = document.createElement('div'); sb.className = 'sb'; sb.textContent = b.sub;
+  left.append(nm, sb);
+  top.append(left, copyBtn(b.talents, 'Copy talents'));
+  c.append(top);
+
+  const pk = document.createElement('div'); pk.className = 'picks';
+  b.picks.forEach(k => {
+    const d = SPELLS[k]; if (!d) return;
+    const a = document.createElement('a'); a.className = 'sp'; a.dataset.s = k;
+    const im = new Image(); im.src = d.i; im.alt = '';
+    a.append(im, document.createTextNode(d.n));
+    if (d.s) { a.href = 'https://www.wowhead.com/spell=' + d.s + '/' + slug(d.n);
+               a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+    pk.append(a);
+  });
+  c.append(pk);
+
+  const dp = document.createElement('div'); dp.className = 'dps';
+  b.dps.forEach(d => {
+    const cell = document.createElement('div');
+    const k = document.createElement('div'); k.className = 'k'; k.textContent = d.k;
+    const v = document.createElement('div'); v.className = 'v' + (d.best ? ' up' : ''); v.textContent = d.v;
+    cell.append(k, v); dp.append(cell);
+  });
+  c.append(dp);
+
+  const bd = document.createElement('div'); bd.className = 'body';
+  [['Core focus', b.focus], ['Key synergy', b.synergy], ['Rotation note', b.rotation]].forEach(([l, t]) => {
+    if (!t) return;
+    const w = document.createElement('div');
+    const lb = document.createElement('div'); lb.className = 'lbl'; lb.textContent = l;
+    const p = document.createElement('div'); p.innerHTML = t;
+    w.append(lb, p); bd.append(w);
+  });
+  c.append(bd);
+
+  const st = document.createElement('div'); st.className = 'str';
+  const code = document.createElement('code'); code.textContent = b.talents;
+  st.append(code, copyBtn(b.talents, 'Copy'));
+  c.append(st);
+
+  bw.append(c);
+});
+
+// --- generic table filler ------------------------------------------------
+function fillTable(id, rows){
+  const tb = document.getElementById(id); if (!tb) return;
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+    if (r.hl) tr.className = 'hl';
+    r.cells.forEach((c, i) => {
+      const td = document.createElement('td');
+      if (typeof c === 'object') { td.className = c.c || ''; td.textContent = c.v; }
+      else { td.textContent = c; if (i > 0) td.className = 'n'; }
+      tr.append(td);
+    });
+    tb.append(tr);
+  });
+}
+fillTable('councilrows', [
+  {hl:true,cells:['3 targets',{c:'n',v:'335,215'},{c:'n',v:'415,720'},{c:'n dn',v:'−80,505  (−19.4%)'},'20th of 20']},
+  {hl:true,cells:['4 targets',{c:'n',v:'417,225'},{c:'n',v:'513,795'},{c:'n dn',v:'−96,570  (−18.8%)'},'20th of 20']},
+  {hl:true,cells:['5 targets',{c:'n',v:'494,815'},{c:'n',v:'610,665'},{c:'n dn',v:'−115,850  (−19.0%)'},'20th of 20']},
+  {cells:['8 targets',{c:'n',v:'676,140'},{c:'n',v:'908,633'},{c:'n dn',v:'−232,493  (−25.6%)'},'20th of 20']}
+]);
+fillTable('aplvar', [
+  {cells:['pool2 — bank 2 spenders before burst, not 3',{c:'n dn',v:'−320'},{c:'n up',v:'+213'}]},
+  {cells:['pool4 — bank 4 spenders before burst',{c:'n dn',v:'−331'},{c:'n up',v:'+145'}]},
+  {cells:['hold20 — start holding 20s out, not 30',{c:'n dn',v:'−163'},{c:'n up',v:'+115'}]},
+  {cells:['hold40 — start holding 40s out',{c:'n ns',v:'+1'},{c:'n ns',v:'+46'}]},
+  {cells:['cacap10 — CA pooling cap max−10',{c:'n ns',v:'−4'},{c:'n ns',v:'−2'}]},
+  {cells:['cacap30 — CA pooling cap max−30',{c:'n ns',v:'+47'},{c:'n ns',v:'+60'}]},
+  {cells:['remove Starlord stack gating',{c:'n dn',v:'−410'},{c:'n dn',v:'−701'}]},
+  {hl:true,cells:['remove passive Astral Power model',{c:'n ns',v:'+36'},{c:'n dn',v:'−1,230'}]},
+  {hl:true,cells:['remove Eclipse-after-Force of Nature',{c:'n dn',v:'−7,209'},{c:'n ns',v:'n/a'}]},
+  {cells:['remove Eclipse-after-Fury of Elune',{c:'n ns',v:'n/a'},{c:'n ns',v:'+231'}]}
+]);
+fillTable('esfix', [
+  {hl:true,cells:['community list as written',{c:'n',v:'225,453'},{c:'n',v:'227,766'}]},
+  {cells:['Convoke only inside CA (or CA >20s away)',{c:'n dn',v:'222,089  (−3,364)'},{c:'n dn',v:'226,935  (−831)'}]},
+  {cells:['Convoke only inside CA (or CA >30s away)',{c:'n dn',v:'222,158  (−3,295)'},{c:'n dn',v:'226,886  (−880)'}]},
+  {cells:['CA may fire on a Convoke-ready treant window',{c:'n ns',v:'225,473  (+20)'},{c:'n dn',v:'227,375  (−391)'}]}
+]);
+</script>

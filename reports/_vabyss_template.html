@@ -1,0 +1,358 @@
+<title>Coiled Isle Fight Book</title>
+<style>
+  :root{
+    color-scheme: light;
+    --ground:#F4F5F2; --surface:#FFFFFF; --surface-2:#FAFBF8; --surface-3:#F0F2EC;
+    --ink:#141613; --ink-2:#3B4038; --muted:#6C7268;
+    --rule:#E1E5DC; --rule-strong:#C9CFC2;
+    --accent:#1F6E6A; --accent-soft:#E4F0EE;
+    --kotg:#008300; --kotg-soft:#E6F2E6;
+    --ec:#4A3AA7;   --ec-soft:#EAE7F6;
+    --critical:#D03B3B; --serious:#EC835A; --warning:#FAB219;
+    --crit-soft:#FAEAEA; --ser-soft:#FCEFE8; --warn-soft:#FDF4E0;
+    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+    --s5:#e87ba4; --s6:#008300; --s7:#4a3aa7; --s8:#e34948;
+    --track:#E4E7DF;
+    --shadow:0 1px 2px rgba(20,22,19,.05), 0 10px 26px -14px rgba(20,22,19,.20);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme: dark;
+      --ground:#0F1311; --surface:#171B18; --surface-2:#1D221E; --surface-3:#232924;
+      --ink:#E2E5DE; --ink-2:#BCC2B7; --muted:#8E958A;
+      --rule:#272D28; --rule-strong:#3A423B;
+      --accent:#4FA8A2; --accent-soft:#152624;
+      --kotg:#008300; --kotg-soft:#12210F;
+      --ec:#9085E9;   --ec-soft:#1C1930;
+      --critical:#D03B3B; --serious:#EC835A; --warning:#FAB219;
+      --crit-soft:#2A1614; --ser-soft:#2A1B13; --warn-soft:#2A2210;
+      --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+      --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
+      --track:#272D28;
+      --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 26px -14px rgba(0,0,0,.75);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --ground:#0F1311; --surface:#171B18; --surface-2:#1D221E; --surface-3:#232924;
+    --ink:#E2E5DE; --ink-2:#BCC2B7; --muted:#8E958A;
+    --rule:#272D28; --rule-strong:#3A423B;
+    --accent:#4FA8A2; --accent-soft:#152624;
+    --kotg:#008300; --kotg-soft:#12210F;
+    --ec:#9085E9;   --ec-soft:#1C1930;
+    --critical:#D03B3B; --serious:#EC835A; --warning:#FAB219;
+    --crit-soft:#2A1614; --ser-soft:#2A1B13; --warn-soft:#2A2210;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+    --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
+    --track:#272D28;
+    --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 26px -14px rgba(0,0,0,.75);
+  }
+  *{box-sizing:border-box}
+  body{background:var(--ground); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:16px; line-height:1.6; margin:0; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:68rem; margin:0 auto; padding:0 1.5rem 6rem;}
+  .col{max-width:46rem}
+  h1,h2,h3,h4{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    text-wrap:balance; margin:0; font-weight:600;}
+  h1{font-size:clamp(2.1rem,1.3rem + 2.8vw,3.2rem); line-height:1.1; letter-spacing:-.018em;}
+  h2{font-size:1.65rem; line-height:1.22; letter-spacing:-.01em;}
+  h3{font-size:1.08rem; line-height:1.34;}
+  p{margin:0}
+  a{color:var(--accent)}
+  code{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace; font-size:.86em;
+    background:var(--surface-2); border:1px solid var(--rule); border-radius:4px; padding:.08em .34em;}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums;}
+
+  header.mast{border-bottom:1px solid var(--rule); padding:4.25rem 0 2.1rem; display:flex; flex-direction:column; gap:1.05rem;}
+  .eyebrow{font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); font-weight:600;}
+  .standfirst{font-size:1.14rem; color:var(--ink-2); max-width:42rem;}
+  .meta{display:flex; flex-wrap:wrap; gap:.4rem 1.5rem; font-size:.78rem; color:var(--muted);
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; padding-top:.3rem;}
+  .meta b{color:var(--ink-2); font-weight:600}
+
+  .verdict{margin-top:2.4rem; background:var(--surface); border:1px solid var(--rule);
+    border-left:3px solid var(--accent); border-radius:6px; padding:1.45rem 1.55rem;
+    box-shadow:var(--shadow); display:flex; flex-direction:column; gap:.7rem;}
+  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr)); gap:1px; background:var(--rule);
+    border:1px solid var(--rule); border-radius:6px; overflow:hidden; margin-top:2.2rem;}
+  .tile{background:var(--surface); padding:1.1rem 1.15rem; display:flex; flex-direction:column; gap:.28rem;}
+  .tile .k{font-size:.66rem; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); font-weight:600;}
+  .tile .v{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:1.5rem;
+    font-variant-numeric:tabular-nums; line-height:1.05; letter-spacing:-.02em;}
+  .tile .s{font-size:.76rem; color:var(--muted);}
+
+  section{padding-top:3.4rem; display:flex; flex-direction:column; gap:1rem;}
+  .sechead{display:flex; align-items:baseline; gap:.8rem; flex-wrap:wrap; border-bottom:1px solid var(--rule); padding-bottom:.55rem;}
+  .chip{font-size:.65rem; letter-spacing:.09em; text-transform:uppercase; font-weight:700;
+    padding:.2rem .5rem; border-radius:3px; white-space:nowrap; border:1px solid transparent;
+    display:inline-flex; align-items:center; gap:.35em;}
+  .chip.kotg{color:var(--kotg); background:var(--kotg-soft); border-color:color-mix(in srgb,var(--kotg) 34%,transparent);}
+  .chip.ec{color:var(--ec); background:var(--ec-soft); border-color:color-mix(in srgb,var(--ec) 34%,transparent);}
+  .chip.flat{color:var(--muted); background:var(--surface-2); border-color:var(--rule-strong);}
+  .chip.crit{color:var(--critical); background:var(--crit-soft); border-color:color-mix(in srgb,var(--critical) 40%,transparent);}
+  .chip.ser{color:var(--ink-2); background:var(--ser-soft); border-color:color-mix(in srgb,var(--serious) 55%,transparent);}
+  .chip.warn{color:var(--ink-2); background:var(--warn-soft); border-color:color-mix(in srgb,var(--warning) 60%,transparent);}
+  .swatch{width:.62em; height:.62em; border-radius:2px; flex:none;}
+  button.chip{cursor:pointer; font-family:inherit}
+  button.chip:hover{filter:brightness(1.06)}
+  button.chip.done{color:var(--kotg); background:var(--kotg-soft); border-color:var(--kotg)}
+
+  .tscroll{overflow-x:auto; border:1px solid var(--rule); border-radius:6px; background:var(--surface);}
+  table{border-collapse:collapse; width:100%; font-size:.87rem;}
+  caption{caption-side:bottom; text-align:left; color:var(--muted); font-size:.77rem; padding:.65rem .9rem 0;}
+  th,td{padding:.5rem .85rem; text-align:left; border-bottom:1px solid var(--rule); white-space:nowrap;}
+  thead th{font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:600; background:var(--surface-2);}
+  tbody tr:last-child td{border-bottom:none}
+  td.n{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums; text-align:right;}
+  .best{font-weight:700}
+  .wrapcell{white-space:normal; min-width:15rem}
+  .note{font-size:.9rem; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--rule);
+    border-radius:6px; padding:.85rem 1rem;}
+  ul{margin:0; padding-left:1.1rem; display:flex; flex-direction:column; gap:.5rem}
+  footer{margin-top:4rem; padding-top:1.4rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  /* ---- inline spell reference ---- */
+  a.sp{display:inline-flex; align-items:center; gap:.3em; white-space:nowrap;
+      border-bottom:1px dotted var(--rule-strong); cursor:pointer; font-weight:500;
+      text-decoration:none; color:inherit;}
+  a.sp img{width:1.1em; height:1.1em; border-radius:3px; vertical-align:-.16em;
+      box-shadow:0 0 0 1px rgba(0,0,0,.35); flex:none;}
+  a.sp:hover,a.sp:focus-visible{border-bottom-color:var(--accent); color:var(--accent)}
+  td a.sp,th a.sp,.seq a.sp{border-bottom:none}
+  a.sp.miss{color:var(--critical); border-bottom-color:var(--critical)}
+
+  #tt{position:fixed; z-index:99; max-width:24rem; pointer-events:none; opacity:0; visibility:hidden;
+      transition:opacity .09s ease; background:#0B0F0C; color:#D3D8CF;
+      border:1px solid #3E5344; border-radius:5px; padding:.7rem .8rem;
+      box-shadow:0 10px 30px -8px rgba(0,0,0,.78); font-size:.83rem; line-height:1.5;
+      left:0; top:0; transform:translate(0,0);}
+  #tt.on{opacity:1; visibility:visible}
+  #tt .hd{display:flex; gap:.6rem; align-items:flex-start; margin-bottom:.45rem}
+  #tt .hd img{width:2.6rem; height:2.6rem; border-radius:4px; box-shadow:0 0 0 1px #5A6B58; flex:none}
+  #tt .ttl{font-size:.98rem; font-weight:700; color:#FFD98C; line-height:1.25;
+      font-family:"Iowan Old Style",Palatino,Georgia,serif;}
+  #tt .sub{font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:#8FA189; margin-top:.15rem}
+  #tt .body{color:#C2C8BE; white-space:pre-wrap}
+  #tt .sid{margin-top:.5rem; padding-top:.4rem; border-top:1px solid #2A3529; color:#7E8C79;
+      font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.7rem;
+      display:flex; justify-content:space-between; gap:1rem}
+  @media (prefers-reduced-motion: reduce){ #tt{transition:none} }
+
+  /* ---- boss cards ---- */
+  .bosses{display:flex; flex-direction:column; gap:1.1rem}
+  .boss{border:1px solid var(--rule); border-radius:7px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden}
+  .bhdr{padding:.95rem 1.1rem .85rem; border-bottom:1px solid var(--rule); display:flex; flex-direction:column; gap:.6rem}
+  .bhdr .r1{display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap}
+  .idx{font:700 .68rem/1 ui-monospace,Menlo,monospace; color:var(--muted);
+    border:1px solid var(--rule-strong); border-radius:3px; padding:.25rem .4rem; margin-right:.55rem}
+  .nm{font-family:"Iowan Old Style",Palatino,Georgia,serif; font-size:1.12rem; font-weight:600; line-height:1.25;}
+  .sb{font-size:.79rem; color:var(--muted); margin-top:.2rem}
+  .facts{display:flex; flex-wrap:wrap; gap:.35rem .9rem; font-size:.79rem; color:var(--ink-2)}
+  .facts b{font-family:ui-monospace,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums; color:var(--ink)}
+  .links{display:flex; flex-wrap:wrap; gap:.35rem}
+  .links a{font-size:.7rem; letter-spacing:.04em; text-transform:uppercase; font-weight:600;
+    padding:.22rem .5rem; border-radius:3px; text-decoration:none;
+    border:1px solid var(--rule-strong); color:var(--muted); background:var(--surface-2)}
+  .links a:hover{border-color:var(--accent); color:var(--accent); background:var(--accent-soft)}
+  .boss .body{padding:.9rem 1.1rem; display:flex; flex-direction:column; gap:.8rem; font-size:.9rem}
+  .lbl{font-size:.64rem; letter-spacing:.11em; text-transform:uppercase; color:var(--muted); font-weight:700}
+  .row{display:flex; flex-direction:column; gap:.3rem}
+  .grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(17rem,1fr)); gap:1rem}
+
+  /* ---- stacked damage breakdown ---- */
+  .bd{display:flex; flex-direction:column; gap:.5rem; padding-top:.2rem}
+  .bdbar{display:flex; height:13px; border-radius:4px; overflow:hidden; background:var(--track); gap:2px}
+  .bdseg{height:100%; cursor:pointer; transition:filter .1s; min-width:3px}
+  .bdseg:hover{filter:brightness(1.18)}
+  .bdleg{display:flex; flex-wrap:wrap; gap:.3rem .95rem; font-size:.78rem; color:var(--ink-2)}
+  .bdleg span.it{display:inline-flex; align-items:center; gap:.35em; cursor:pointer}
+  .bdleg span.it:hover{color:var(--accent)}
+  .bdleg b{font-family:ui-monospace,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums; color:var(--muted); font-weight:600}
+
+  .seq{display:flex; flex-wrap:wrap; gap:.3rem; align-items:center}
+  .seq .step{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.75rem; background:var(--surface-3);
+    border:1px solid var(--rule); border-radius:4px; padding:.22rem .45rem; white-space:nowrap;
+    display:inline-flex; align-items:center; gap:.3em}
+  .seq .arrow{color:var(--muted); font-size:.78rem}
+
+  /* ---- collapsible ---- */
+  details.plan{border:1px solid var(--rule); border-radius:6px; background:var(--surface-2); overflow:hidden}
+  details.plan>summary{cursor:pointer; padding:.6rem .85rem; font-size:.8rem; font-weight:700;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); list-style:none;
+    display:flex; align-items:center; gap:.5em}
+  details.plan>summary::-webkit-details-marker{display:none}
+  details.plan>summary::before{content:"\25B8"; color:var(--accent); transition:transform .12s; display:inline-block}
+  details.plan[open]>summary::before{transform:rotate(90deg)}
+  details.plan>summary:hover{color:var(--accent)}
+  details.plan .inner{border-top:1px solid var(--rule); background:var(--surface)}
+  details.plan table{font-size:.84rem}
+  details.plan td.tm{font-family:ui-monospace,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums;
+    white-space:nowrap; color:var(--ink); font-weight:600; width:1%}
+  details.plan td.sp2{white-space:normal; min-width:13rem}
+  details.plan td.nt{white-space:normal; color:var(--ink-2)}
+  details.plan tr.hi td{background:var(--accent-soft)}
+</style>
+
+<div class="wrap">
+/*CONTENT*/
+</div>
+
+<div id="tt" role="tooltip" aria-hidden="true"></div>
+
+<script>
+const DRUID  = /*DRUIDDATA*/;
+const BOSS   = /*BOSSDATA*/;
+const BICONS = /*BICONS*/;
+const META   = /*BOSSMETA*/;
+
+const OVERRIDE = {
+  "22812": {n:"Barkskin", d:"Your skin becomes as tough as bark, reducing all damage you take by 20% for 12 sec. Usable while stunned, frozen, incapacitated, feared or asleep.\n\nWith Improved Barkskin this build runs it at 16 sec; Matted Fur adds an absorb, and Verdant Heart raises all healing you receive by 20% for the duration."}
+};
+
+const TALENTS = {
+  ec_lunation : "CYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWoMbNMmZgxsMzMzMLMgxMLzsYmZswyMLjZGjNMAYstNzgxsNAmAAAAswMzMD2MmxYAAYmBLDA",
+  ec_goldrinn : "CYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWoMbNjxMDwsMzMzMYYGjZWmhxMWYZmlZGjZ2wAgx2yMDGz2AYCAAAwiZmZmBbGGjZAAMzglBA",
+  kotg_bounteous:"CYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWoMaGjZGYMLjZmZAGsMz2MmxM2YZGzMzYmNMMADwy2YDTzMLDAAAA2MzMzMYzYGjZAMzAADA"
+};
+const SEGVAR = ["--s1","--s2","--s3","--s4","--s5","--s6","--s7","--s8"];
+
+function slugify(s){ return String(s).toLowerCase().replace(/['’]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
+
+/* resolve a data-s key -> {name, id, desc, img, kind} */
+function resolve(key){
+  if(DRUID[key]) { const e=DRUID[key]; return {n:e.n,id:e.s,d:e.d,img:e.i,kind:e.t||"talent"}; }
+  if(BOSS[key])  {
+    const e=BOSS[key], o=OVERRIDE[key]||{};
+    const b=BICONS[e.i];
+    return {n:o.n||e.n, id:Number(key), d:o.d||e.d, img: b?("data:image/jpeg;base64,"+b):null, kind:"spell"};
+  }
+  return null;
+}
+
+/* ---------- render inline spell links ---------- */
+let missing=0;
+document.querySelectorAll("a.sp").forEach(a=>{
+  const key=a.dataset.s, r=resolve(key);
+  if(!r){ a.classList.add("miss"); a.textContent=a.textContent||("?"+key); missing++; return; }
+  a.innerHTML="";
+  if(r.img){ const im=document.createElement("img"); im.src=r.img; im.alt=""; a.appendChild(im); }
+  a.appendChild(document.createTextNode(r.n));
+  a.href="https://www.wowhead.com/spell="+r.id+"/"+slugify(r.n);
+  a.target="_blank"; a.rel="noopener";
+  a.setAttribute("aria-label",r.n);
+});
+if(missing) console.warn("unresolved spell refs:",missing);
+
+/* ---------- tooltip, anchored to the pointer ---------- */
+const tt=document.getElementById("tt");
+let px=0,py=0;
+function place(){
+  const r=tt.getBoundingClientRect(), pad=14;
+  let x=px+pad, y=py+pad;
+  if(x+r.width>innerWidth-8)  x=px-r.width-pad;
+  if(y+r.height>innerHeight-8) y=py-r.height-pad;
+  tt.style.transform="translate("+Math.max(8,x)+"px,"+Math.max(8,y)+"px)";
+}
+function showTip(html){ tt.innerHTML=html; tt.classList.add("on"); tt.setAttribute("aria-hidden","false"); place(); }
+function hideTip(){ tt.classList.remove("on"); tt.setAttribute("aria-hidden","true"); }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function spellTipHTML(r){
+  return '<div class="hd">'+(r.img?'<img src="'+r.img+'" alt="">':'')+
+    '<div><div class="ttl">'+esc(r.n)+'</div><div class="sub">'+esc(r.kind)+'</div></div></div>'+
+    '<div class="body">'+esc(r.d||"No description available.")+'</div>'+
+    '<div class="sid"><span>Spell ID '+r.id+'</span><span>Click &rarr; Wowhead</span></div>';
+}
+
+addEventListener("pointermove",e=>{ px=e.clientX; py=e.clientY; if(tt.classList.contains("on")) place(); },{passive:true});
+
+document.querySelectorAll("a.sp").forEach(a=>{
+  const r=resolve(a.dataset.s); if(!r) return;
+  a.addEventListener("pointerenter",()=>showTip(spellTipHTML(r)));
+  a.addEventListener("pointerleave",hideTip);
+  a.addEventListener("focusin",()=>{ const b=a.getBoundingClientRect(); px=b.left+b.width/2; py=b.bottom; showTip(spellTipHTML(r)); });
+  a.addEventListener("focusout",hideTip);
+});
+
+/* ---------- boss headers, links, damage breakdown ---------- */
+const fmt=n=>n.toLocaleString("en-US");
+function wcl(enc){ return "https://www.warcraftlogs.com/zone/rankings/53#boss="+enc+"&class=Druid&spec=Balance&difficulty=4"; }
+
+document.querySelectorAll(".boss[data-b]").forEach(card=>{
+  const k=card.dataset.b, m=META[k]; if(!m) return;
+  const hdr=card.querySelector(".bhdr"); if(!hdr) return;
+  const sub=hdr.dataset.sub||"";
+  const build=hdr.dataset.build||"", buildLbl=hdr.dataset.buildlabel||"", tree=hdr.dataset.tree||"ec";
+  const flag=hdr.dataset.flag||"";
+
+  let chips='<button class="chip '+tree+'" data-copy="'+build+'" title="Copy talent string">'+
+      '<span class="swatch" style="background:var(--'+tree+')"></span>'+buildLbl+'&nbsp;&#128203;</button>';
+  if(flag) chips+=' <span class="chip '+(hdr.dataset.flagclass||"flat")+'">'+flag+'</span>';
+
+  const links='<div class="links">'+
+    '<a href="'+wcl(m.enc)+'" target="_blank" rel="noopener">WCL rankings</a>'+
+    '<a href="https://www.mythictrap.com/en/venomous-abyss/'+m.mt+'" target="_blank" rel="noopener">MythicTrap</a>'+
+    '<a href="https://lorrgs.io/spec_ranking/druid-balance/'+m.lorrgs+'?difficulty=heroic" target="_blank" rel="noopener">Lorrgs</a>'+
+    '<a href="https://www.wowhead.com/guide/midnight/'+(m.whGuide===2?"raids/":"")+m.wh+'" target="_blank" rel="noopener">Wowhead</a>'+
+    '</div>';
+
+  hdr.innerHTML=
+    '<div class="r1"><div><span class="idx">'+m.idx+'</span><span class="nm">'+m.name+'</span>'+
+      (sub?'<div class="sb">'+sub+'</div>':'')+'</div>'+
+      '<div style="display:flex; gap:.4rem; align-items:center; flex-wrap:wrap">'+chips+'</div></div>'+
+    '<div class="facts"><span>Duration <b>'+m.dur+'</b></span>'+
+      '<span>Bloodlust <b>'+m.bl+'</b></span>'+
+      '<span style="color:var(--muted)">'+m.blNote+'</span></div>'+
+    links;
+
+  /* damage breakdown */
+  const host=card.querySelector(".bd"); if(!host) return;
+  const segs=m.seg, tot=segs.reduce((a,s)=>a+s.t,0);
+  let bar='<div class="bdbar">', leg='<div class="bdleg">';
+  segs.forEach((s,i)=>{
+    const c="var("+SEGVAR[i%8]+")";
+    bar+='<div class="bdseg" style="width:'+s.p+'%; background:'+c+'" data-seg="'+k+':'+i+'"></div>';
+    leg+='<span class="it" data-seg="'+k+':'+i+'"><span class="swatch" style="background:'+c+'"></span>'+
+         s.n+' <b>'+s.p.toFixed(1)+'%</b></span>';
+  });
+  host.innerHTML='<span class="lbl">Damage by target &mdash; measured from a kill log</span>'+bar+'</div>'+leg+'</div>';
+});
+
+/* segment tooltips */
+function segTipHTML(s,totPct){
+  return '<div class="hd"><div><div class="ttl">'+esc(s.n)+'</div>'+
+    '<div class="sub">'+s.p.toFixed(1)+'% of raid damage</div></div></div>'+
+    '<div class="body">'+esc(s.d)+'</div>'+
+    '<div class="sid"><span>'+fmt(s.t)+' damage</span><span>killed &times;'+s.k+'</span></div>';
+}
+document.querySelectorAll("[data-seg]").forEach(el=>{
+  const [k,i]=el.dataset.seg.split(":"), s=META[k].seg[+i];
+  el.addEventListener("pointerenter",()=>showTip(segTipHTML(s)));
+  el.addEventListener("pointerleave",hideTip);
+});
+
+/* ---------- copy to clipboard ---------- */
+function copyText(t){
+  if(navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t);
+  return new Promise((res,rej)=>{
+    const ta=document.createElement("textarea");
+    ta.value=t; ta.setAttribute("readonly","");
+    ta.style.cssText="position:absolute;left:-9999px;top:0";
+    document.body.appendChild(ta); ta.select();
+    let ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+    document.body.removeChild(ta); ok?res():rej();
+  });
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-copy]"); if(!b) return;
+  e.preventDefault();
+  const key=b.dataset.copy, str=TALENTS[key]||key;
+  const label=b.innerHTML;
+  copyText(str).then(()=>{
+    b.classList.add("done"); b.innerHTML="Copied &#10003;";
+    setTimeout(()=>{ b.classList.remove("done"); b.innerHTML=label; },1600);
+  }).catch(()=>{ b.innerHTML="Press Ctrl+C"; setTimeout(()=>{ b.innerHTML=label; },2200); });
+});
+</script>

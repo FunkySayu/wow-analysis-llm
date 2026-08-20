@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arcane Mage — Season 2 tuning preview</title>
+<meta name="description" content="Simulating Blizzard's August 18 Arcane tier tuning against Funkywand's current gear: the Venomous Abyss nerf isn't fully offset by the baseline compensation buff.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body, h1, h2, h3, p, ul, figure { margin: 0; }
+  ul { padding: 0; }
+  img, svg { display: block; max-width: 100%; }
+
+  /* ---------- tokens ---------- */
+  :root {
+    color-scheme: light;
+    --plane:      #f2f0f7;
+    --surface:    #fdfdff;
+    --surface-2:  #f7f6fa;
+    --ink:        #17141f;
+    --ink-2:      #55506a;
+    --muted:      #857f9c;
+    --hair:       rgba(23,20,31,0.11);
+    --accent:     #4a3aa7;
+    --accent-sub: #ece9f8;
+    --baseline:   #cdc8dc;
+    --bad:        #ab3434;
+    --bad-sub:    #f7e6e6;
+
+    --f-display: "Iowan Old Style","Hoefler Text","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --f-body: system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --f-mono: ui-monospace,"Cascadia Mono","SF Mono",Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --plane: #0b0910; --surface: #17141d; --surface-2: #1e1a27;
+      --ink: #ffffff; --ink-2: #c0bad2; --muted: #8b85a3;
+      --hair: rgba(255,255,255,0.12);
+      --accent: #9085e9; --accent-sub: #211c33;
+      --baseline: #38324c;
+      --bad: #e2665f; --bad-sub: #2e1a19;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --plane: #0b0910; --surface: #17141d; --surface-2: #1e1a27;
+    --ink: #ffffff; --ink-2: #c0bad2; --muted: #8b85a3;
+    --hair: rgba(255,255,255,0.12);
+    --accent: #9085e9; --accent-sub: #211c33;
+    --baseline: #38324c;
+    --bad: #e2665f; --bad-sub: #2e1a19;
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --plane: #f2f0f7; --surface: #fdfdff; --surface-2: #f7f6fa;
+    --ink: #17141f; --ink-2: #55506a; --muted: #857f9c;
+    --hair: rgba(23,20,31,0.11);
+    --accent: #4a3aa7; --accent-sub: #ece9f8;
+    --baseline: #cdc8dc;
+    --bad: #ab3434; --bad-sub: #f7e6e6;
+  }
+
+  body {
+    background: var(--plane); color: var(--ink);
+    font-family: var(--f-body); font-size: 16px; line-height: 1.6;
+    padding: 0 20px 96px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  .prose { max-width: 68ch; }
+  a { color: var(--accent); }
+
+  /* ---------- topbar ---------- */
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0 0; flex-wrap: wrap; }
+  .navlinks { display: flex; gap: 20px; font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; }
+  .navlinks a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+  .navlinks a:hover, .navlinks a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- masthead ---------- */
+  .masthead { padding: 52px 0 30px; border-bottom: 1px solid var(--hair); }
+  .eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  h1 { font-family: var(--f-display); font-weight: 600; font-size: clamp(32px,5vw,52px); line-height: 1.08; letter-spacing: -0.015em; margin-bottom: 20px; text-wrap: balance; }
+  .standfirst { font-family: var(--f-display); font-size: clamp(17px,2.1vw,21px); line-height: 1.55; color: var(--ink-2); max-width: 64ch; margin-bottom: 28px; }
+  .standfirst strong { color: var(--ink); font-weight: 600; }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px 26px; font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+  .meta b { color: var(--ink-2); font-weight: 500; }
+
+  section { padding-top: 60px; }
+  h2 { font-family: var(--f-display); font-weight: 600; font-size: clamp(23px,2.8vw,29px); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 8px; text-wrap: balance; }
+  h3 { font-family: var(--f-body); font-weight: 650; font-size: 16px; letter-spacing: -0.005em; margin: 30px 0 6px; }
+  .lede { color: var(--ink-2); margin-bottom: 26px; max-width: 68ch; }
+  p { margin-bottom: 16px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .sec-mark { font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+  .sec-mark::after { content: ""; flex: 1; height: 1px; background: var(--hair); }
+
+  /* ---------- KPI ---------- */
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 3px; overflow: hidden; margin-top: 32px; }
+  .kpi { background: var(--surface); padding: 22px; }
+  .k-label { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .k-val { font-size: 38px; line-height: 1; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+  .k-val.bad { color: var(--bad); }
+  .k-sub { font-size: 13px; color: var(--ink-2); margin-bottom: 0; }
+  .k-sub b { font-weight: 600; }
+  .swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; }
+  .sw-before { background: var(--baseline); } .sw-after { background: var(--accent); }
+
+  /* ---------- cards / chart ---------- */
+  .card { background: var(--surface); border: 1px solid var(--hair); border-radius: 3px; padding: 26px 26px 20px; margin: 26px 0; }
+  .card-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; justify-content: space-between; }
+  .card-title { font-family: var(--f-body); font-weight: 650; font-size: 16px; margin-bottom: 0; }
+  .card-note { color: var(--ink-2); font-size: 13.5px; margin: 6px 0 20px; max-width: 74ch; }
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink-2); font-family: var(--f-mono); margin-bottom: 14px; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .chart-scroll { overflow-x: auto; }
+  svg text { font-family: var(--f-body); }
+  .bar-val { font-family: var(--f-mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .bar-lbl { font-family: var(--f-mono); font-size: 12px; fill: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+  .ref-lbl { font-family: var(--f-mono); font-size: 11px; fill: var(--muted); }
+
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; margin-top: 16px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: right; padding: 9px 12px; border-bottom: 1px solid var(--hair); vertical-align: top; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  td.mono, th.mono { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-2); }
+  td.delta { color: var(--bad); font-weight: 600; }
+
+  /* ---------- findings ---------- */
+  .finding { border-top: 1px solid var(--hair); padding: 26px 0 4px; display: grid; grid-template-columns: 46px 1fr; gap: 20px; }
+  .finding .rank { font-family: var(--f-mono); font-size: 12px; color: var(--accent); padding-top: 4px; letter-spacing: .05em; margin-bottom: 0; }
+  .finding h3 { margin-top: 0; font-size: 17px; }
+  .finding p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 7px; border-radius: 2px; margin-left: 8px; background: var(--accent-sub); color: var(--accent); vertical-align: 2px; }
+  .tag.caveat { background: var(--bad-sub); color: var(--bad); }
+
+  code, .code { font-family: var(--f-mono); font-size: 0.92em; }
+  .codeblock { font-family: var(--f-mono); font-size: 12.5px; line-height: 1.75; background: var(--surface-2); border: 1px solid var(--hair); border-radius: 3px; padding: 16px 18px; overflow-x: auto; color: var(--ink-2); margin-bottom: 8px; white-space: pre; }
+  .codeblock .cm { color: var(--accent); }
+  .caption { font-size: 12.5px; color: var(--muted); margin-bottom: 24px; }
+
+  .banner { background: var(--surface); border: 1px solid var(--hair); border-left: 3px solid var(--bad); border-radius: 3px; padding: 20px 24px; margin-top: 32px; }
+  .banner p { margin-bottom: 0; color: var(--ink-2); }
+  .banner b { color: var(--ink); }
+  .banner .bl { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--bad); margin-bottom: 10px; }
+
+  footer { margin-top: 70px; padding-top: 26px; border-top: 1px solid var(--hair); font-size: 13px; color: var(--muted); }
+  footer b { color: var(--ink-2); font-weight: 500; }
+  footer ul { list-style: none; margin-top: 10px; }
+  footer li { padding: 4px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  @media (max-width: 620px) {
+    .finding { grid-template-columns: 1fr; gap: 6px; }
+    .k-val { font-size: 31px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <nav class="navlinks" aria-label="Sections">
+      <a href="#change">The change</a>
+      <a href="#result">The result</a>
+      <a href="#reading">Reading it</a>
+      <a href="#method">Method</a>
+    </nav>
+  </div>
+
+  <header class="masthead">
+    <p class="eyebrow">Arcane Mage · 12.1 Live · Season 2 tuning preview</p>
+    <h1>The compensation buff doesn't compensate.</h1>
+    <p class="standfirst">
+      Blizzard's <a href="https://us.forums.blizzard.com/en/wow/t/class-tuning-incoming-%E2%80%93-august-18/2336820">August 18 class tuning post</a>
+      nerfs the Venomous Abyss tier set and adds a flat baseline buff to make up for it. Simulated against
+      Funkywand's current gear, the trade isn't even: <strong>DPS drops about 4.6%</strong> once the change lands,
+      because the tier bonuses being cut are worth more to this gear than the baseline buff gives back.
+    </p>
+    <div class="meta">
+      <span><b>Character</b> Funkywand · Dwarf · ilvl 321 avg</span>
+      <span><b>Fight</b> Patchwerk, single target, optimal_raid</span>
+      <span><b>Iterations</b> 50,000 per run</span>
+      <span><b>Rotation</b> simc default Arcane APL</span>
+    </div>
+  </header>
+
+  <!-- ============ THE CHANGE ============ -->
+  <section id="change">
+    <p class="sec-mark">What's changing</p>
+    <h2>Three edits, effective August 18</h2>
+    <p class="lede">
+      Posted by class balance developer Linxy on August 14. The stated intent: the Venomous Abyss set bonus is
+      overperforming its tuning target, so it's cut — with a baseline damage increase meant to limit the net loss
+      to something smaller than the set-bonus cut itself.
+    </p>
+
+    <div class="chart-scroll">
+      <table>
+        <thead>
+          <tr><th>Where</th><th>Effect</th><th>Before</th><th>After</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Baseline (all Arcane damage)</td>
+            <td class="mono">spell 137021, effects 179704 / 191116</td>
+            <td class="mono">+8%</td>
+            <td class="mono">+11%</td>
+          </tr>
+          <tr>
+            <td>Venomous Abyss 2-set</td>
+            <td class="mono">spell 1296581, effect 1319720</td>
+            <td class="mono">Arcane Missiles +20%</td>
+            <td class="mono">Arcane Missiles +5%</td>
+          </tr>
+          <tr>
+            <td>Venomous Abyss 4-set</td>
+            <td class="mono">spell 1296930, effect 1319740</td>
+            <td class="mono">+5% / stack</td>
+            <td class="mono">+3% / stack</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption">
+      Spell/effect IDs resolved from the live client DBC, not guessed from the patch note text — see
+      <a href="#method">Method</a> for how. The baseline row is the part worth double-checking yourself: it reads
+      as "+3%" in the post, but the passive it lands on was already sitting at +8% from earlier Season 2 hotfixes,
+      so the applied value is +11%, not a fresh +3% aura.
+    </p>
+  </section>
+
+  <!-- ============ THE RESULT ============ -->
+  <section id="result">
+    <p class="sec-mark">What it does to Funkywand</p>
+    <h2>−4.6% DPS, and it isn't sampling noise</h2>
+    <p class="lede">
+      Same character, same gear, same rotation — only the three values above changed between runs.
+      The gap is roughly 144× the combined standard error of the two means, at a precision more
+      than 30× finer than the 1% threshold that actually matters for a WoW DPS comparison.
+    </p>
+
+    <div class="kpis">
+      <div class="kpi">
+        <p class="k-label"><span class="swatch sw-before"></span>Before</p>
+        <p class="k-val">160,799</p>
+        <p class="k-sub">DPS · ± 38 (1 s.e.)</p>
+      </div>
+      <div class="kpi">
+        <p class="k-label"><span class="swatch sw-after"></span>After</p>
+        <p class="k-val">153,404</p>
+        <p class="k-sub">DPS · ± 35 (1 s.e.)</p>
+      </div>
+      <div class="kpi">
+        <p class="k-label">Delta</p>
+        <p class="k-val bad">−4.6%</p>
+        <p class="k-sub"><b>−7,395</b> DPS, ± 51 (1 s.e.)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <p class="card-title">DPS before vs. after</p>
+      </div>
+      <p class="card-note">Mean of 50,000 iterations each. Dashed line marks the "before" level for reference against the "after" bar.</p>
+      <div class="legend">
+        <span><span class="swatch sw-before"></span>Before (live)</span>
+        <span><span class="swatch sw-after"></span>After (Aug 18)</span>
+      </div>
+      <div class="chart-scroll">
+        <svg viewBox="0 0 640 220" width="100%" height="220" role="img" aria-label="Bar chart comparing before DPS of 160,799 to after DPS of 153,404, a 4.6 percent decrease">
+          <!-- baseline reference line at "before" height -->
+          <line x1="40" y1="30" x2="600" y2="30" stroke="var(--hair)" stroke-width="1" stroke-dasharray="3 4"></line>
+          <text x="604" y="34" class="ref-lbl">before</text>
+
+          <!-- before bar -->
+          <rect x="180" y="30" width="90" height="156" rx="4" fill="var(--baseline)">
+            <title>Before: 160,799 DPS</title>
+          </rect>
+          <text x="225" y="20" text-anchor="middle" class="bar-val" fill="var(--ink)" font-size="15">160,799</text>
+          <text x="225" y="204" text-anchor="middle" class="bar-lbl">Before</text>
+
+          <!-- after bar -->
+          <rect x="370" y="37.2" width="90" height="148.8" rx="4" fill="var(--accent)">
+            <title>After: 153,404 DPS</title>
+          </rect>
+          <text x="415" y="27.2" text-anchor="middle" class="bar-val" fill="var(--ink)" font-size="15">153,404</text>
+          <text x="415" y="204" text-anchor="middle" class="bar-lbl">After</text>
+
+          <!-- gap callout -->
+          <line x1="470" y1="30" x2="470" y2="37.2" stroke="var(--bad)" stroke-width="2"></line>
+          <text x="480" y="34" class="bar-val" fill="var(--bad)" font-size="12.5">&#8722;4.6%</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ READING IT ============ -->
+  <section id="reading">
+    <p class="sec-mark">Reading it</p>
+    <h2>What this does and doesn't tell you</h2>
+
+    <div class="finding">
+      <p class="rank">01</p>
+      <div>
+        <h3>The set bonus was worth more than the compensation<span class="tag">finding</span></h3>
+        <p>The 2-set alone was giving Arcane Missiles a flat +20% — a bigger single number than anything else in
+          the kit gets from tier. Cutting it to +5% and handing back 3 baseline percentage points doesn't come
+          close to break-even for a profile leaning this hard on Missiles casts.</p>
+      </div>
+    </div>
+
+    <div class="finding">
+      <p class="rank">02</p>
+      <div>
+        <h3>Not live yet<span class="tag caveat">caveat</span></h3>
+        <p>Posted August 14, effective August 18. As of this run neither the live game nor simc's vendored data
+          (build 12.1.0.69299, hotfix dated August 15) reflects it — the "after" numbers come from patching the
+          spell data in memory for this run only (see <a href="#method">Method</a>), not from an official update.
+          Treat this as a preview of the stated intent, not a guarantee of the shipped values.</p>
+      </div>
+    </div>
+
+    <div class="finding">
+      <p class="rank">03</p>
+      <div>
+        <h3>Default APL, not your addon rotation<span class="tag caveat">caveat</span></h3>
+        <p>The character string from the WCL addon export carries gear, talents, and consumables — it has no
+          <code>actions=</code> list. Both runs used simc's bundled community Arcane APL, identical between the
+          two, so the −4.6% is isolated to the tuning change. It is not necessarily what your own play would lose.</p>
+      </div>
+    </div>
+
+    <div class="banner">
+      <p class="bl">Net read</p>
+      <p><b>If this hotfix ships as posted, expect roughly a 4–5% DPS loss on this gear</b> — worth re-simming
+        once it's confirmed live, since a same-day follow-up tuning pass is common if the community pushes back
+        on a nerf this size.</p>
+    </div>
+  </section>
+
+  <!-- ============ METHOD ============ -->
+  <section id="method">
+    <p class="sec-mark">Reproducing this</p>
+    <h2>How the change was applied</h2>
+    <div class="prose">
+      <p>No source edit or rebuild — simc has a built-in <code>override.spell_data</code> mechanism that patches
+        spell data in memory for a single run. Each value above was traced to its real spell/effect id first
+        (via <code>spell_query</code> against the live client data), then overridden and re-verified with the same
+        query before the "after" sim ran.</p>
+    </div>
+    <div class="codeblock"><span class="cm"># after-tuning run, from a vendor/simc build at commit bb8107ca22</span>
+simc.exe funkywand_arcane.simc iterations=50000 fight_style=Patchwerk optimal_raid=1 \
+  override.spell_data=effect.1319720.base_value=5   <span class="cm"># 2-set: 20 -&gt; 5</span>
+  override.spell_data=effect.1319740.base_value=3   <span class="cm"># 4-set: 5 -&gt; 3</span>
+  override.spell_data=effect.179704.base_value=11   <span class="cm"># baseline direct dmg: 8 -&gt; 11</span>
+  override.spell_data=effect.191116.base_value=11   <span class="cm"># baseline periodic dmg: 8 -&gt; 11</span></div>
+    <p class="caption">The "before" run is the same command with the four <code>override.spell_data</code> lines removed.</p>
+  </section>
+
+  <footer>
+    <p><b>Sources</b></p>
+    <ul>
+      <li>Linxy, <a href="https://us.forums.blizzard.com/en/wow/t/class-tuning-incoming-%E2%80%93-august-18/2336820">"Class Tuning Incoming – August 18"</a> — official WoW forums, posted 2026-08-14</li>
+      <li><a href="https://www.wowhead.com/blue-tracker/topic/us/class-tuning-incoming-august-18-2336820">Wowhead Blue Tracker mirror</a> of the same post</li>
+      <li>Simulation engine: <a href="https://github.com/simulationcraft/simc">SimulationCraft</a>, commit <a href="https://github.com/simulationcraft/simc/commit/bb8107ca22fb97dc96d27d71620db760d703d547">bb8107ca22</a> (branch <code>midnight</code>)</li>
+    </ul>
+  </footer>
+
+</div>
+</body>
+</html>

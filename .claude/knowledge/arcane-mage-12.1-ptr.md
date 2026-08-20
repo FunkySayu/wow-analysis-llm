@@ -103,9 +103,20 @@ not a one-directional bias.
 
 ## Trust boundaries worth remembering
 
-- The sim's damage table shows **no Arcane Phoenix damage at all** and Arcane Orb at 0.06%,
-  while the log shows Phoenix at ~2.9% and Orb at ~3.2%. simc's PTR model of the Sunfury
-  capstone is incomplete — don't read per-ability shares across sim/log as like-for-like.
+- The sim's damage table shows **no Arcane Phoenix damage at all**, while the log shows
+  Phoenix at ~2.8–2.9%. simc's PTR model of the Sunfury capstone is incomplete here — don't
+  read Phoenix's share across sim/log as like-for-like.
+- **Correction to an earlier version of this note**, which claimed "Arcane Orb at 0.06%" in
+  the sim. That figure was itself a data-reading bug, of exactly the kind this file warns
+  about elsewhere: simc's `stats` list splits some abilities into a parent "cast wrapper"
+  entry with **no damage fields at all** (Arcane Orb's top-level entry, id 153626, has
+  `total_amount: null`) and a separate nested `children[]` entry that carries the real
+  `total_amount`/`portion_amount` (id 153640, "arcane_orb_bolt"). Reading only the top level
+  reports 0% for Arcane Orb and Touch of the Magi alike; both are wrapper-shaped. Once the
+  children are included, the sim shows Arcane Orb at **~3.1%** — matching the logged ~3.2–3.4%
+  closely. Re-verified against raidbots report `38BorEbHSzMrsQmgug8J2B` in
+  `backend/wow_analysis/raidbots_client.py` (`_flatten_stats`). Arcane Orb is *not* a
+  meaningfully mis-simmed ability; Arcane Phoenix still is.
 - WCL `Buffs`/`Casts` events carry no Arcane Charge resource data; charge state must be
   inferred, so avoid claims that depend on exact charge counts.
 - **PowerShell gotcha that silently corrupted two analysis passes:** variables are

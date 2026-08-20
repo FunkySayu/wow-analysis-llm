@@ -129,7 +129,16 @@ The useful framing is **resource economy**, not "which button is biggest." For a
 
 ## Layout
 
-- `.claude/skills/` — the four data-pulling skills described above.
-- `.claude/knowledge/` — condensed, durable findings per spec/topic (current: Arcane Mage).
+- `.claude/skills/` — the four data-pulling skills described above, plus `simc-simulation`
+  and `simc-profile-syntax` for running sims locally and `wowhead-blueposts` for official
+  commentary.
+- `.claude/knowledge/` — condensed, durable findings per spec/topic (currently Arcane Mage
+  and [balance-druid-12.1.md](.claude/knowledge/balance-druid-12.1.md), plus
+  [venomous-abyss-12.1.md](.claude/knowledge/venomous-abyss-12.1.md) — the 12.1 raid tier:
+  encounter list, per-boss measured damage shape, and where to source data for a tier this
+  new), plus
+  [building-reports.md](.claude/knowledge/building-reports.md) — how to build the published
+  HTML report itself (payload injection, inline spell tooltips, clipboard, and the
+  PowerShell/shell traps that silently corrupt a run).
 - `data/talents/` — talent tree dumps (regenerate via `wow-talent-data` when the PTR build moves).
 - `scratch/` — raw extracts and working notes tied to a specific report; not meant to stay current.
