@@ -4,3 +4,4 @@ backend/**/__pycache__/
 *.pyc
 vendor/simc/build/
 scratch/
+.wclcache/

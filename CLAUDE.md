@@ -137,8 +137,18 @@ The useful framing is **resource economy**, not "which button is biggest." For a
   [venomous-abyss-12.1.md](.claude/knowledge/venomous-abyss-12.1.md) — the 12.1 raid tier:
   encounter list, per-boss measured damage shape, and where to source data for a tier this
   new), plus
+  [midnight-s2-dungeons.md](.claude/knowledge/midnight-s2-dungeons.md) — the Season 2 M+
+  pool: canonical dungeon list, per-dungeon Druid utility measured from 160 top-key logs,
+  how to derive a debuff's dispel school from logs alone, and the spell-ID splits that make
+  Typhoon and Solar Beam silently uncountable, plus
   [building-reports.md](.claude/knowledge/building-reports.md) — how to build the published
   HTML report itself (payload injection, inline spell tooltips, clipboard, and the
   PowerShell/shell traps that silently corrupt a run).
 - `data/talents/` — talent tree dumps (regenerate via `wow-talent-data` when the PTR build moves).
+- `tools/wcl/` — **reusable log checks. Run these instead of re-deriving an analysis.**
+  `run.py <check> -r <report> -a <actor> -f raid|dungeon|<ids>` covers salvo cycle, Arcane
+  Soul setup, Clearcasting waste, Touch of the Magi targeting, cooldown/lust/pack alignment,
+  Missiles wave count (the set-bonus test), channel gaps and a gear/enchant control test.
+  See [tools/wcl/README.md](tools/wcl/README.md); events cache to `.wclcache/`. When you
+  answer a new question about a log, add it there as a check rather than as a one-off script.
 - `scratch/` — raw extracts and working notes tied to a specific report; not meant to stay current.

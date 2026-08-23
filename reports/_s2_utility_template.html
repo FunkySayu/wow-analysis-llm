@@ -1,0 +1,603 @@
+﻿<title>Moonkin Utility Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  color-scheme: light;
+  --ground:#EDF0EA; --surface:#FFFFFF; --surface-2:#F6F8F3; --surface-3:#E8ECE4;
+  --ink:#141813; --ink-2:#3A4238; --muted:#69725F;
+  --rule:#DDE2D6; --rule-strong:#C3CBB8;
+  --accent:#5646BE; --accent-soft:#ECE9FA;
+
+  --t-cleanse:#2C7A57;  --t-cleanse-soft:#E4F1EA;
+  --t-soothe:#9C6B0E;   --t-soothe-soft:#F7EEDA;
+  --t-beam:#6247C4;     --t-beam-soft:#EBE7F9;
+  --t-shift:#1F6684;    --t-shift-soft:#E2EFF4;
+  --t-stop:#A64B33;     --t-stop-soft:#F8E9E4;
+  --t-racial:#7A5B9B;   --t-racial-soft:#F0E9F6;
+
+  --good:#2C7A57; --warn:#9C6B0E; --bad:#A64B33;
+  --track:#E1E6DA;
+  --shadow:0 1px 2px rgba(20,24,19,.05), 0 12px 28px -18px rgba(20,24,19,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#101410; --surface:#181D18; --surface-2:#1E241E; --surface-3:#252C24;
+    --ink:#E4E8DF; --ink-2:#BEC5B8; --muted:#8B9384;
+    --rule:#282F27; --rule-strong:#3C453A;
+    --accent:#A395F0; --accent-soft:#1E1A35;
+
+    --t-cleanse:#5FB68C;  --t-cleanse-soft:#12261C;
+    --t-soothe:#D9A73F;   --t-soothe-soft:#2A2110;
+    --t-beam:#A395F0;     --t-beam-soft:#1E1A35;
+    --t-shift:#5AA3C4;    --t-shift-soft:#12242B;
+    --t-stop:#D8836A;     --t-stop-soft:#2B1811;
+    --t-racial:#B996D8;   --t-racial-soft:#241B2E;
+
+    --good:#5FB68C; --warn:#D9A73F; --bad:#D8836A;
+    --track:#282F27;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 28px -18px rgba(0,0,0,.85);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#101410; --surface:#181D18; --surface-2:#1E241E; --surface-3:#252C24;
+  --ink:#E4E8DF; --ink-2:#BEC5B8; --muted:#8B9384;
+  --rule:#282F27; --rule-strong:#3C453A;
+  --accent:#A395F0; --accent-soft:#1E1A35;
+
+  --t-cleanse:#5FB68C;  --t-cleanse-soft:#12261C;
+  --t-soothe:#D9A73F;   --t-soothe-soft:#2A2110;
+  --t-beam:#A395F0;     --t-beam-soft:#1E1A35;
+  --t-shift:#5AA3C4;    --t-shift-soft:#12242B;
+  --t-stop:#D8836A;     --t-stop-soft:#2B1811;
+  --t-racial:#B996D8;   --t-racial-soft:#241B2E;
+
+  --good:#5FB68C; --warn:#D9A73F; --bad:#D8836A;
+  --track:#282F27;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 28px -18px rgba(0,0,0,.85);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink); margin:0;
+  font-family:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:70rem; margin:0 auto; padding:0 1.5rem 6rem}
+.col{max-width:44rem}
+h1,h2,h3{font-family:"Fraunces","Iowan Old Style",Georgia,serif; margin:0; text-wrap:balance; font-weight:600}
+h1{font-size:clamp(2.3rem,1.4rem + 3vw,3.5rem); line-height:1.04; letter-spacing:-.022em; font-weight:700}
+h2{font-size:1.7rem; line-height:1.2; letter-spacing:-.012em}
+h3{font-size:1.05rem; line-height:1.3}
+p{margin:0}
+a{color:var(--accent)}
+.mono,td.n,.tile .v{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums}
+code{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:.85em; background:var(--surface-2);
+  border:1px solid var(--rule); border-radius:4px; padding:.08em .34em}
+
+header.mast{border-bottom:1px solid var(--rule); padding:4rem 0 2rem; display:flex; flex-direction:column; gap:1rem}
+.eyebrow{font-family:"IBM Plex Mono",monospace; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--muted); font-weight:500}
+.standfirst{font-size:1.16rem; color:var(--ink-2); max-width:42rem}
+.meta{display:flex; flex-wrap:wrap; gap:.35rem 1.6rem; font-size:.76rem; color:var(--muted);
+  font-family:"IBM Plex Mono",monospace; padding-top:.35rem}
+.meta b{color:var(--ink-2); font-weight:600}
+
+.verdict{margin-top:2.3rem; background:var(--surface); border:1px solid var(--rule);
+  border-left:3px solid var(--accent); border-radius:5px; padding:1.4rem 1.5rem;
+  box-shadow:var(--shadow); display:flex; flex-direction:column; gap:.75rem}
+
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(12rem,1fr)); gap:1px; background:var(--rule);
+  border:1px solid var(--rule); border-radius:5px; overflow:hidden; margin-top:2rem}
+.tile{background:var(--surface); padding:1.05rem 1.1rem; display:flex; flex-direction:column; gap:.25rem}
+.tile .k{font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:700}
+.tile .v{font-size:1.55rem; line-height:1.05; letter-spacing:-.02em}
+.tile .s{font-size:.76rem; color:var(--muted)}
+
+section{padding-top:3.2rem; display:flex; flex-direction:column; gap:1rem}
+.sechead{display:flex; align-items:baseline; gap:.8rem; flex-wrap:wrap;
+  border-bottom:1px solid var(--rule); padding-bottom:.5rem}
+.chip{font-family:"IBM Plex Mono",monospace; font-size:.64rem; letter-spacing:.07em; text-transform:uppercase;
+  font-weight:600; padding:.2rem .5rem; border-radius:3px; white-space:nowrap;
+  border:1px solid var(--rule-strong); color:var(--muted); background:var(--surface-2);
+  display:inline-flex; align-items:center; gap:.4em}
+.chip .dot{width:.55em; height:.55em; border-radius:50%; flex:none}
+.chip.cleanse{color:var(--t-cleanse); background:var(--t-cleanse-soft); border-color:color-mix(in srgb,var(--t-cleanse) 38%,transparent)}
+.chip.soothe {color:var(--t-soothe);  background:var(--t-soothe-soft);  border-color:color-mix(in srgb,var(--t-soothe) 38%,transparent)}
+.chip.beam   {color:var(--t-beam);    background:var(--t-beam-soft);    border-color:color-mix(in srgb,var(--t-beam) 38%,transparent)}
+.chip.shift  {color:var(--t-shift);   background:var(--t-shift-soft);   border-color:color-mix(in srgb,var(--t-shift) 38%,transparent)}
+.chip.stop   {color:var(--t-stop);    background:var(--t-stop-soft);    border-color:color-mix(in srgb,var(--t-stop) 38%,transparent)}
+.chip.racial {color:var(--t-racial); background:var(--t-racial-soft); border-color:color-mix(in srgb,var(--t-racial) 38%,transparent)}
+.chip.dead   {color:var(--muted); background:var(--surface-3); border-color:var(--rule-strong)}
+
+.tscroll{overflow-x:auto; border:1px solid var(--rule); border-radius:5px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:.87rem}
+caption{caption-side:bottom; text-align:left; color:var(--muted); font-size:.77rem; padding:.6rem .9rem 0; line-height:1.5}
+th,td{padding:.5rem .8rem; text-align:left; border-bottom:1px solid var(--rule); white-space:nowrap}
+thead th{font-family:"IBM Plex Mono",monospace; font-size:.63rem; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--muted); font-weight:600; background:var(--surface-2)}
+tbody tr:last-child td{border-bottom:none}
+td.n{text-align:right}
+.best{font-weight:700; color:var(--ink)}
+.zero{color:var(--muted)}
+.wrapcell{white-space:normal; min-width:14rem}
+
+.note{font-size:.9rem; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--rule);
+  border-radius:5px; padding:.85rem 1rem}
+ul{margin:0; padding-left:1.05rem; display:flex; flex-direction:column; gap:.45rem}
+footer{margin-top:4rem; padding-top:1.4rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem;
+  display:flex; flex-direction:column; gap:.6rem}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+/* ---- toolkit legend ---- */
+.kit{display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:1rem}
+.kitcard{background:var(--surface); border:1px solid var(--rule); border-radius:5px; padding:.95rem 1rem;
+  display:flex; flex-direction:column; gap:.5rem; box-shadow:var(--shadow); border-top:3px solid var(--rule)}
+.kitcard.cleanse{border-top-color:var(--t-cleanse)}
+.kitcard.soothe{border-top-color:var(--t-soothe)}
+.kitcard.beam{border-top-color:var(--t-beam)}
+.kitcard.shift{border-top-color:var(--t-shift)}
+.kitcard.stop{border-top-color:var(--t-stop)}
+.kitcard .kname{font-family:"Fraunces",Georgia,serif; font-size:1.02rem; font-weight:600}
+.kitcard .kwhy{font-size:.87rem; color:var(--ink-2)}
+.kitcard .kstat{font-family:"IBM Plex Mono",monospace; font-size:.74rem; color:var(--muted);
+  border-top:1px dashed var(--rule); padding-top:.45rem; font-variant-numeric:tabular-nums}
+
+/* ---- dungeon cards ---- */
+.dungeons{display:flex; flex-direction:column; gap:1.15rem}
+.dg{border:1px solid var(--rule); border-radius:6px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden}
+.dg .hd{padding:1rem 1.15rem .9rem; border-bottom:1px solid var(--rule);
+  display:flex; flex-direction:column; gap:.6rem; background:var(--surface-2)}
+.dg .r1{display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap}
+.rank{font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:.68rem; color:var(--muted);
+  border:1px solid var(--rule-strong); border-radius:3px; padding:.22rem .42rem; margin-right:.6rem}
+.dg .nm{font-family:"Fraunces",Georgia,serif; font-size:1.22rem; font-weight:600; line-height:1.2}
+.dg .sb{font-size:.82rem; color:var(--muted); margin-top:.15rem}
+.lanes{display:flex; flex-wrap:wrap; gap:.35rem}
+.dg .bd{padding:1rem 1.15rem; display:flex; flex-direction:column; gap:.95rem; font-size:.91rem}
+.lane{display:grid; grid-template-columns:7.5rem 1fr; gap:.85rem; align-items:start}
+@media (max-width:640px){ .lane{grid-template-columns:1fr; gap:.3rem} }
+.lane .lbl{font-family:"IBM Plex Mono",monospace; font-size:.65rem; letter-spacing:.09em; text-transform:uppercase;
+  font-weight:600; padding-top:.18rem}
+.lane.cleanse .lbl{color:var(--t-cleanse)}
+.lane.soothe .lbl{color:var(--t-soothe)}
+.lane.beam .lbl{color:var(--t-beam)}
+.lane.shift .lbl{color:var(--t-shift)}
+.lane.stop .lbl{color:var(--t-stop)}
+.lane .body{display:flex; flex-direction:column; gap:.35rem; color:var(--ink-2)}
+.lane .body b{color:var(--ink)}
+.mobs{display:flex; flex-wrap:wrap; gap:.3rem}
+.mob{font-family:"IBM Plex Mono",monospace; font-size:.72rem; background:var(--surface-3);
+  border:1px solid var(--rule); border-radius:3px; padding:.16rem .42rem; white-space:nowrap}
+.mob b{font-weight:600}
+
+/* beam composition bar */
+.bar{display:flex; height:11px; border-radius:3px; overflow:hidden; background:var(--track); margin-top:.15rem}
+.bar span{display:block; height:100%}
+.barleg{display:flex; flex-wrap:wrap; gap:.25rem .85rem; font-size:.74rem; color:var(--muted);
+  font-family:"IBM Plex Mono",monospace}
+.barleg i{font-style:normal; display:inline-flex; align-items:center; gap:.3em}
+.sw{width:.6em; height:.6em; border-radius:2px; display:inline-block}
+
+/* ---- inline spell reference ---- */
+a.sp{display:inline-flex; align-items:center; gap:.3em; white-space:nowrap;
+  border-bottom:1px dotted var(--rule-strong); cursor:pointer; font-weight:600;
+  text-decoration:none; color:inherit}
+a.sp img{width:1.05em; height:1.05em; border-radius:3px; vertical-align:-.15em;
+  box-shadow:0 0 0 1px rgba(0,0,0,.3); flex:none}
+a.sp:hover,a.sp:focus-visible{border-bottom-color:var(--accent); color:var(--accent)}
+td a.sp,.mob a.sp{border-bottom:none}
+a.sp.miss{color:var(--bad); border-bottom-color:var(--bad)}
+
+#tt{position:fixed; z-index:99; max-width:23rem; pointer-events:none; opacity:0; visibility:hidden;
+  transition:opacity .09s ease; background:#0C100C; color:#D2D8CD;
+  border:1px solid #3B4C3B; border-radius:5px; padding:.7rem .8rem;
+  box-shadow:0 10px 30px -8px rgba(0,0,0,.8); font-size:.83rem; line-height:1.5;
+  left:0; top:0; transform:translate(0,0)}
+#tt.on{opacity:1; visibility:visible}
+#tt .hd2{display:flex; gap:.6rem; align-items:flex-start; margin-bottom:.4rem}
+#tt .hd2 img{width:2.5rem; height:2.5rem; border-radius:4px; box-shadow:0 0 0 1px #56684F; flex:none}
+#tt .ttl{font-size:.97rem; font-weight:700; color:#F0CE83; line-height:1.25;
+  font-family:"Fraunces",Georgia,serif}
+#tt .body2{color:#BFC6BB; white-space:pre-wrap}
+#tt .sid{margin-top:.5rem; padding-top:.4rem; border-top:1px solid #29331F; color:#7C8A76;
+  font-family:"IBM Plex Mono",monospace; font-size:.69rem}
+@media (prefers-reduced-motion: reduce){ #tt{transition:none} }
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="eyebrow">Midnight Season 2 &middot; Mythic+ &middot; Balance Druid</div>
+  <h1>Moonkin Utility Book</h1>
+  <p class="standfirst col">Eight dungeons, read through the buttons only a druid brings. Which poisons and curses are yours to clear, which enrages are worth a Soothe, what your beam is actually landing on, what your race adds &mdash; and the one dungeon where none of it matters.</p>
+  <div class="meta">
+    <span><b>runs</b> 160 &middot; 20 per dungeon</span>
+    <span><b>keys</b> 13&ndash;16, highest available</span>
+    <span><b>events</b> 13,763 casts &middot; 1,386 dispels &middot; 1,759 stops &middot; 237 melds</span>
+    <span><b>source</b> WCL API v2 &middot; tooltips live</span>
+  </div>
+</header>
+
+<div class="verdict col">
+  <h3>The finding that reframes the rest</h3>
+  <p><b>You cannot judge <a class="sp" data-s="78675"></a> by interrupt counts.</b> Across all <b class="mono">1,764</b> beams in this sample, not one produced a second interrupt event &mdash; the interrupt fires on the primary target only, and the area effect is a <i>silence</i>, which stops casts from ever starting and writes nothing to the log.</p>
+  <p style="color:var(--ink-2)">So every "interrupts landed" comparison is structurally blind to the half of the beam that matters. Measured properly &mdash; by counting enemies mid-cast inside the beam's own 8-second window &mdash; the spread runs from <b class="mono">3.33</b> casters per beam in Murder Row down to <b class="mono">1.40</b> in Kings' Rest, a factor of 2.4 that no interrupt table shows.</p>
+</div>
+
+<div class="tiles">
+  <div class="tile"><span class="k">Beams that stopped 2+ casts</span><span class="v">0<span style="color:var(--muted)">/1,764</span></span><span class="s">the AoE never logs an interrupt</span></div>
+  <div class="tile"><span class="k">Beams cast into nothing</span><span class="v">4%</span><span class="s">beam discipline is not the problem</span></div>
+  <div class="tile"><span class="k">Druid-only actions &middot; best</span><span class="v">19.4</span><span class="s">Den of Nalorakk, per run</span></div>
+  <div class="tile"><span class="k">Druid-only actions &middot; worst</span><span class="v">0.2</span><span class="s">Ruby Life Pools, per run</span></div>
+</div>
+
+<!-- ============ TOOLKIT ============ -->
+<section>
+  <div class="sechead"><h2>The five lanes</h2><span class="chip">Colour-coded throughout</span></div>
+  <p class="col">Every number below is per run, averaged over twenty runs of each dungeon at the highest keys currently logged. These five are the lanes where a druid does something the rest of the group cannot substitute for &mdash; or does it at a range and cadence nobody else has.</p>
+
+  <div class="kit">
+    <div class="kitcard cleanse">
+      <div class="kname"><a class="sp" data-s="2782"></a></div>
+      <p class="kwhy">Curse <i>and</i> Poison on an 8-second cooldown, at 40 yards. Two schools other classes usually split between them.</p>
+      <div class="kstat">Busiest: Den of Nalorakk, 10.6&times;/run &middot; Idle: Ruby Life Pools, 0</div>
+    </div>
+    <div class="kitcard soothe">
+      <div class="kname"><a class="sp" data-s="2908"></a></div>
+      <p class="kwhy">Strips every enrage at 40 yards on a 10-second cooldown. Pure damage prevention that never shows in a healing meter.</p>
+      <div class="kstat">Busiest: Den of Nalorakk, 6.2&times;/run &middot; Absent: 3 dungeons</div>
+    </div>
+    <div class="kitcard beam">
+      <div class="kname"><a class="sp" data-s="78675"></a></div>
+      <p class="kwhy">An interrupt on the target and an 8-second silence on everything under it. The silence is the point; the interrupt is a bonus.</p>
+      <div class="kstat">Busiest: Murder Row, 14.6&times;/run &middot; Thinnest: Voidscar, 7.2&times;</div>
+    </div>
+    <div class="kitcard shift">
+      <div class="kname">Shapeshift</div>
+      <p class="kwhy">"The act of shapeshifting frees you from movement impairing effects" &mdash; baseline on <a class="sp" data-s="24858"></a>, <a class="sp" data-s="5487"></a>, <a class="sp" data-s="768"></a> and <a class="sp" data-s="783"></a>. A root costs you one global, not a dispel.</p>
+      <div class="kstat">Busiest: The Blinding Vale, 6.4&times;/run</div>
+    </div>
+    <div class="kitcard stop">
+      <div class="kname">Displacement</div>
+      <p class="kwhy"><a class="sp" data-s="132469"></a>, <a class="sp" data-s="102793"></a> and <a class="sp" data-s="99"></a> &mdash; the casts a kick cannot reach, stopped by moving the caster instead.</p>
+      <div class="kstat">Busiest: Murder Row, 5.8 Typhoons/run</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MATRIX ============ -->
+<section>
+  <div class="sechead"><h2>Where the work is</h2><span class="chip">Per run &middot; 20 runs each</span></div>
+  <p class="col">Sorted by <b>druid-only actions</b>: dispels of Curse or Poison, enrages soothed, and roots broken by shapeshifting &mdash; the three things that genuinely need you. Beam and Typhoon are counted separately because other classes bring interrupts too.</p>
+  <div class="tscroll"><table id="matrix">
+    <thead><tr>
+      <th>#</th><th>Dungeon</th>
+      <th class="n">Rem. Corr.</th><th class="n">Soothe</th><th class="n">Shapeshift</th>
+      <th class="n">Druid-only</th>
+      <th class="n">Beams</th><th class="n">Casters/beam</th><th class="n">Typhoon</th>
+    </tr></thead>
+    <tbody><!--MATRIXROWS--></tbody>
+  </table><caption><b>Casters/beam</b> is the mean number of distinct enemies that began an interruptible cast in the eight seconds before each beam went down &mdash; the target pool the silence was aimed at. It is a time measure, not a positional one: the logs carry no coordinates, so it is an upper bound on what one beam could cover.</caption></div>
+</section>
+
+<!-- ============ BEAM ============ -->
+<section>
+  <div class="sechead"><h2>What your beam is doing</h2><span class="chip beam"><span class="dot" style="background:var(--t-beam)"></span>1,764 beams</span></div>
+  <p class="col">Each beam was classified by what was casting around it. <b>Suppressed</b> means enemies were mid-cast in the eight seconds before and silent for the eight after &mdash; the silence worked. <b>Contested</b> means something was still casting inside the window: either standing outside the beam, or starting after it expired. <b>Empty</b> means nothing was casting on either side.</p>
+  <div class="tscroll"><table id="beamtbl">
+    <thead><tr><th>Dungeon</th><th class="n">Beams</th><th style="min-width:15rem">Composition</th><th class="n">Suppressed</th><th class="n">Contested</th><th class="n">Casters/beam</th></tr></thead>
+    <tbody><!--BEAMROWS--></tbody>
+  </table><caption>Only 4% of beams across the whole sample were cast into nothing at all, so these are not wasted globals. The <b>contested</b> share is the interesting number: in Murder Row two thirds of beams leave casters still casting, because the imp packs are wider than one beam.</caption></div>
+
+  <p class="note col"><b>What this does not settle.</b> A contested beam is not necessarily a mistake. The logs record no positions, so a caster counted as "still casting" may be twenty yards outside the beam and never was catchable. What the split does establish is <i>relative</i>: Murder Row and Altar of Fangs put two to three casters in front of every beam, while Kings' Rest and Voidscar Arena put up 1.4 and 1.5 &mdash; there, the beam is a ranged kick with a silence attached, and should be spent like one.</p>
+</section>
+
+<!-- ============ DUNGEONS ============ -->
+<section>
+  <div class="sechead"><h2>Dungeon by dungeon</h2><span class="chip">Hover any spell for its live tooltip</span></div>
+  <p class="col">Ordered by druid-only workload. Mob names are the actual cast targets pulled from the logs, so they are what you will see on your nameplates &mdash; not journal names.</p>
+  <div class="dungeons" id="dungeons"><!--DUNGEONCARDS--></div>
+</section>
+
+<!-- ============ TIMING ============ -->
+<section>
+  <div class="sechead"><h2>When it gets pressed</h2><span class="chip">Boss vs trash vs the walk between</span></div>
+  <p class="col">Mythic+ has no fixed timeline, but utility still concentrates. Two patterns hold across all eight dungeons.</p>
+  <div class="tscroll"><table id="timing">
+    <thead><tr><th>Dungeon</th><th class="n">Beams on a boss</th><th class="n">Roar between pulls</th><th class="wrapcell">Busiest pull for utility</th></tr></thead>
+    <tbody><!--TIMINGROWS--></tbody>
+  </table><caption><a class="sp" data-s="106898"></a> is a routing tool before it is a combat one &mdash; across the sample most casts land between pulls, not inside them. In Kings' Rest and Murder Row that reaches two thirds.</caption></div>
+
+  <p class="col"><b>Trash is where you matter.</b> Only a quarter of beams are cast during a boss, and in Voidscar Arena the figure is zero &mdash; every beam in twenty runs went into trash. The druid-only lanes are more lopsided still: Remove Corruption and Soothe fire almost entirely on trash packs, with the exceptions called out on each card above.</p>
+</section>
+
+<!-- ============ RACIALS ============ -->
+<section>
+  <div class="sechead"><h2>The sixth lane: your race</h2><span class="chip racial"><span class="dot" style="background:var(--t-racial)"></span>237 Shadowmelds</span></div>
+
+  <p class="note col" style="border-left:3px solid var(--bad)"><b>Stoneform is not on the table.</b> Dwarf cannot be a Druid &mdash; the class is open to Highmountain Tauren, Kul Tiran, Night Elf, Tauren, Troll, Worgen, Zandalari Troll, and now Haranir in Midnight. The logs agree: across all 160 runs, <b class="mono">zero</b> Stoneform casts by any druid. Everything below is the racials druids can actually bring.</p>
+
+  <p class="col"><a class="sp" data-s="58984"></a> is the one racial in the druid pool that changes how a pull is played. It appeared in <b class="mono" id="r-runs"></b> of 160 runs &mdash; a floor on how many of these druids are Night Elves, since a Night Elf who never pressed it is invisible here &mdash; at <b class="mono" id="r-perrun"></b> casts per run.</p>
+
+  <div class="tiles" style="margin-top:1.4rem">
+    <div class="tile"><span class="k">Runs with a Shadowmeld</span><span class="v" id="r-t1"></span><span class="s">of 160 &middot; lower bound on Night Elf share</span></div>
+    <div class="tile"><span class="k">Pressed inside a pull</span><span class="v" id="r-t2"></span><span class="s">it is a combat button, not a skip tool</span></div>
+    <div class="tile"><span class="k">Pressed while under fire</span><span class="v" id="r-t3"></span><span class="s">something was already hitting them</span></div>
+    <div class="tile"><span class="k">That damage then stopped</span><span class="v" id="r-t4"></span><span class="s">of those melds</span></div>
+  </div>
+
+  <h3 style="margin-top:2rem">What it answers, and what it cannot</h3>
+  <p class="col">For every Shadowmeld, the abilities landing on that druid in the six seconds before were compared against the six seconds after. A high stop rate means dropping out of the enemy's target list ended the attack; a zero means the damage was never aimed at them in the first place.</p>
+  <div class="tscroll"><table id="racialtbl">
+    <thead><tr><th>Incoming ability</th><th class="n">Melds</th><th style="min-width:11rem">Stopped after the meld</th><th class="n">Rate</th></tr></thead>
+    <tbody></tbody>
+  </table><caption>Read the top and bottom of this table together. <b>Targeted</b> attacks &mdash; melee swings, channelled beams and drains &mdash; stop between 75% and 100% of the time, because losing the target ends them. <b>Untargeted ground effects</b> stop 0% of the time: Shadowmeld removes you from a target list, not from a puddle.</caption></div>
+
+  <h3 style="margin-top:2rem">Where it gets used</h3>
+  <div class="tscroll"><table id="racialdg">
+    <thead><tr><th>Dungeon</th><th class="n">Casts</th><th class="n">Per NE run</th><th class="n">On a boss</th><th class="n">Pre-emptive</th><th class="wrapcell">Most-melded pulls</th></tr></thead>
+    <tbody></tbody>
+  </table><caption><b>Pre-emptive</b> is the share of melds pressed with nothing hitting the druid at all &mdash; dropping a cast before it lands rather than escaping one already in progress. Kings' Rest is the most anticipatory dungeon at 40%; Murder Row the least at 9%, where melds are reactions to imp fire already in the air.</caption></div>
+
+  <h3 style="margin-top:2rem">The rest of the pool</h3>
+  <div class="tscroll"><table id="racialoth">
+    <thead><tr><th>Racial</th><th>Race</th><th class="n">Casts</th><th class="n">Runs</th><th class="n">Per run</th><th class="wrapcell">Read</th></tr></thead>
+    <tbody></tbody>
+  </table><caption>Only three racials were cast by druids at all in this sample. Everything else in the druid race pool &mdash; Worgen, Kul Tiran, Zandalari, Highmountain &mdash; contributed nothing a log can see.</caption></div>
+
+  <p class="note col"><b>Haranir, the new option.</b> Midnight's allied race can be a Druid, but its kit is throughput and flavour rather than utility: <i>Lash Out</i> (+1% critical strike damage and healing), <i>Thorn Bloom</i> (a 3-minute area damage-and-heal), plus out-of-combat travel and gathering passives. There is no targeting-drop equivalent, so <b>Night Elf remains the only druid race whose racial changes how a pack is handled.</b></p>
+</section>
+
+<!-- ============ METHOD ============ -->
+<section>
+  <div class="sechead"><h2>How this was measured</h2><span class="chip">Reproducible</span></div>
+  <div class="col" style="display:flex; flex-direction:column; gap:.8rem; color:var(--ink-2)">
+    <p><b>Sample.</b> The twenty highest-keystone Balance Druid logs on Warcraft Logs for each of the eight Season 2 dungeons, de-duplicated by report and fight, keys 13 to 16. The dungeon pool itself is WCL zone 55, not a guide list.</p>
+    <p><b>Dispel types were derived, not looked up.</b> No public database exposes a reliable dispel school for these debuffs. Instead every dispel of a given debuff was collected across the sample and intersected against what each dispel spell is capable of removing &mdash; <a class="sp" data-s="2782"></a> can only take Curse or Poison, <a class="sp" data-s="77130"></a> only Magic or Curse, and so on. Where the intersection lands on one school, that is the school.</p>
+    <p><b>Shapeshifts appear in the dispel log.</b> Breaking a root by shifting is recorded as a dispel whose "dispel spell" is <a class="sp" data-s="24858"></a> or <a class="sp" data-s="5487"></a>. That is how the shapeshift column was counted &mdash; these are real, observed clears, not a list of things that theoretically could be shifted out of.</p>
+    <p><b>Two corrections worth carrying forward.</b> Typhoon's cast is logged under spell <code>61391</code>, not the tooltip's <code>132469</code>; counting the latter returns zero casts in every run. And Solar Beam's interrupt is logged under <code>97547</code>, separate from the <code>78675</code> cast &mdash; pairing the two is what exposed the single-interrupt ceiling.</p>
+    <p><b>Shadowmeld was judged by what it stopped.</b> For each of the 237 melds, damage landing on that druid in the six seconds before was compared with the six seconds after. Two traps here: <code>dataType: DamageTaken</code> silently returns nothing when filtered by <code>targetID</code>, so each meld was queried as an unfiltered time window and filtered locally; and a first pass was wrong because a <code>$W</code> window constant collided with a <code>$w</code> events variable &mdash; PowerShell variables are case-insensitive. That bug inverted the headline, reporting most melds as idle when in fact 76% were pressed under fire.</p>
+    <p><b>Limits.</b> Cast events carry no coordinates, so every "casters per beam" figure is a time-window upper bound. Counts are per run and averaged over twenty runs; a dungeon's route varies between groups, so pull-level figures describe the common route rather than a fixed one. Runs were selected by key level from the DPS rankings, so every group here contains a Balance Druid playing well &mdash; this is what good druids do, not what the average druid does.</p>
+  </div>
+</section>
+
+<footer>
+  <div>Built from Warcraft Logs API v2 and live Wowhead tooltips &middot; Midnight patch 12.1, Season 2 &middot; sample taken 21 August 2026.</div>
+  <div>Spell tooltips carry tuned values as served by Wowhead at build time. Click any spell to open it on Wowhead.</div>
+</footer>
+
+</div>
+
+<div id="tt" role="tooltip" aria-hidden="true"></div>
+
+<script>
+const SPELL = /*SPELLDATA*/;
+const ICONS = /*ICONDATA*/;
+const D     = /*DUNGEONDATA*/;
+const R     = /*RACIALDATA*/;
+
+/* ---------- spell references ---------- */
+function iconSrc(name){
+  const b = ICONS[(name||"").toLowerCase()];
+  return b ? "data:image/jpeg;base64," + b : null;
+}
+function slugify(s){
+  return (s||"").toLowerCase().replace(/['â€™]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+}
+let missing = 0;
+function paintSpells(root){
+  root.querySelectorAll("a.sp").forEach(a=>{
+    const key = a.getAttribute("data-s");
+    const s = SPELL[key];
+    if(!s){ a.classList.add("miss"); a.textContent = a.textContent || ("?" + key); missing++; return; }
+    const src = iconSrc(s.i);
+    a.innerHTML = "";
+    if(src){ const im=document.createElement("img"); im.src=src; im.alt=""; a.appendChild(im); }
+    a.appendChild(document.createTextNode(s.n));
+    a.href = "https://www.wowhead.com/spell=" + key + "/" + slugify(s.n);
+    a.target = "_blank"; a.rel = "noopener";
+  });
+}
+
+/* ---------- tooltip, anchored to the pointer ---------- */
+const tt = document.getElementById("tt");
+let px=0, py=0;
+function showTip(key){
+  const s = SPELL[key]; if(!s) return;
+  const src = iconSrc(s.i);
+  tt.innerHTML =
+    '<div class="hd2">' + (src ? '<img src="'+src+'" alt="">' : '') +
+      '<div><div class="ttl"></div></div></div>' +
+    '<div class="body2"></div><div class="sid mono"></div>';
+  tt.querySelector(".ttl").textContent = s.n;
+  tt.querySelector(".body2").textContent = s.t || "";
+  tt.querySelector(".sid").textContent = "spell " + key;
+  tt.classList.add("on"); tt.setAttribute("aria-hidden","false");
+  place();
+}
+function place(){
+  const r = tt.getBoundingClientRect();
+  let x = px + 16, y = py + 16;
+  if(x + r.width  > innerWidth  - 8) x = Math.max(8, px - r.width - 16);
+  if(y + r.height > innerHeight - 8) y = Math.max(8, py - r.height - 16);
+  tt.style.transform = "translate(" + x + "px," + y + "px)";
+}
+function hideTip(){ tt.classList.remove("on"); tt.setAttribute("aria-hidden","true"); }
+document.addEventListener("pointermove", e=>{ px=e.clientX; py=e.clientY; if(tt.classList.contains("on")) place(); },{passive:true});
+document.addEventListener("pointerover", e=>{
+  const a = e.target.closest && e.target.closest("a.sp");
+  if(a && !a.classList.contains("miss")) showTip(a.getAttribute("data-s")); else if(!a) hideTip();
+});
+document.addEventListener("focusin", e=>{
+  const a = e.target.closest && e.target.closest("a.sp");
+  if(a && !a.classList.contains("miss")){
+    const r = a.getBoundingClientRect(); px = r.left + r.width/2; py = r.bottom;
+    showTip(a.getAttribute("data-s"));
+  }
+});
+document.addEventListener("focusout", hideTip);
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") hideTip(); });
+
+/* ---------- render ---------- */
+const names = Object.keys(D);
+const order = names.slice().sort((a,b)=> D[b].uniqueWork - D[a].uniqueWork);
+const fmt = v => (v===0 ? '<span class="zero">0</span>' : v);
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+/* matrix */
+{
+  const best = k => Math.max(...names.map(n=>D[n][k]));
+  const rows = order.map((n,i)=>{
+    const x = D[n];
+    const cell=(k,v)=> '<td class="n'+(v===best(k)&&v>0?' best':'')+'">'+fmt(v)+'</td>';
+    return '<tr><td class="mono" style="color:var(--muted)">'+(i+1)+'</td>'+
+      '<td><b>'+esc(n)+'</b></td>'+
+      cell('remcorr',x.remcorr)+cell('soothe',x.soothe)+cell('shift',x.shift)+
+      '<td class="n best" style="border-left:1px solid var(--rule)">'+x.uniqueWork+'</td>'+
+      cell('beam',x.beam)+cell('beamPre',x.beamPre)+cell('typhoon',x.typhoon)+'</tr>';
+  }).join("");
+  document.querySelector("#matrix tbody").innerHTML = rows;
+}
+
+/* beam table */
+{
+  const rows = order.map(n=>{
+    const x = D[n];
+    const bar = '<div class="bar">'+
+      '<span style="width:'+x.beamSupp+'%;background:var(--t-cleanse)"></span>'+
+      '<span style="width:'+x.beamCont+'%;background:var(--t-stop)"></span>'+
+      '<span style="width:'+x.beamEmpty+'%;background:var(--track)"></span></div>';
+    return '<tr><td><b>'+esc(n)+'</b></td>'+
+      '<td class="n">'+Math.round(x.beam*x.runs)+'</td>'+
+      '<td>'+bar+'</td>'+
+      '<td class="n">'+x.beamSupp+'%</td><td class="n">'+x.beamCont+'%</td>'+
+      '<td class="n'+(x.beamPre===Math.max(...names.map(m=>D[m].beamPre))?' best':'')+'">'+x.beamPre+'</td></tr>';
+  }).join("");
+  document.querySelector("#beamtbl tbody").innerHTML = rows +
+    '<tr><td colspan="6" style="background:var(--surface-2)"><div class="barleg">'+
+    '<i><span class="sw" style="background:var(--t-cleanse)"></span>suppressed</i>'+
+    '<i><span class="sw" style="background:var(--t-stop)"></span>contested</i>'+
+    '<i><span class="sw" style="background:var(--track)"></span>empty</i></div></td></tr>';
+}
+
+/* timing table */
+{
+  const rows = order.map(n=>{
+    const x = D[n];
+    const p = x.pulls && x.pulls[0];
+    return '<tr><td><b>'+esc(n)+'</b></td>'+
+      '<td class="n">'+x.beamBossPct+'%</td>'+
+      '<td class="n">'+x.roarBetween+'%</td>'+
+      '<td class="wrapcell">'+(p? '<b>'+esc(p.name)+'</b> <span style="color:var(--muted)">&middot; '+p.perRun+' casts/run &middot; '+esc(p.mix)+'</span>' : '&mdash;')+'</td></tr>';
+  }).join("");
+  document.querySelector("#timing tbody").innerHTML = rows;
+}
+
+/* dungeon cards */
+{
+  const laneRow = (cls,label,inner) =>
+    '<div class="lane '+cls+'"><div class="lbl">'+label+'</div><div class="body">'+inner+'</div></div>';
+  const spellRef = id => '<a class="sp" data-s="'+id+'"></a>';
+
+  const cards = order.map((n,i)=>{
+    const x = D[n];
+    const lanes = [];
+    if(x.remcorr>0) lanes.push('<span class="chip cleanse"><span class="dot" style="background:var(--t-cleanse)"></span>cleanse '+x.remcorr+'</span>');
+    if(x.soothe>0.3) lanes.push('<span class="chip soothe"><span class="dot" style="background:var(--t-soothe)"></span>soothe '+x.soothe+'</span>');
+    if(x.shift>0.3) lanes.push('<span class="chip shift"><span class="dot" style="background:var(--t-shift)"></span>shift '+x.shift+'</span>');
+    lanes.push('<span class="chip beam"><span class="dot" style="background:var(--t-beam)"></span>beam '+x.beam+' &middot; '+x.beamPre+' casters</span>');
+    if(x.typhoon>0) lanes.push('<span class="chip stop"><span class="dot" style="background:var(--t-stop)"></span>typhoon '+x.typhoon+'</span>');
+    if(x.uniqueWork<1) lanes.push('<span class="chip dead">no druid-only work</span>');
+
+    let body = "";
+    if(x.rc.length){
+      body += laneRow('cleanse','Remove Corr.',
+        x.rc.map(r=> spellRef(r.id)+' <span style="color:var(--muted)">&mdash; '+r.perRun+'&times;/run</span>').join('<br>'));
+    }
+    if(x.soothes.length){
+      body += laneRow('soothe','Soothe',
+        x.soothes.map(r=> spellRef(r.id)+' <span style="color:var(--muted)">&mdash; '+r.perRun+'&times;/run on '+esc(r.mobs)+'</span>').join('<br>'));
+    }
+    if(x.shifts.length){
+      body += laneRow('shift','Shapeshift',
+        x.shifts.map(r=> spellRef(r.id)+' <span style="color:var(--muted)">&mdash; '+r.perRun+'&times;/run &middot; '+esc(r.forms)+'</span>').join('<br>'));
+    }
+    if(x.beamTargets.length){
+      body += laneRow('beam','Solar Beam',
+        '<div>'+x.beam+' per run, <b>'+x.beamPre+'</b> casters in front of each, '+x.beamCont+'% contested.</div>'+
+        '<div class="mobs">'+x.beamTargets.map(t=>'<span class="mob">'+esc(t.mob)+' <b>'+t.pct+'%</b></span>').join('')+'</div>'+
+        (x.stopped.length ? '<div style="color:var(--muted); font-size:.86rem">Most stopped: '+
+          x.stopped.slice(0,3).map(s=>spellRef(s.id)).join(', ')+'</div>' : ''));
+    }
+    const disp = [];
+    if(x.typhoon>0) disp.push('<a class="sp" data-s="132469"></a> '+x.typhoon);
+    if(x.vortex>0) disp.push('<a class="sp" data-s="102793"></a> '+x.vortex);
+    if(x.incroar>0) disp.push('<a class="sp" data-s="99"></a> '+x.incroar);
+    if(disp.length) body += laneRow('stop','Displacement', disp.join(' &middot; ') + ' <span style="color:var(--muted)">casts per run</span>');
+
+    if(x.pulls.length){
+      body += laneRow('','Hot pulls',
+        '<div class="mobs">'+x.pulls.map(p=>'<span class="mob">'+(p.boss?'&#9670; ':'')+esc(p.name)+' <b>'+p.perRun+'</b></span>').join('')+'</div>');
+    }
+
+    return '<div class="dg"><div class="hd"><div class="r1"><div>'+
+      '<span class="rank">'+(i+1)+'</span><span class="nm">'+esc(n)+'</span>'+
+      '<div class="sb">'+x.runs+' runs &middot; keys '+esc(x.keys)+' &middot; median '+x.durMin+' min &middot; '+
+      '<b>'+x.uniqueWork+'</b> druid-only actions per run</div>'+
+      '</div></div><div class="lanes">'+lanes.join('')+'</div></div>'+
+      '<div class="bd">'+body+'</div></div>';
+  }).join("");
+  document.getElementById("dungeons").innerHTML = cards;
+}
+
+/* racials */
+{
+  const set = (id,v)=>{ const el=document.getElementById(id); if(el) el.textContent=v; };
+  set("r-runs", R.runsWith); set("r-perrun", R.perRun);
+  set("r-t1", R.runsWith + "/160"); set("r-t2", R.inPullPct + "%");
+  set("r-t3", R.underFirePct + "%"); set("r-t4", R.stoppedPct + "%");
+
+  document.querySelector("#racialtbl tbody").innerHTML = R.answers.map(a=>{
+    const tone = a.stopPct >= 70 ? "var(--t-cleanse)" : (a.stopPct <= 30 ? "var(--t-stop)" : "var(--t-soothe)");
+    return '<tr><td><a class="sp" data-s="'+a.id+'"></a></td>'+
+      '<td class="n">'+a.n+'</td>'+
+      '<td><div class="bar" style="max-width:11rem"><span style="width:'+a.stopPct+'%;background:'+tone+'"></span></div></td>'+
+      '<td class="n" style="color:'+tone+'; font-weight:700">'+a.stopPct+'%</td></tr>';
+  }).join("");
+
+  const dn = Object.keys(R.perDungeon);
+  document.querySelector("#racialdg tbody").innerHTML = dn.sort((a,b)=>R.perDungeon[b].casts-R.perDungeon[a].casts).map(n=>{
+    const x = R.perDungeon[n];
+    return '<tr><td><b>'+esc(n)+'</b></td>'+
+      '<td class="n">'+x.casts+'</td><td class="n">'+x.perRun+'</td>'+
+      '<td class="n">'+x.bossPct+'%</td><td class="n">'+x.prePct+'%</td>'+
+      '<td class="wrapcell"><div class="mobs">'+x.pulls.map(p=>'<span class="mob">'+(p.boss?'&#9670; ':'')+esc(p.name)+' <b>'+p.n+'</b></span>').join('')+'</div></td></tr>';
+  }).join("");
+
+  const reads = {
+    "Berserking":"A throughput cooldown, pressed on cooldown. No bearing on how a pull is handled.",
+    "War Stomp":"A 2-second area stun. Barely used - it needs melee range, which Balance does not want.",
+    "Bull Rush":"A charge with a short stun. Seen only as an incidental cast interrupt."
+  };
+  document.querySelector("#racialoth tbody").innerHTML =
+    ('<tr><td><a class="sp" data-s="58984"></a></td><td>Night Elf</td><td class="n">'+R.totalMelds+'</td>'+
+     '<td class="n">'+R.runsWith+'</td><td class="n">'+R.perRun+'</td>'+
+     '<td class="wrapcell">The only racial here that changes a pull. See above.</td></tr>') +
+    R.others.map(o=>
+      '<tr><td><b>'+esc(o.racial)+'</b></td><td>'+esc(o.race)+'</td><td class="n">'+o.casts+'</td>'+
+      '<td class="n">'+o.runs+'</td><td class="n">'+o.perRun+'</td>'+
+      '<td class="wrapcell" style="color:var(--muted)">'+(reads[o.racial]||"")+'</td></tr>').join("");
+}
+
+paintSpells(document);
+if(missing) console.warn("unresolved spell refs:", missing);
+</script>
+
+
+
+
