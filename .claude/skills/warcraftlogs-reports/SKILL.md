@@ -116,6 +116,7 @@ more.
 | a buff check on the cast misses lust that landed from someone else (eight lust ids, not four) — check the buff received | `classes/druid/balance-druid-12.1.md` |
 | the Deaths table's `events` are capped at three and its window is adaptive; `overkill` appears only on the killing blow | `method/boss-death-timelines.md` traps 3–4 |
 | `includeResources: true` is what attaches `hitPoints`, `x`/`y` and the source's buffs to events | tools README |
+| `mitigated` is almost never present on crits (absent ≠ no armor); `unmitigatedAmount` is the full pre-reduction hit on damage taken but a smaller, pre-crit value on damage done | `game/combat-system.md` §6 |
 | the `graph` endpoint smooths to ~40s buckets; target-view `activeTime` saturates whenever a DoT ticks | `classes/dps-specs-boss-profile-12.1.md` |
 
 (Knowledge paths are under `.claude/knowledge/`.)
