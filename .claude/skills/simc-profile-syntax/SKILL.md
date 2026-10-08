@@ -13,9 +13,8 @@ just concatenated into one stream before parsing.
 
 This skill covers *writing/editing a profile*: character declaration, gear, talents,
 consumables, and sim-wide options. For *reading an action priority list* (the rotation
-logic itself) and the trap of misreading a condition's direction, see the "Reading a SimC
-Action Priority List" section in this project's root `CLAUDE.md` — that content isn't
-repeated here. To actually build and run simc against a profile, see
+logic itself) and the trap of misreading a condition's direction, see
+`.claude/knowledge/method/reading-an-apl.md` — that content isn't repeated here. To actually build and run simc against a profile, see
 [[simc-simulation]].
 
 Source of truth for everything below: the [simc wiki](https://github.com/simulationcraft/simc/wiki)

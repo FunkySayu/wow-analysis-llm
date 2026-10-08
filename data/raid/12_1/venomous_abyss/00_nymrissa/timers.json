@@ -1,0 +1,311 @@
+{
+  "meta": {
+    "source": "NorthernSkyRaidTools",
+    "addon_version": "12.1.10",
+    "extracted_at": "2026-08-25T08:30:32Z",
+    "zone": "venomous-abyss",
+    "notes": [
+      "BigWigs cross-check (2026-08-25) against the locally installed BigWigs_TheVenomousAbyss addon, not a source download -- BigWigs has no absolute timers to diff directly, only duration-keyed gap constants, so cadence (interval between hits) is what's comparable.",
+      "AGREE: Vashnik 'TankHits' (Dripping Fangs, spell 1280935), Heroic. NSRT's absolute timers (10.1, 39.1, 66.1, 94.1, ...) have successive gaps of 27-29s throughout. Vashnik.lua's gapTimer table hardcodes a flat 29s gap for this spell after both the pull-duration(~8s) and repeat-duration(~28s) timeline events. The dominant cadence matches; the 1-2s jitter is expected (BigWigs keys off whole-second-rounded live event durations, NSRT's dataset carries decimal precision from real logs).",
+      "DISAGREE: Nek'zali 'HungeringPyre' (spell 1289855 in NSRT; BigWigs keys the same ability's gap under spell 1305421 -- a cast-vs-effect spellId split that recurs across this addon pair and isn't itself a disagreement). NSRT's phaseTimers give the SAME value (35s into phase 1.5) for BOTH difficulty 15 (Heroic) and difficulty 16 (Mythic). Nekzali.lua's gapTimer table distinguishes them explicitly: timersMythic[1305421][1.5] = {[11] = 35} but timersOther[1305421][1.5] = {[11] = 30} -- BigWigs believes Heroic's gap is 30, not 35. Left as-is per this task's rule (no winner picked silently); a consumer snapping the timeline editor to NSRT's Heroic value for this ability should know it may run ~5s ahead of BigWigs' own model."
+    ],
+    "encounter": "nymrissa"
+  },
+  "encounter": {
+    "dungeon_encounter_id": 3379,
+    "slug": "nymrissa",
+    "abilities": [
+      {
+        "internal_id": "Adds",
+        "group": "Nymrissa",
+        "name": "Add-Spawn",
+        "short_text": "Adds",
+        "spell_id": 208309,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            26.2,
+            70.1,
+            137.1,
+            180.1,
+            246.3,
+            290,
+            356.2,
+            401.2
+          ],
+          "16": [
+            32,
+            149,
+            266,
+            383,
+            500
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Waves",
+        "group": "Nymrissa",
+        "name": "Waves",
+        "short_text": "Waves",
+        "spell_id": 1258673,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": "Dodge",
+        "stub": false,
+        "timers": {
+          "15": [
+            111,
+            221,
+            331,
+            441
+          ],
+          "16": [
+            72,
+            189,
+            306,
+            423,
+            540
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Knockback",
+        "group": "Nymrissa",
+        "name": "Knockback",
+        "short_text": "Knock",
+        "spell_id": 1258150,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            120,
+            230,
+            340,
+            450
+          ],
+          "16": [
+            81,
+            198,
+            315,
+            432,
+            549
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "ChillingFrost",
+        "group": "Nymrissa",
+        "name": "Chilling Frost",
+        "short_text": "Debuffs",
+        "spell_id": 1313393,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            37,
+            81,
+            147,
+            191,
+            257,
+            301,
+            367,
+            411
+          ],
+          "16": [
+            3,
+            34,
+            58,
+            104,
+            120,
+            151,
+            175,
+            221,
+            237,
+            268,
+            292,
+            338,
+            354,
+            385,
+            409,
+            455,
+            471,
+            502,
+            526
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "AbyssalRain",
+        "group": "Nymrissa",
+        "name": "Abyssal Rain",
+        "short_text": "AoE",
+        "spell_id": 1260837,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            10,
+            43,
+            87,
+            153,
+            197,
+            263,
+            307,
+            373.1,
+            417
+          ],
+          "16": [
+            11,
+            128,
+            245,
+            362,
+            479,
+            596
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "WaterJet",
+        "group": "Nymrissa",
+        "name": "Water Jet",
+        "short_text": "Frontal",
+        "spell_id": 1258901,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "16": [
+            20,
+            49,
+            89,
+            137,
+            166,
+            206,
+            254,
+            283,
+            323,
+            371,
+            400,
+            440,
+            488,
+            517,
+            557
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "WaterFlurry",
+        "group": "Nymrissa",
+        "name": "Iceblade Flurry",
+        "short_text": "Tank-Hit",
+        "spell_id": 1282937,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            29,
+            51,
+            73,
+            95,
+            139,
+            161,
+            183,
+            205,
+            249,
+            271,
+            293,
+            315,
+            359,
+            381.1,
+            403,
+            425
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Taunt",
+        "group": "Nymrissa",
+        "name": "Taunt",
+        "short_text": "Taunt",
+        "spell_id": null,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            35,
+            57,
+            79,
+            101,
+            145,
+            167,
+            189,
+            211,
+            255,
+            277,
+            299,
+            321,
+            365,
+            387.1,
+            409,
+            431
+          ],
+          "16": [
+            27,
+            56,
+            96,
+            144,
+            173,
+            213,
+            261,
+            290,
+            330,
+            378,
+            407,
+            447,
+            495,
+            524,
+            564
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      }
+    ]
+  }
+}

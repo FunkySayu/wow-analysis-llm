@@ -1,0 +1,1358 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "source": "Blizzard Game Data journal-encounter + Wowhead tooltip API",
+    "buildNamespace": "static-12.1.0_68914-eu",
+    "generatedAt": "2026-09-09T18:19:40+00:00",
+    "generator": "tools/game_knowledge/journal_sync.py",
+    "readMe": "Ability text and damage magnitudes come from Wowhead's tooltip endpoint, which is the only source carrying tuned numbers for this tier -- Blizzard's /data/wow/spell/<id> returns 404 for these ids and the in-game journal text ships 'X' placeholders. A magnitude here is ONE difficulty's value and the endpoint does not say which; cross-check against measured damage taken in profiles/<spec>-<difficulty>.json before quoting it as a Mythic number.",
+    "encounter": "ulatek"
+  },
+  "encounter": {
+    "slug": "ulatek",
+    "journalEncounterId": 2895,
+    "name": "Ula'tek",
+    "description": "The great shame of the Amani empire. The vast complex of Altal'Utek was created to imprison the weapon that proved to be as much of a threat as the enemy she was intended to destroy. Ula'tek has risen from her ancient slumber and threatens all of Azeroth if she should escape.",
+    "creatures": [
+      {
+        "id": 6186,
+        "name": "Ula'tek"
+      },
+      {
+        "id": 6211,
+        "name": "Gore Rattle"
+      },
+      {
+        "id": 6188,
+        "name": "Blightscale Rawling"
+      },
+      {
+        "id": 6187,
+        "name": "Blightscale Viper"
+      },
+      {
+        "id": 6229,
+        "name": "Doomscale Warden"
+      },
+      {
+        "id": 6239,
+        "name": "Blightscale Wretch"
+      },
+      {
+        "id": 6241,
+        "name": "Blightscale Shrieker"
+      },
+      {
+        "id": 6201,
+        "name": "Blightscale Spawn"
+      },
+      {
+        "id": 6202,
+        "name": "Blightscale Clutch"
+      },
+      {
+        "id": 6232,
+        "name": "Slithering Clutch"
+      }
+    ],
+    "modes": [
+      "LFR",
+      "NORMAL",
+      "HEROIC",
+      "MYTHIC"
+    ],
+    "notes": [
+      {
+        "title": "Overview",
+        "bodyText": "Ula'tek splashes venom across her platform with [Caustic Waves]. Any Blightscale Spawn that touch her venom hatches and covers players in a [Putrid Membrane]. While her slithering children continue to spawn, Ula'tek uses her [Spectral Coils] to shatter the space.\r\n\r\nAfter Ula'tek rails against her prison with [Rage of the Shackled] she summons her faithful then dives beneath the venom to gather her strength. Ula'tek's Doomscale Wardens move between the Blightscale Spawn imbuing them with [Writhing Gestation] as the Doomscale Eggs begin to hatch.\r\n\r\nWith her progeny broken, Ula'tek shatters the arena. She continues to use [Call of the Serpent] to gather her forces while destroying the only safe spaces remaining with [Circling Prey].",
+        "bullets": [
+          "Ula'tek splashes venom across her platform with [Caustic Waves]. Any Blightscale Spawn that touch her venom hatches and covers players in a [Putrid Membrane]. While her slithering children continue to spawn, Ula'tek uses her [Spectral Coils] to shatter the space.\r\n\r\nAfter Ula'tek rails against her prison with [Rage of the Shackled] she summons her faithful then dives beneath the venom to gather her strength. Ula'tek's Doomscale Wardens move between the Blightscale Spawn imbuing them with [Writhing Gestation] as the Doomscale Eggs begin to hatch.\r\n\r\nWith her progeny broken, Ula'tek shatters the arena. She continues to use [Call of the Serpent] to gather her forces while destroying the only safe spaces remaining with [Circling Prey]."
+        ]
+      },
+      {
+        "title": "Damage Dealers",
+        "bodyText": "$bullet; Blightscale Spawn hatch a Blightscale Viper when they connect with venom.\r\n$bullet; A [Blightscale Clutch] grows in power unless destroyed.\r\n$bullet; Doomscale Wardens use [Writhing Gestation] on nearby Blightscale Spawn.",
+        "bullets": [
+          "Blightscale Spawn hatch a Blightscale Viper when they connect with venom.",
+          "A [Blightscale Clutch] grows in power unless destroyed.",
+          "Doomscale Wardens use [Writhing Gestation] on nearby Blightscale Spawn."
+        ]
+      },
+      {
+        "title": "Healers",
+        "bodyText": "$bullet; Every Blightscale Viper hatched inflicts [Putrid Membrane] to all players.\r\n$bullet; [Spectral Coils] inflicts damage to everyone that is reduced by the number of players at the impact location.",
+        "bullets": [
+          "Every Blightscale Viper hatched inflicts [Putrid Membrane] to all players.",
+          "[Spectral Coils] inflicts damage to everyone that is reduced by the number of players at the impact location."
+        ]
+      },
+      {
+        "title": "Tank",
+        "bodyText": "$bullet; Ula'tek uses [Unchecked Rage] while not engaged in melee combat.\r\n$bullet; Ula'tek's Gore Rattle uses [Rattler Slam] while not engaged in melee combat. \r\n$bullet;[Mother's Wrath] inflicts damage to everyone while no one is in its area of effect.",
+        "bullets": [
+          "Ula'tek uses [Unchecked Rage] while not engaged in melee combat.",
+          "Ula'tek's Gore Rattle uses [Rattler Slam] while not engaged in melee combat.",
+          "[Mother's Wrath] inflicts damage to everyone while no one is in its area of effect."
+        ]
+      },
+      {
+        "title": "Blightscale Spawn",
+        "bodyText": "The endless spawn of Ula'tek. These eggs go through rapid gestation and hatch whenever they come into contact with the venom that fills Ula'tek's prison.",
+        "bullets": [
+          "The endless spawn of Ula'tek. These eggs go through rapid gestation and hatch whenever they come into contact with the venom that fills Ula'tek's prison."
+        ]
+      },
+      {
+        "title": "Blightscale Rawling",
+        "bodyText": "Broken from their shells early, the Blightscale Rawling struggles to survive.",
+        "bullets": [
+          "Broken from their shells early, the Blightscale Rawling struggles to survive."
+        ]
+      },
+      {
+        "title": "Blightscale Rawling",
+        "bodyText": "Broken from their shells early, the Blightscale Rawling struggles to survive.\r\n\r\nOn Heroic difficulty, Blightscale Rawlings cast [Poisonous Bite] on players.",
+        "bullets": [
+          "Broken from their shells early, the Blightscale Rawling struggles to survive.\r\n\r\nOn Heroic difficulty, Blightscale Rawlings cast [Poisonous Bite] on players."
+        ]
+      },
+      {
+        "title": "Blightscale Viper",
+        "bodyText": "Fully gestated, the Blightscale Viper is a lethal predator.",
+        "bullets": [
+          "Fully gestated, the Blightscale Viper is a lethal predator."
+        ]
+      },
+      {
+        "title": "Blightscale Viper",
+        "bodyText": "Fully gestated, the Blightscale Viper is a lethal predator.\r\n\r\nOn Heroic difficulty, Blightscale Vipers cast [Petrifying Sting] on players.",
+        "bullets": [
+          "Fully gestated, the Blightscale Viper is a lethal predator.\r\n\r\nOn Heroic difficulty, Blightscale Vipers cast [Petrifying Sting] on players."
+        ]
+      },
+      {
+        "title": "Blightscale Spawn",
+        "bodyText": "The endless spawn of Ula'tek. These eggs go through rapid gestation and hatch whenever they come into contact with the venom that fills Ula'tek's prison.\r\n\r\nOn Mythic difficulty, Blightscale Spawn are [Hardened] and cast [Noxious Shell] on players that pick them up.",
+        "bullets": [
+          "The endless spawn of Ula'tek. These eggs go through rapid gestation and hatch whenever they come into contact with the venom that fills Ula'tek's prison.\r\n\r\nOn Mythic difficulty, Blightscale Spawn are [Hardened] and cast [Noxious Shell] on players that pick them up."
+        ]
+      },
+      {
+        "title": "Blightscale Rawling",
+        "bodyText": "Broken from their shells early, the Blightscale Rawling struggles to survive.\r\n\r\nOn Mythic difficulty, Blightscale Rawlings cast [Boiling Venom] which grants them the ability to use [Acidic Expulsion].",
+        "bullets": [
+          "Broken from their shells early, the Blightscale Rawling struggles to survive.\r\n\r\nOn Mythic difficulty, Blightscale Rawlings cast [Boiling Venom] which grants them the ability to use [Acidic Expulsion]."
+        ]
+      },
+      {
+        "title": "Blightscale Rawling",
+        "bodyText": "Broken from their shells early, the Blightscale Rawling struggles to survive.\r\n\r\nOn Heroic difficulty, Venomous Birthlings cast [Poisonous Bite] on players.",
+        "bullets": [
+          "Broken from their shells early, the Blightscale Rawling struggles to survive.\r\n\r\nOn Heroic difficulty, Venomous Birthlings cast [Poisonous Bite] on players."
+        ]
+      },
+      {
+        "title": "Blightscale Shrieker",
+        "bodyText": "As Ula'tek destroys her prison, Blightscale Shriekers rip themselves from their eggs on the ceiling and begin to hunt.",
+        "bullets": [
+          "As Ula'tek destroys her prison, Blightscale Shriekers rip themselves from their eggs on the ceiling and begin to hunt."
+        ]
+      },
+      {
+        "title": "Slithering Clutch",
+        "bodyText": "The clutches slither towards the scent of venom.",
+        "bullets": [
+          "The clutches slither towards the scent of venom."
+        ]
+      },
+      {
+        "title": "Blightscale Shrieker",
+        "bodyText": "As Ula'tek destroys her prison, Blightscale Shriekers rip themselves from their eggs on the ceiling and begin to hunt.\r\n\r\nOn Mythic difficulty, Blightscale Shriekers cast [Boiling Venom].",
+        "bullets": [
+          "As Ula'tek destroys her prison, Blightscale Shriekers rip themselves from their eggs on the ceiling and begin to hunt.\r\n\r\nOn Mythic difficulty, Blightscale Shriekers cast [Boiling Venom]."
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "spellId": 1295360,
+        "title": "Malignant Shell",
+        "journalSpellName": "Malignant Shell",
+        "tooltipName": "Malignant Shell",
+        "icon": "inv_item_dragonegg_bluebroken01",
+        "cast": "Instant",
+        "description": "Ula'tek's eggs are covered in a viscous shell that sticks to players who touch them, inflicting 100009 Nature damage every 1 sec while attached.",
+        "damage": [
+          {
+            "amount": 100009,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Blightscale Spawn",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36996,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1301268,
+        "title": "Putrid Membrane",
+        "journalSpellName": "Putrid Membrane",
+        "tooltipName": "Putrid Membrane",
+        "icon": "achievement_halloween_rottenegg_01",
+        "cast": "Instant",
+        "description": "When Ula'teks eggs hatch a Blightscale Viper, they spray a membrane over all players that inflicts 33336 Nature damage every 1 sec for 1 hour.",
+        "damage": [
+          {
+            "amount": 33336,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Blightscale Spawn",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36997,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1287036,
+        "title": "Poisonous Bite",
+        "journalSpellName": "Poisonous Bite",
+        "tooltipName": "Poisonous Bite",
+        "icon": "ability_rogue_venomouswounds",
+        "cast": "Instant",
+        "description": "The Blightscale Rawling's bite inflicts 25002 Nature damage every 1 sec to their current target for 10 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 25002,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Blightscale Rawling",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37000,
+        "repeatedSections": 5
+      },
+      {
+        "spellId": 1301800,
+        "title": "Acidic Burst",
+        "journalSpellName": "Acidic Burst",
+        "tooltipName": "Acidic Burst",
+        "icon": "ability_creature_poison_05",
+        "cast": null,
+        "description": "The viper spits at a random player, inflicting 375033 Nature damage on impact and an additional 58338 Nature damage every 1 sec for 18 sec.",
+        "damage": [
+          {
+            "amount": 375033,
+            "school": "Nature",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 58338,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Blightscale Viper",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37002,
+        "repeatedSections": 8
+      },
+      {
+        "spellId": 1303414,
+        "title": "Petrifying Sting",
+        "journalSpellName": "Petrifying Sting",
+        "tooltipName": "Petrifying Sting",
+        "icon": "trade_archaeology_druidprieststatueset",
+        "cast": "Instant",
+        "description": "The Viper dives at a random player, turning players within 10 yards of the location to stone, absorbing the next 2131475 healing and inflicting 100009 Nature damage every 2 sec.",
+        "damage": [
+          {
+            "amount": 100009,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Blightscale Viper",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37003,
+        "repeatedSections": 6
+      },
+      {
+        "spellId": 1299650,
+        "title": "Hardened",
+        "journalSpellName": "Hardened",
+        "tooltipName": "Hardened",
+        "icon": "inv_item_dragonegg_black01",
+        "cast": "Instant",
+        "description": "The shell of the Blightscale Spawn absorbs the next 4618195 damage.\n\nWhile the spawn's shell is hardened, it cannot be moved.",
+        "damage": [
+          {
+            "amount": 4618195,
+            "school": null,
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Blightscale Spawn",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36770,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1307612,
+        "title": "Noxious Shell",
+        "journalSpellName": "Noxious Shell",
+        "tooltipName": "Noxious Shell",
+        "icon": "inv_raid_mercurialegg_green",
+        "cast": "Instant",
+        "description": "Ula'tek's noxious eggs inflict 133345 Nature damage every 1 sec while attached to a player.\n\nMoving within 3 yards of another player carrying a Noxious Shell causes a Noxious Splash.\n\nWhen the aura is removed, the egg inflicts Rancid Yolk on the player.",
+        "damage": [
+          {
+            "amount": 133345,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Blightscale Spawn",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36771,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1307635,
+        "title": "Noxious Splash",
+        "journalSpellName": "Noxious Splash",
+        "tooltipName": "Noxious Splash",
+        "icon": "ability_creature_poison_02",
+        "cast": "Instant",
+        "description": "Moving within 3 yards of another player carrying a Noxious Shell causes it to instantly hatch and inflicts 750066 Nature damage and an additional 541714 Nature damage every 1 sec to the carrier for 10 sec.",
+        "damage": [
+          {
+            "amount": 750066,
+            "school": "Nature",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 541714,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Noxious Shell",
+        "parentSpellId": 1307612,
+        "depth": 2,
+        "sectionId": 36772,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1312150,
+        "title": "Rancid Yolk",
+        "journalSpellName": "Rancid Yolk",
+        "tooltipName": "Rancid Yolk",
+        "icon": "ability_creature_amber_01",
+        "cast": "Instant",
+        "description": "The egg breaks, spilling Rancid Yolk over the player and increasing the damage inflicted from Noxious Shell by 200% for 20 sec.",
+        "damage": [],
+        "parentTitle": "Noxious Shell",
+        "parentSpellId": 1307612,
+        "depth": 2,
+        "sectionId": 37167,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1313757,
+        "title": "Boiling Venom",
+        "journalSpellName": "Boiling Venom",
+        "tooltipName": "Boiling Venom",
+        "icon": "inv_121_trinket_raid_ulatek_golemhearts_red",
+        "cast": "Instant",
+        "description": "After 25 sec the Blightscale's venom boils, increasing its haste by 100% and all damage done by 100%.",
+        "damage": [],
+        "parentTitle": "Blightscale Rawling",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37265,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1313531,
+        "title": "Acidic Expulsion",
+        "journalSpellName": "Acidic Expulsion",
+        "tooltipName": "Acidic Expulsion",
+        "icon": "inv_121_professions_fishing_eal_green",
+        "cast": null,
+        "description": "The Blightscale expulses venom, inflicting 125011 Nature damage on impact and an additional 25002 Nature damage every 1 sec to all players for 35 sec.",
+        "damage": [
+          {
+            "amount": 125011,
+            "school": "Nature",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 25002,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Blightscale Rawling",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37266,
+        "repeatedSections": 4
+      },
+      {
+        "spellId": 1310738,
+        "title": "Toxic Womb",
+        "journalSpellName": "Toxic Womb",
+        "tooltipName": "Toxic Womb",
+        "icon": "inv_10_specialreagentfoozles_coolegg_green",
+        "cast": "Instant",
+        "description": "Ula'tek rips a gestating Blightscale Wretch from the ceiling that inflicts 916747 Nature damage to players within 7 yards of the impact location. \n\nTorn from its incubation, the Blightscale Wretch will awaken after 20 sec.",
+        "damage": [
+          {
+            "amount": 916747,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage One: Fury of the Serpent Mother",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37059,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1315342,
+        "title": "Boiling Venom",
+        "journalSpellName": "Boiling Venom",
+        "tooltipName": "Boiling Venom",
+        "icon": "inv_121_trinket_raid_ulatek_golemhearts_red",
+        "cast": "Instant",
+        "description": "After 30 sec the Blightscale's venom boils, increasing its haste by 100% and all damage done by 100%.",
+        "damage": [],
+        "parentTitle": "Blightscale Wretch",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 37285,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1310763,
+        "title": "Fester Burst",
+        "journalSpellName": "Fester Burst",
+        "tooltipName": "Fester Burst",
+        "icon": "inv_ability_poison_nova",
+        "cast": "4 sec cast",
+        "description": "The Blightscale Wretch forms a festering membrane around itself which bursts, inflicting 541714 Nature damage on impact and an additional 100009 Nature damage every 1 sec to players farther than 10 yards away for 12 sec.",
+        "damage": [
+          {
+            "amount": 541714,
+            "school": "Nature",
+            "everySeconds": null
+          },
+          {
+            "amount": 100009,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Blightscale Wretch",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 37069,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1299757,
+        "title": "Toxic Incubation",
+        "journalSpellName": "Toxic Incubation",
+        "tooltipName": "Toxic Incubation",
+        "icon": "ability_creature_poison_02",
+        "cast": "Instant",
+        "description": "A spectral Ula'tek unleashes a cascade of venom towards the Blightscale Wretch, applying Mother's Boon every 1 sec for 4 sec. If a player intercepts the venom, it inflicts 625055 Nature damage and applies Toxic Burn to them instead.\n\nEach impact causes Caustic Waves to erupt from the target's location.",
+        "damage": [
+          {
+            "amount": 625055,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage One: Fury of the Serpent Mother",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37063,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1299764,
+        "title": "Mother's Boon",
+        "journalSpellName": "Mother's Boon",
+        "tooltipName": "Mother's Boon",
+        "icon": "spell_nature_poisoncleansingtotem",
+        "cast": "Instant",
+        "description": "Each application of Mother's Boon the Blightscale Wretch receives reduces their damage taken by 10% and increases their damage done by 15%. This effect stacks.",
+        "damage": [],
+        "parentTitle": "Toxic Incubation",
+        "parentSpellId": 1299757,
+        "depth": 2,
+        "sectionId": 37064,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1302842,
+        "title": "Toxic Burn",
+        "journalSpellName": "Toxic Burn",
+        "tooltipName": "Toxic Burn",
+        "icon": "spell_fire_felfire",
+        "cast": "Instant",
+        "description": "The player's skin sizzles, inflicting 291692 Nature damage every 2 sec for12 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 291692,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Toxic Incubation",
+        "parentSpellId": 1299757,
+        "depth": 2,
+        "sectionId": 37065,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1292403,
+        "title": "Caustic Waves",
+        "journalSpellName": "Caustic Waves",
+        "tooltipName": "Caustic Waves",
+        "icon": "inv_ability_poison_wave",
+        "cast": "Instant",
+        "description": "Ula'tek sends waves of venom across the platform, inflicting 917189 Nature damage on impact and an additional 540199 Nature damage every 1 sec for 10 sec to players in their path. This effect stacks.\n\nWaves that connect with Ula'tek's eggs cause them to instantly hatch.",
+        "damage": [
+          {
+            "amount": 917189,
+            "school": "Nature",
+            "everySeconds": null
+          },
+          {
+            "amount": 540199,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Stage One: Fury of the Serpent Mother",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35678,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1304012,
+        "title": "Call of the Serpent",
+        "journalSpellName": "Call of the Serpent",
+        "tooltipName": "Call of the Serpent",
+        "icon": "8125100",
+        "cast": "4 sec cast",
+        "description": "Ula'tek roars, causing her spawn to fall from the ceiling and inflict 916747 Nature damage to players within 4 yards of their impact locations.",
+        "damage": [
+          {
+            "amount": 916747,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage One: Fury of the Serpent Mother",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36492,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1298367,
+        "title": "Mother's Wrath",
+        "journalSpellName": "Mother's Wrath",
+        "tooltipName": "Mother's Wrath",
+        "icon": "inv_misc_monsterfang_02",
+        "cast": "5 sec cast",
+        "description": "Ula'tek knocks back her current target, marking them for wrath, inflicting 375033 Nature damage every 5.2 sec for 3 sec while within reach of her attack. Each bite injects Ula'tek's target with Stone Venom and leaves them Hobbled.\n\nIf her current target is outside her reach, Ula'tek inflicts these effects on all players.",
+        "damage": [
+          {
+            "amount": 375033,
+            "school": "Nature",
+            "everySeconds": 5.2
+          }
+        ],
+        "parentTitle": "Stage One: Fury of the Serpent Mother",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36167,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1298417,
+        "title": "Stone Venom",
+        "journalSpellName": "Stone Venom",
+        "tooltipName": "Stone Venom",
+        "icon": "trade_archaeology_whitehydrafigurine",
+        "cast": "Instant",
+        "description": "Ula'tek's venom inflicts 41670 Nature damage every 1 sec for 1.7 min. This effect stacks.",
+        "damage": [
+          {
+            "amount": 41670,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Mother's Wrath",
+        "parentSpellId": 1298367,
+        "depth": 2,
+        "sectionId": 36173,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1300938,
+        "title": "Hobbled",
+        "journalSpellName": "Hobbled",
+        "tooltipName": "Hobbled",
+        "icon": "ability_rogue_trip",
+        "cast": "Instant",
+        "description": "Ula'tek hobbles her current target, reducing their movement speed by 55% for 1 min.",
+        "damage": [],
+        "parentTitle": "Mother's Wrath",
+        "parentSpellId": 1298367,
+        "depth": 2,
+        "sectionId": 37175,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1299206,
+        "title": "Rattler Slam",
+        "journalSpellName": "Rattler Slam",
+        "tooltipName": "Rattler Slam",
+        "icon": "spell_shaman_earthquake",
+        "cast": null,
+        "description": "While not in melee combat, Ula'tek's tail slams the platform, inflicting 916747 Nature damage to all players.",
+        "damage": [
+          {
+            "amount": 916747,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Gore Rattle",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37250,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1296301,
+        "title": "Mephitic Thrash",
+        "journalSpellName": "Mephitic Thrash",
+        "tooltipName": "Mephitic Thrash",
+        "icon": "ability_creature_poison_04",
+        "cast": "4 sec cast",
+        "description": "Ula'tek's tail sweeps the ground, inflicting 750066 Nature damage to players within 35 yards and knocking them back. In addition, players outside 35 yards are inflicted with 625055 Nature damage and an additional 200018 Nature damage every 2 sec for 10 sec.",
+        "damage": [
+          {
+            "amount": 750066,
+            "school": "Nature",
+            "everySeconds": null
+          },
+          {
+            "amount": 625055,
+            "school": "Nature",
+            "everySeconds": 2.0
+          },
+          {
+            "amount": 200018,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Gore Rattle",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37251,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1287265,
+        "title": "Spectral Coils",
+        "journalSpellName": "Spectral Coils",
+        "tooltipName": "Spectral Coils",
+        "icon": "spell_animamaldraxxus_nova",
+        "cast": "Instant",
+        "description": "Ula'tek's Spectral Coils rise above the platform and crush anything beneath them, inflicting 916747 Nature damage to all players. This damage is reduced by the number of players within 10 yards of the impact location.",
+        "damage": [
+          {
+            "amount": 916747,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Gore Rattle",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37252,
+        "repeatedSections": 5
+      },
+      {
+        "spellId": 1300685,
+        "title": "Soul Constrictor",
+        "journalSpellName": "Soul Constrictor",
+        "tooltipName": "Soul Constrictor",
+        "icon": "ability_ardenweald_warlock",
+        "cast": "Instant",
+        "description": "Ula'tek constricts your soul, preventing you from mitigating damage from Spectral Coils for 5 sec.",
+        "damage": [],
+        "parentTitle": "Spectral Coils",
+        "parentSpellId": 1287265,
+        "depth": 3,
+        "sectionId": 37253,
+        "repeatedSections": 3
+      },
+      {
+        "spellId": 1286834,
+        "title": "Necrotic Vapors",
+        "journalSpellName": "Necrotic Vapors",
+        "tooltipName": "Necrotic Vapors",
+        "icon": "ability_creature_poison_06",
+        "cast": "Instant",
+        "description": "As Ula'tek disturbs the pool, Necrotic Vapors fill the room, inflicting 54171 Nature damage every 1 sec to all players. This effect stacks.",
+        "damage": [
+          {
+            "amount": 54171,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Stage One: Fury of the Serpent Mother",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35564,
+        "repeatedSections": 3
+      },
+      {
+        "spellId": 1302505,
+        "title": "Ula'tek's Bond",
+        "journalSpellName": "Ula'tek's Bond",
+        "tooltipName": "Ula'tek's Bond",
+        "icon": "ability_hunter_separationanxiety",
+        "cast": "Instant",
+        "description": "All aspects of Ula'tek's form share damage taken.",
+        "damage": [],
+        "parentTitle": "Stage One: Fury of the Serpent Mother",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36425,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1286860,
+        "title": "Rage of the Shackled",
+        "journalSpellName": "Rage of the Shackled",
+        "tooltipName": "Rage of the Shackled",
+        "icon": "inv_121_raid_achievement_ulatek",
+        "cast": "6.5 sec cast",
+        "description": "Ula'tek rages, inflicting 500044 Nature damage every 4 sec to all players for 20 sec and causing Falling Debris to impact several random destinations.\n\nFlying into this rage exposes Ula'tek's Venomous Heart.",
+        "damage": [
+          {
+            "amount": 500044,
+            "school": "Nature",
+            "everySeconds": 4.0
+          }
+        ],
+        "parentTitle": "Stage One: Fury of the Serpent Mother",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35565,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1286885,
+        "title": "Falling Debris",
+        "journalSpellName": "Falling Debris",
+        "tooltipName": "Falling Debris",
+        "icon": "ability_evoker_earthensky",
+        "cast": "Instant",
+        "description": "Falling debris drops onto several random destinations, inflicting 2500220 Nature damage to players within 7 yards of the impact locations.",
+        "damage": [
+          {
+            "amount": 2500220,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Rage of the Shackled",
+        "parentSpellId": 1286860,
+        "depth": 2,
+        "sectionId": 36739,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1299526,
+        "title": "Venomous Heart",
+        "journalSpellName": "Venomous Heart",
+        "tooltipName": "Venomous Heart",
+        "icon": "inv_121_trinket_raid_ulatek_heart",
+        "cast": "Channeled (20 sec cast)",
+        "description": "The beating core of Ula'tek. All damage taken by the Venomous Heart is increased by 100% for 20 sec.",
+        "damage": [],
+        "parentTitle": "Rage of the Shackled",
+        "parentSpellId": 1286860,
+        "depth": 2,
+        "sectionId": 36177,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1286945,
+        "title": "Unchecked Rage",
+        "journalSpellName": "Unchecked Rage",
+        "tooltipName": "Unchecked Rage",
+        "icon": "ability_evoker_dragonrage2",
+        "cast": "Instant",
+        "description": "If Ula'tek is unable to melee a nearby player when she is not casting or channeling, she inflicts Physical damage to all players.",
+        "damage": [],
+        "parentTitle": "Stage One: Fury of the Serpent Mother",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35866,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1308038,
+        "title": "Mass Gestation",
+        "journalSpellName": "Mass Gestation",
+        "tooltipName": "Mass Gestation",
+        "icon": "ability_warlock_burningembersgreen",
+        "cast": "Instant",
+        "description": "Disturbing a Doomscale Egg invokes all remaining Blightscale Spawn on their side to begin Writhing Gestation.",
+        "damage": [],
+        "parentTitle": "Doomscale Egg",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37436,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1306862,
+        "title": "Hatching Doom",
+        "journalSpellName": "Hatching Doom",
+        "tooltipName": "Hatching Doom",
+        "icon": "ability_hunter_aspectoftheviper",
+        "cast": "1.5 min cast",
+        "description": "The Ravenous Doomscale smells prey, clawing at its egg so it can hatch and feed.",
+        "damage": [],
+        "parentTitle": "Doomscale Egg",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37008,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1300312,
+        "title": "Doomscale Shell",
+        "journalSpellName": "Doomscale Shell",
+        "tooltipName": "Doomscale Shell",
+        "icon": "inv_12_profession_skinning_thalassianscale_violet",
+        "cast": "Instant",
+        "description": "Ula'tek's Doomscale Eggs are covered in a viscous shell that sticks to players that touch them, inflicting 100009 Nature damage every 2 sec while it is attached.\n\nAfter picked up, the beast within hatches after 20 sec.",
+        "damage": [
+          {
+            "amount": 100009,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Doomscale Egg",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37010,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1305775,
+        "title": "Dread Roar",
+        "journalSpellName": "Dread Roar",
+        "tooltipName": "Dread Roar",
+        "icon": "spell_nzinsanity_fearofdeath",
+        "cast": "2.5 sec cast",
+        "description": "The Ravenous Doomscale roars, inflicting 791736 Nature damage every 1 sec and stunning all players for 20 sec.",
+        "damage": [
+          {
+            "amount": 791736,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Ravenous Doomscale",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 37012,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1303410,
+        "title": "Defect: Weakened",
+        "journalSpellName": "Defect: Weakened",
+        "tooltipName": "Defect: Weakened",
+        "icon": "ability_deathknight_heartstopaura",
+        "cast": "Instant",
+        "description": "Disrupting the Ravenous Doomscale's gestation weakens it, increasing all its damage taken by 100%. In this weakened state, the beast also cannot use Dread Roar.",
+        "damage": [],
+        "parentTitle": "Ravenous Doomscale",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 37013,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1305650,
+        "title": "Anguished Cry",
+        "journalSpellName": "Anguished Cry",
+        "tooltipName": "Anguished Cry",
+        "icon": "spell_arcane_mindmastery",
+        "cast": "2.5 sec cast",
+        "description": "The Weakened Doomscale screams in agony, inflicting 541714 Nature damage to players within 60 yards and stuns them for 6 sec.",
+        "damage": [
+          {
+            "amount": 541714,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Defect: Weakened",
+        "parentSpellId": 1303410,
+        "depth": 4,
+        "sectionId": 37014,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1305709,
+        "title": "Desperate Thrash",
+        "journalSpellName": "Desperate Thrash",
+        "tooltipName": "Desperate Thrash",
+        "icon": "artifactability_feraldruid_ashamanesbite",
+        "cast": "3 sec cast",
+        "description": "The Weakened Doomscale thrashes, inflicting 541714 Nature damage on impact and an additional 58338 Nature damage every 1 sec to players within the cone for 6 sec.",
+        "damage": [
+          {
+            "amount": 541714,
+            "school": "Nature",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 58338,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Defect: Weakened",
+        "parentSpellId": 1303410,
+        "depth": 4,
+        "sectionId": 37015,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1307941,
+        "title": "Revenge",
+        "journalSpellName": "Revenge",
+        "tooltipName": "Revenge",
+        "icon": "ability_hunter_harass",
+        "cast": "Instant",
+        "description": "With the death of their clutchmate, the Weakened Doomscale flies into a rage, increasing their haste by 100% and all their damage done by 100%.",
+        "damage": [],
+        "parentTitle": "Defect: Weakened",
+        "parentSpellId": 1303410,
+        "depth": 4,
+        "sectionId": 37044,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1301117,
+        "title": "Grasping Fangs",
+        "journalSpellName": "Grasping Fangs",
+        "tooltipName": "Grasping Fangs",
+        "icon": "inv_121_trinket_raid_ulatek_ulatekclaw",
+        "cast": "2 sec cast",
+        "description": "The Doomscale Warden sinks fangs into random players, inflicting 166681 Nature damage every 2 sec and reduces their movement speed by 45% while the Grasping Fangs are unbroken.\n\nSnapping the fang inflicts Blight Vein.",
+        "damage": [
+          {
+            "amount": 166681,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Doomscale Warden",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37283,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1311600,
+        "title": "Blight Vein",
+        "journalSpellName": "Blight Vein",
+        "tooltipName": "Blight Vein",
+        "icon": "ability_ironmaidens_bloodritual",
+        "cast": "Instant",
+        "description": "Blight Vein is injected into the player on the removal of Grasping Fangs, inflicting 291692 Nature damage every 2 sec for 8 sec.",
+        "damage": [
+          {
+            "amount": 291692,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Grasping Fangs",
+        "parentSpellId": 1301117,
+        "depth": 3,
+        "sectionId": 37284,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1306858,
+        "title": "Warden's Protection",
+        "journalSpellName": "Warden's Protection",
+        "tooltipName": "Warden's Protection",
+        "icon": "ability_racial_wardoftheloanature",
+        "cast": "Instant",
+        "description": "The Doomscale Warden's life force coils around the eggs, inflicting 291692 Nature damage every 1 sec to players within 7 yards and forbidding all touch while the warden draws breath.",
+        "damage": [
+          {
+            "amount": 291692,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Doomscale Warden",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37009,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1290779,
+        "title": "Malice",
+        "journalSpellName": "Malice",
+        "tooltipName": "Malice",
+        "icon": "ability_warrior_rampage",
+        "cast": "1.5 sec cast",
+        "description": "The Doomscale Warden unleashes malice, inflicting 791736 Nature damage to all players every 1 sec for 6 sec.",
+        "damage": [
+          {
+            "amount": 791736,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Doomscale Warden",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36879,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1301213,
+        "title": "Shadow Molt",
+        "journalSpellName": "Shadow Molt",
+        "tooltipName": "Shadow Molt",
+        "icon": "spell_warlock_demonsoul",
+        "cast": "3 sec cast",
+        "description": "The Doomscale Warden sheds its shadow skin and slithers to a new destination.",
+        "damage": [],
+        "parentTitle": "Doomscale Warden",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36880,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1290990,
+        "title": "Writhing Gestation",
+        "journalSpellName": "Writhing Gestation",
+        "tooltipName": "Writhing Gestation",
+        "icon": "rogue_leeching_poison",
+        "cast": "Channeled (20 sec cast)",
+        "description": "The Doomscale Warden transforms nearby Blightscale Spawn into a Blightscale Clutch that hatches after 20 sec.",
+        "damage": [],
+        "parentTitle": "Doomscale Warden",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36881,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1311609,
+        "title": "Blight Vein",
+        "journalSpellName": "Blight Vein",
+        "tooltipName": "Blight Vein",
+        "icon": "ability_ironmaidens_bloodritual",
+        "cast": "Instant",
+        "description": "Blight Vein is injected into all players on the removal of Grasping Fangs, inflicting 216686 Nature damage every 2 sec for 6 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 216686,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Grasping Fangs",
+        "parentSpellId": 1301117,
+        "depth": 3,
+        "sectionId": 37146,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1313355,
+        "title": "Doomscale Cauldron",
+        "journalSpellName": "Doomscale Cauldron",
+        "tooltipName": "Doomscale Cauldron",
+        "icon": "8026699",
+        "cast": "Instant",
+        "description": "A hissing cauldron of corrosive venom ready to devour any offering thrown into its depths.",
+        "damage": [],
+        "parentTitle": "Stage Two: Children of the Doomscale",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37208,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1289962,
+        "title": "Blightscale Clutch",
+        "journalSpellName": "Blightscale Clutch",
+        "tooltipName": "Blightscale Clutch",
+        "icon": "inv_121_trinket_dungeon_ulatek_writhe",
+        "cast": "Instant",
+        "description": "Ula'tek's spawn within the clutch grow in power during Writhing Gestation while it remains unbroken.",
+        "damage": [],
+        "parentTitle": "Stage Two: Children of the Doomscale",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35632,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1302982,
+        "title": "Virulent Spit",
+        "journalSpellName": "Virulent Spit",
+        "tooltipName": "Virulent Spit",
+        "icon": "ability_rogue_deviouspoisons",
+        "cast": "Instant",
+        "description": "Ula'tek spits venom at several destinations, inflicting 918489 Nature damage to players within 4 yards of the impact locations.",
+        "damage": [
+          {
+            "amount": 918489,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage Two: Children of the Doomscale",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36284,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1301510,
+        "title": "Circling Prey",
+        "journalSpellName": "Circling Prey",
+        "tooltipName": "Circling Prey",
+        "icon": "inv_offhand_1h_ulatek_d_01",
+        "cast": "Instant",
+        "description": "Ula'tek destroys a portion of the platform, drawing her prey closer and inflicting 2500220 Nature damage and knocking back players within 13 yards. Additionally, players outside 13 yards are inflicted with 625055 Nature damage.",
+        "damage": [
+          {
+            "amount": 2500220,
+            "school": "Nature",
+            "everySeconds": null
+          },
+          {
+            "amount": 625055,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage Three: Ula'tek's Ascension",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36375,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1300751,
+        "title": "Call of the Serpent",
+        "journalSpellName": "Call of the Serpent",
+        "tooltipName": "Call of the Serpent",
+        "icon": "8125100",
+        "cast": "4 sec cast",
+        "description": "Ula'tek roars, shaking her children from the ceiling and causing them to fall.",
+        "damage": [],
+        "parentTitle": "Stage Three: Ula'tek's Ascension",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37016,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1310764,
+        "title": "Vicious Echoes",
+        "journalSpellName": "Vicious Echoes",
+        "tooltipName": "Vicious Echoes",
+        "icon": "inv12_ability_priest_madness_scream",
+        "cast": "2.5 sec cast",
+        "description": "The Blightscale Shrieker screams, inflicting 625055 Nature damage to players and an additional 133345 Nature damage every 1 sec and stunning them for 6 sec.",
+        "damage": [
+          {
+            "amount": 625055,
+            "school": "Nature",
+            "everySeconds": null
+          },
+          {
+            "amount": 133345,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Blightscale Shrieker",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 37224,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1295905,
+        "title": "Serpent's Bite",
+        "journalSpellName": "Serpent's Bite",
+        "tooltipName": "Serpent's Bite",
+        "icon": "inv_121_trinket_raid_ulatek_fang_red",
+        "cast": "5 sec cast",
+        "description": "Ula'tek shoots fangs into several players, applying a venom that inflicts 416703 Nature damage on impact and an additional 100009 Nature damage every 1 sec for 15 sec. Upon expiration, the player is turned into a Calcified Corpse.\n\nPlayers within 7 yards may leech the venom to remove it but become infected with Volatile Purge.",
+        "damage": [
+          {
+            "amount": 416703,
+            "school": "Nature",
+            "everySeconds": null
+          },
+          {
+            "amount": 100009,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Stage Three: Ula'tek's Ascension",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37482,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1306119,
+        "title": "Calcified Corpse",
+        "journalSpellName": "Calcified Corpse",
+        "tooltipName": "Calcified Corpse",
+        "icon": "inv_121_trinket_dungeon_ulatek_fangstone",
+        "cast": "Instant",
+        "description": "Ula'tek's venom turns the player to stone, stunning them and inflicting 1000088 Nature damage every 1 sec. This effect pierces immunities.",
+        "damage": [
+          {
+            "amount": 1000088,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Serpent's Bite",
+        "parentSpellId": 1295905,
+        "depth": 2,
+        "sectionId": 37483,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1306086,
+        "title": "Volatile Purge",
+        "journalSpellName": "Volatile Purge",
+        "tooltipName": "Volatile Purge",
+        "icon": "spell_shadow_plaguecloud",
+        "cast": "Instant",
+        "description": "Players that leech Serpent's Bite purge their venom after 5 sec. On expiration, the poison erupts from the affected players, inflicting 625055 Nature damage on impact and an additional 41670 Nature damage every 1 sec for 18 sec to players near the purge. This effect stacks.\n\nIn addition, Volatile Purge increases damage taken from Deadly Venom by 25%.",
+        "damage": [
+          {
+            "amount": 625055,
+            "school": "Nature",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 41670,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Serpent's Bite",
+        "parentSpellId": 1295905,
+        "depth": 2,
+        "sectionId": 37484,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1318329,
+        "title": "Calcified Corpse",
+        "journalSpellName": "Calcified Corpse",
+        "tooltipName": "Calcified Corpse",
+        "icon": "inv_121_trinket_dungeon_ulatek_fangstone",
+        "cast": "Instant",
+        "description": "Ula'tek's venom turns the player to stone, stunning them and inflicting 1000088 Nature damage every 1 sec. This effect pierces immunities.\n\nIn addition, the Calcified Corpse radiates toxins inflicting 1250110 Nature damage every 1 sec to players.",
+        "damage": [
+          {
+            "amount": 1000088,
+            "school": "Nature",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 1250110,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Serpent's Bite",
+        "parentSpellId": 1295905,
+        "depth": 2,
+        "sectionId": 37033,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1286905,
+        "title": "Fury Unleashed",
+        "journalSpellName": "Fury Unleashed",
+        "tooltipName": "Fury Unleashed",
+        "icon": "inv12_apextalent_evoker_risingfury",
+        "cast": "1.6 sec cast",
+        "description": "Ula'tek tears her prison asunder, inflicting 2500220 Nature to all players immediately, then an additional 916747 Nature damage every 1 sec.",
+        "damage": [
+          {
+            "amount": 916747,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Stage Three: Ula'tek's Ascension",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36343,
+        "repeatedSections": 0
+      }
+    ],
+    "journalInstance": {
+      "id": 1320,
+      "name": "The Venomous Abyss"
+    }
+  }
+}

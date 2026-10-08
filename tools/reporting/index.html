@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>wcl-viz dev</title>
+    <style>
+      html, body { margin: 0; background: #f9f9f7; }
+      @media (prefers-color-scheme: dark) { html, body { background: #0d0d0d; } }
+      #root { max-width: 1080px; margin: 0 auto; padding: 24px 20px 64px; }
+      #err { font: 13px/1.5 system-ui, sans-serif; color: #d03b3b; padding: 24px; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="err"></div>
+    <script type="module" src="/src/dev/main.tsx"></script>
+  </body>
+</html>

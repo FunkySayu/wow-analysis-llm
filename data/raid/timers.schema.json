@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wow.funkysayu.fr/schemas/raid_timers.json",
+  "title": "NSRT boss ability timers for one encounter",
+  "description": "Output of tools/game_knowledge/nsrt_timer_import.py, one file per encounter at data/raid/<patch>/<tier>/<nn>_<slug>/timers.json -- see docs/design/23-boss-timer-dataset.md for the full spec. Difficulty keys are always strings of the in-game difficulty IDs (14=Normal, 15=Heroic, 16=Mythic), never the WarcraftLogs 3/4/5 scheme -- see docs/design/00-overview.md#vocabulary.",
+  "type": "object",
+  "required": [
+    "meta",
+    "encounter"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "source",
+        "addon_version",
+        "extracted_at",
+        "zone",
+        "notes",
+        "encounter"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "addon_version": {
+          "type": "string",
+          "description": "The addon's own ## Version: from its .toc, so a stale dataset is diagnosable. Never hand-edit the addon files to change this."
+        },
+        "extracted_at": {
+          "type": "string",
+          "description": "RFC3339 UTC timestamp. The one field a re-run of the tool is allowed to change."
+        },
+        "zone": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Free-text notes the tool couldn't determine algorithmically -- notably the BigWigs cross-check agreement/disagreement writeup this task's acceptance criteria require."
+        },
+        "encounter": {
+          "type": "string",
+          "description": "The encounter slug this file covers (same as encounter.slug)."
+        }
+      }
+    },
+    "encounter": {
+      "$ref": "#/$defs/encounter"
+    }
+  },
+  "$defs": {
+    "encounter": {
+      "type": "object",
+      "required": [
+        "dungeon_encounter_id",
+        "slug",
+        "abilities"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "dungeon_encounter_id": {
+          "type": "integer",
+          "description": "The in-game encID (NSRT/BigWigs/DBM), NOT the WarcraftLogs encounter id -- see docs/design/00-overview.md#vocabulary."
+        },
+        "slug": {
+          "type": "string"
+        },
+        "abilities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ability"
+          }
+        }
+      }
+    },
+    "timerArray": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "Seconds from the start of the ability's phase, matching the convention docs/design/21-nsrt-note-export.md uses. Never rounded -- an integer-valued source literal like `290` stays a JSON integer, not 290.0, since the timeline editor snaps to these exact values."
+    },
+    "timersByDifficulty": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^(14|15|16)$": {
+          "$ref": "#/$defs/timerArray"
+        }
+      }
+    },
+    "phaseTimersByDifficulty": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^(14|15|16)$": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/timerArray"
+          },
+          "description": "Keyed by phase number as a string (e.g. \"1\", \"1.5\", \"1.75\", \"2\") -- NSRT's own `phaseTimers` field, present on multi-phase encounters instead of a flat `timers` map. See this task's PROGRESS.md entry: this field is an extension over the design doc's original schema, which only documented `timers`."
+        }
+      }
+    },
+    "ability": {
+      "type": "object",
+      "required": [
+        "internal_id",
+        "group",
+        "name",
+        "short_text",
+        "spell_id",
+        "phase",
+        "display_type",
+        "duration",
+        "tts",
+        "stub",
+        "timers",
+        "phase_timers",
+        "unresolved_fields"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "internal_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "group": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "short_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "spell_id": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "phase": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "display_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "tts": {
+          "type": [
+            "boolean",
+            "string",
+            "null"
+          ]
+        },
+        "stub": {
+          "type": "boolean",
+          "description": "True when the source alert has neither `timers` nor `phaseTimers` at all -- meaningful data (e.g. an untested/UI-helper alert), not a parse failure. See this task's traps section."
+        },
+        "timers": {
+          "$ref": "#/$defs/timersByDifficulty"
+        },
+        "phase_timers": {
+          "$ref": "#/$defs/phaseTimersByDifficulty"
+        },
+        "unresolved_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "field name -> raw Lua source text, for any of this ability's fields whose value was a Lua expression the importer didn't attempt to evaluate (a function/method call, an unknown identifier). Empty for all abilities in the current venomous-abyss.json -- every field in these 9 files resolves cleanly -- but kept per-ability so a future addon update that introduces one is diagnosable instead of silently turning into a bare null."
+        }
+      }
+    }
+  }
+}

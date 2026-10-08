@@ -1,0 +1,385 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 15,
+    "wclDifficulty": 4,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T12:34:01+00:00",
+    "generator": "tools/warcraftlogs/plan_suggestion_sync.py",
+    "catalog": "data/classes/druid/balance/12_1_cooldowns.json",
+    "parameters": {
+      "sample": 22,
+      "minRechargeSeconds": 25.0,
+      "tightIqrSeconds": 8.0,
+      "minSupport": 0.4,
+      "anchorWindowSeconds": 15.0
+    },
+    "readMe": "Suggestions, not decisions. Every row carries the spread and the pull count behind it; a wide spread means the field disagrees, which is information about the fight rather than a number to copy. Times are phase-relative because kill times are not comparable.",
+    "encounter": "explorers"
+  },
+  "encounter": {
+    "slug": "explorers",
+    "wclEncounterId": 3497,
+    "encounterName": "The Lost Explorers",
+    "sample": {
+      "requested": 22,
+      "readable": 21,
+      "used": 10,
+      "unreadable": [
+        {
+          "skipped": "SystemExit: Player \"Anonymous\" not found in report a:a8crKkwbgpjJ4ACX",
+          "code": "a:a8crKkwbgpjJ4ACX",
+          "fight": 29,
+          "player": "Anonymous"
+        }
+      ],
+      "excludedForPhaseStructure": [
+        {
+          "code": "R32dwmBfg71zaqGC",
+          "fight": 11,
+          "player": "Hàchi",
+          "reason": "log records 4 phase segment(s); 3 is the pool's structure for this boss"
+        },
+        {
+          "code": "bWYr6KgTmLv4p7x1",
+          "fight": 9,
+          "player": "Clecia",
+          "reason": "log records 4 phase segment(s); 3 is the pool's structure for this boss"
+        },
+        {
+          "code": "AMjh6tDHnRbq7Yzr",
+          "fight": 43,
+          "player": "Kotýaradru",
+          "reason": "log records 4 phase segment(s); 3 is the pool's structure for this boss"
+        },
+        {
+          "code": "V76nwYjfXKA8Czdv",
+          "fight": 29,
+          "player": "Yasa",
+          "reason": "log records 5 phase segment(s); 3 is the pool's structure for this boss"
+        },
+        {
+          "code": "bvB4wPXFqJfkrQnN",
+          "fight": 15,
+          "player": "Porlix",
+          "reason": "log records 4 phase segment(s); 3 is the pool's structure for this boss"
+        },
+        {
+          "code": "FxRtM6AWp2TVndZ8",
+          "fight": 6,
+          "player": "Nickdruid",
+          "reason": "log records 4 phase segment(s); 3 is the pool's structure for this boss"
+        },
+        {
+          "code": "8tTHdym2nJVaQzpr",
+          "fight": 26,
+          "player": "Piete",
+          "reason": "log records 4 phase segment(s); 3 is the pool's structure for this boss"
+        },
+        {
+          "code": "zF7xH1LkhKg6R9BG",
+          "fight": 9,
+          "player": "Dride",
+          "reason": "log records 4 phase segment(s); 3 is the pool's structure for this boss"
+        },
+        {
+          "code": "Q4q3bKxDCwGRvNTJ",
+          "fight": 23,
+          "player": "Boomcant",
+          "reason": "log records 4 phase segment(s); 3 is the pool's structure for this boss"
+        },
+        {
+          "code": "86T2WXFCwzr4JZg9",
+          "fight": 9,
+          "player": "Whitehenning",
+          "reason": "log records 4 phase segment(s); 3 is the pool's structure for this boss"
+        },
+        {
+          "code": "PyG4DpCFJvKL8j9m",
+          "fight": 34,
+          "player": "Kinameow",
+          "reason": "log records 5 phase segment(s); 3 is the pool's structure for this boss"
+        }
+      ],
+      "medianDuration": 181.5,
+      "durationRange": [
+        156.1,
+        198.1
+      ]
+    },
+    "phaseModel": [
+      0.0,
+      60.4,
+      120.4
+    ],
+    "cooldowns": [
+      {
+        "spellId": 102560,
+        "name": "Incarnation: Chosen of Elune",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 3.0,
+        "medianGapSeconds": 62.6,
+        "seenInPulls": 10,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 6.9,
+            "atSeconds": 6.9,
+            "spread": {
+              "median": 6.9,
+              "p25": 6.2,
+              "p75": 7.8,
+              "iqr": 1.5,
+              "min": 5.7,
+              "max": 11.0
+            },
+            "support": {
+              "pulls": 10,
+              "of": 10
+            },
+            "anchor": {
+              "ability": "Blink Nova",
+              "occurrence": 1,
+              "offsetSeconds": -2.3,
+              "agreement": 5,
+              "of": 10
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 28.3,
+            "atSeconds": 28.3,
+            "spread": {
+              "median": 28.3,
+              "p25": 27.6,
+              "p75": 31.9,
+              "iqr": 4.3,
+              "min": 25.3,
+              "max": 51.1
+            },
+            "support": {
+              "pulls": 10,
+              "of": 10
+            },
+            "anchor": {
+              "ability": "Shell Spin",
+              "occurrence": 3,
+              "offsetSeconds": -4.0,
+              "agreement": 4,
+              "of": 10
+            }
+          },
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 11.2,
+            "atSeconds": 134.4,
+            "spread": {
+              "median": 11.2,
+              "p25": 10.8,
+              "p75": 17.1,
+              "iqr": 6.3,
+              "min": 2.7,
+              "max": 20.2
+            },
+            "support": {
+              "pulls": 10,
+              "of": 10
+            },
+            "anchor": {
+              "ability": "Blink Nova",
+              "occurrence": 7,
+              "offsetSeconds": -1.6,
+              "agreement": 2,
+              "of": 10
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1293316,
+        "name": "Empowering Venom",
+        "role": "trinket",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 126.7,
+        "seenInPulls": 9,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 7.1,
+            "atSeconds": 7.1,
+            "spread": {
+              "median": 7.1,
+              "p25": 6.4,
+              "p75": 7.9,
+              "iqr": 1.4,
+              "min": 5.7,
+              "max": 11.0
+            },
+            "support": {
+              "pulls": 9,
+              "of": 10
+            },
+            "anchor": {
+              "ability": "Blink Nova",
+              "occurrence": 1,
+              "offsetSeconds": -2.2,
+              "agreement": 4,
+              "of": 9
+            }
+          },
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 11.3,
+            "atSeconds": 135.7,
+            "spread": {
+              "median": 11.3,
+              "p25": 10.9,
+              "p75": 17.1,
+              "iqr": 6.2,
+              "min": 2.7,
+              "max": 20.2
+            },
+            "support": {
+              "pulls": 9,
+              "of": 10
+            },
+            "anchor": {
+              "ability": "Blink Nova",
+              "occurrence": 7,
+              "offsetSeconds": -1.6,
+              "agreement": 2,
+              "of": 9
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236616,
+        "name": "Light's Potential",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": null,
+        "seenInPulls": 7,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 6.6,
+            "atSeconds": 6.6,
+            "spread": {
+              "median": 6.6,
+              "p25": 6.3,
+              "p75": 7.5,
+              "iqr": 1.2,
+              "min": 5.8,
+              "max": 8.8
+            },
+            "support": {
+              "pulls": 7,
+              "of": 10
+            },
+            "anchor": {
+              "ability": "Blink Nova",
+              "occurrence": 1,
+              "offsetSeconds": -2.5,
+              "agreement": 4,
+              "of": 7
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22812,
+        "name": "Barkskin",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 95.7,
+        "seenInPulls": 9,
+        "suggestions": [
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 27.5,
+            "atSeconds": 152.0,
+            "spread": {
+              "median": 27.5,
+              "p25": 11.8,
+              "p75": 46.3,
+              "iqr": 34.5,
+              "min": 0.0,
+              "max": 67.9
+            },
+            "support": {
+              "pulls": 8,
+              "of": 10
+            },
+            "anchor": {
+              "ability": "Relic Rupture",
+              "occurrence": 1,
+              "offsetSeconds": -2.6,
+              "agreement": 2,
+              "of": 8
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 29166,
+        "name": "Innervate",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": null,
+        "seenInPulls": 4,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 22.8,
+            "atSeconds": 22.8,
+            "spread": {
+              "median": 22.8,
+              "p25": 10.3,
+              "p75": 38.1,
+              "iqr": 27.8,
+              "min": 8.1,
+              "max": 48.4
+            },
+            "support": {
+              "pulls": 4,
+              "of": 10
+            },
+            "anchor": {
+              "ability": "Icebound Flames",
+              "occurrence": 2,
+              "offsetSeconds": -1.3,
+              "agreement": 1,
+              "of": 4
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102383,
+        "name": "Wild Charge",
+        "role": "movement",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": 43.2,
+        "seenInPulls": 4,
+        "suggestions": []
+      }
+    ]
+  }
+}

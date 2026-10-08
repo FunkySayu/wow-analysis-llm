@@ -1,0 +1,473 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "source": "Blizzard Game Data journal-encounter + Wowhead tooltip API",
+    "buildNamespace": "static-12.1.0_68914-eu",
+    "generatedAt": "2026-09-09T18:19:40+00:00",
+    "generator": "tools/game_knowledge/journal_sync.py",
+    "readMe": "Ability text and damage magnitudes come from Wowhead's tooltip endpoint, which is the only source carrying tuned numbers for this tier -- Blizzard's /data/wow/spell/<id> returns 404 for these ids and the in-game journal text ships 'X' placeholders. A magnitude here is ONE difficulty's value and the endpoint does not say which; cross-check against measured damage taken in profiles/<spec>-<difficulty>.json before quoting it as a Mythic number.",
+    "encounter": "sentinels"
+  },
+  "encounter": {
+    "slug": "sentinels",
+    "journalEncounterId": 2874,
+    "name": "Entombed Sentinels",
+    "description": "The Blood and Breath of Ula'tek bar the way to Vashnik's inner sanctum. Ancient golems that long stood guard within the vaults, now corrupted by the venom of the nightmarish monster they imprisoned.",
+    "creatures": [
+      {
+        "id": 6181,
+        "name": "Breath of Ula'tek"
+      },
+      {
+        "id": 6180,
+        "name": "Blood of Ula'tek"
+      }
+    ],
+    "modes": [
+      "LFR",
+      "NORMAL",
+      "HEROIC",
+      "MYTHIC"
+    ],
+    "notes": [
+      {
+        "title": "Overview",
+        "bodyText": "The Sentinel Golems of Ula'tek are filled with the caustic venoms flowing throughout the temple. The Breath of Ula'tek animates venom to destroy invaders while the Blood of Ula'tek infects players with deadly toxins. \r\n\r\nAt 100 energy the Sentinels come together to fill their venom levels with [Vitriolic Stasis], restoring health to the weaker Sentinel and infecting all players with [Helical Toxins].",
+        "bullets": [
+          "The Sentinel Golems of Ula'tek are filled with the caustic venoms flowing throughout the temple. The Breath of Ula'tek animates venom to destroy invaders while the Blood of Ula'tek infects players with deadly toxins. \r\n\r\nAt 100 energy the Sentinels come together to fill their venom levels with [Vitriolic Stasis], restoring health to the weaker Sentinel and infecting all players with [Helical Toxins]."
+        ]
+      },
+      {
+        "title": "Tanks",
+        "bodyText": "$bullet;[Toxic Droplets] sprays droplets of venom in front of the Breath of Ula'tek.\r\n$bullet;[Empowering Slam] and [Bloodvenom Injection] increase in intensity each time they strike the same target.\r\n$bullet;[Helical Toxins] is neutralized harmlessly upon reaching exactly 4 applications.",
+        "bullets": [
+          "[Toxic Droplets] sprays droplets of venom in front of the Breath of Ula'tek.",
+          "[Empowering Slam] and [Bloodvenom Injection] increase in intensity each time they strike the same target.",
+          "[Helical Toxins] is neutralized harmlessly upon reaching exactly 4 applications."
+        ]
+      },
+      {
+        "title": "Damage Dealers",
+        "bodyText": "$bullet;[Venom Coagulation] creates a massive slime that uses [Contaminate] until it is destroyed.\r\n$bullet;[Vitriolic Stasis] restores health to the weaker Sentinel until it matches the healthier Sentinel.\r\n$bullet;[Helical Toxins] is neutralized harmlessly upon reaching exactly 4 applications.",
+        "bullets": [
+          "[Venom Coagulation] creates a massive slime that uses [Contaminate] until it is destroyed.",
+          "[Vitriolic Stasis] restores health to the weaker Sentinel until it matches the healthier Sentinel.",
+          "[Helical Toxins] is neutralized harmlessly upon reaching exactly 4 applications."
+        ]
+      },
+      {
+        "title": "Healers",
+        "bodyText": "$bullet;[Blighted Blood] infects players and can be dispelled.\r\n$bullet;[Helical Toxins] is neutralized harmlessly upon reaching exactly 4 applications.\r\n$bullet;[Contaminate] inflicts a high amount of damage to all players.",
+        "bullets": [
+          "[Blighted Blood] infects players and can be dispelled.",
+          "[Helical Toxins] is neutralized harmlessly upon reaching exactly 4 applications.",
+          "[Contaminate] inflicts a high amount of damage to all players."
+        ]
+      },
+      {
+        "title": "Vashnik the Malignant",
+        "bodyText": "Constantly seeking to improve his toxins, Vashnik infects players and obfuscates their attempts to save themselves.",
+        "bullets": [
+          "Constantly seeking to improve his toxins, Vashnik infects players and obfuscates their attempts to save themselves."
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "spellId": 1296878,
+        "title": "Shifting Protovenom",
+        "journalSpellName": "Shifting Protovenom",
+        "tooltipName": "Shifting Protovenom",
+        "icon": "spell_deathvortex",
+        "cast": "4 sec cast",
+        "description": "Vashnik contaminates random players with a prototype venom, inflicting 233354 Plague damage every 2 sec.\n\nComing into contact with another Protovenom neutralizes them harmlessly, while colliding with an uncontaminated player causes a Protovenom Eruption.",
+        "damage": [
+          {
+            "amount": 233354,
+            "school": "Plague",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Vashnik the Malignant",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35868,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1296962,
+        "title": "Protovenom Eruption",
+        "journalSpellName": "Protovenom Eruption",
+        "tooltipName": "Protovenom Eruption",
+        "icon": "spell_deathknight_explode_ghoul",
+        "cast": "Instant",
+        "description": "A burst of non-compatible toxins erupts, inflicting 291692 Plague damage to players within 10 yards and knocking them away.",
+        "damage": [
+          {
+            "amount": 291692,
+            "school": "Plague",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Shifting Protovenom",
+        "parentSpellId": 1296878,
+        "depth": 2,
+        "sectionId": 35883,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1290193,
+        "title": "Ula'tek's Dominance",
+        "journalSpellName": "Ula'tek's Dominance",
+        "tooltipName": "Ula'tek's Dominance",
+        "icon": "inv_skinning_80_snakescales",
+        "cast": "Instant",
+        "description": "While the Entombed Sentinels are within 40 yards of each other, they empower each other with Ula'tek's Dominance, reducing their damage taken by 99%.",
+        "damage": [],
+        "parentTitle": "The Entombed Sentinels",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35627,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284494,
+        "title": "Mark of Acid",
+        "journalSpellName": "Mark of Acid",
+        "tooltipName": "Mark of Acid",
+        "icon": "inv_arcanegolem2mount_green",
+        "cast": "Instant",
+        "description": "The Breath of Ula'tek applies its mark to players within 40 yards every 5 sec, inflicting 10834 Nature damage every 2 sec for 40 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 10834,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "The Entombed Sentinels",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 34985,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284503,
+        "title": "Mark of Blood",
+        "journalSpellName": "Mark of Blood",
+        "tooltipName": "Mark of Blood",
+        "icon": "inv_arcanegolem2mount_red",
+        "cast": "Instant",
+        "description": "The Blood of Ula'tek applies its mark to players within 40 yards every 5 sec, inflicting 10834 Shadow damage every 2 sec for 40 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 10834,
+            "school": "Shadow",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "The Entombed Sentinels",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 34986,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284207,
+        "title": "Living Venom",
+        "journalSpellName": "Living Venom",
+        "tooltipName": "Living Venom",
+        "icon": "inv_ability_poison_groundstate",
+        "cast": "Instant",
+        "description": "Venom slime ejected by the Breath of Ula'tek returns to the golem after 4 sec, inflicting 375033 Nature damage to players struck.",
+        "damage": [
+          {
+            "amount": 375033,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Breath of Ula'tek",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 34981,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284251,
+        "title": "Venom Coagulation",
+        "journalSpellName": "Venom Coagulation",
+        "tooltipName": "Venom Coagulation",
+        "icon": "inv_ability_poison_nova",
+        "cast": "1.5 sec cast",
+        "description": "The Breath of Ula'tek vomits up a sticky mass of venom that animates itself into a living slime.",
+        "damage": [],
+        "parentTitle": "Breath of Ula'tek",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 34977,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284257,
+        "title": "Contaminate",
+        "journalSpellName": "Contaminate",
+        "tooltipName": "Contaminate",
+        "icon": "ability_rogue_venomouswounds",
+        "cast": "Channeled (10 min cast)",
+        "description": "The Venom Coagulation continually radiates a contaminating essence, inflicting 116677 Nature damage to all players every 3 sec.",
+        "damage": [
+          {
+            "amount": 116677,
+            "school": "Nature",
+            "everySeconds": 3.0
+          }
+        ],
+        "parentTitle": "Venom Coagulation",
+        "parentSpellId": 1284251,
+        "depth": 2,
+        "sectionId": 34990,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284434,
+        "title": "Toxic Droplets",
+        "journalSpellName": "Toxic Droplets",
+        "tooltipName": "Toxic Droplets",
+        "icon": "inv_ability_poison_orb",
+        "cast": "2 sec cast",
+        "description": "The Breath of Ula'tek sprays forth many toxic droplets, which each erupt into Noxious Blast after 12 sec. Players can destroy the droplets by stepping on top of them, suffering 375033 Nature damage.",
+        "damage": [
+          {
+            "amount": 375033,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Breath of Ula'tek",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 34978,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284452,
+        "title": "Noxious Blast",
+        "journalSpellName": "Noxious Blast",
+        "tooltipName": "Noxious Blast",
+        "icon": "ability_creature_poison_06",
+        "cast": "Instant",
+        "description": "The Toxic Droplet violently explodes, inflicting 375033 Nature damage to all players.",
+        "damage": [
+          {
+            "amount": 375033,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Toxic Droplets",
+        "parentSpellId": 1284434,
+        "depth": 2,
+        "sectionId": 34991,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284458,
+        "title": "Empowering Slam",
+        "journalSpellName": "Empowering Slam",
+        "tooltipName": "Empowering Slam",
+        "icon": "inv_mace_1h_pvppandarias3_c_01",
+        "cast": "1.5 sec cast",
+        "description": "The Breath of Ula'tek slams its current target, inflicting 2500220 Physical damage. Each time the golem slams the same target, it empowers itself and gains 10% additional Physical damage dealt until it slams a different target.",
+        "damage": [
+          {
+            "amount": 2500220,
+            "school": "Physical",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Breath of Ula'tek",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 34952,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284208,
+        "title": "Blood Venom",
+        "journalSpellName": "Blood Venom",
+        "tooltipName": "Blood Venom",
+        "icon": "spell_shadow_bloodboil",
+        "cast": "Instant",
+        "description": "Blood venom from the Blood of Ula'tek creates a toxic pool upon expiration, inflicting 166681 Shadow damage every 1 sec to players within. Greater applications of blood venom create larger toxic pools.",
+        "damage": [
+          {
+            "amount": 166681,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Blood of Ula'tek",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 34982,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284471,
+        "title": "Blighted Blood",
+        "journalSpellName": "Blighted Blood",
+        "tooltipName": "Blighted Blood",
+        "icon": "spell_shadow_lifedrain",
+        "cast": "Instant",
+        "description": "The Blood of Ula'tek infects players with blood venom, inflicting 208352 Shadow damage every 2 sec for 18 sec.",
+        "damage": [
+          {
+            "amount": 208352,
+            "school": "Shadow",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Blood of Ula'tek",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 34979,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1288232,
+        "title": "Unstable Miasma",
+        "journalSpellName": "Unstable Miasma",
+        "tooltipName": "Unstable Miasma",
+        "icon": "ability_deathwing_bloodcorruption_death",
+        "cast": null,
+        "description": "The Blood of Ula'tek marks a player with unstable miasma. After 8 sec, the miasma erupts, inflicting 5000440 Shadow damage split evenly among players within 7.5 yards. This impact spreads applications of Clinging Murk among the targets struck.",
+        "damage": [
+          {
+            "amount": 5000440,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Blood of Ula'tek",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 34980,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1288297,
+        "title": "Clinging Murk",
+        "journalSpellName": "Clinging Murk",
+        "tooltipName": "Clinging Murk",
+        "icon": "spell_fire_moltenblood",
+        "cast": "Instant",
+        "description": "Clinging blood venom inflicts 100009 Shadow damage every 2 sec for 6 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 100009,
+            "school": "Shadow",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Unstable Miasma",
+        "parentSpellId": 1288232,
+        "depth": 2,
+        "sectionId": 35542,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284487,
+        "title": "Bloodvenom Injection",
+        "journalSpellName": "Bloodvenom Injection",
+        "tooltipName": "Bloodvenom Injection",
+        "icon": "ability_warrior_bloodbath",
+        "cast": "1.5 sec cast",
+        "description": "The Blood of Ula'tek injects its current target with a blood venom, inflicting 2500220 Physical damage immediately with an additional 41670 Shadow damage every 1 sec for 40 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 2500220,
+            "school": "Physical",
+            "everySeconds": null
+          },
+          {
+            "amount": 41670,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Blood of Ula'tek",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 34954,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284588,
+        "title": "Vitriolic Stasis",
+        "journalSpellName": "Vitriolic Stasis",
+        "tooltipName": "Vitriolic Stasis",
+        "icon": "inv_10_enchanting2_magicswirl_red",
+        "cast": "Channeled (30 sec cast)",
+        "description": "Upon reaching 100 energy, both Sentinels rush together and begin to balance their fluid levels over 30 sec. This process reduces their damage taken by 99% and restores health to the weaker Sentinel until it matches the other.",
+        "damage": [],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 34976,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284590,
+        "title": "Helical Toxins",
+        "journalSpellName": "Helical Toxins",
+        "tooltipName": "Helical Toxins",
+        "icon": "inv_112_warlock_bloodstone",
+        "cast": "Instant",
+        "description": "The Sentinels combine fluids to infect all players with an entangled blood venom, inflicting 16668 Plague damage every 2 sec for 28 sec. \n\nA victim colliding with another player combines the strength of the venom. Reaching exactly 4 applications of Helical Toxins neutralizes the venom, removing it harmlessly.",
+        "damage": [
+          {
+            "amount": 16668,
+            "school": "Plague",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Vitriolic Stasis",
+        "parentSpellId": 1284588,
+        "depth": 1,
+        "sectionId": 34983,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284941,
+        "title": "Cultivated Burst",
+        "journalSpellName": "Cultivated Burst",
+        "tooltipName": "Cultivated Burst",
+        "icon": "spell_deathknight_explode_ghoul",
+        "cast": "Instant",
+        "description": "Upon expiration, Helical Toxins erupts in a violent explosion, inflicting 625055 Plague damage to its host and an additional 208245 Plague damage every 1 sec for 1 min.",
+        "damage": [
+          {
+            "amount": 625055,
+            "school": "Plague",
+            "everySeconds": null
+          },
+          {
+            "amount": 208245,
+            "school": "Plague",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Helical Toxins",
+        "parentSpellId": 1284590,
+        "depth": 2,
+        "sectionId": 34987,
+        "repeatedSections": 0
+      }
+    ],
+    "journalInstance": {
+      "id": 1320,
+      "name": "The Venomous Abyss"
+    }
+  }
+}

@@ -1,0 +1,421 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "source": "Blizzard Game Data journal-encounter + Wowhead tooltip API",
+    "buildNamespace": "static-12.1.0_68914-eu",
+    "generatedAt": "2026-09-09T18:19:40+00:00",
+    "generator": "tools/game_knowledge/journal_sync.py",
+    "readMe": "Ability text and damage magnitudes come from Wowhead's tooltip endpoint, which is the only source carrying tuned numbers for this tier -- Blizzard's /data/wow/spell/<id> returns 404 for these ids and the in-game journal text ships 'X' placeholders. A magnitude here is ONE difficulty's value and the endpoint does not say which; cross-check against measured damage taken in profiles/<spec>-<difficulty>.json before quoting it as a Mythic number.",
+    "encounter": "nymrissa"
+  },
+  "encounter": {
+    "slug": "nymrissa",
+    "journalEncounterId": 2849,
+    "name": "Nymrissa Wavecaller",
+    "description": "Nymrissa Wavecaller commands the restless sea itself, concealing her lair beneath shifting tides. Those who dare uncover her sanctuary find her murloc minions eager to answer their mistress' call.",
+    "creatures": [
+      {
+        "id": 6197,
+        "name": "Nymrissa Wavecaller"
+      },
+      {
+        "id": 6198,
+        "name": "Bubblefin Shorerunner"
+      },
+      {
+        "id": 6200,
+        "name": "Bubblefin Frostscale"
+      },
+      {
+        "id": 6199,
+        "name": "Bubblefin Berserker"
+      }
+    ],
+    "modes": [
+      "NORMAL",
+      "HEROIC",
+      "MYTHIC",
+      "LFR"
+    ],
+    "notes": [
+      {
+        "title": "Overview",
+        "bodyText": "Nymrissa Wavecaller creates an [Alluring Bubble] within the grotto that lures nearby murlocs into her grasp. She then summons [Swirling Whirlpools] to break the bubble, empowering murlocs within.",
+        "bullets": [
+          "Nymrissa Wavecaller creates an [Alluring Bubble] within the grotto that lures nearby murlocs into her grasp. She then summons [Swirling Whirlpools] to break the bubble, empowering murlocs within."
+        ]
+      },
+      {
+        "title": "Tank",
+        "bodyText": "$bullet;[Water Jet] inflicts sustained damage to Nymrissa Wavecaller's current target, and removes icy patches of [Lingering Frost].\r\n$bullet;[Alluring Bubble] attracts a large group of Bubblefin Shorerunners to rush toward the giant bubble.",
+        "bullets": [
+          "[Water Jet] inflicts sustained damage to Nymrissa Wavecaller's current target, and removes icy patches of [Lingering Frost].",
+          "[Alluring Bubble] attracts a large group of Bubblefin Shorerunners to rush toward the giant bubble."
+        ]
+      },
+      {
+        "title": "Tank",
+        "bodyText": "$bullet;[Iceblade Flurry] inflicts sustained damage to Nymrissa Wavecaller's current target.\r\n$bullet;[Alluring Bubble] attracts a large group of Bubblefin Shorerunners to rush toward the giant bubble.",
+        "bullets": [
+          "[Iceblade Flurry] inflicts sustained damage to Nymrissa Wavecaller's current target.",
+          "[Alluring Bubble] attracts a large group of Bubblefin Shorerunners to rush toward the giant bubble."
+        ]
+      },
+      {
+        "title": "Healer",
+        "bodyText": "$bullet;[Abyssal Rain] inflicts significant damage to all players.\r\n$bullet;[Alluring Bubble] inflicts a large burst of damage to all players when it [Pops!]",
+        "bullets": [
+          "[Abyssal Rain] inflicts significant damage to all players.",
+          "[Alluring Bubble] inflicts a large burst of damage to all players when it [Pops!]"
+        ]
+      },
+      {
+        "title": "Damage Dealers",
+        "bodyText": "$bullet;[Alluring Bubble] attracts a large group of Bubblefin Shorerunners to rush toward the giant bubble.\r\n$bullet;Murlocs that enter a [Alluring Bubble] become empowered.",
+        "bullets": [
+          "[Alluring Bubble] attracts a large group of Bubblefin Shorerunners to rush toward the giant bubble.",
+          "Murlocs that enter a [Alluring Bubble] become empowered."
+        ]
+      },
+      {
+        "title": "Bubblefin Shorerunner",
+        "bodyText": "Murlocs heed the call of the bubble and swarm toward it.",
+        "bullets": [
+          "Murlocs heed the call of the bubble and swarm toward it."
+        ]
+      },
+      {
+        "title": "Bubblefin Berserker",
+        "bodyText": "Murlocs that enter the bubble transform into Bubblefin Berserkers.",
+        "bullets": [
+          "Murlocs that enter the bubble transform into Bubblefin Berserkers."
+        ]
+      },
+      {
+        "title": "Bubblefin Frostscale",
+        "bodyText": "A deepwater murloc that protects nearby allies.",
+        "bullets": [
+          "A deepwater murloc that protects nearby allies."
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "spellId": 1257717,
+        "title": "Alluring Bubble",
+        "journalSpellName": "Alluring Bubble",
+        "tooltipName": "Alluring Bubble",
+        "icon": "inv_elemental_primal_water",
+        "cast": "Instant",
+        "description": "Nymrissa gathers water from the grotto and forms a massive bubble of swirling liquid.\n\nThe bubble entrances curious murlocs, drawing them in.",
+        "damage": [],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 37201,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1258894,
+        "title": "Pulsing Tides",
+        "journalSpellName": "Pulsing Tides",
+        "tooltipName": "Pulsing Tides",
+        "icon": "ability_shawaterelemental_swirl",
+        "cast": "Channeled (0 sec cast)",
+        "description": "Bubblefin Berserkers pulse with the power of the deeps, inflicting 375033 Frost damage to all players every 3 sec.",
+        "damage": [
+          {
+            "amount": 375033,
+            "school": "Frost",
+            "everySeconds": 3.0
+          }
+        ],
+        "parentTitle": "Bubblefin Berserker",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37205,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1258150,
+        "title": "Pop!",
+        "journalSpellName": "Pop!",
+        "tooltipName": "Pop!",
+        "icon": "ability_shawaterelemental_reform",
+        "cast": "Instant",
+        "description": "The bubble pops, unleashes a surge of pressurized water that inflicts 541714 Frost damage to all players and knocks them away.",
+        "damage": [
+          {
+            "amount": 541714,
+            "school": "Frost",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Alluring Bubble",
+        "parentSpellId": 1257717,
+        "depth": 1,
+        "sectionId": 37203,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1273091,
+        "title": "Waterfog Shield",
+        "journalSpellName": "Waterfog Shield",
+        "tooltipName": "Waterfog Shield",
+        "icon": "spell_winston_bubble",
+        "cast": "1 sec cast",
+        "description": "The Bubblefin Frostscale projects a watery membrane that reduces the damage taken by nearby murlocs by 99%.",
+        "damage": [],
+        "parentTitle": "Bubblefin Frostscale",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 35727,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1258668,
+        "title": "Swirling Whirlpools",
+        "journalSpellName": "Swirling Whirlpools",
+        "tooltipName": "Swirling Whirlpools",
+        "icon": "inv_elemental_primal_air",
+        "cast": "Instant",
+        "description": "Nymrissa awakens whirlpools within the grotto that surge toward the Alluring Bubble.\n\nThe whirlpools inflict 2500220 Frost damage to players in their path.",
+        "damage": [
+          {
+            "amount": 2500220,
+            "school": "Frost",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 37200,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1313393,
+        "title": "Chilling Frost",
+        "journalSpellName": "Chilling Frost",
+        "tooltipName": "Chilling Frost",
+        "icon": "spell_fire_blueimmolation",
+        "cast": "2 sec cast",
+        "description": "Nymrissa chills players to the bone, inflicting 166681 Frost damage every 1.5 sec and decreasing their movement speed by 15% for 6 sec.\n\nEach impact leaves behind a Frost Orb at the player's location.",
+        "damage": [
+          {
+            "amount": 166681,
+            "school": "Frost",
+            "everySeconds": 1.5
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 37213,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1313402,
+        "title": "Frost Orb",
+        "journalSpellName": "Frost Orb",
+        "tooltipName": "Frost Orb",
+        "icon": "spell_frost_frozencore",
+        "cast": "Instant",
+        "description": "A frozen orb that clings to the player when touched, inflicting 172932 Frost damage and an additional 97259 Frost damage every 2 sec for 12 sec. \n\nLeaves behind Lingering Frost.",
+        "damage": [
+          {
+            "amount": 172932,
+            "school": "Frost",
+            "everySeconds": 2.0
+          },
+          {
+            "amount": 97259,
+            "school": "Frost",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Chilling Frost",
+        "parentSpellId": 1313393,
+        "depth": 1,
+        "sectionId": 37214,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1257654,
+        "title": "Lingering Frost",
+        "journalSpellName": "Lingering Frost",
+        "tooltipName": "Lingering Frost",
+        "icon": "spell_hunter_icetrap",
+        "cast": "Instant",
+        "description": "Inflicting 100009 Frost damage every 1 sec and causes players to slide.",
+        "damage": [
+          {
+            "amount": 100009,
+            "school": "Frost",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Chilling Frost",
+        "parentSpellId": 1313393,
+        "depth": 1,
+        "sectionId": 37220,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1313456,
+        "title": "Shatter",
+        "journalSpellName": "Shatter",
+        "tooltipName": "Shatter",
+        "icon": "ability_mage_chilledtothebone",
+        "cast": "Instant",
+        "description": "The Frost Orb explodes violently if left untouched, inflicting 1000088 Frost damage to all players and an additional 333363 Frost damage every 2 sec for 30 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 1000088,
+            "school": "Frost",
+            "everySeconds": null
+          },
+          {
+            "amount": 333363,
+            "school": "Frost",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Chilling Frost",
+        "parentSpellId": 1313393,
+        "depth": 1,
+        "sectionId": 37219,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1313450,
+        "title": "Frost Burst",
+        "journalSpellName": "Frost Burst",
+        "tooltipName": "Frost Burst",
+        "icon": "spell_mage_frostbomb",
+        "cast": "Instant",
+        "description": "The Frost Orb bursts when touched, inflicting 175015 Frost damage to all players.",
+        "damage": [
+          {
+            "amount": 175015,
+            "school": "Frost",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Chilling Frost",
+        "parentSpellId": 1313393,
+        "depth": 1,
+        "sectionId": 37212,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1282937,
+        "title": "Iceblade Flurry",
+        "journalSpellName": "Iceblade Flurry",
+        "tooltipName": "Iceblade Flurry",
+        "icon": "inv_polearm_2h_draenorchallenge_d_01_02",
+        "cast": "2 sec cast",
+        "description": "Nymrissa empowers her weapon with ice, slashing her current target for 375033 Frost damage every 1 sec for 5 sec.",
+        "damage": [
+          {
+            "amount": 375033,
+            "school": "Frost",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35044,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1258901,
+        "title": "Water Jet",
+        "journalSpellName": "Water Jet",
+        "tooltipName": "Water Jet",
+        "icon": "ability_mage_waterjet",
+        "cast": "Channeled (6 sec cast)",
+        "description": "Nymrissa condenses surrounding water into a high-pressure jet, blasting her target for 416703 Frost damage every 1 sec and gradually pushing affected players away. The surging water washes away icy patches on the ground. \n\nEach hit increases damage taken from Water Jet by 20% for 35 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 416703,
+            "school": "Frost",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35150,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1260837,
+        "title": "Abyssal Rain",
+        "journalSpellName": "Abyssal Rain",
+        "tooltipName": "Abyssal Rain",
+        "icon": "spell_fire_bluerainoffire",
+        "cast": "2 sec cast",
+        "description": "Nymrissa channels a torrent of water from the crevices above, inflicting 175015  Frost damage every 1 sec for 4 sec.\n\nThis rain drenches its victims, inflicting 23335 Frost damage every 2 sec for 24 sec.",
+        "damage": [
+          {
+            "amount": 175015,
+            "school": "Frost",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 23335,
+            "school": "Frost",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 37198,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1277386,
+        "title": "Wavecaller's Might",
+        "journalSpellName": "Wavecaller's Might",
+        "tooltipName": "Wavecaller's Might",
+        "icon": "inv_10_specialreagentfoozles_primalistrune_frost",
+        "cast": "Instant",
+        "description": "Nymrissa's power swells, increasing her Frost damage by 5%. This effect stacks.",
+        "damage": [],
+        "parentTitle": "Abyssal Rain",
+        "parentSpellId": 1260837,
+        "depth": 1,
+        "sectionId": 35766,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1294867,
+        "title": "Unending Tides",
+        "journalSpellName": "Unending Tides",
+        "tooltipName": "Unending Tides",
+        "icon": "spell_shaman_tidalwaves",
+        "cast": "Channeled",
+        "description": "Nymrissa unleashes a catastrophic surge of water, repeatedly crashing into all players, inflicting 500044 Frost damage every 1 sec.",
+        "damage": [
+          {
+            "amount": 500044,
+            "school": "Frost",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 37209,
+        "repeatedSections": 0
+      }
+    ],
+    "journalInstance": {
+      "id": 1317,
+      "name": "The Tidebound Grotto"
+    }
+  }
+}

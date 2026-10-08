@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 16,
+    "wclDifficulty": 5,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T19:00:47+00:00",
+    "generator": "tools/warcraftlogs/plan_suggestion_sync.py",
+    "catalog": "data/classes/druid/balance/12_1_cooldowns.json",
+    "parameters": {
+      "sample": 25,
+      "minRechargeSeconds": 25.0,
+      "tightIqrSeconds": 8.0,
+      "minSupport": 0.4,
+      "anchorWindowSeconds": 15.0
+    },
+    "readMe": "Suggestions, not decisions. Every row carries the spread and the pull count behind it; a wide spread means the field disagrees, which is information about the fight rather than a number to copy. Times are phase-relative because kill times are not comparable.",
+    "encounter": "sentinels"
+  },
+  "encounter": {
+    "slug": "sentinels",
+    "wclEncounterId": 3445,
+    "encounterName": "Entombed Sentinels",
+    "sample": {
+      "requested": 25,
+      "readable": 25,
+      "used": 21,
+      "unreadable": [],
+      "excludedForPhaseStructure": [
+        {
+          "code": "KP3g8BbZD9hTqLkj",
+          "fight": 47,
+          "player": "Dracdruid",
+          "reason": "log records 7 phase segment(s); 9 is the pool's structure for this boss"
+        },
+        {
+          "code": "3x1DNpyz6TGbJKRj",
+          "fight": 37,
+          "player": "Rotí",
+          "reason": "log records 7 phase segment(s); 9 is the pool's structure for this boss"
+        },
+        {
+          "code": "t8P1yFXxbDdrWQ9a",
+          "fight": 57,
+          "player": "Tarisant",
+          "reason": "log records 7 phase segment(s); 9 is the pool's structure for this boss"
+        },
+        {
+          "code": "Wa4pLDHMw1Nhzm2C",
+          "fight": 23,
+          "player": "Faunuis",
+          "reason": "log records 7 phase segment(s); 9 is the pool's structure for this boss"
+        }
+      ],
+      "medianDuration": 390.3,
+      "durationRange": [
+        376.6,
+        421.7
+      ]
+    },
+    "phaseModel": [
+      0.0,
+      46.3,
+      57.1,
+      148.1,
+      159.2,
+      250.2,
+      262.1,
+      353.1,
+      363.3
+    ],
+    "cooldowns": [
+      {
+        "spellId": 1293316,
+        "name": "Empowering Venom",
+        "role": "trinket",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 3,
+        "medianGapSeconds": 128.6,
+        "seenInPulls": 17,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.4,
+            "atSeconds": 5.4,
+            "spread": {
+              "median": 5.4,
+              "p25": 4.3,
+              "p75": 7.4,
+              "iqr": 3.1,
+              "min": 3.7,
+              "max": 23.7
+            },
+            "support": {
+              "pulls": 17,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Contaminate",
+              "occurrence": 1,
+              "offsetSeconds": -12.1,
+              "agreement": 17,
+              "of": 17
+            }
+          },
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 71.5,
+            "atSeconds": 129.1,
+            "spread": {
+              "median": 71.5,
+              "p25": 70.7,
+              "p75": 72.5,
+              "iqr": 1.8,
+              "min": 67.4,
+              "max": 73.9
+            },
+            "support": {
+              "pulls": 15,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Contaminate",
+              "occurrence": 3,
+              "offsetSeconds": 1.1,
+              "agreement": 14,
+              "of": 15
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102560,
+        "name": "Incarnation: Chosen of Elune",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 5,
+        "medianGapSeconds": 100.4,
+        "seenInPulls": 21,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.4,
+            "atSeconds": 5.4,
+            "spread": {
+              "median": 5.4,
+              "p25": 4.3,
+              "p75": 6.2,
+              "iqr": 1.9,
+              "min": 3.7,
+              "max": 8.1
+            },
+            "support": {
+              "pulls": 21,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Contaminate",
+              "occurrence": 1,
+              "offsetSeconds": -12.4,
+              "agreement": 21,
+              "of": 21
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 26.1,
+            "atSeconds": 26.1,
+            "spread": {
+              "median": 26.1,
+              "p25": 24.1,
+              "p75": 27.0,
+              "iqr": 2.9,
+              "min": 23.6,
+              "max": 27.8
+            },
+            "support": {
+              "pulls": 15,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Contaminate",
+              "occurrence": 1,
+              "offsetSeconds": 8.1,
+              "agreement": 15,
+              "of": 15
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22812,
+        "name": "Barkskin",
+        "role": "defensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 4,
+        "medianGapSeconds": 72.1,
+        "seenInPulls": 21,
+        "suggestions": [
+          {
+            "phase": 9,
+            "ordinal": 1,
+            "atPhaseSeconds": 18.7,
+            "atSeconds": 376.9,
+            "spread": {
+              "median": 18.7,
+              "p25": 17.6,
+              "p75": 19.2,
+              "iqr": 1.6,
+              "min": 10.6,
+              "max": 46.6
+            },
+            "support": {
+              "pulls": 9,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Contaminate",
+              "occurrence": 8,
+              "offsetSeconds": 0.6,
+              "agreement": 8,
+              "of": 9
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236616,
+        "name": "Light's Potential",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 366.6,
+        "seenInPulls": 10,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.4,
+            "atSeconds": 5.4,
+            "spread": {
+              "median": 5.4,
+              "p25": 4.0,
+              "p75": 6.2,
+              "iqr": 2.1,
+              "min": 3.7,
+              "max": 7.8
+            },
+            "support": {
+              "pulls": 9,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Contaminate",
+              "occurrence": 1,
+              "offsetSeconds": -12.4,
+              "agreement": 9,
+              "of": 9
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236994,
+        "name": "Potion of Recklessness",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 360.8,
+        "seenInPulls": 12,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.7,
+            "atSeconds": 5.7,
+            "spread": {
+              "median": 5.7,
+              "p25": 4.1,
+              "p75": 6.8,
+              "iqr": 2.7,
+              "min": 3.2,
+              "max": 7.8
+            },
+            "support": {
+              "pulls": 12,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Contaminate",
+              "occurrence": 1,
+              "offsetSeconds": -12.0,
+              "agreement": 12,
+              "of": 12
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 6262,
+        "name": "Healthstone",
+        "role": "unclassified",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": null,
+        "seenInPulls": 14,
+        "suggestions": [
+          {
+            "phase": 5,
+            "ordinal": 1,
+            "atPhaseSeconds": 28.2,
+            "atSeconds": 189.8,
+            "spread": {
+              "median": 28.2,
+              "p25": 21.9,
+              "p75": 49.2,
+              "iqr": 27.2,
+              "min": 20.9,
+              "max": 87.1
+            },
+            "support": {
+              "pulls": 8,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Contaminate",
+              "occurrence": 4,
+              "offsetSeconds": 3.8,
+              "agreement": 4,
+              "of": 8
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1295247,
+        "name": "Concentrated Silvermoon Health Potion",
+        "role": "unclassified",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": null,
+        "seenInPulls": 14,
+        "suggestions": []
+      },
+      {
+        "spellId": 22842,
+        "name": "Frenzied Regeneration",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 99.5,
+        "seenInPulls": 9,
+        "suggestions": []
+      },
+      {
+        "spellId": 29166,
+        "name": "Innervate",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 201.9,
+        "seenInPulls": 12,
+        "suggestions": []
+      },
+      {
+        "spellId": 102383,
+        "name": "Wild Charge",
+        "role": "movement",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 82.6,
+        "seenInPulls": 13,
+        "suggestions": []
+      }
+    ]
+  }
+}

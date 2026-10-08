@@ -1,0 +1,33 @@
+[project]
+name = "wow-analysis-tools"
+version = "0.1.0"
+description = "Standalone data-pipeline scripts (not an installable package)."
+requires-python = ">=3.11"
+
+# NOTE (task 22, talent-tree-pipeline): this file didn't exist -- tools/ has never had a
+# lint/type config (tools/warcraftlogs/ predates this project's ruff+mypy convention and is out of
+# scope here). Scoped deliberately to just this task's own files via `include` below so
+# `ruff check tools/` doesn't sweep in tools/warcraftlogs/*.py, which isn't clean against these
+# rules and isn't this task's to fix. A future task that wants tools/warcraftlogs/ held to the same
+# bar should extend `include` there, not assume a clean slate.
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+include = ["datalayout.py", "raidbots/talent_tree_sync.py", "raidbots/tests/*.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "A", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["datalayout.py", "raidbots/talent_tree_sync.py", "raidbots/tests"]
+# tests/test_talent_tree_sync.py imports app.services.talent_codec (task 20's real codec,
+# for the cross-check acceptance criterion) -- app isn't a dependency of this project, it
+# lives in ../site/backend, so point mypy at its real sources rather than declaring it
+# missing (site/backend/pyproject.toml already holds it to strict on its own side).
+mypy_path = "../site/backend"
+
+[tool.pytest.ini_options]
+testpaths = ["raidbots/tests", "warcraftlogs/tests"]

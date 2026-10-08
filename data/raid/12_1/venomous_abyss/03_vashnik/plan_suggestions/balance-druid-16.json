@@ -1,0 +1,726 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 16,
+    "wclDifficulty": 5,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T19:00:47+00:00",
+    "generator": "tools/warcraftlogs/plan_suggestion_sync.py",
+    "catalog": "data/classes/druid/balance/12_1_cooldowns.json",
+    "parameters": {
+      "sample": 25,
+      "minRechargeSeconds": 25.0,
+      "tightIqrSeconds": 8.0,
+      "minSupport": 0.4,
+      "anchorWindowSeconds": 15.0
+    },
+    "readMe": "Suggestions, not decisions. Every row carries the spread and the pull count behind it; a wide spread means the field disagrees, which is information about the fight rather than a number to copy. Times are phase-relative because kill times are not comparable.",
+    "encounter": "vashnik"
+  },
+  "encounter": {
+    "slug": "vashnik",
+    "wclEncounterId": 3455,
+    "encounterName": "Vashnik the Malignant",
+    "sample": {
+      "requested": 25,
+      "readable": 25,
+      "used": 25,
+      "unreadable": [],
+      "excludedForPhaseStructure": [],
+      "medianDuration": 410.5,
+      "durationRange": [
+        382.8,
+        441.9
+      ]
+    },
+    "phaseModel": [
+      0.0
+    ],
+    "cooldowns": [
+      {
+        "spellId": 102560,
+        "name": "Incarnation: Chosen of Elune",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 5,
+        "medianGapSeconds": 85.1,
+        "seenInPulls": 25,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.4,
+            "atSeconds": 5.4,
+            "spread": {
+              "median": 5.4,
+              "p25": 4.3,
+              "p75": 7.1,
+              "iqr": 2.7,
+              "min": 3.1,
+              "max": 26.9
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 1,
+              "offsetSeconds": -14.0,
+              "agreement": 11,
+              "of": 25
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 193.0,
+            "atSeconds": 193.0,
+            "spread": {
+              "median": 193.0,
+              "p25": 192.4,
+              "p75": 193.8,
+              "iqr": 1.4,
+              "min": 188.7,
+              "max": 195.0
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 6,
+              "offsetSeconds": 1.2,
+              "agreement": 24,
+              "of": 25
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 4,
+            "atPhaseSeconds": 277.4,
+            "atSeconds": 277.4,
+            "spread": {
+              "median": 277.4,
+              "p25": 276.5,
+              "p75": 278.6,
+              "iqr": 2.1,
+              "min": 274.4,
+              "max": 281.4
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 8,
+              "offsetSeconds": 1.2,
+              "agreement": 25,
+              "of": 25
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 5,
+            "atPhaseSeconds": 366.1,
+            "atSeconds": 366.1,
+            "spread": {
+              "median": 366.1,
+              "p25": 364.6,
+              "p75": 368.7,
+              "iqr": 4.1,
+              "min": 363.2,
+              "max": 388.8
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 10,
+              "offsetSeconds": 5.9,
+              "agreement": 23,
+              "of": 25
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1293316,
+        "name": "Empowering Venom",
+        "role": "trinket",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 3.0,
+        "medianGapSeconds": 171.5,
+        "seenInPulls": 20,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 192.9,
+            "atSeconds": 192.9,
+            "spread": {
+              "median": 192.9,
+              "p25": 191.9,
+              "p75": 193.6,
+              "iqr": 1.7,
+              "min": 188.7,
+              "max": 195.0
+            },
+            "support": {
+              "pulls": 20,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 6,
+              "offsetSeconds": 1.0,
+              "agreement": 19,
+              "of": 20
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 364.3,
+            "atSeconds": 364.3,
+            "spread": {
+              "median": 364.3,
+              "p25": 362.3,
+              "p75": 365.6,
+              "iqr": 3.3,
+              "min": 358.6,
+              "max": 385.6
+            },
+            "support": {
+              "pulls": 20,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 10,
+              "offsetSeconds": 3.8,
+              "agreement": 19,
+              "of": 20
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236616,
+        "name": "Light's Potential",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 350.0,
+        "seenInPulls": 18,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 364.4,
+            "atSeconds": 364.4,
+            "spread": {
+              "median": 364.4,
+              "p25": 362.2,
+              "p75": 367.4,
+              "iqr": 5.2,
+              "min": 355.1,
+              "max": 371.7
+            },
+            "support": {
+              "pulls": 18,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 10,
+              "offsetSeconds": 4.9,
+              "agreement": 16,
+              "of": 18
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22812,
+        "name": "Barkskin",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 4,
+        "medianGapSeconds": 84.2,
+        "seenInPulls": 25,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 107.2,
+            "atSeconds": 107.2,
+            "spread": {
+              "median": 107.2,
+              "p25": 97.7,
+              "p75": 177.2,
+              "iqr": 79.5,
+              "min": 22.0,
+              "max": 358.6
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 3,
+              "offsetSeconds": -4.3,
+              "agreement": 7,
+              "of": 25
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 209.0,
+            "atSeconds": 209.0,
+            "spread": {
+              "median": 209.0,
+              "p25": 188.1,
+              "p75": 274.2,
+              "iqr": 86.2,
+              "min": 106.2,
+              "max": 358.1
+            },
+            "support": {
+              "pulls": 24,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 5,
+              "offsetSeconds": -6.7,
+              "agreement": 5,
+              "of": 24
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 275.7,
+            "atSeconds": 275.7,
+            "spread": {
+              "median": 275.7,
+              "p25": 274.1,
+              "p75": 355.4,
+              "iqr": 81.3,
+              "min": 191.2,
+              "max": 387.9
+            },
+            "support": {
+              "pulls": 23,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 8,
+              "offsetSeconds": -1.4,
+              "agreement": 6,
+              "of": 23
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 4,
+            "atPhaseSeconds": 357.8,
+            "atSeconds": 357.8,
+            "spread": {
+              "median": 357.8,
+              "p25": 350.9,
+              "p75": 359.5,
+              "iqr": 8.6,
+              "min": 273.6,
+              "max": 428.6
+            },
+            "support": {
+              "pulls": 15,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 9,
+              "offsetSeconds": -4.6,
+              "agreement": 7,
+              "of": 15
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102383,
+        "name": "Wild Charge",
+        "role": "movement",
+        "verdict": "situational",
+        "medianUsesPerPull": 3.0,
+        "medianGapSeconds": 84.3,
+        "seenInPulls": 18,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 75.6,
+            "atSeconds": 75.6,
+            "spread": {
+              "median": 75.6,
+              "p25": 62.5,
+              "p75": 164.6,
+              "iqr": 102.0,
+              "min": 28.3,
+              "max": 374.3
+            },
+            "support": {
+              "pulls": 18,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 2,
+              "offsetSeconds": 8.3,
+              "agreement": 2,
+              "of": 18
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 223.0,
+            "atSeconds": 223.0,
+            "spread": {
+              "median": 223.0,
+              "p25": 143.4,
+              "p75": 243.3,
+              "iqr": 99.9,
+              "min": 75.7,
+              "max": 392.7
+            },
+            "support": {
+              "pulls": 15,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 4,
+              "offsetSeconds": 10.4,
+              "agreement": 2,
+              "of": 15
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 327.4,
+            "atSeconds": 327.4,
+            "spread": {
+              "median": 327.4,
+              "p25": 200.4,
+              "p75": 343.7,
+              "iqr": 143.3,
+              "min": 96.8,
+              "max": 411.6
+            },
+            "support": {
+              "pulls": 11,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 6,
+              "offsetSeconds": 8.3,
+              "agreement": 2,
+              "of": 11
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 29166,
+        "name": "Innervate",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 193.9,
+        "seenInPulls": 19,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 96.3,
+            "atSeconds": 96.3,
+            "spread": {
+              "median": 96.3,
+              "p25": 42.2,
+              "p75": 173.8,
+              "iqr": 131.6,
+              "min": 5.4,
+              "max": 381.5
+            },
+            "support": {
+              "pulls": 19,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 3,
+              "offsetSeconds": -4.5,
+              "agreement": 2,
+              "of": 19
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 287.2,
+            "atSeconds": 287.2,
+            "spread": {
+              "median": 287.2,
+              "p25": 244.2,
+              "p75": 346.5,
+              "iqr": 102.3,
+              "min": 194.1,
+              "max": 397.6
+            },
+            "support": {
+              "pulls": 16,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 9,
+              "offsetSeconds": -6.8,
+              "agreement": 2,
+              "of": 16
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1295247,
+        "name": "Concentrated Silvermoon Health Potion",
+        "role": "unclassified",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": null,
+        "seenInPulls": 17,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 292.5,
+            "atSeconds": 292.5,
+            "spread": {
+              "median": 292.5,
+              "p25": 130.0,
+              "p75": 378.7,
+              "iqr": 248.7,
+              "min": 45.8,
+              "max": 396.1
+            },
+            "support": {
+              "pulls": 17,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 3,
+              "offsetSeconds": -6.8,
+              "agreement": 2,
+              "of": 17
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1850,
+        "name": "Dash",
+        "role": "movement",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 184.3,
+        "seenInPulls": 11,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 256.9,
+            "atSeconds": 256.9,
+            "spread": {
+              "median": 256.9,
+              "p25": 142.3,
+              "p75": 341.3,
+              "iqr": 199.0,
+              "min": 77.6,
+              "max": 425.5
+            },
+            "support": {
+              "pulls": 11,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 5,
+              "offsetSeconds": -12.4,
+              "agreement": 1,
+              "of": 11
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22842,
+        "name": "Frenzied Regeneration",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 82.9,
+        "seenInPulls": 13,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 249.2,
+            "atSeconds": 249.2,
+            "spread": {
+              "median": 249.2,
+              "p25": 227.0,
+              "p75": 310.3,
+              "iqr": 83.3,
+              "min": 176.2,
+              "max": 398.7
+            },
+            "support": {
+              "pulls": 13,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 9,
+              "offsetSeconds": -11.4,
+              "agreement": 1,
+              "of": 13
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 6262,
+        "name": "Healthstone",
+        "role": "unclassified",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": null,
+        "seenInPulls": 18,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 325.2,
+            "atSeconds": 325.2,
+            "spread": {
+              "median": 325.2,
+              "p25": 155.3,
+              "p75": 382.7,
+              "iqr": 227.3,
+              "min": 97.2,
+              "max": 403.6
+            },
+            "support": {
+              "pulls": 18,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Caustic Surge",
+              "occurrence": 8,
+              "offsetSeconds": -4.8,
+              "agreement": 1,
+              "of": 18
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 106898,
+        "name": "Stampeding Roar",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 84.6,
+        "seenInPulls": 11,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 88.9,
+            "atSeconds": 88.9,
+            "spread": {
+              "median": 88.9,
+              "p25": 87.6,
+              "p75": 225.3,
+              "iqr": 137.7,
+              "min": 53.1,
+              "max": 340.0
+            },
+            "support": {
+              "pulls": 11,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Caustic Surge",
+              "occurrence": 8,
+              "offsetSeconds": 0.8,
+              "agreement": 2,
+              "of": 11
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102793,
+        "name": "Ursol's Vortex",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 88.1,
+        "seenInPulls": 11,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 374.1,
+            "atSeconds": 374.1,
+            "spread": {
+              "median": 374.1,
+              "p25": 328.1,
+              "p75": 386.1,
+              "iqr": 58.0,
+              "min": 106.2,
+              "max": 413.3
+            },
+            "support": {
+              "pulls": 11,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Imbibe",
+              "occurrence": 10,
+              "offsetSeconds": 11.5,
+              "agreement": 3,
+              "of": 11
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,499 @@
+{
+  "meta": {
+    "source": "NorthernSkyRaidTools",
+    "addon_version": "12.1.10",
+    "extracted_at": "2026-08-25T08:30:32Z",
+    "zone": "venomous-abyss",
+    "notes": [
+      "BigWigs cross-check (2026-08-25) against the locally installed BigWigs_TheVenomousAbyss addon, not a source download -- BigWigs has no absolute timers to diff directly, only duration-keyed gap constants, so cadence (interval between hits) is what's comparable.",
+      "AGREE: Vashnik 'TankHits' (Dripping Fangs, spell 1280935), Heroic. NSRT's absolute timers (10.1, 39.1, 66.1, 94.1, ...) have successive gaps of 27-29s throughout. Vashnik.lua's gapTimer table hardcodes a flat 29s gap for this spell after both the pull-duration(~8s) and repeat-duration(~28s) timeline events. The dominant cadence matches; the 1-2s jitter is expected (BigWigs keys off whole-second-rounded live event durations, NSRT's dataset carries decimal precision from real logs).",
+      "DISAGREE: Nek'zali 'HungeringPyre' (spell 1289855 in NSRT; BigWigs keys the same ability's gap under spell 1305421 -- a cast-vs-effect spellId split that recurs across this addon pair and isn't itself a disagreement). NSRT's phaseTimers give the SAME value (35s into phase 1.5) for BOTH difficulty 15 (Heroic) and difficulty 16 (Mythic). Nekzali.lua's gapTimer table distinguishes them explicitly: timersMythic[1305421][1.5] = {[11] = 35} but timersOther[1305421][1.5] = {[11] = 30} -- BigWigs believes Heroic's gap is 30, not 35. Left as-is per this task's rule (no winner picked silently); a consumer snapping the timeline editor to NSRT's Heroic value for this ability should know it may run ~5s ahead of BigWigs' own model."
+    ],
+    "encounter": "coiledaltar"
+  },
+  "encounter": {
+    "dungeon_encounter_id": 3429,
+    "slug": "coiledaltar",
+    "abilities": [
+      {
+        "internal_id": "P1Frontal",
+        "group": "Coiled Altar P1",
+        "name": "P1 Frontal",
+        "short_text": "Frontal",
+        "spell_id": 1299684,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 8,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            23,
+            40,
+            60,
+            77.1,
+            108.1,
+            125,
+            145,
+            162.1
+          ],
+          "16": [
+            23,
+            40,
+            60,
+            77.1,
+            108.1,
+            125,
+            145,
+            162.1
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P1OrbDeadline",
+        "group": "Coiled Altar P1",
+        "name": "Orb deadline",
+        "short_text": "Orb deadline",
+        "spell_id": null,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            17,
+            34,
+            54,
+            71.1,
+            102.1,
+            119,
+            139,
+            156.1
+          ],
+          "16": [
+            17,
+            34,
+            54,
+            71.1,
+            102.1,
+            119,
+            139,
+            156.1
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P1Taunt",
+        "group": "Coiled Altar Tanks",
+        "name": "P1 Taunt",
+        "short_text": "Taunt",
+        "spell_id": null,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            23.5,
+            40.5,
+            60.5,
+            77.6,
+            108.6,
+            125.5,
+            145.5,
+            162.6
+          ],
+          "16": [
+            23.5,
+            40.5,
+            60.5,
+            77.6,
+            108.6,
+            125.5,
+            145.5,
+            162.6
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P1Soak",
+        "group": "Coiled Altar P1",
+        "name": "P1 Soak",
+        "short_text": "Soak",
+        "spell_id": 1283489,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 8,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            48,
+            133
+          ],
+          "16": [
+            48,
+            133
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "MindControls",
+        "group": "Coiled Altar P2",
+        "name": "Mind Controls",
+        "short_text": "Mind Controls",
+        "spell_id": 1285643,
+        "phase": 2,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            8.1,
+            44.7,
+            93.1,
+            129
+          ],
+          "16": [
+            8.1,
+            44.7,
+            93.1,
+            129
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P2Frontal",
+        "group": "Coiled Altar P2",
+        "name": "P2 Frontal",
+        "short_text": "Frontal",
+        "spell_id": 1286620,
+        "phase": 2,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            38.1,
+            69,
+            123.1,
+            154
+          ],
+          "16": [
+            38.1,
+            69,
+            123.1,
+            154
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P2Taunt",
+        "group": "Coiled Altar Tanks",
+        "name": "P2 Taunt",
+        "short_text": "Taunt",
+        "spell_id": null,
+        "phase": 2,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            38.6,
+            69.5,
+            123.6,
+            154.5
+          ],
+          "16": [
+            38.6,
+            69.5,
+            123.6,
+            154.5
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P2Debuffs",
+        "group": "Coiled Altar P2",
+        "name": "P2 Debuffs",
+        "short_text": "Debuffs",
+        "spell_id": 1286895,
+        "phase": 2,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            24.1,
+            62.1,
+            109,
+            147
+          ],
+          "16": [
+            24.1,
+            62.1,
+            109,
+            147
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P2Shield",
+        "group": "Coiled Altar P2",
+        "name": "P2 Shield",
+        "short_text": "Shield",
+        "spell_id": 1286918,
+        "phase": 2,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            70,
+            155
+          ],
+          "16": [
+            70,
+            155
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "InterruptAdds",
+        "group": "Coiled Altar P2",
+        "name": "P2 Interrupt Adds",
+        "short_text": "Ghosts",
+        "spell_id": 1286399,
+        "phase": 2,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            13,
+            46.1,
+            98
+          ],
+          "16": [
+            13,
+            46.1,
+            98
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P3Frontal",
+        "group": "Coiled Altar P3",
+        "name": "P3 Frontal",
+        "short_text": "Frontal",
+        "spell_id": 1307292,
+        "phase": 3,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            36.3,
+            68.5,
+            103,
+            140.9,
+            173.1
+          ],
+          "16": [
+            36.3,
+            68.5,
+            103,
+            140.9,
+            173.1
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P3Soak",
+        "group": "Coiled Altar P3",
+        "name": "P3 Soak",
+        "short_text": "Soak",
+        "spell_id": 1299266,
+        "phase": 3,
+        "display_type": "Text",
+        "duration": 8,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            22.3,
+            191.3
+          ],
+          "16": [
+            22.3,
+            191.3
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P3Shield",
+        "group": "Coiled Altar P3",
+        "name": "P3 Shield",
+        "short_text": "Shield",
+        "spell_id": 1310752,
+        "phase": 3,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            41.9,
+            141.8
+          ],
+          "16": [
+            41.9,
+            141.8
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P3Debuffs",
+        "group": "Coiled Altar P3",
+        "name": "P3 Debuffs",
+        "short_text": "Debuffs",
+        "spell_id": 1310881,
+        "phase": 3,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            31.2,
+            81.8,
+            115.1,
+            181.8
+          ],
+          "16": [
+            31.2,
+            81.8,
+            115.1,
+            181.8
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P3MindControls",
+        "group": "Coiled Altar P3",
+        "name": "P3 Mind Controls",
+        "short_text": "Mind Controls",
+        "spell_id": 1297445,
+        "phase": 3,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            66.3,
+            167.5
+          ],
+          "16": [
+            66.3,
+            167.5
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P3Taunt",
+        "group": "Coiled Altar Tanks",
+        "name": "P3 Taunt",
+        "short_text": "Taunt",
+        "spell_id": null,
+        "phase": 3,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            39.6,
+            71.8,
+            106.3,
+            144.2,
+            176.4
+          ],
+          "16": [
+            39.6,
+            71.8,
+            106.3,
+            144.2,
+            176.4
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "P2_5WrongTarget",
+        "group": "Coiled Altar P3",
+        "name": "Wrong Target",
+        "short_text": "WRONG TARGET",
+        "spell_id": null,
+        "phase": 2.5,
+        "display_type": "Text",
+        "duration": 50,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "14": [
+            0
+          ],
+          "15": [
+            0
+          ],
+          "16": [
+            0
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      }
+    ]
+  }
+}

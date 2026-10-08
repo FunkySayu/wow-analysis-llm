@@ -1,0 +1,400 @@
+{
+  "meta": {
+    "source": "NorthernSkyRaidTools",
+    "addon_version": "12.1.10",
+    "extracted_at": "2026-08-25T08:30:32Z",
+    "zone": "venomous-abyss",
+    "notes": [
+      "BigWigs cross-check (2026-08-25) against the locally installed BigWigs_TheVenomousAbyss addon, not a source download -- BigWigs has no absolute timers to diff directly, only duration-keyed gap constants, so cadence (interval between hits) is what's comparable.",
+      "AGREE: Vashnik 'TankHits' (Dripping Fangs, spell 1280935), Heroic. NSRT's absolute timers (10.1, 39.1, 66.1, 94.1, ...) have successive gaps of 27-29s throughout. Vashnik.lua's gapTimer table hardcodes a flat 29s gap for this spell after both the pull-duration(~8s) and repeat-duration(~28s) timeline events. The dominant cadence matches; the 1-2s jitter is expected (BigWigs keys off whole-second-rounded live event durations, NSRT's dataset carries decimal precision from real logs).",
+      "DISAGREE: Nek'zali 'HungeringPyre' (spell 1289855 in NSRT; BigWigs keys the same ability's gap under spell 1305421 -- a cast-vs-effect spellId split that recurs across this addon pair and isn't itself a disagreement). NSRT's phaseTimers give the SAME value (35s into phase 1.5) for BOTH difficulty 15 (Heroic) and difficulty 16 (Mythic). Nekzali.lua's gapTimer table distinguishes them explicitly: timersMythic[1305421][1.5] = {[11] = 35} but timersOther[1305421][1.5] = {[11] = 30} -- BigWigs believes Heroic's gap is 30, not 35. Left as-is per this task's rule (no winner picked silently); a consumer snapping the timeline editor to NSRT's Heroic value for this ability should know it may run ~5s ahead of BigWigs' own model."
+    ],
+    "encounter": "ulatek"
+  },
+  "encounter": {
+    "dungeon_encounter_id": 3492,
+    "slug": "ulatek",
+    "abilities": [
+      {
+        "internal_id": "HitKnock",
+        "group": "Ula'tek",
+        "name": "Mother's Wrath",
+        "short_text": "Hit+Knock",
+        "spell_id": 1298367,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": "Knock",
+        "stub": false,
+        "timers": {
+          "15": [
+            14.9,
+            81.9,
+            118.9,
+            377.1,
+            452.1,
+            528.1,
+            617.1,
+            732.1,
+            828.1
+          ],
+          "16": [
+            14.9,
+            81.9,
+            118.9,
+            377.1,
+            452.1,
+            528.1,
+            617.1,
+            732.1,
+            828.1
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Waves",
+        "group": "Ula'tek",
+        "name": "Caustic Wave",
+        "short_text": "Waves",
+        "spell_id": 1292403,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": "Waves",
+        "stub": false,
+        "timers": {
+          "15": [
+            48,
+            100,
+            416.7,
+            471.7,
+            521.7,
+            566.7
+          ],
+          "16": [
+            48,
+            100,
+            416.7,
+            471.7,
+            521.7,
+            566.7
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "DamageAmpIn",
+        "group": "Ula'tek",
+        "name": "Venomous Heart",
+        "short_text": "Dmg amp in",
+        "spell_id": 1286860,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            135.4,
+            284.5,
+            573.7
+          ],
+          "16": [
+            135.4,
+            284.5,
+            573.7
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "DamageAmp",
+        "group": "Ula'tek",
+        "name": "Venomous Heart",
+        "short_text": "Dmg amp",
+        "spell_id": 1299526,
+        "phase": 1,
+        "display_type": "Bar",
+        "duration": 20,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            155.4,
+            304.5,
+            593.7
+          ],
+          "16": [
+            155.4,
+            304.5,
+            593.7
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "WrongTarget",
+        "group": "Ula'tek",
+        "name": "Wrong Target",
+        "short_text": "WRONG TARGET",
+        "spell_id": null,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 20,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            155.4,
+            304.5,
+            593.7
+          ],
+          "16": [
+            155.4,
+            304.5,
+            593.7
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "PlatformBreak",
+        "group": "Ula'tek",
+        "name": "Circling Prey",
+        "short_text": "Platform Break",
+        "spell_id": 1315341,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            430.1,
+            481.2,
+            542.1
+          ],
+          "16": [
+            430.1,
+            481.2,
+            542.1
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Debuffs",
+        "group": "Ula'tek",
+        "name": "Serpent's Bite",
+        "short_text": "Debuffs",
+        "spell_id": 1288879,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            392.7,
+            463.7,
+            500.6,
+            555.7
+          ],
+          "16": [
+            392.7,
+            463.7,
+            500.6,
+            555.7
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Eggs",
+        "group": "Ula'tek",
+        "name": "Eggs",
+        "short_text": "Eggs",
+        "spell_id": 1304012,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            82,
+            319
+          ],
+          "16": [
+            82,
+            319
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Adds",
+        "group": "Ula'tek",
+        "name": "P3 Adds",
+        "short_text": "Adds",
+        "spell_id": 1300751,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            373.2,
+            403.1,
+            448.1,
+            508.2
+          ],
+          "16": [
+            373.2,
+            403.1,
+            448.1,
+            508.2
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Sweep",
+        "group": "Ula'tek",
+        "name": "Sweep",
+        "short_text": "Sweep",
+        "spell_id": 1296301,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            38.9,
+            90.9
+          ],
+          "16": [
+            38.9,
+            90.9
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Soak",
+        "group": "Ula'tek",
+        "name": "Soak",
+        "short_text": "Soak",
+        "spell_id": 1299010,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            27.4,
+            30.3,
+            128.7,
+            131.5
+          ],
+          "16": [
+            27.4,
+            30.3,
+            128.7,
+            131.5
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "TransitionSoakFirst",
+        "group": "Ula'tek",
+        "name": "First Soak",
+        "short_text": "First Soak",
+        "spell_id": 1299010,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            326.3,
+            334.5,
+            341.4
+          ],
+          "16": [
+            326.3,
+            334.5,
+            341.4
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "TransitionSoakSecond",
+        "group": "Ula'tek",
+        "name": "Second Soak",
+        "short_text": "Second Soak",
+        "spell_id": 1299010,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            329.6,
+            337.3,
+            344.6
+          ],
+          "16": [
+            329.6,
+            337.3,
+            344.6
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "GraspingFangsOverview",
+        "group": "Ula'tek",
+        "name": "Grasping Fangs Overview",
+        "short_text": null,
+        "spell_id": 1311611,
+        "phase": 1,
+        "display_type": "Bar",
+        "duration": 40,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            195
+          ],
+          "16": [
+            195
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      }
+    ]
+  }
+}

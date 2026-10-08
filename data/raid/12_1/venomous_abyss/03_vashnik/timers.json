@@ -1,0 +1,380 @@
+{
+  "meta": {
+    "source": "NorthernSkyRaidTools",
+    "addon_version": "12.1.10",
+    "extracted_at": "2026-08-25T08:30:32Z",
+    "zone": "venomous-abyss",
+    "notes": [
+      "BigWigs cross-check (2026-08-25) against the locally installed BigWigs_TheVenomousAbyss addon, not a source download -- BigWigs has no absolute timers to diff directly, only duration-keyed gap constants, so cadence (interval between hits) is what's comparable.",
+      "AGREE: Vashnik 'TankHits' (Dripping Fangs, spell 1280935), Heroic. NSRT's absolute timers (10.1, 39.1, 66.1, 94.1, ...) have successive gaps of 27-29s throughout. Vashnik.lua's gapTimer table hardcodes a flat 29s gap for this spell after both the pull-duration(~8s) and repeat-duration(~28s) timeline events. The dominant cadence matches; the 1-2s jitter is expected (BigWigs keys off whole-second-rounded live event durations, NSRT's dataset carries decimal precision from real logs).",
+      "DISAGREE: Nek'zali 'HungeringPyre' (spell 1289855 in NSRT; BigWigs keys the same ability's gap under spell 1305421 -- a cast-vs-effect spellId split that recurs across this addon pair and isn't itself a disagreement). NSRT's phaseTimers give the SAME value (35s into phase 1.5) for BOTH difficulty 15 (Heroic) and difficulty 16 (Mythic). Nekzali.lua's gapTimer table distinguishes them explicitly: timersMythic[1305421][1.5] = {[11] = 35} but timersOther[1305421][1.5] = {[11] = 30} -- BigWigs believes Heroic's gap is 30, not 35. Left as-is per this task's rule (no winner picked silently); a consumer snapping the timeline editor to NSRT's Heroic value for this ability should know it may run ~5s ahead of BigWigs' own model."
+    ],
+    "encounter": "vashnik"
+  },
+  "encounter": {
+    "dungeon_encounter_id": 3455,
+    "slug": "vashnik",
+    "abilities": [
+      {
+        "internal_id": "TankHits",
+        "group": "Vashnik",
+        "name": "Tank-Hits",
+        "short_text": "Tank-Hit",
+        "spell_id": 1280935,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            10.1,
+            39.1,
+            66.1,
+            94.1,
+            123.1,
+            150.1,
+            178.1,
+            207.1,
+            234.1,
+            262.1,
+            291.1,
+            318.1,
+            346.1,
+            375.1,
+            402.1,
+            430.1,
+            459.1
+          ],
+          "16": [
+            10.1,
+            39.1,
+            66.1,
+            94.1,
+            123.1,
+            150.1,
+            178.1,
+            207.1,
+            234.1,
+            262.1,
+            291.1,
+            318.1,
+            346.1,
+            375.1,
+            402.1,
+            430.1,
+            459.1
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Taunts",
+        "group": "Vashnik",
+        "name": "Taunt",
+        "short_text": "Taunt",
+        "spell_id": null,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            10.6,
+            39.6,
+            66.6,
+            94.6,
+            123.6,
+            150.6,
+            178.6,
+            207.6,
+            234.6,
+            262.6,
+            291.6,
+            318.6,
+            346.6,
+            375.6,
+            402.6,
+            430.6,
+            459.6
+          ],
+          "16": [
+            10.6,
+            39.6,
+            66.6,
+            94.6,
+            123.6,
+            150.6,
+            178.6,
+            207.6,
+            234.6,
+            262.6,
+            291.6,
+            318.6,
+            346.6,
+            375.6,
+            402.6,
+            430.6,
+            459.6
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Adds",
+        "group": "Vashnik",
+        "name": "Adds",
+        "short_text": "Adds",
+        "spell_id": 1284663,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            24.1,
+            108.1,
+            192,
+            276.1,
+            360.1,
+            444.1,
+            462.1,
+            473,
+            483.1
+          ],
+          "16": [
+            24.1,
+            108.1,
+            192,
+            276.1,
+            360.1,
+            444.1,
+            462.1,
+            473,
+            483.1
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Infection",
+        "group": "Vashnik",
+        "name": "Infection",
+        "short_text": "Infection",
+        "spell_id": 1282114,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            42.3,
+            95,
+            126,
+            171,
+            210.3,
+            263,
+            294.6,
+            347,
+            378.1,
+            431,
+            462.3
+          ],
+          "16": [
+            42.3,
+            101.8,
+            126.1,
+            185.8,
+            210.3,
+            269.5,
+            294.6,
+            353.2,
+            378.1,
+            437.2,
+            462.3
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "AoE",
+        "group": "Vashnik",
+        "name": "AoE",
+        "short_text": "AoE",
+        "spell_id": 1282516,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            35,
+            74,
+            119.1,
+            158,
+            203.1,
+            242.1,
+            287.1,
+            326.1,
+            371.1,
+            410.2,
+            455.2
+          ],
+          "16": [
+            35,
+            74,
+            119.1,
+            158,
+            203.1,
+            242.1,
+            287.1,
+            326.1,
+            371.1,
+            410.2,
+            455.2
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Soaks",
+        "group": "Vashnik",
+        "name": "Soaks",
+        "short_text": "Soaks",
+        "spell_id": 1282602,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            42,
+            81,
+            126.1,
+            165,
+            210.1,
+            249.1,
+            294.1,
+            333.1,
+            378.1,
+            417.2,
+            462.2
+          ],
+          "16": [
+            42,
+            81,
+            126.1,
+            165,
+            210.1,
+            249.1,
+            294.1,
+            333.1,
+            378.1,
+            417.2,
+            462.2
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Waves",
+        "group": "Vashnik",
+        "name": "Waves",
+        "short_text": "Waves",
+        "spell_id": 1281908,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 8,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            21,
+            62,
+            95,
+            146,
+            179,
+            230,
+            263,
+            314,
+            347,
+            398,
+            431,
+            482
+          ],
+          "16": [
+            21.1,
+            62.1,
+            98.1,
+            146.1,
+            179.1,
+            230.1,
+            266.1,
+            314.1,
+            350.1,
+            398.1,
+            434.2,
+            482
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "WaveSpread",
+        "group": "Vashnik",
+        "name": "Wave-Spread",
+        "short_text": "Pre-Spread",
+        "spell_id": 1281908,
+        "phase": 1,
+        "display_type": "Circle",
+        "duration": 6,
+        "tts": "Spread",
+        "stub": false,
+        "timers": {
+          "15": [
+            13,
+            54,
+            87,
+            138,
+            171,
+            222,
+            255,
+            306,
+            339,
+            390,
+            423,
+            474
+          ],
+          "16": [
+            13.1,
+            54.1,
+            90,
+            138,
+            171.1,
+            222.1,
+            258.1,
+            306.1,
+            342.1,
+            390.1,
+            426.2,
+            474.2
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      }
+    ]
+  }
+}

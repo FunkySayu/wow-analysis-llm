@@ -1,0 +1,761 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 16,
+    "wclDifficulty": 5,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T19:00:47+00:00",
+    "generator": "tools/warcraftlogs/plan_suggestion_sync.py",
+    "catalog": "data/classes/druid/balance/12_1_cooldowns.json",
+    "parameters": {
+      "sample": 25,
+      "minRechargeSeconds": 25.0,
+      "tightIqrSeconds": 8.0,
+      "minSupport": 0.4,
+      "anchorWindowSeconds": 15.0
+    },
+    "readMe": "Suggestions, not decisions. Every row carries the spread and the pull count behind it; a wide spread means the field disagrees, which is information about the fight rather than a number to copy. Times are phase-relative because kill times are not comparable.",
+    "encounter": "twinfangs"
+  },
+  "encounter": {
+    "slug": "twinfangs",
+    "wclEncounterId": 3421,
+    "encounterName": "The Twin Fangs",
+    "sample": {
+      "requested": 25,
+      "readable": 25,
+      "used": 25,
+      "unreadable": [],
+      "excludedForPhaseStructure": [],
+      "medianDuration": 431.8,
+      "durationRange": [
+        409.2,
+        479.2
+      ]
+    },
+    "phaseModel": [
+      0.0
+    ],
+    "cooldowns": [
+      {
+        "spellId": 1250533,
+        "name": "Freightrunner's Flask",
+        "role": "unclassified",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 4.5,
+        "medianGapSeconds": 95.2,
+        "seenInPulls": 16,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 4.8,
+            "atSeconds": 4.8,
+            "spread": {
+              "median": 4.8,
+              "p25": 4.3,
+              "p75": 5.9,
+              "iqr": 1.5,
+              "min": 2.1,
+              "max": 7.8
+            },
+            "support": {
+              "pulls": 16,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Blood Torrent",
+              "occurrence": 1,
+              "offsetSeconds": -3.2,
+              "agreement": 16,
+              "of": 16
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 100.0,
+            "atSeconds": 100.0,
+            "spread": {
+              "median": 100.0,
+              "p25": 97.6,
+              "p75": 100.4,
+              "iqr": 2.8,
+              "min": 93.2,
+              "max": 101.1
+            },
+            "support": {
+              "pulls": 16,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Coiling Ichor",
+              "occurrence": 3,
+              "offsetSeconds": -0.7,
+              "agreement": 10,
+              "of": 16
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 193.3,
+            "atSeconds": 193.3,
+            "spread": {
+              "median": 193.3,
+              "p25": 192.3,
+              "p75": 194.0,
+              "iqr": 1.8,
+              "min": 185.6,
+              "max": 195.1
+            },
+            "support": {
+              "pulls": 16,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Coiling Ichor",
+              "occurrence": 5,
+              "offsetSeconds": -1.4,
+              "agreement": 11,
+              "of": 16
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102560,
+        "name": "Incarnation: Chosen of Elune",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 5,
+        "medianGapSeconds": 94.2,
+        "seenInPulls": 25,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 4.8,
+            "atSeconds": 4.8,
+            "spread": {
+              "median": 4.8,
+              "p25": 3.9,
+              "p75": 6.0,
+              "iqr": 2.0,
+              "min": 2.0,
+              "max": 18.0
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Blood Torrent",
+              "occurrence": 1,
+              "offsetSeconds": -3.3,
+              "agreement": 24,
+              "of": 25
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 99.5,
+            "atSeconds": 99.5,
+            "spread": {
+              "median": 99.5,
+              "p25": 95.8,
+              "p75": 100.1,
+              "iqr": 4.3,
+              "min": 26.9,
+              "max": 101.1
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Coiling Ichor",
+              "occurrence": 3,
+              "offsetSeconds": -0.9,
+              "agreement": 14,
+              "of": 25
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 193.5,
+            "atSeconds": 193.5,
+            "spread": {
+              "median": 193.5,
+              "p25": 191.8,
+              "p75": 194.1,
+              "iqr": 2.2,
+              "min": 185.2,
+              "max": 195.4
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Coiling Ichor",
+              "occurrence": 5,
+              "offsetSeconds": -1.1,
+              "agreement": 15,
+              "of": 25
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 78675,
+        "name": "Solar Beam",
+        "role": "utility",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 5,
+        "medianGapSeconds": 68.5,
+        "seenInPulls": 25,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 5,
+            "atPhaseSeconds": 355.8,
+            "atSeconds": 355.8,
+            "spread": {
+              "median": 355.8,
+              "p25": 351.7,
+              "p75": 359.2,
+              "iqr": 7.5,
+              "min": 349.7,
+              "max": 421.7
+            },
+            "support": {
+              "pulls": 18,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Stir the Depths",
+              "occurrence": 5,
+              "offsetSeconds": -0.6,
+              "agreement": 6,
+              "of": 18
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 6,
+            "atPhaseSeconds": 412.9,
+            "atSeconds": 412.9,
+            "spread": {
+              "median": 412.9,
+              "p25": 411.0,
+              "p75": 414.7,
+              "iqr": 3.7,
+              "min": 409.4,
+              "max": 417.0
+            },
+            "support": {
+              "pulls": 10,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Coiling Ichor",
+              "occurrence": 12,
+              "offsetSeconds": 0.4,
+              "agreement": 5,
+              "of": 10
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 106898,
+        "name": "Stampeding Roar",
+        "role": "utility",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 154.0,
+        "seenInPulls": 24,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 139.8,
+            "atSeconds": 139.8,
+            "spread": {
+              "median": 139.8,
+              "p25": 137.1,
+              "p75": 144.7,
+              "iqr": 7.5,
+              "min": 54.5,
+              "max": 296.7
+            },
+            "support": {
+              "pulls": 24,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Vile Flood",
+              "occurrence": 2,
+              "offsetSeconds": 1.9,
+              "agreement": 12,
+              "of": 24
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 292.5,
+            "atSeconds": 292.5,
+            "spread": {
+              "median": 292.5,
+              "p25": 291.3,
+              "p75": 296.7,
+              "iqr": 5.4,
+              "min": 133.8,
+              "max": 307.0
+            },
+            "support": {
+              "pulls": 18,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Vile Flood",
+              "occurrence": 4,
+              "offsetSeconds": 2.1,
+              "agreement": 6,
+              "of": 18
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236616,
+        "name": "Light's Potential",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 387.6,
+        "seenInPulls": 12,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 4.3,
+            "atSeconds": 4.3,
+            "spread": {
+              "median": 4.3,
+              "p25": 3.7,
+              "p75": 6.1,
+              "iqr": 2.4,
+              "min": 2.4,
+              "max": 7.6
+            },
+            "support": {
+              "pulls": 12,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Blood Torrent",
+              "occurrence": 1,
+              "offsetSeconds": -3.7,
+              "agreement": 12,
+              "of": 12
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236994,
+        "name": "Potion of Recklessness",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 372.0,
+        "seenInPulls": 13,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 4.8,
+            "atSeconds": 4.8,
+            "spread": {
+              "median": 4.8,
+              "p25": 4.4,
+              "p75": 5.6,
+              "iqr": 1.2,
+              "min": 2.1,
+              "max": 17.8
+            },
+            "support": {
+              "pulls": 13,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Blood Torrent",
+              "occurrence": 1,
+              "offsetSeconds": -3.3,
+              "agreement": 12,
+              "of": 13
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22812,
+        "name": "Barkskin",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 3,
+        "medianGapSeconds": 90.9,
+        "seenInPulls": 25,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 103.9,
+            "atSeconds": 103.9,
+            "spread": {
+              "median": 103.9,
+              "p25": 46.2,
+              "p75": 204.8,
+              "iqr": 158.6,
+              "min": 36.3,
+              "max": 321.7
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Stir the Depths",
+              "occurrence": 1,
+              "offsetSeconds": -0.8,
+              "agreement": 6,
+              "of": 25
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 256.9,
+            "atSeconds": 256.9,
+            "spread": {
+              "median": 256.9,
+              "p25": 193.9,
+              "p75": 354.6,
+              "iqr": 160.7,
+              "min": 96.3,
+              "max": 416.9
+            },
+            "support": {
+              "pulls": 24,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Coiling Ichor",
+              "occurrence": 5,
+              "offsetSeconds": -1.0,
+              "agreement": 3,
+              "of": 24
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 346.4,
+            "atSeconds": 346.4,
+            "spread": {
+              "median": 346.4,
+              "p25": 218.0,
+              "p75": 354.2,
+              "iqr": 136.2,
+              "min": 190.5,
+              "max": 430.8
+            },
+            "support": {
+              "pulls": 17,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Coiling Ichor",
+              "occurrence": 9,
+              "offsetSeconds": 0.3,
+              "agreement": 3,
+              "of": 17
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 4,
+            "atPhaseSeconds": 359.7,
+            "atSeconds": 359.7,
+            "spread": {
+              "median": 359.7,
+              "p25": 278.7,
+              "p75": 412.5,
+              "iqr": 133.8,
+              "min": 250.6,
+              "max": 421.1
+            },
+            "support": {
+              "pulls": 12,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Ravenous Feast",
+              "occurrence": 8,
+              "offsetSeconds": 0.2,
+              "agreement": 3,
+              "of": 12
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 29166,
+        "name": "Innervate",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 184.0,
+        "seenInPulls": 22,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 55.0,
+            "atSeconds": 55.0,
+            "spread": {
+              "median": 55.0,
+              "p25": 47.3,
+              "p75": 63.8,
+              "iqr": 16.5,
+              "min": 33.8,
+              "max": 223.0
+            },
+            "support": {
+              "pulls": 22,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Stir the Depths",
+              "occurrence": 1,
+              "offsetSeconds": 3.0,
+              "agreement": 5,
+              "of": 22
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 241.1,
+            "atSeconds": 241.1,
+            "spread": {
+              "median": 241.1,
+              "p25": 232.3,
+              "p75": 286.7,
+              "iqr": 54.5,
+              "min": 215.1,
+              "max": 428.5
+            },
+            "support": {
+              "pulls": 21,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Blood Torrent",
+              "occurrence": 8,
+              "offsetSeconds": 7.3,
+              "agreement": 3,
+              "of": 21
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102383,
+        "name": "Wild Charge",
+        "role": "movement",
+        "verdict": "situational",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 63.9,
+        "seenInPulls": 19,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 175.4,
+            "atSeconds": 175.4,
+            "spread": {
+              "median": 175.4,
+              "p25": 143.9,
+              "p75": 306.7,
+              "iqr": 162.8,
+              "min": 58.0,
+              "max": 431.3
+            },
+            "support": {
+              "pulls": 19,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Vile Flood",
+              "occurrence": 2,
+              "offsetSeconds": 7.1,
+              "agreement": 6,
+              "of": 19
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 219.2,
+            "atSeconds": 219.2,
+            "spread": {
+              "median": 219.2,
+              "p25": 217.3,
+              "p75": 280.0,
+              "iqr": 62.6,
+              "min": 202.1,
+              "max": 366.3
+            },
+            "support": {
+              "pulls": 11,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Ravenous Feast",
+              "occurrence": 6,
+              "offsetSeconds": 2.9,
+              "agreement": 3,
+              "of": 11
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1295247,
+        "name": "Concentrated Silvermoon Health Potion",
+        "role": "unclassified",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": null,
+        "seenInPulls": 18,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 302.6,
+            "atSeconds": 302.6,
+            "spread": {
+              "median": 302.6,
+              "p25": 284.9,
+              "p75": 377.5,
+              "iqr": 92.6,
+              "min": 205.4,
+              "max": 447.3
+            },
+            "support": {
+              "pulls": 18,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Clotted Bolt",
+              "occurrence": 1,
+              "offsetSeconds": 4.2,
+              "agreement": 3,
+              "of": 18
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22842,
+        "name": "Frenzied Regeneration",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 63.5,
+        "seenInPulls": 15,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 233.8,
+            "atSeconds": 233.8,
+            "spread": {
+              "median": 233.8,
+              "p25": 109.6,
+              "p75": 312.6,
+              "iqr": 203.0,
+              "min": 74.4,
+              "max": 388.0
+            },
+            "support": {
+              "pulls": 15,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Blood Torrent",
+              "occurrence": 4,
+              "offsetSeconds": 7.1,
+              "agreement": 4,
+              "of": 15
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 6262,
+        "name": "Healthstone",
+        "role": "unclassified",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": null,
+        "seenInPulls": 14,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 329.2,
+            "atSeconds": 329.2,
+            "spread": {
+              "median": 329.2,
+              "p25": 282.9,
+              "p75": 394.3,
+              "iqr": 111.4,
+              "min": 210.3,
+              "max": 446.2
+            },
+            "support": {
+              "pulls": 14,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Blood Torrent",
+              "occurrence": 10,
+              "offsetSeconds": 10.1,
+              "agreement": 2,
+              "of": 14
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 99,
+        "name": "Incapacitating Roar",
+        "role": "utility",
+        "verdict": "on-cooldown",
+        "medianUsesPerPull": 5.0,
+        "medianGapSeconds": 65.5,
+        "seenInPulls": 22,
+        "suggestions": []
+      }
+    ]
+  }
+}

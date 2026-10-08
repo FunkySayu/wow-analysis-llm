@@ -1,0 +1,544 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 16,
+    "wclDifficulty": 5,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T19:00:47+00:00",
+    "generator": "tools/warcraftlogs/plan_suggestion_sync.py",
+    "catalog": "data/classes/druid/balance/12_1_cooldowns.json",
+    "parameters": {
+      "sample": 25,
+      "minRechargeSeconds": 25.0,
+      "tightIqrSeconds": 8.0,
+      "minSupport": 0.4,
+      "anchorWindowSeconds": 15.0
+    },
+    "readMe": "Suggestions, not decisions. Every row carries the spread and the pull count behind it; a wide spread means the field disagrees, which is information about the fight rather than a number to copy. Times are phase-relative because kill times are not comparable.",
+    "encounter": "nekzali"
+  },
+  "encounter": {
+    "slug": "nekzali",
+    "wclEncounterId": 3470,
+    "encounterName": "Nek'zali the Soulcoiler",
+    "sample": {
+      "requested": 25,
+      "readable": 25,
+      "used": 25,
+      "unreadable": [],
+      "excludedForPhaseStructure": [],
+      "medianDuration": 411.3,
+      "durationRange": [
+        381.3,
+        555.7
+      ]
+    },
+    "phaseModel": [
+      0.0,
+      168.5,
+      281.8
+    ],
+    "cooldowns": [
+      {
+        "spellId": 102560,
+        "name": "Incarnation: Chosen of Elune",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 5,
+        "medianGapSeconds": 80.4,
+        "seenInPulls": 25,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.3,
+            "atSeconds": 5.3,
+            "spread": {
+              "median": 5.3,
+              "p25": 4.5,
+              "p75": 5.7,
+              "iqr": 1.2,
+              "min": 2.6,
+              "max": 8.4
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Soulcoil Ignition",
+              "occurrence": 3,
+              "offsetSeconds": 2.4,
+              "agreement": 24,
+              "of": 25
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 57.3,
+            "atSeconds": 57.3,
+            "spread": {
+              "median": 57.3,
+              "p25": 55.0,
+              "p75": 61.6,
+              "iqr": 6.5,
+              "min": 47.7,
+              "max": 128.5
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Soulcoiler's Curse",
+              "occurrence": 2,
+              "offsetSeconds": -3.8,
+              "agreement": 6,
+              "of": 25
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 129.0,
+            "atSeconds": 129.0,
+            "spread": {
+              "median": 129.0,
+              "p25": 126.3,
+              "p75": 130.8,
+              "iqr": 4.5,
+              "min": 120.1,
+              "max": 134.8
+            },
+            "support": {
+              "pulls": 17,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Soulcoiler's Curse",
+              "occurrence": 4,
+              "offsetSeconds": 1.1,
+              "agreement": 4,
+              "of": 17
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1293316,
+        "name": "Empowering Venom",
+        "role": "trinket",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 4.0,
+        "medianGapSeconds": 125.4,
+        "seenInPulls": 20,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.0,
+            "atSeconds": 5.0,
+            "spread": {
+              "median": 5.0,
+              "p25": 3.8,
+              "p75": 5.6,
+              "iqr": 1.8,
+              "min": 2.2,
+              "max": 8.4
+            },
+            "support": {
+              "pulls": 20,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Soulcoil Ignition",
+              "occurrence": 3,
+              "offsetSeconds": 2.0,
+              "agreement": 19,
+              "of": 20
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 128.3,
+            "atSeconds": 128.3,
+            "spread": {
+              "median": 128.3,
+              "p25": 126.3,
+              "p75": 130.8,
+              "iqr": 4.5,
+              "min": 124.2,
+              "max": 133.5
+            },
+            "support": {
+              "pulls": 16,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Soulcoiler's Curse",
+              "occurrence": 4,
+              "offsetSeconds": 0.1,
+              "agreement": 5,
+              "of": 16
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236616,
+        "name": "Light's Potential",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 364.1,
+        "seenInPulls": 12,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.2,
+            "atSeconds": 5.2,
+            "spread": {
+              "median": 5.2,
+              "p25": 3.8,
+              "p75": 6.5,
+              "iqr": 2.6,
+              "min": 2.6,
+              "max": 8.6
+            },
+            "support": {
+              "pulls": 12,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Soulcoil Ignition",
+              "occurrence": 3,
+              "offsetSeconds": 2.4,
+              "agreement": 11,
+              "of": 12
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236994,
+        "name": "Potion of Recklessness",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 358.2,
+        "seenInPulls": 13,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.1,
+            "atSeconds": 5.1,
+            "spread": {
+              "median": 5.1,
+              "p25": 4.1,
+              "p75": 5.5,
+              "iqr": 1.4,
+              "min": 2.2,
+              "max": 8.3
+            },
+            "support": {
+              "pulls": 13,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Soulcoil Ignition",
+              "occurrence": 3,
+              "offsetSeconds": 2.5,
+              "agreement": 11,
+              "of": 13
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 61391,
+        "name": "Typhoon",
+        "role": "utility",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.5,
+        "medianGapSeconds": 62.0,
+        "seenInPulls": 18,
+        "suggestions": [
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 48.0,
+            "atSeconds": 333.1,
+            "spread": {
+              "median": 48.0,
+              "p25": 46.6,
+              "p75": 51.2,
+              "iqr": 4.6,
+              "min": 0.9,
+              "max": 132.6
+            },
+            "support": {
+              "pulls": 15,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Invoke",
+              "occurrence": 3,
+              "offsetSeconds": -12.9,
+              "agreement": 4,
+              "of": 15
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22812,
+        "name": "Barkskin",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 3,
+        "medianGapSeconds": 97.1,
+        "seenInPulls": 25,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 92.1,
+            "atSeconds": 92.1,
+            "spread": {
+              "median": 92.1,
+              "p25": 74.5,
+              "p75": 112.1,
+              "iqr": 37.6,
+              "min": 32.9,
+              "max": 136.2
+            },
+            "support": {
+              "pulls": 15,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Possession Barrage",
+              "occurrence": 5,
+              "offsetSeconds": -6.1,
+              "agreement": 3,
+              "of": 15
+            }
+          },
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 53.7,
+            "atSeconds": 223.1,
+            "spread": {
+              "median": 53.7,
+              "p25": 20.4,
+              "p75": 88.4,
+              "iqr": 68.0,
+              "min": 9.5,
+              "max": 110.6
+            },
+            "support": {
+              "pulls": 17,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Hungering Pyre",
+              "occurrence": 3,
+              "offsetSeconds": 3.4,
+              "agreement": 4,
+              "of": 17
+            }
+          },
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 55.5,
+            "atSeconds": 333.0,
+            "spread": {
+              "median": 55.5,
+              "p25": 47.3,
+              "p75": 78.2,
+              "iqr": 31.0,
+              "min": 9.6,
+              "max": 124.1
+            },
+            "support": {
+              "pulls": 23,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Invoke",
+              "occurrence": 3,
+              "offsetSeconds": -11.5,
+              "agreement": 3,
+              "of": 23
+            }
+          },
+          {
+            "phase": 3,
+            "ordinal": 2,
+            "atPhaseSeconds": 132.3,
+            "atSeconds": 414.3,
+            "spread": {
+              "median": 132.3,
+              "p25": 114.9,
+              "p75": 148.1,
+              "iqr": 33.2,
+              "min": 109.8,
+              "max": 158.0
+            },
+            "support": {
+              "pulls": 14,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Invoke",
+              "occurrence": 8,
+              "offsetSeconds": 5.1,
+              "agreement": 6,
+              "of": 14
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102383,
+        "name": "Wild Charge",
+        "role": "movement",
+        "verdict": "situational",
+        "medianUsesPerPull": 3.0,
+        "medianGapSeconds": 64.8,
+        "seenInPulls": 18,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 76.6,
+            "atSeconds": 76.6,
+            "spread": {
+              "median": 76.6,
+              "p25": 52.9,
+              "p75": 99.1,
+              "iqr": 46.2,
+              "min": 20.7,
+              "max": 159.7
+            },
+            "support": {
+              "pulls": 12,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Soulcoiler's Curse",
+              "occurrence": 1,
+              "offsetSeconds": 3.1,
+              "agreement": 2,
+              "of": 12
+            }
+          },
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 35.7,
+            "atSeconds": 205.8,
+            "spread": {
+              "median": 35.7,
+              "p25": 16.5,
+              "p75": 60.6,
+              "iqr": 44.1,
+              "min": 11.6,
+              "max": 100.6
+            },
+            "support": {
+              "pulls": 11,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Hungering Pyre",
+              "occurrence": 3,
+              "offsetSeconds": 1.9,
+              "agreement": 5,
+              "of": 11
+            }
+          },
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 43.8,
+            "atSeconds": 321.5,
+            "spread": {
+              "median": 43.8,
+              "p25": 34.7,
+              "p75": 76.4,
+              "iqr": 41.7,
+              "min": 7.3,
+              "max": 137.9
+            },
+            "support": {
+              "pulls": 15,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Invoke",
+              "occurrence": 3,
+              "offsetSeconds": 0.8,
+              "agreement": 2,
+              "of": 15
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102793,
+        "name": "Ursol's Vortex",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 116.8,
+        "seenInPulls": 15,
+        "suggestions": [
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 53.9,
+            "atSeconds": 344.8,
+            "spread": {
+              "median": 53.9,
+              "p25": 49.2,
+              "p75": 74.5,
+              "iqr": 25.2,
+              "min": 33.9,
+              "max": 169.3
+            },
+            "support": {
+              "pulls": 14,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Invoke",
+              "occurrence": 3,
+              "offsetSeconds": -7.2,
+              "agreement": 5,
+              "of": 14
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 29166,
+        "name": "Innervate",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 208.0,
+        "seenInPulls": 15,
+        "suggestions": []
+      }
+    ]
+  }
+}

@@ -19,10 +19,10 @@ whether you want a flat list or a full per-zone table:
 
 ```
 export string --[parse_export.pl]--> favorites.json (spec/tier/itemId)
-item IDs ------[fetch_item_info.pl]--> data/items.json (cached, durable)
+item IDs ------[fetch_item_info.pl]--> data/items/12_1/items.json (cached, durable)
 
   flat list:  favorites.json + items.json --[build_favorites_js.pl]--> KEYSTONE_LOOT_FAVORITES
-  full table: [extract_source_data.pl]--> data/keystoneloot_sources.json (zone -> item pool)
+  full table: [extract_source_data.pl]--> data/classes/<class>/<spec>/12_1_loot_sources.json (zone -> item pool)
               sources.json + favorites.json + items.json
                 --[build_zone_table_js.pl]--> KEYSTONE_LOOT_ZONES
 ```
@@ -44,7 +44,7 @@ user wants "my favorites" or "everything, with my favorites marked."
 ## Step 1 — decode the export string
 
 ```bash
-perl .claude/skills/keystoneloot-favorites/scripts/parse_export.pl "KeystoneLoot:v3,<data>" \
+perl tools/keystoneloot/parse_export.pl "KeystoneLoot:v3,<data>" \
   > scratch/keystoneloot_favorites.json
 ```
 
@@ -90,10 +90,10 @@ script — WoW spec IDs are stable across expansions) and items sorted tier-then
 ## Step 2 — fetch item info from Wowhead
 
 ```bash
-perl .claude/skills/keystoneloot-favorites/scripts/fetch_item_info.pl 251190 193763 250224
+perl tools/keystoneloot/fetch_item_info.pl 251190 193763 250224
 # or pull every itemId out of step 1's output and pipe them in:
 grep -o '"itemId" *: *[0-9]*' scratch/keystoneloot_favorites.json | grep -o '[0-9]*' \
-  | perl .claude/skills/keystoneloot-favorites/scripts/fetch_item_info.pl
+  | perl tools/keystoneloot/fetch_item_info.pl
 ```
 
 Hits the same tooltip-JSON endpoint family documented in `wow-talent-data`'s SKILL.md for
@@ -111,10 +111,10 @@ since which ones appear depends entirely on the item's source). It also fetches 
 image itself (`.../icons/medium/<icon>.jpg`, ~1-2 KB) and stores it **base64-encoded as a
 `data:` URI** — an HTML Artifact's CSP blocks every external image host, so a plain
 `iconUrl` is useless inside one; only `iconDataUri` will actually render there (see
-`.claude/knowledge/building-reports.md`, "Icons and tooltips", for why this project always
+`.claude/knowledge/method/building-reports.md`, "Icons and tooltips", for why this project always
 inlines icons rather than linking them).
 
-Results upsert into **`data/items.json`** (durable, itemId-keyed, shared across every
+Results upsert into **`data/items/12_1/items.json`** (durable, itemId-keyed, shared across every
 future report — not `scratch/`, since an item's tooltip doesn't change per-report the way a
 parsed favorites list does). Already-cached items are skipped on re-run; pass `--force` to
 refetch. Fetching one dungeon+raid tier's worth of items for one spec (137 Mage-usable
@@ -128,8 +128,8 @@ rule as everywhere else in this project.
 ## Branch A — flat favorites list
 
 ```bash
-perl .claude/skills/keystoneloot-favorites/scripts/build_favorites_js.pl \
-  scratch/keystoneloot_favorites.json > data/keystoneloot_favorites.js
+perl tools/keystoneloot/build_favorites_js.pl \
+  scratch/keystoneloot_favorites.json > data/classes/<class>/<spec>/12_1_keystoneloot_favorites.js
 ```
 
 Merges favorites (spec/tier/itemId) with item info (name/icon/source/tooltip) into one
@@ -144,7 +144,7 @@ me my picks" — e.g. a table with one row per dungeon/raid boss.
 ### Step 3 — resolve which zone each item belongs to
 
 ```bash
-perl .claude/skills/keystoneloot-favorites/scripts/extract_source_data.pl 8 62   # classId, specId
+perl tools/keystoneloot/extract_source_data.pl 8 62   # classId, specId
 ```
 
 Parses the addon's own bundled loot databases directly — `data/dungeons.lua`
@@ -157,7 +157,7 @@ item in the pool at once rather than one itemId at a time.
 
 Filters to only the items the given class **and spec** can equip (`classes[8]` containing
 `62`, not just `classes[8]` existing — some items are usable by only 1-2 of a class's 3
-specs, e.g. `{62, 63}` without 64). Writes `data/keystoneloot_sources.json`:
+specs, e.g. `{62, 63}` without 64). Writes `data/classes/<class>/<spec>/12_1_loot_sources.json` (directory from `data/classes/specs.json`):
 
 ```
 { classId, specId,
@@ -175,20 +175,20 @@ addon author's client happened to be running (German, in the copy this was built
 e.g. `"Rubinlebensbecken"` for Ruby Life Pools). The script instead hardcodes English names
 in `%DUNGEON_NAME`/`%RAID_ZONE_NAME`/`%BOSS_NAME`, verified by translating each German
 comment and cross-checking against this project's own prior research: the 8-dungeon Season
-2 pool in `.claude/knowledge/midnight-s2-dungeons.md` and the 8-boss Venomous Abyss roster
+2 pool in `.claude/knowledge/dungeons/12_1/midnight-s2-dungeons.md` and the 8-boss Venomous Abyss roster
 (plus the Tidebound Grotto Lair boss, Nymrissa Wavecaller) in
-`.claude/knowledge/venomous-abyss-12.1.md`. **If KeystoneLoot ships a new season, this table
+`.claude/knowledge/raid/12_1/venomous_abyss/venomous-abyss-12.1.md`. **If KeystoneLoot ships a new season, this table
 goes stale silently** — it will resolve to "Unknown dungeon/boss/raid `<id>`" rather than
 erroring, which is your signal to re-verify and update the hardcoded names by hand.
 
 ### Step 4 — build the zone-table JS module
 
 ```bash
-perl .claude/skills/keystoneloot-favorites/scripts/build_zone_table_js.pl \
-  scratch/keystoneloot_favorites.json > data/keystoneloot_zones.js
+perl tools/keystoneloot/build_zone_table_js.pl \
+  scratch/keystoneloot_favorites.json > data/classes/<class>/<spec>/12_1_keystoneloot_zones.js
 ```
 
-Merges `data/keystoneloot_sources.json` (zone → item pool) with `data/items.json` (item
+Merges `data/classes/<class>/<spec>/12_1_loot_sources.json` (zone → item pool, for the favorites' spec; override with `LOOT_SOURCES=<path>`) with `data/items/12_1/items.json` (item
 info) and the parsed favorites (item → tier), into `const KEYSTONE_LOOT_ZONES = {...};`.
 Every item in every zone appears — favorited or not — with an `importance` field
 (`"bis"|"must"|"nice"|"none"`) and `importanceRank` (0-3) resolved from tier the same way
@@ -200,13 +200,13 @@ the tier-number gotcha below.
 Both branches produce **compact single-line JSON** (this project's convention for large
 generated payloads per `building-reports.md`: keeps a `^const\s+NAME\s*=` regex trivially
 matchable and avoids a multi-hundred-line indented blob in a file nothing hand-edits), and
-both flag an item present upstream but missing from `data/items.json` (fetch step skipped
+both flag an item present upstream but missing from `data/items/12_1/items.json` (fetch step skipped
 or failed) rather than silently dropping it — a forgotten fetch should be visible in the
 rendered output, not swallowed.
 
 ## Building an artifact around it
 
-Follow the general pattern in `.claude/knowledge/building-reports.md` (template + payload,
+Follow the general pattern in `.claude/knowledge/method/building-reports.md` (template + payload,
 literal `.Replace()`/`index()` substitution — never regex-replace a payload containing `$`
 or `\`, and never hand-paste generated data into prose). Concretely, for this pipeline:
 

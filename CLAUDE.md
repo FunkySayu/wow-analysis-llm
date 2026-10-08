@@ -4,12 +4,35 @@ This project benchmarks and improves a character's performance in World of Warcr
 comparing **actual play** (WarcraftLogs reports) against **theoretical-optimal play**
 (SimulationCraft, via Raidbots) — currently on the PTR. This file is the map for how to
 pull data, read it correctly, and reason about it. It's written for future sessions, not
-just as a record of what happened in this one.
+just as a record of what happened in this one. Detail lives in the files it points to;
+the "read before" lines are not optional.
+
+## Where things live
+
+| path | holds | read first |
+|---|---|---|
+| `.claude/skills/` | how to pull data from each source | the skill, before guessing an endpoint |
+| `.claude/knowledge/` | durable findings: `game/`, `classes/`, `raid/<patch>/<tier>/`, `dungeons/<patch>/`, `method/` | [its README](.claude/knowledge/README.md) — the index |
+| `data/` | long-term datasets: `raid/<patch>/<tier>/<nn>_<boss>/`, `classes/<class>/<spec>/`, `items/<patch>/` | [data/README.md](data/README.md) before regenerating anything |
+| `tools/` | analysis tooling, one folder per source: `warcraftlogs/`, `game_knowledge/`, `raidbots/`, `keystoneloot/`, `wowhead/`, `reporting/` | [tools/README.md](tools/README.md) before writing a script |
+| `scratch/` | per-report working extracts; not meant to stay current | — |
+| `site/`, `docs/design/` | the planning website and its design record | — |
+
+**Read before the task, every time:**
+- any new log analysis → [method/analysing-a-pull.md](.claude/knowledge/method/analysing-a-pull.md),
+  and run the checks in `tools/warcraftlogs/` before re-deriving anything;
+- modelling an encounter in simc → [method/modelling-a-fight-in-simc.md](.claude/knowledge/method/modelling-a-fight-in-simc.md);
+- a boss death report → [method/boss-death-timelines.md](.claude/knowledge/method/boss-death-timelines.md);
+- a published HTML report → [method/building-reports.md](.claude/knowledge/method/building-reports.md);
+- any claim about gear, loot, upgrades or crafting → the itemization set in
+  [game/](.claude/knowledge/game/) (gearing systems change on four clocks; honour the
+  "valid as of" dates);
+- a spec or boss you're about to discuss → its file under `classes/` or `raid/`, if one exists.
 
 ## Data sources — use the skills, don't re-derive them
 
-Four skills in `.claude/skills/` cover the actual mechanics of pulling data. Load them
-rather than guessing endpoints from memory — several have real traps baked in (see below).
+Four skills cover the actual mechanics of pulling data. Load them rather than guessing
+endpoints from memory — several have real traps baked in (see below).
 
 - **`warcraftlogs-reports`** — WCL API v2 (GraphQL), OAuth client-credentials flow using
   `.env`. Pulls fight lists, kill/wipe status, damage/cast tables, cast timelines.
@@ -20,7 +43,10 @@ rather than guessing endpoints from memory — several have real traps baked in 
   PTR, as one JSON feed, plus how to attach real tooltip text to each spellId.
 - **`wow-ptr-research`** — where to check *why* something changed on PTR and whether
   SimulationCraft itself has caught up to the current build yet (this matters more than it
-  sounds like — see "Trust boundaries" below).
+  sounds like).
+
+Also: `simc-simulation` and `simc-profile-syntax` for running sims locally,
+`wowhead-blueposts` for official commentary, `keystoneloot-favorites` for gear lists.
 
 **Two traps worth internalizing, because they fail silently, not loudly:**
 1. Wowhead's tooltip API (`nether.wowhead.com/tooltip/spell/<id>`) serves **live** text by
@@ -35,83 +61,20 @@ The instinct both share: don't trust that a URL returning HTTP 200 means it retu
 *right* data. Spot-check the content against something independently known (a patch note,
 a community-stated number) before building on it.
 
-## Reading a SimC Action Priority List (APL)
+## Reasoning rules
 
-The APL *is* the rotation logic — reading it correctly is reading the rotation correctly.
-Syntax:
-
-```
-actions.<list_name>=<action>,if=<condition>       # first action in a list
-actions.<list_name>+=/<action>,if=<condition>      # appended action
-```
-
-- Lists are evaluated **top to bottom**, re-checked every time a GCD is free. The first
-  action whose `if` condition is true (or has no condition) is what gets cast.
-- `call_action_list,name=X,if=...` branches into another list — this is how hero-talent
-  variants (e.g. Sunfury vs. Spellslinger) share one profile: a top-level condition on a
-  talent picks which list actually runs. Structural gates like this are different from a
-  per-action `if` — check them first to know *which list is even live* before reading its
-  contents.
-- Common expression vocabulary: `buff.X.up` / `.down` / `.react` (buff usable, accounting
-  for a human reaction-time delay) / `.stack` / `.remains`; `cooldown.X.ready` / `.remains`
-  / `.charges_fractional`; `talent.X` (boolean); `prev_gcd.N.X` (what was cast N GCDs ago —
-  used to chain a burst cooldown right after a specific spender); `active_enemies`;
-  user-defined `variable.X`.
-
-**The one rule that actually matters: never infer a condition's direction from the ability
-name or from what "seems right."** `buff.arcane_soul.down` and `buff.arcane_soul.up` read
-similarly at a skim and mean opposite things. This project already shipped one real bug
-from doing exactly that — read [arcane-mage-12.1-ptr.md](.claude/knowledge/arcane-mage-12.1-ptr.md)
-for the specific case. When a raw APL line and a community/theorycrafting explanation of
-"how the rotation works" are both available, treat the raw line as ground truth and use the
-prose explanation to sanity-check your reading of it, not the other way around.
-
-## Reasoning about talent/spell/buff interactions
-
-The useful framing is **resource economy**, not "which button is biggest." For any spec:
-
-1. Identify the resources that flow between abilities — charges, stacking buffs, procs.
-   Note which abilities *generate* each resource and which *spend* it.
-2. A resource generated by many abilities but spent by only one makes that spender the
-   highest-leverage ability in the kit — every tick of accumulation you don't spend in time
-   is either wasted (capped) or reduces future proc rolls. This is usually where "sustain
-   damage" actually lives, more than in filler-ability choice.
-3. When a proc chance is attached to a spender (e.g. "X% chance per stack consumed"), the
-   resource-economy view *is* the damage story — the spender isn't just a dump, it's also a
-   lottery ticket, and cast frequency vs. cast size becomes a real tuning tradeoff that the
-   APL's specific thresholds encode.
-4. Use `wow-talent-data` to resolve exactly what a talent node does mechanically (spellId +
-   PTR-accurate description) rather than trusting an ability's name or your prior knowledge
-   of an earlier patch — talents get redesigned under the same name.
-5. When you need to know which talents/hero-tree a specific character actually has and the
-   report doesn't expose a resolved list (only an opaque loadout string), don't guess —
-   cross-check against **empirical evidence** in the sim output instead: buff `start_count`
-   / uptime for talent-specific buffs, entries in `procs`/`gains` tied to a specific
-   talent's name, APL conditions that only make sense if a given talent is active. State
-   findings as "confirmed via X" or "flagged as unverifiable," never as a plain assertion —
-   see the Arcane Mage report's own talent section for the pattern.
-
-## WoW combat system fundamentals
-
-- **GCD (global cooldown).** Most offensive abilities share a lock (~1.5s, reduced by
-  haste) — casting one prevents casting *any other GCD ability* until it expires. This is
-  the base tempo of a rotation; APL priority order is fundamentally "what fills the next
-  GCD."
-- **Off-GCD abilities.** Some actions don't trigger or respect the GCD lock — trinkets,
-  potions, and specific utility spells. In simc profiles these are tagged
-  `use_off_gcd=1`. They can be used *in addition to* a GCD spell on the same moment, which
-  is why APLs often fire them alongside a spender rather than instead of one.
-- **Casts vs. channels.** A cast (e.g. Arcane Blast, Prismatic Bolt) commits for a fixed
-  cast time and resolves once at the end. A channel (e.g. Arcane Missiles, Evocation) ticks
-  repeatedly over a duration and can be **clipped** — cut short to move on to something
-  else, trading later ticks for GCD efficiency. APL lines like `interrupt_if=...` or
-  `chain=1` are explicitly about channel-clipping behavior, and whether a given hero-talent
-  variant clips or full-channels the same channel can itself be a deliberate, documented
-  difference (Spellslinger clips Missiles; Sunfury full-channels it, per community notes).
-- **Fight configuration changes which APL branches are even reachable.** `desired_targets`
-  / `active_enemies` gate entire AoE-only conditions in the APL — reading a priority line
-  that mentions AoE without checking the fight's target count can make you think a
-  condition is "dead" logic when it's just inactive for *this specific sim*, or vice versa.
+- **Never infer an APL condition's direction from the ability name or from what "seems
+  right."** `buff.arcane_soul.down` and `buff.arcane_soul.up` read similarly at a skim and
+  mean opposite things; this project shipped a real bug from doing exactly that. The raw
+  APL line is ground truth; a community explanation only sanity-checks your reading of it.
+  Syntax, structural gates and vocabulary: [method/reading-an-apl.md](.claude/knowledge/method/reading-an-apl.md).
+- **Think in resource economy, not "which button is biggest"** — generators, spenders, and
+  the spender everything else feeds. Resolve what a talent does from data, never from its
+  name; talents get redesigned under the same name. When a character's talents aren't
+  exposed, confirm them from empirical evidence and say "confirmed via X" or "unverifiable":
+  [method/resource-economy.md](.claude/knowledge/method/resource-economy.md).
+- GCD, off-GCD, casts vs channels, and why target count decides which APL branches are
+  reachable: [game/combat-system.md](.claude/knowledge/game/combat-system.md).
 
 ## Workflow this project follows for a report
 
@@ -126,29 +89,7 @@ The useful framing is **resource economy**, not "which button is biggest." For a
 4. When corrected, re-derive from the saved source text rather than patching the
    conclusion — the bug is usually in how a raw line was read, not just in what was
    written down.
-
-## Layout
-
-- `.claude/skills/` — the four data-pulling skills described above, plus `simc-simulation`
-  and `simc-profile-syntax` for running sims locally and `wowhead-blueposts` for official
-  commentary.
-- `.claude/knowledge/` — condensed, durable findings per spec/topic (currently Arcane Mage
-  and [balance-druid-12.1.md](.claude/knowledge/balance-druid-12.1.md), plus
-  [venomous-abyss-12.1.md](.claude/knowledge/venomous-abyss-12.1.md) — the 12.1 raid tier:
-  encounter list, per-boss measured damage shape, and where to source data for a tier this
-  new), plus
-  [midnight-s2-dungeons.md](.claude/knowledge/midnight-s2-dungeons.md) — the Season 2 M+
-  pool: canonical dungeon list, per-dungeon Druid utility measured from 160 top-key logs,
-  how to derive a debuff's dispel school from logs alone, and the spell-ID splits that make
-  Typhoon and Solar Beam silently uncountable, plus
-  [building-reports.md](.claude/knowledge/building-reports.md) — how to build the published
-  HTML report itself (payload injection, inline spell tooltips, clipboard, and the
-  PowerShell/shell traps that silently corrupt a run).
-- `data/talents/` — talent tree dumps (regenerate via `wow-talent-data` when the PTR build moves).
-- `tools/wcl/` — **reusable log checks. Run these instead of re-deriving an analysis.**
-  `run.py <check> -r <report> -a <actor> -f raid|dungeon|<ids>` covers salvo cycle, Arcane
-  Soul setup, Clearcasting waste, Touch of the Magi targeting, cooldown/lust/pack alignment,
-  Missiles wave count (the set-bonus test), channel gaps and a gear/enchant control test.
-  See [tools/wcl/README.md](tools/wcl/README.md); events cache to `.wclcache/`. When you
-  answer a new question about a log, add it there as a check rather than as a one-off script.
-- `scratch/` — raw extracts and working notes tied to a specific report; not meant to stay current.
+5. Put what you learned where the next session will look: a durable finding in
+   `.claude/knowledge/` (and a line in its README), a reusable question about a log as a
+   check in `tools/warcraftlogs/`, a dataset under `data/` via a tool and
+   `tools/datalayout.py`.

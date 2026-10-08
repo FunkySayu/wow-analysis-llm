@@ -1,0 +1,419 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 16,
+    "wclDifficulty": 5,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T19:00:47+00:00",
+    "generator": "tools/warcraftlogs/plan_suggestion_sync.py",
+    "catalog": "data/classes/druid/balance/12_1_cooldowns.json",
+    "parameters": {
+      "sample": 25,
+      "minRechargeSeconds": 25.0,
+      "tightIqrSeconds": 8.0,
+      "minSupport": 0.4,
+      "anchorWindowSeconds": 15.0
+    },
+    "readMe": "Suggestions, not decisions. Every row carries the spread and the pull count behind it; a wide spread means the field disagrees, which is information about the fight rather than a number to copy. Times are phase-relative because kill times are not comparable.",
+    "encounter": "explorers"
+  },
+  "encounter": {
+    "slug": "explorers",
+    "wclEncounterId": 3497,
+    "encounterName": "The Lost Explorers",
+    "sample": {
+      "requested": 25,
+      "readable": 25,
+      "used": 11,
+      "unreadable": [],
+      "excludedForPhaseStructure": [
+        {
+          "code": "Dw6Zpr2Kaq8GXyJV",
+          "fight": 36,
+          "player": "Clecia",
+          "reason": "log records 6 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "1vXNht9kBnGmyf2T",
+          "fight": 51,
+          "player": "Tarisant",
+          "reason": "log records 5 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "Dr9ZwPCgpm4AT1JF",
+          "fight": 41,
+          "player": "Yertle",
+          "reason": "log records 6 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "B7bZytHP1h4m6Wjk",
+          "fight": 31,
+          "player": "Cotti",
+          "reason": "log records 6 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "htN1qK62H4CXAnfM",
+          "fight": 28,
+          "player": "Dakd",
+          "reason": "log records 6 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "9VY3DQv8mBWt1fdG",
+          "fight": 35,
+          "player": "Rior",
+          "reason": "log records 6 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "KP3g8BbZD9hTqLkj",
+          "fight": 35,
+          "player": "Dracdruid",
+          "reason": "log records 6 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "qPkwpLztTDJG6dBX",
+          "fight": 82,
+          "player": "Iittala",
+          "reason": "log records 5 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "Mx4Zw6zgVYhqHTDp",
+          "fight": 10,
+          "player": "Peltosaari",
+          "reason": "log records 6 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "qPkwpLztTDJG6dBX",
+          "fight": 82,
+          "player": "Lappe",
+          "reason": "log records 5 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "1vXNht9kBnGmyf2T",
+          "fight": 51,
+          "player": "Arzenx",
+          "reason": "log records 5 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "KA6LRBxjD8VyGf2N",
+          "fight": 33,
+          "player": "Puppiesqt",
+          "reason": "log records 6 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "hr2CKD3cB8mwzLtj",
+          "fight": 32,
+          "player": "Likl",
+          "reason": "log records 6 phase segment(s); 7 is the pool's structure for this boss"
+        },
+        {
+          "code": "PnjtXYHfmT91RVFc",
+          "fight": 33,
+          "player": "Ikkuzac",
+          "reason": "log records 6 phase segment(s); 7 is the pool's structure for this boss"
+        }
+      ],
+      "medianDuration": 382.5,
+      "durationRange": [
+        356.8,
+        417.9
+      ]
+    },
+    "phaseModel": [
+      0.0,
+      61.6,
+      121.6,
+      184.3,
+      244.2,
+      306.3,
+      366.2
+    ],
+    "cooldowns": [
+      {
+        "spellId": 102560,
+        "name": "Incarnation: Chosen of Elune",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 5,
+        "medianGapSeconds": 105.4,
+        "seenInPulls": 11,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 6.6,
+            "atSeconds": 6.6,
+            "spread": {
+              "median": 6.6,
+              "p25": 5.9,
+              "p75": 6.8,
+              "iqr": 0.8,
+              "min": 4.5,
+              "max": 8.0
+            },
+            "support": {
+              "pulls": 11,
+              "of": 11
+            },
+            "anchor": {
+              "ability": "Final Ascension",
+              "occurrence": 1,
+              "offsetSeconds": 5.6,
+              "agreement": 3,
+              "of": 11
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 27.4,
+            "atSeconds": 27.4,
+            "spread": {
+              "median": 27.4,
+              "p25": 26.9,
+              "p75": 27.9,
+              "iqr": 1.0,
+              "min": 25.8,
+              "max": 28.3
+            },
+            "support": {
+              "pulls": 10,
+              "of": 11
+            },
+            "anchor": null
+          },
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 12.7,
+            "atSeconds": 134.6,
+            "spread": {
+              "median": 12.7,
+              "p25": 9.0,
+              "p75": 15.9,
+              "iqr": 6.8,
+              "min": 3.7,
+              "max": 39.1
+            },
+            "support": {
+              "pulls": 9,
+              "of": 11
+            },
+            "anchor": {
+              "ability": "Final Ascension",
+              "occurrence": 3,
+              "offsetSeconds": 10.0,
+              "agreement": 4,
+              "of": 9
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1293316,
+        "name": "Empowering Venom",
+        "role": "trinket",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 3,
+        "medianGapSeconds": 125.5,
+        "seenInPulls": 11,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 6.6,
+            "atSeconds": 6.6,
+            "spread": {
+              "median": 6.6,
+              "p25": 5.9,
+              "p75": 6.8,
+              "iqr": 0.8,
+              "min": 4.5,
+              "max": 8.0
+            },
+            "support": {
+              "pulls": 11,
+              "of": 11
+            },
+            "anchor": {
+              "ability": "Final Ascension",
+              "occurrence": 1,
+              "offsetSeconds": 5.6,
+              "agreement": 3,
+              "of": 11
+            }
+          },
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 12.7,
+            "atSeconds": 134.6,
+            "spread": {
+              "median": 12.7,
+              "p25": 9.1,
+              "p75": 15.9,
+              "iqr": 6.8,
+              "min": 3.8,
+              "max": 39.1
+            },
+            "support": {
+              "pulls": 9,
+              "of": 11
+            },
+            "anchor": {
+              "ability": "Final Ascension",
+              "occurrence": 3,
+              "offsetSeconds": 10.0,
+              "agreement": 4,
+              "of": 9
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236616,
+        "name": "Light's Potential",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 361.8,
+        "seenInPulls": 6,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.9,
+            "atSeconds": 5.9,
+            "spread": {
+              "median": 5.9,
+              "p25": 5.6,
+              "p75": 6.5,
+              "iqr": 0.9,
+              "min": 5.6,
+              "max": 6.9
+            },
+            "support": {
+              "pulls": 6,
+              "of": 11
+            },
+            "anchor": {
+              "ability": "Creepy Flames",
+              "occurrence": 1,
+              "offsetSeconds": 6.3,
+              "agreement": 2,
+              "of": 6
+            }
+          },
+          {
+            "phase": 7,
+            "ordinal": 1,
+            "atPhaseSeconds": 3.8,
+            "atSeconds": 370.5,
+            "spread": {
+              "median": 3.8,
+              "p25": 1.3,
+              "p75": 8.9,
+              "iqr": 7.6,
+              "min": 1.2,
+              "max": 16.5
+            },
+            "support": {
+              "pulls": 4,
+              "of": 11
+            },
+            "anchor": {
+              "ability": "Smashing Shovel",
+              "occurrence": 1,
+              "offsetSeconds": -4.9,
+              "agreement": 1,
+              "of": 4
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22812,
+        "name": "Barkskin",
+        "role": "defensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 4,
+        "medianGapSeconds": 71.5,
+        "seenInPulls": 11,
+        "suggestions": [
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 47.1,
+            "atSeconds": 170.3,
+            "spread": {
+              "median": 47.1,
+              "p25": 44.2,
+              "p75": 48.1,
+              "iqr": 3.9,
+              "min": 38.4,
+              "max": 48.6
+            },
+            "support": {
+              "pulls": 4,
+              "of": 11
+            },
+            "anchor": {
+              "ability": "Mor'zahi's Command",
+              "occurrence": 2,
+              "offsetSeconds": -12.6,
+              "agreement": 2,
+              "of": 4
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236994,
+        "name": "Potion of Recklessness",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 348.6,
+        "seenInPulls": 5,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 6.6,
+            "atSeconds": 6.6,
+            "spread": {
+              "median": 6.6,
+              "p25": 6.6,
+              "p75": 6.8,
+              "iqr": 0.2,
+              "min": 5.2,
+              "max": 7.7
+            },
+            "support": {
+              "pulls": 5,
+              "of": 11
+            },
+            "anchor": {
+              "ability": "Final Ascension",
+              "occurrence": 1,
+              "offsetSeconds": 6.4,
+              "agreement": 2,
+              "of": 5
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 29166,
+        "name": "Innervate",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 191.8,
+        "seenInPulls": 5,
+        "suggestions": []
+      }
+    ]
+  }
+}
