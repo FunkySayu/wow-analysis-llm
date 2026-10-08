@@ -1,0 +1,621 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "source": "Blizzard Game Data journal-encounter + Wowhead tooltip API",
+    "buildNamespace": "static-12.1.0_68914-eu",
+    "generatedAt": "2026-09-09T18:19:40+00:00",
+    "generator": "tools/game_knowledge/journal_sync.py",
+    "readMe": "Ability text and damage magnitudes come from Wowhead's tooltip endpoint, which is the only source carrying tuned numbers for this tier -- Blizzard's /data/wow/spell/<id> returns 404 for these ids and the in-game journal text ships 'X' placeholders. A magnitude here is ONE difficulty's value and the endpoint does not say which; cross-check against measured damage taken in profiles/<spec>-<difficulty>.json before quoting it as a Mythic number.",
+    "encounter": "twinfangs"
+  },
+  "encounter": {
+    "slug": "twinfangs",
+    "journalEncounterId": 2887,
+    "name": "The Twin Fangs",
+    "description": "The first of Ula'tek's blood, Vexhul and Ithraz brood beneath a roiling sea of venom deep within the vault of Atal'Utek. Any foolish enough to enter the prison's inner chamber risk their monstrous jaws and toxic strikes.",
+    "creatures": [
+      {
+        "id": 6151,
+        "name": "Vexhul"
+      },
+      {
+        "id": 6150,
+        "name": "Ithraz"
+      },
+      {
+        "id": 6234,
+        "name": "Spawn of Vexhul"
+      },
+      {
+        "id": 6237,
+        "name": "Barbed Bulwark"
+      },
+      {
+        "id": 6236,
+        "name": "Broodling of Ithraz"
+      }
+    ],
+    "modes": [
+      "LFR",
+      "NORMAL",
+      "HEROIC",
+      "MYTHIC"
+    ],
+    "notes": [
+      {
+        "title": "Overview",
+        "bodyText": "The Twin Fangs' [Eternal Venom] accumulates throughout the battle. Vexhul funnels toxin into her target with [Caustic Deluge] forming [Caustic Globules] and calls her progeny with [Venomous Emergence]. Ithraz consumes players with [Ravenous Feast] and strikes repeatedly with [Stone Breaker].\r\n\r\nAt 100 energy, both serpents submerge and reposition before attacking together. Vexhul releases a [Vile Flood] while Ithraz spews globs of gore during [Sanguine Storm].",
+        "bullets": [
+          "The Twin Fangs' [Eternal Venom] accumulates throughout the battle. Vexhul funnels toxin into her target with [Caustic Deluge] forming [Caustic Globules] and calls her progeny with [Venomous Emergence]. Ithraz consumes players with [Ravenous Feast] and strikes repeatedly with [Stone Breaker].\r\n\r\nAt 100 energy, both serpents submerge and reposition before attacking together. Vexhul releases a [Vile Flood] while Ithraz spews globs of gore during [Sanguine Storm]."
+        ]
+      },
+      {
+        "title": "Damage Dealers",
+        "bodyText": "$bullet;[Caustic Deluge] ejects a salvo of globules which afflict players with [Eternal Venom] when touched.\r\n\r\n\r\n$bullet;[Venomous Emergence] summons Spawns of Vexhul which will continuously target players with [Corrosive Spit].",
+        "bullets": [
+          "[Caustic Deluge] ejects a salvo of globules which afflict players with [Eternal Venom] when touched.",
+          "[Venomous Emergence] summons Spawns of Vexhul which will continuously target players with [Corrosive Spit]."
+        ]
+      },
+      {
+        "title": "Tanks",
+        "bodyText": "$bullet;[Caustic Globules] form near the [Caustic Deluge] target.\r\n\r\n\r\n$bullet;If [Stone Breaker] strikes no players, it instead strikes all players.",
+        "bullets": [
+          "[Caustic Globules] form near the [Caustic Deluge] target.",
+          "If [Stone Breaker] strikes no players, it instead strikes all players."
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "spellId": 1290336,
+        "title": "Eternal Venom",
+        "journalSpellName": "Eternal Venom",
+        "tooltipName": "Eternal Venom",
+        "icon": "spell_nature_nullifypoison",
+        "cast": "Instant",
+        "description": "Being struck by some abilities causes an everlasting venom to course through the target's veins, inflicting 10001 Nature damage every 1 sec. This effect stacks.\n\nUpon reaching 11 applications, the target dies.",
+        "damage": [
+          {
+            "amount": 10001,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35638,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1289192,
+        "title": "Caustic Deluge",
+        "journalSpellName": "Caustic Deluge",
+        "tooltipName": "Caustic Deluge",
+        "icon": "inv_ability_poison_beam",
+        "cast": "1 sec cast",
+        "description": "Vexhul funnels toxin into her current target for 5 sec, inflicting 250022 Nature damage every 0.5 sec and ejecting acid nearby.\n\nEach acid splash inflicts 916747 Nature damage and applies Eternal Venom to players within 4 yards, forming a Caustic Globule at the impact location.",
+        "damage": [
+          {
+            "amount": 250022,
+            "school": "Nature",
+            "everySeconds": 0.5
+          },
+          {
+            "amount": 916747,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Vexhul",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35619,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1289993,
+        "title": "Caustic Globule",
+        "journalSpellName": "Caustic Globule",
+        "tooltipName": "Caustic Globule",
+        "icon": "inv_ability_poison_orb",
+        "cast": "Instant",
+        "description": "An acidic globule forms and ruptures after 10 sec, inflicting 625055 Nature damage and applying Eternal Venom to all players.\n\nUpon contact, the globule instead only affects that player.",
+        "damage": [
+          {
+            "amount": 625055,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Caustic Deluge",
+        "parentSpellId": 1289192,
+        "depth": 2,
+        "sectionId": 35620,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1310360,
+        "title": "Envenomed",
+        "journalSpellName": "Envenomed",
+        "tooltipName": "Envenomed",
+        "icon": "inv_ability_poison_debuff",
+        "cast": "Instant",
+        "description": "Caustic Deluge damage increases damage taken from Caustic Deluge by 10% for 1.5 min. This effect stacks.",
+        "damage": [],
+        "parentTitle": "Caustic Deluge",
+        "parentSpellId": 1289192,
+        "depth": 2,
+        "sectionId": 37035,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1291404,
+        "title": "Venomous Emergence",
+        "journalSpellName": "Venomous Emergence",
+        "tooltipName": "Venomous Emergence",
+        "icon": "spell_nature_poisoncleansingtotem",
+        "cast": "3 sec cast",
+        "description": "Vexhul calls her progeny from the churning sea, inflicting 125011 Nature damage and applying Eternal Venom to all players.",
+        "damage": [
+          {
+            "amount": 125011,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Vexhul",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35643,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1291478,
+        "title": "Corrosive Spit",
+        "journalSpellName": "Corrosive Spit",
+        "tooltipName": "Corrosive Spit",
+        "icon": "spell_deathvortex",
+        "cast": "5 sec cast",
+        "description": "The spawn focuses on a player and spews toxin in a frontal line, inflicting 666725 Nature damage and applying Eternal Venom to players struck.",
+        "damage": [
+          {
+            "amount": 666725,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Spawn of Vexhul",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 35763,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1290956,
+        "title": "Stir the Depths",
+        "journalSpellName": "Stir the Depths",
+        "tooltipName": "Stir the Depths",
+        "icon": "inv_ability_poison_wave",
+        "cast": "Channeled (6 sec cast)",
+        "description": "Vexhul thrashes and churns the surrounding sea of venom for 6 sec, inflicting 166681 Nature damage to all players every 2 sec and forming waves.\n\nThe waves travel across the platform, inflicting 125011 Nature damage every 1 sec and applying Eternal Venom to players struck.",
+        "damage": [
+          {
+            "amount": 166681,
+            "school": "Nature",
+            "everySeconds": 2.0
+          },
+          {
+            "amount": 125011,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Vexhul",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35640,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1294293,
+        "title": "Vile Flood",
+        "journalSpellName": "Vile Flood",
+        "tooltipName": "Vile Flood",
+        "icon": "ability_rogue_deviouspoisons",
+        "cast": "4 sec cast",
+        "description": "Vexhul channels a continuous torrent of toxin in a frontal direction for 14 sec, inflicting 416703 Nature damage every 0.5 sec and applying Eternal Venom to players struck.",
+        "damage": [
+          {
+            "amount": 416703,
+            "school": "Nature",
+            "everySeconds": 0.5
+          }
+        ],
+        "parentTitle": "Vexhul",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35759,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295107,
+        "title": "Concentrated Spittle",
+        "journalSpellName": "Concentrated Spittle",
+        "tooltipName": "Concentrated Spittle",
+        "icon": "ability_poisonsting",
+        "cast": "Instant",
+        "description": "Vexhul pelts her current target with spittle if they are out of range, inflicting Nature damage.",
+        "damage": [],
+        "parentTitle": "Vexhul",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35807,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1303230,
+        "title": "Blood Torrent",
+        "journalSpellName": "Blood Torrent",
+        "tooltipName": "Blood Torrent",
+        "icon": "inv_artifact_corruptedbloodofzakajz",
+        "cast": "1 sec cast",
+        "description": "Ithraz channels a torrent of blood into his target for 5 sec. Every 1 sec, the torrent applies a 426295 healing absorb to the target. This effect stacks.\n\nExpunged blood coalesces around each Caustic Globule, forming a Barbed Bulwark.",
+        "damage": [],
+        "parentTitle": "Ithraz",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36761,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1303378,
+        "title": "Barbed Bulwark",
+        "journalSpellName": "Barbed Bulwark",
+        "tooltipName": "Barbed Bulwark",
+        "icon": "artifactability_blooddeathknight_umbilicuseternus",
+        "cast": "Channeled (7 days cast)",
+        "description": "Blood Torrent protects each Caustic Globule, inflicting 500044 Shadow damage and knocking back players while it persists.\n\nInterrupting Barbed Bulwark destroys it.",
+        "damage": [
+          {
+            "amount": 500044,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Blood Torrent",
+        "parentSpellId": 1303230,
+        "depth": 2,
+        "sectionId": 36763,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1308356,
+        "title": "Rouse the Brood",
+        "journalSpellName": "Rouse the Brood",
+        "tooltipName": "Rouse the Brood",
+        "icon": "inv_giantsnake_black",
+        "cast": "3 sec cast",
+        "description": "Ithraz thrashes, calling several Broodlings of Ithraz to the surface and releasing a nova of blood that inflicts 208352 Shadow damage to all players.",
+        "damage": [
+          {
+            "amount": 208352,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Ithraz",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36819,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1308385,
+        "title": "Visceral Burst",
+        "journalSpellName": "Visceral Burst",
+        "tooltipName": "Visceral Burst",
+        "icon": "spell_shadow_corpseexplode",
+        "cast": "2.5 sec cast",
+        "description": "The broodling convulses, releasing a violent burst that inflicts 625055 Shadow damage to all players and an additional 208352 Shadow damage every 1 sec for 6 sec. This effect stacks.\n\nIf interrupted, the broodling retreats to the depths below.",
+        "damage": [
+          {
+            "amount": 625055,
+            "school": "Shadow",
+            "everySeconds": null
+          },
+          {
+            "amount": 208352,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Broodling of Ithraz",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 36821,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1290516,
+        "title": "Ravenous Feast",
+        "journalSpellName": "Ravenous Feast",
+        "tooltipName": "Ravenous Feast",
+        "icon": "ability_warrior_bloodnova",
+        "cast": "4.25 sec cast",
+        "description": "Ithraz attempts to consume players 3 times in quick succession. Each strike inflicts 4625407 Physical damage split evenly among players within 14 yards.\n\nIthraz consumes 1 application of Eternal Venom from players struck, applying Feasted to them and knocking them away.\n\nIf Ravenous Feast fails to hit at least 4 targets all players suffer the full effect.",
+        "damage": [
+          {
+            "amount": 4625407,
+            "school": "Physical",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Ithraz",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35637,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1310096,
+        "title": "Feasted",
+        "journalSpellName": "Feasted",
+        "tooltipName": "Feasted",
+        "icon": "ability_deathwing_bloodcorruption_earth",
+        "cast": "Instant",
+        "description": "Increases damage taken from Ravenous Feast by 0% for 8 sec and prevents Ithraz from consuming further applications of Eternal Venom from this player.",
+        "damage": [],
+        "parentTitle": "Ravenous Feast",
+        "parentSpellId": 1290516,
+        "depth": 2,
+        "sectionId": 37439,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1310099,
+        "title": "Tainted Blood",
+        "journalSpellName": "Tainted Blood",
+        "tooltipName": "Tainted Blood",
+        "icon": "spell_shadow_corpseexplode",
+        "cast": "Instant",
+        "description": "Ravenous Feast expels several founts of frothing blood for up to 8 sec. Every (1 / 2) sec, each fount absorbs the next 71049 healing received by players within 5 yards.",
+        "damage": [],
+        "parentTitle": "Ravenous Feast",
+        "parentSpellId": 1290516,
+        "depth": 2,
+        "sectionId": 36991,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1310105,
+        "title": "Tainted Burst",
+        "journalSpellName": "Tainted Burst",
+        "tooltipName": "Tainted Burst",
+        "icon": "ability_deathwing_bloodcorruption_death",
+        "cast": "Instant",
+        "description": "If a fount of Tainted Blood is not fully absorbed before it expires, it detonates and inflicts 1250110 Shadow damage to all players.",
+        "damage": [
+          {
+            "amount": 1250110,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Tainted Blood",
+        "parentSpellId": 1310099,
+        "depth": 3,
+        "sectionId": 36992,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1290809,
+        "title": "Coiling Ichor",
+        "journalSpellName": "Coiling Ichor",
+        "tooltipName": "Coiling Ichor",
+        "icon": "ability_ironmaidens_whirlofblood",
+        "cast": "3 sec cast",
+        "description": "Ithraz infuses several players with vile ichor, inflicting 75007 Shadow damage to players within 0 yards every 1 sec for 12 sec. Over time, the ichor inflicts increasing damage as it shrinks in area.\n\nUpon expiration, the ichor forms a pool of Congealed Gore.",
+        "damage": [
+          {
+            "amount": 75007,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Ithraz",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35641,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1292505,
+        "title": "Congealed Gore",
+        "journalSpellName": "Congealed Gore",
+        "tooltipName": "Congealed Gore",
+        "icon": "ability_ironmaidens_corruptedblood",
+        "cast": "Instant",
+        "description": "A pool of thick gore persists for 2 min, inflicting 83341 Shadow damage every 1 sec and reducing the movement speed of players within by 50%.",
+        "damage": [
+          {
+            "amount": 83341,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Coiling Ichor",
+        "parentSpellId": 1290809,
+        "depth": 2,
+        "sectionId": 35681,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1288538,
+        "title": "Stone Breaker",
+        "journalSpellName": "Stone Breaker",
+        "tooltipName": "Stone Breaker",
+        "icon": "ability_smash",
+        "cast": "1.5 sec cast",
+        "description": "Ithraz roars, pushing players away. He then slams the platform repeatedly. Each impact inflicts 2500220 Physical damage to players within 3.5 yards and increases their damage taken from Stone Breaker by 33% for 1.5 min. This effect stacks.\n\nIf no players are struck, Ithraz instead inflicts 916747 Physical damage to all players and knocks them away. This effect ignores armor.",
+        "damage": [
+          {
+            "amount": 2500220,
+            "school": "Physical",
+            "everySeconds": null
+          },
+          {
+            "amount": 916747,
+            "school": "Physical",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Ithraz",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35617,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1306872,
+        "title": "Sanguine Storm",
+        "journalSpellName": "Sanguine Storm",
+        "tooltipName": "Sanguine Storm",
+        "icon": "inv_artifact_bloodoftheassassinated",
+        "cast": "Channeled (18 sec cast)",
+        "description": "Ithraz showers the platform with globs of gore for 18 sec. Each impact inflicts 500044 Shadow damage to players within 4 yards.",
+        "damage": [
+          {
+            "amount": 500044,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Ithraz",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36625,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1306922,
+        "title": "Congealed Gore",
+        "journalSpellName": "Congealed Gore",
+        "tooltipName": "Congealed Gore",
+        "icon": "artifactability_blooddeathknight_umbilicuseternus",
+        "cast": "Instant",
+        "description": "A pool of thick gore persists for 6 sec, inflicting 83341 Shadow damage every 1 sec and reducing the movement speed of players within by 50%.",
+        "damage": [
+          {
+            "amount": 83341,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Sanguine Storm",
+        "parentSpellId": 1306872,
+        "depth": 2,
+        "sectionId": 36626,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295115,
+        "title": "Clotted Bolt",
+        "journalSpellName": "Clotted Bolt",
+        "tooltipName": "Clotted Bolt",
+        "icon": "inv_10_elementalcombinedfoozles_blood",
+        "cast": "Instant",
+        "description": "Ithraz lances his current target with gore if they are out of range, inflicting Shadow damage.",
+        "damage": [],
+        "parentTitle": "Ithraz",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35808,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1308556,
+        "title": "Submerge",
+        "journalSpellName": "Submerge",
+        "tooltipName": "Submerge",
+        "icon": "ability_creature_poison_06",
+        "cast": "Instant",
+        "description": "The Twin Fangs submerge, showering the nearby area with venom that inflicts 500044 Nature damage to players within 6 yards of each impact and forming a Noxious Slick.",
+        "damage": [
+          {
+            "amount": 500044,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 36843,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1309471,
+        "title": "Noxious Slick",
+        "journalSpellName": "Noxious Slick",
+        "tooltipName": "Noxious Slick",
+        "icon": "inv_ability_poison_groundstate",
+        "cast": "Instant",
+        "description": "A slick of noxious fluid coats the platform, inflicting 83341 Nature damage every 1 sec and increasing the damage taken of players within by 30%.",
+        "damage": [
+          {
+            "amount": 83341,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Submerge",
+        "parentSpellId": 1308556,
+        "depth": 1,
+        "sectionId": 36914,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295049,
+        "title": "Toxic Fumes",
+        "journalSpellName": "Toxic Fumes",
+        "tooltipName": "Toxic Fumes",
+        "icon": "spell_deathvortex",
+        "cast": "Instant",
+        "description": "The Twin Fangs suffuse the air with toxic fumes, inflicting 104176 Nature damage to all players every 2 sec.",
+        "damage": [
+          {
+            "amount": 104176,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35799,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1308583,
+        "title": "Uncoiled Wrath",
+        "journalSpellName": "Uncoiled Wrath",
+        "tooltipName": "Uncoiled Wrath",
+        "icon": "ability_evoker_dragonrage2_green",
+        "cast": "Instant",
+        "description": "When Vexhul or Ithraz dies, the surviving serpent enters a vengeful rage and gains 30% increased damage every 3 sec. This effect stacks.",
+        "damage": [],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 36828,
+        "repeatedSections": 0
+      }
+    ],
+    "journalInstance": {
+      "id": 1320,
+      "name": "The Venomous Abyss"
+    }
+  }
+}

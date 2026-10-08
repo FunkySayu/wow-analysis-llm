@@ -1,0 +1,1150 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "source": "Blizzard Game Data journal-encounter + Wowhead tooltip API",
+    "buildNamespace": "static-12.1.0_68914-eu",
+    "generatedAt": "2026-09-09T18:19:40+00:00",
+    "generator": "tools/game_knowledge/journal_sync.py",
+    "readMe": "Ability text and damage magnitudes come from Wowhead's tooltip endpoint, which is the only source carrying tuned numbers for this tier -- Blizzard's /data/wow/spell/<id> returns 404 for these ids and the in-game journal text ships 'X' placeholders. A magnitude here is ONE difficulty's value and the endpoint does not say which; cross-check against measured damage taken in profiles/<spec>-<difficulty>.json before quoting it as a Mythic number.",
+    "encounter": "coiledaltar"
+  },
+  "encounter": {
+    "slug": "coiledaltar",
+    "journalEncounterId": 2883,
+    "name": "The Coiled Altar",
+    "description": "The spirit of Malacrass will not release his grip on Zul'jan so easily. At the Coiled Altar, the shaman commands the warrior to enact the final ritual to unleash Ula'tek on the Amani--for revenge, and to gain their promised reward.",
+    "creatures": [
+      {
+        "id": 6184,
+        "name": "Zul'jan"
+      },
+      {
+        "id": 6182,
+        "name": "Hex Lord Malacrass"
+      },
+      {
+        "id": 6183,
+        "name": "Manifestation of Dread"
+      },
+      {
+        "id": 6231,
+        "name": "Spiteful Soulcoiler"
+      },
+      {
+        "id": 6185,
+        "name": "Fragment of Malacrass"
+      }
+    ],
+    "modes": [
+      "LFR",
+      "NORMAL",
+      "HEROIC",
+      "MYTHIC"
+    ],
+    "notes": [
+      {
+        "title": "Overview",
+        "bodyText": "A mutated Zul'jan unleashes his new power by [Coalescing Venom] within The Coiled Altar. He wields twin axes that [Sever] players and destroy Coalesced Venom.\r\n\r\nUpon Zul'jan's defeat, Malacrass joins the fray. Malacrass haunts players with [Dreadmarch], creating Manifestations of Dread as it resolves. His casts of [Soul Sever] hurt players and destroy any Manifestations of Dread in its blast.\r\n\r\nUpon defeat, Malacrass begins a ritual of [Soulbinding] to revive Zul'jan as his puppet, and claim what is rightfully his.",
+        "bullets": [
+          "A mutated Zul'jan unleashes his new power by [Coalescing Venom] within The Coiled Altar. He wields twin axes that [Sever] players and destroy Coalesced Venom.\r\n\r\nUpon Zul'jan's defeat, Malacrass joins the fray. Malacrass haunts players with [Dreadmarch], creating Manifestations of Dread as it resolves. His casts of [Soul Sever] hurt players and destroy any Manifestations of Dread in its blast.\r\n\r\nUpon defeat, Malacrass begins a ritual of [Soulbinding] to revive Zul'jan as his puppet, and claim what is rightfully his."
+        ]
+      },
+      {
+        "title": "Damage Dealers",
+        "bodyText": "$bullet; [Toxic Deluge] creates [Coalesced Venom] around the arena.\r\n$bullet; Freeing players possessed by [Dreadmarch] creates [Manifestations of Dread] that fixate on a random player.\r\n$bullet; [Eternal Nightfall] inflicts deadly damage unless [Veil of Twilight] is broken.",
+        "bullets": [
+          "[Toxic Deluge] creates [Coalesced Venom] around the arena.",
+          "Freeing players possessed by [Dreadmarch] creates [Manifestations of Dread] that fixate on a random player.",
+          "[Eternal Nightfall] inflicts deadly damage unless [Veil of Twilight] is broken."
+        ]
+      },
+      {
+        "title": "Healers",
+        "bodyText": "$bullet; [Fangs of the Coiled Altar] and [Defilement of the Coiled Altar] inflicts massive damage and healing absorbs to all players.\r\n$bullet; [Coalesced Venom] explode into a [Venom Rupture] when destroyed.\r\n$bullet; [Venomfang] and [Gloombomb] inflict heavy damage.",
+        "bullets": [
+          "[Fangs of the Coiled Altar] and [Defilement of the Coiled Altar] inflicts massive damage and healing absorbs to all players.",
+          "[Coalesced Venom] explode into a [Venom Rupture] when destroyed.",
+          "[Venomfang] and [Gloombomb] inflict heavy damage."
+        ]
+      },
+      {
+        "title": "Tanks",
+        "bodyText": "$bullet; [Sever] inflicts a massive amount of damage, destroying [Coalesced Venom].\r\n$bullet; [Soul Sever] afflicts players hit with [Gravebound] and destroys [Manifestations of Dread].\r\n$bullet; [Corrupted Toxin] inflicts stacking moderate damage.",
+        "bullets": [
+          "[Sever] inflicts a massive amount of damage, destroying [Coalesced Venom].",
+          "[Soul Sever] afflicts players hit with [Gravebound] and destroys [Manifestations of Dread].",
+          "[Corrupted Toxin] inflicts stacking moderate damage."
+        ]
+      },
+      {
+        "title": "Virulent Cyst",
+        "bodyText": "Ulatek's venom mutates into a physical form.",
+        "bullets": [
+          "Ulatek's venom mutates into a physical form."
+        ]
+      },
+      {
+        "title": "Manifestation of Dread",
+        "bodyText": "A terrifying manifestation that fixates on a single player.",
+        "bullets": [
+          "A terrifying manifestation that fixates on a single player."
+        ]
+      },
+      {
+        "title": "Manifestation of Dread",
+        "bodyText": "A terrifying manifestation that fixates on a single player.\r\n\r\n",
+        "bullets": [
+          "A terrifying manifestation that fixates on a single player."
+        ]
+      },
+      {
+        "title": "Manifestation of Dread",
+        "bodyText": "A terrifying being manifests, fixating on a random player.\r\n\r\n",
+        "bullets": [
+          "A terrifying being manifests, fixating on a random player."
+        ]
+      },
+      {
+        "title": "Soul Fragment",
+        "bodyText": "A fragment of the player's soul that fades away over 15 sec.",
+        "bullets": [
+          "A fragment of the player's soul that fades away over 15 sec."
+        ]
+      },
+      {
+        "title": "Soul Fragment",
+        "bodyText": "Your soul is severed, ejecting 3 Soul Fragments from your body that fade away over 15 sec.",
+        "bullets": [
+          "Your soul is severed, ejecting 3 Soul Fragments from your body that fade away over 15 sec."
+        ]
+      },
+      {
+        "title": "Fragment of Malacrass",
+        "bodyText": "Fragments of Malacrass attempt to reunite with their new host.",
+        "bullets": [
+          "Fragments of Malacrass attempt to reunite with their new host."
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "spellId": 1282487,
+        "title": "Fangs of the Coiled Altar",
+        "journalSpellName": "Fangs of the Coiled Altar",
+        "tooltipName": "Fangs of the Coiled Altar",
+        "icon": "spell_nature_poisoncleansingtotem",
+        "cast": "Channeled (8 sec cast)",
+        "description": "Zul'jan channels the power of The Coiled Altar, inflicting 83341 Nature damage to all players and gaining 3 applications of Twinfang Toxin every 1 sec for 8 sec.\n\nThe mouths of The Coiled Altar overflow, spewing Noxious Ground beneath them that quickly swell and slowly subside over time.",
+        "damage": [
+          {
+            "amount": 83341,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage One: Serpent's Bargain",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35585,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1300322,
+        "title": "Twinfang Toxin",
+        "journalSpellName": "Twinfang Toxin",
+        "tooltipName": "Twinfang Toxin",
+        "icon": "ability_rogue_dualweild",
+        "cast": "Instant",
+        "description": "Zul'jan's melee attacks consume applications of Twinfang Toxin, inflicting an additional 333363 Nature damage to his current target.",
+        "damage": [
+          {
+            "amount": 333363,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Fangs of the Coiled Altar",
+        "parentSpellId": 1282487,
+        "depth": 2,
+        "sectionId": 35586,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1283290,
+        "title": "Noxious Ground",
+        "journalSpellName": "Noxious Ground",
+        "tooltipName": "Noxious Ground",
+        "icon": "ability_creature_poison_06",
+        "cast": "Instant",
+        "description": "The poisonous ground inflicts 166682 Nature damage every 1 sec to players standing within.",
+        "damage": [
+          {
+            "amount": 166682,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Fangs of the Coiled Altar",
+        "parentSpellId": 1282487,
+        "depth": 2,
+        "sectionId": 35590,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1299960,
+        "title": "Toxic Deluge",
+        "journalSpellName": "Toxic Deluge",
+        "tooltipName": "Toxic Deluge",
+        "icon": "spell_shadow_plaguecloud",
+        "cast": "Instant",
+        "description": "The crucible spews venom into the chamber, inflicting 833407 Nature damage to players within 4 yards of the impact locations, and creating Coalesced Venom.",
+        "damage": [
+          {
+            "amount": 833407,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage One: Serpent's Bargain",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36611,
+        "repeatedSections": 9
+      },
+      {
+        "spellId": 1282403,
+        "title": "Coalesced Venom",
+        "journalSpellName": "Coalesced Venom",
+        "tooltipName": "Coalesced Venom",
+        "icon": "inv_ability_poison_orb",
+        "cast": "Instant",
+        "description": "A toxic globule that pulses with venom, inflicting 17710 Nature damage to all players every 2 sec. Triggers a Venom Rupture when destroyed.\n\nStepping on the globule attaches itself to the player, applying Volatile Venom.",
+        "damage": [
+          {
+            "amount": 17710,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Toxic Deluge",
+        "parentSpellId": 1299960,
+        "depth": 2,
+        "sectionId": 36612,
+        "repeatedSections": 9
+      },
+      {
+        "spellId": 1299838,
+        "title": "Venom Rupture",
+        "journalSpellName": "Venom Rupture",
+        "tooltipName": "Venom Rupture",
+        "icon": "inv_ability_poison_nova",
+        "cast": "Instant",
+        "description": "The globule explodes, inflicting until canceled. This effect stacks.",
+        "damage": [],
+        "parentTitle": "Coalesced Venom",
+        "parentSpellId": 1282403,
+        "depth": 3,
+        "sectionId": 36614,
+        "repeatedSections": 9
+      },
+      {
+        "spellId": 1282419,
+        "title": "Volatile Venom",
+        "journalSpellName": "Volatile Venom",
+        "tooltipName": "Volatile Venom",
+        "icon": "ability_creature_disease_02",
+        "cast": "Instant",
+        "description": "Ula'tek's venom reacts violently to the player, inflicting 87508 Nature damage every 1 sec to players within 5 yards for 5 sec.\n\nUpon expiring, creates a Coalesced Venom.",
+        "damage": [
+          {
+            "amount": 87508,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Coalesced Venom",
+        "parentSpellId": 1282403,
+        "depth": 3,
+        "sectionId": 36613,
+        "repeatedSections": 9
+      },
+      {
+        "spellId": 1309174,
+        "title": "Caustic Secretion",
+        "journalSpellName": "Caustic Secretion",
+        "tooltipName": "Caustic Secretion",
+        "icon": "ability_rogue_deviouspoisons",
+        "cast": "Instant",
+        "description": "The cyst expels 2 Coalesced Venoms every 6 sec, inflicting 583385 Nature damage to players within 4 yards of each impact point.",
+        "damage": [
+          {
+            "amount": 583385,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Virulent Cyst",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 36962,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1310544,
+        "title": "Virulent Mutation",
+        "journalSpellName": "Virulent Mutation",
+        "tooltipName": "Virulent Mutation",
+        "icon": "spell_nature_removedisease",
+        "cast": "Instant",
+        "description": "A volatile globule that pulses with venom, inflicting 17710 Nature damage to all players every 1 sec. Violently explodes nearby globules, triggering 20 Venom Ruptures.\n\nStepping on the globule attaches itself to the player, applying Mutagenic Venom.",
+        "damage": [
+          {
+            "amount": 17710,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Toxic Deluge",
+        "parentSpellId": 1299960,
+        "depth": 2,
+        "sectionId": 36941,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1310498,
+        "title": "Mutagenic Venom",
+        "journalSpellName": "Mutagenic Venom",
+        "tooltipName": "Mutagenic Venom",
+        "icon": "ability_creature_disease_03",
+        "cast": "Instant",
+        "description": "A mutated venom that reacts violently to the player, inflicting 250022 Nature damage every 1 sec to players within 8 yards for 5 sec. Violently explodes nearby globules, triggering 20 Venom Ruptures.\n\nUpon expiring, creates a Virulent Mutation.",
+        "damage": [
+          {
+            "amount": 250022,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Virulent Mutation",
+        "parentSpellId": 1310544,
+        "depth": 3,
+        "sectionId": 36944,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1310013,
+        "title": "Tainted Blood",
+        "journalSpellName": "Tainted Blood",
+        "tooltipName": "Tainted Blood",
+        "icon": "ability_deathknight_roilingblood",
+        "cast": "Instant",
+        "description": "The venom enters your bloodstream, increasing damage taken from Volatile Venom by 200% for 10 sec.",
+        "damage": [],
+        "parentTitle": "Volatile Venom",
+        "parentSpellId": 1282419,
+        "depth": 4,
+        "sectionId": 36963,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1283489,
+        "title": "Guillotine",
+        "journalSpellName": "Guillotine",
+        "tooltipName": "Guillotine",
+        "icon": "warrior_talent_icon_mastercleaver",
+        "cast": "3.5 sec cast",
+        "description": "Zul'jan throws his axe at a player, inflicting 5417143 Physical damage split evenly among players within 9 yards of the target and increasing their damage taken from Guillotine by 500% for 1.7 min. This effect ignores armor. The axe then swells with poison before erupting with a Widow's Kiss.\n\nIf Guillotine fails to hit at least 5 players, the axe instead inflicts an Execution.",
+        "damage": [
+          {
+            "amount": 5417143,
+            "school": "Physical",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage One: Serpent's Bargain",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37071,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1283606,
+        "title": "Execution",
+        "journalSpellName": "Execution",
+        "tooltipName": "Execution",
+        "icon": "warrior_talent_icon_mastercleaver",
+        "cast": "Instant",
+        "description": "Inflicts 1666814 Nature damage to all players.",
+        "damage": [
+          {
+            "amount": 1666814,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Guillotine",
+        "parentSpellId": 1283489,
+        "depth": 2,
+        "sectionId": 37181,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1283623,
+        "title": "Widow's Kiss",
+        "journalSpellName": "Widow's Kiss",
+        "tooltipName": "Widow's Kiss",
+        "icon": "spell_shadow_soothingkiss",
+        "cast": "Instant",
+        "description": "The Axe erupts in a violent plume that scatters a deadly toxin, inflicting 1250110 Nature to damage to players within 40 yards.",
+        "damage": [],
+        "parentTitle": "Guillotine",
+        "parentSpellId": 1283489,
+        "depth": 2,
+        "sectionId": 37072,
+        "repeatedSections": 5
+      },
+      {
+        "spellId": 1283631,
+        "title": "Widow's Touch",
+        "journalSpellName": "Widow's Touch",
+        "tooltipName": "Widow's Touch",
+        "icon": "spell_shadow_fingerofdeath",
+        "cast": "Instant",
+        "description": "The nearby explosion inflicts 208352 Nature damage to players at least 40 yards away from the epicenter.",
+        "damage": [
+          {
+            "amount": 208352,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Guillotine",
+        "parentSpellId": 1283489,
+        "depth": 2,
+        "sectionId": 37074,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1309944,
+        "title": "Guillotined",
+        "journalSpellName": "Guillotined",
+        "tooltipName": "Guillotined",
+        "icon": "warrior_talent_icon_mastercleaver",
+        "cast": "Instant",
+        "description": "Increases damage taken from Guillotine by 500%.",
+        "damage": [],
+        "parentTitle": "Guillotine",
+        "parentSpellId": 1283489,
+        "depth": 2,
+        "sectionId": 36765,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1299680,
+        "title": "Sever",
+        "journalSpellName": "Sever",
+        "tooltipName": "Sever",
+        "icon": "ability_criticalstrike",
+        "cast": "Channeled (3.5 sec cast)",
+        "description": "Zul'jan unleashes a mighty cleave at his current target, inflicting 3333627 Physical damage to players in a frontal cone and increasing their damage taken from Sever by 600% for 33 sec.\n\nDestroys Coalesced Venoms and Virulent Mutations.",
+        "damage": [
+          {
+            "amount": 3333627,
+            "school": "Physical",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage One: Serpent's Bargain",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36254,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1282287,
+        "title": "Venomfang",
+        "journalSpellName": "Venomfang",
+        "tooltipName": "Venomfang",
+        "icon": "ability_rogue_poisonedknife",
+        "cast": "2 sec cast",
+        "description": "Zul'jan hurls a poison-coated axe between multiple players, inflicting 125011 Nature damage every 2 sec for 14 sec.",
+        "damage": [
+          {
+            "amount": 125011,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Stage One: Serpent's Bargain",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35594,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1283832,
+        "title": "Axegrinder",
+        "journalSpellName": "Axegrinder",
+        "tooltipName": "Axegrinder",
+        "icon": "ability_warrior_bladestorm",
+        "cast": "2 sec cast",
+        "description": "Zul'jan hurls out axes that inflict 1000088 Physical damage to players within 4 yards of each impact point, knocking them away. The axes wander the arena for 3 min, inflicting 125011 Physical damage every 0.25 sec to players within 0 yards. This effect ignores armor.",
+        "damage": [
+          {
+            "amount": 1000088,
+            "school": "Physical",
+            "everySeconds": null
+          },
+          {
+            "amount": 125011,
+            "school": "Physical",
+            "everySeconds": 0.25
+          }
+        ],
+        "parentTitle": "Stage One: Serpent's Bargain",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36846,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1285643,
+        "title": "Dreadmarch",
+        "journalSpellName": "Dreadmarch",
+        "tooltipName": "Dreadmarch",
+        "icon": "spell_nzinsanity_fearofdeath",
+        "cast": "2 sec cast",
+        "description": "Malacrass possesses multiple players, causing them to absorb 568393 damage as they march towards the edge of the platform and jump to their death.\n\nUpon removal, [multiple][2] Manifestations of Dread emerge from the possessed player.",
+        "damage": [
+          {
+            "amount": 568393,
+            "school": null,
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage Two: Usurper's Reprisal",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36104,
+        "repeatedSections": 5
+      },
+      {
+        "spellId": 1285911,
+        "title": "Unnerving Fixation",
+        "journalSpellName": "Unnerving Fixation",
+        "tooltipName": "Unnerving Fixation",
+        "icon": "ability_fixated_state_purple",
+        "cast": "Channeled (7 days cast)",
+        "description": "A Manifestation of Dread gazes upon a random player, moving toward them whenever the player isn't staring back.\n\nIf it reaches its target, it possesses them with Dreadmarch.",
+        "damage": [],
+        "parentTitle": "Manifestation of Dread",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 36106,
+        "repeatedSections": 9
+      },
+      {
+        "spellId": 1307009,
+        "title": "Despair",
+        "journalSpellName": "Despair",
+        "tooltipName": "Despair",
+        "icon": "spell_misc_emotionafraid",
+        "cast": "Instant",
+        "description": "The Manifestation of Dread's terrifying presence overwhelms the player, inflicting 333363 Shadow damage and knocking them back.",
+        "damage": [
+          {
+            "amount": 333363,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Unnerving Fixation",
+        "parentSpellId": 1285911,
+        "depth": 4,
+        "sectionId": 36107,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1310732,
+        "title": "Malevolent Resonance",
+        "journalSpellName": "Malevolent Resonance",
+        "tooltipName": "Malevolent Resonance",
+        "icon": "inv12_ability_priest_madness_scream",
+        "cast": "Instant",
+        "description": "When two Manifestations come into contact their shared anguish resonates violently, both inflicting 666725 Shadow damage to their fixated target every 1 sec for 5 sec.",
+        "damage": [
+          {
+            "amount": 666725,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Manifestation of Dread",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 36982,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1286620,
+        "title": "Soul Sever",
+        "journalSpellName": "Soul Sever",
+        "tooltipName": "Soul Sever",
+        "icon": "ability_demonhunter_soulcleave2",
+        "cast": "4 sec cast",
+        "description": "Malacrass unleashes a blast of shadow energy at his current target, inflicting 1041758 Shadow damage to players in a frontal cone. Increases their damage taken from Soul Sever by 600% and inflicts 125011 Shadow damage every 2 sec for 45 sec. Players hit are afflicted with Gravebound.\n\nDestroys Manifestations of Dread.",
+        "damage": [
+          {
+            "amount": 1041758,
+            "school": "Shadow",
+            "everySeconds": null
+          },
+          {
+            "amount": 125011,
+            "school": "Shadow",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Stage Two: Usurper's Reprisal",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35575,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1286837,
+        "title": "Gravebound",
+        "journalSpellName": "Gravebound",
+        "tooltipName": "Gravebound",
+        "icon": "ability_demonhunter_shatteredsouls",
+        "cast": "Instant",
+        "description": "The player's soul is fractured until their Soul Fragments are recovered. Stepping on a fragment reclaims part of their soul, inflicting 208352 Shadow damage.\n\nUpon expiration, the player ceases to exist.",
+        "damage": [
+          {
+            "amount": 208352,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Soul Sever",
+        "parentSpellId": 1286620,
+        "depth": 2,
+        "sectionId": 36744,
+        "repeatedSections": 6
+      },
+      {
+        "spellId": 1286918,
+        "title": "Eternal Nightfall",
+        "journalSpellName": "Eternal Nightfall",
+        "tooltipName": "Eternal Nightfall",
+        "icon": "spell_shadow_twilight",
+        "cast": "15 sec cast",
+        "description": "Malacrass surrounds himself in a Veil of Twilight, preparing to unleash a devastating attack that will inflict 2500220 Shadow damage and an additional 416703 Shadow damage every 1 sec to all players. \n\nTwilight falls around the arena, applying additional stacks of Suffocating Darkness to players within 5 yards of each impact location.\n\nThis spell is interruptible if the shield is broken.",
+        "damage": [
+          {
+            "amount": 2500220,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 416703,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Stage Two: Usurper's Reprisal",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36785,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1286912,
+        "title": "Veil of Twilight",
+        "journalSpellName": "Veil of Twilight",
+        "tooltipName": "Veil of Twilight",
+        "icon": "spell_fire_twilightfireward",
+        "cast": "Instant",
+        "description": "Darkness surrounds Malacrass, absorbing 34828299 damage and applying Suffocating Darkness to all players every 2 sec.",
+        "damage": [
+          {
+            "amount": 34828299,
+            "school": null,
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Eternal Nightfall",
+        "parentSpellId": 1286918,
+        "depth": 2,
+        "sectionId": 36786,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1286947,
+        "title": "Suffocating Darkness",
+        "journalSpellName": "Suffocating Darkness",
+        "tooltipName": "Suffocating Darkness",
+        "icon": "ability_rogue_envelopingshadows",
+        "cast": "Instant",
+        "description": "Coats the player in shadows, absorbing 122915 healing. This effect stacks.",
+        "damage": [],
+        "parentTitle": "Veil of Twilight",
+        "parentSpellId": 1286912,
+        "depth": 3,
+        "sectionId": 36787,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1286441,
+        "title": "Spiritcackle",
+        "journalSpellName": "Spiritcackle",
+        "tooltipName": "Spiritcackle",
+        "icon": "spell_shadow_deathsembrace",
+        "cast": "Channeled (3 sec cast)",
+        "description": "Malacrass calls upon spirits to manifest multiple Spiteful Soulcoilers to aid him in combat.",
+        "damage": [],
+        "parentTitle": "Stage Two: Usurper's Reprisal",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37051,
+        "repeatedSections": 3
+      },
+      {
+        "spellId": 1286399,
+        "title": "Wail of Terror",
+        "journalSpellName": "Wail of Terror",
+        "tooltipName": "Wail of Terror",
+        "icon": "spell_shadow_coneofsilence",
+        "cast": null,
+        "description": "A terrifying scream is released, fearing all players for 5 sec.",
+        "damage": [],
+        "parentTitle": "Spiteful Soulcoiler",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 37230,
+        "repeatedSections": 3
+      },
+      {
+        "spellId": 1308323,
+        "title": "Retaliatory Malice",
+        "journalSpellName": "Retaliatory Malice",
+        "tooltipName": "Retaliatory Malice",
+        "icon": "warlock_curse_shadow_aura",
+        "cast": "Instant",
+        "description": "The reawakened spirit holds a grudge against living creatures, releasing dark blasts of energy that inflict 250022 Shadow damage to random players every 3 sec.",
+        "damage": [
+          {
+            "amount": 250022,
+            "school": "Shadow",
+            "everySeconds": 3.0
+          }
+        ],
+        "parentTitle": "Spiteful Soulcoiler",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 37054,
+        "repeatedSections": 3
+      },
+      {
+        "spellId": 1315202,
+        "title": "Consumed by Resentment",
+        "journalSpellName": "Consumed by Resentment",
+        "tooltipName": "Consumed by Resentment",
+        "icon": "ability_priest_darkness",
+        "cast": "Instant",
+        "description": "Upon reaching 100 energy the Spiteful Soulcoiler is consumed by hatred, providing immunity to interrupt effects.",
+        "damage": [],
+        "parentTitle": "Spiteful Soulcoiler",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 37282,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1309105,
+        "title": "Spirit Shield",
+        "journalSpellName": "Spirit Shield",
+        "tooltipName": "Spirit Shield",
+        "icon": "ability_priest_surgeofdarkness",
+        "cast": "Instant",
+        "description": "A shield of ethereal energy that reduces damage taken by 99%. \n\nBeing hit by Gloombomb weakens the shield.",
+        "damage": [],
+        "parentTitle": "Spiteful Soulcoiler",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 36853,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1310882,
+        "title": "Gloombomb",
+        "journalSpellName": "Gloombomb",
+        "tooltipName": "Gloombomb",
+        "icon": "spell_shadow_shadowfury",
+        "cast": "2 sec cast",
+        "description": "Malacrass infuses players with shadow, marking them for 5 sec. Upon expiration they explode, inflicting 500044 Shadow damage to players within 15 yards. Players hit are afflicted with Gravebound.\n\nOn Mythic difficulty, Gloombomb removes one application of Spiteful Soulcoiler's Spirit Shield.",
+        "damage": [
+          {
+            "amount": 500044,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage Two: Usurper's Reprisal",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36317,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1286895,
+        "title": "Gloombomb",
+        "journalSpellName": "Gloombomb",
+        "tooltipName": "Gloombomb",
+        "icon": "spell_shadow_shadowfury",
+        "cast": "2 sec cast",
+        "description": "Malacrass infuses players with shadow, marking them for 5 sec. Upon expiration, they explode, inflicting 500044 Shadow damage to players within 15 yards.  Players hit are also afflicted with Gravebound.",
+        "damage": [
+          {
+            "amount": 500044,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage Two: Usurper's Reprisal",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37084,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1307184,
+        "title": "Dread Bolt",
+        "journalSpellName": "Dread Bolt",
+        "tooltipName": "Dread Bolt",
+        "icon": "spell_shadow_shadowbolt",
+        "cast": "Instant",
+        "description": "Malacrass shoots a bolt of shadow, inflicting 208451 Shadow damage to his primary target.",
+        "damage": [
+          {
+            "amount": 208451,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage Two: Usurper's Reprisal",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35613,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1288624,
+        "title": "Dreadful Presence",
+        "journalSpellName": "Dreadful Presence",
+        "tooltipName": "Dreadful Presence",
+        "icon": "ability_warlock_shadowfurytga",
+        "cast": "Instant",
+        "description": "Malacrass radiates a terrifying aura, inflicting 192517 Shadow damage every 2 sec to all players.",
+        "damage": [
+          {
+            "amount": 192517,
+            "school": "Shadow",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Stage Two: Usurper's Reprisal",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36715,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1304032,
+        "title": "Soulbinding",
+        "journalSpellName": "Soulbinding",
+        "tooltipName": "Soulbinding",
+        "icon": "spell_necro_deathall",
+        "cast": "Channeled (35 sec cast)",
+        "description": "Malacrass begins a ritual to bind his soul to Zul'jan, applying Ghastly Regeneration to him. Any healing Zul'jan receives is duplicated to Malacrass.\n\nFragments of Malacrass rupture from Zul'jan's body while the ritual holds, and attempt to return to their new host.",
+        "damage": [],
+        "parentTitle": "Intermission: The Claimed Vessel",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36658,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1304033,
+        "title": "Ghastly Regeneration",
+        "journalSpellName": "Ghastly Regeneration",
+        "tooltipName": "Ghastly Regeneration",
+        "icon": "spell_warlock_darkregeneration",
+        "cast": "Instant",
+        "description": "Necrotic energies overwhelm Zul'jan, healing 2% of his maximum health every 1 sec for 35 sec.\n\nThe volatile process takes a toll on his body, increasing his damage taken by 100%",
+        "damage": [],
+        "parentTitle": "Soulbinding",
+        "parentSpellId": 1304032,
+        "depth": 2,
+        "sectionId": 36659,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1287722,
+        "title": "Spirit Erasure",
+        "journalSpellName": "Spirit Erasure",
+        "tooltipName": "Spirit Erasure",
+        "icon": "spell_misc_zandalari_council_soulswap",
+        "cast": "Instant",
+        "description": "The fragment is violently erased from existence when stepped on, inflicting 166682 Shadow damage to all players. It writhes in agony, causing all players to take 20% increased damage from Spirit Erasure for 2 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 166682,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Fragment of Malacrass",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 36661,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1287718,
+        "title": "Reclaim Essence",
+        "journalSpellName": "Reclaim Essence",
+        "tooltipName": "Reclaim Essence",
+        "icon": "pvp_soulrip",
+        "cast": "Instant",
+        "description": "The fragment reaches Zul'jan, healing him for 10% of his maximum health.",
+        "damage": [],
+        "parentTitle": "Fragment of Malacrass",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 36662,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1304028,
+        "title": "Deathguard",
+        "journalSpellName": "Deathguard",
+        "tooltipName": "Deathguard",
+        "icon": "spell_bastion_priest_shadow",
+        "cast": "Instant",
+        "description": "Malacrass surrounds himself with baleful energies, absorbing any stunned Manifestations of Dread and reducing his damage taken by 99%.",
+        "damage": [],
+        "parentTitle": "Intermission: The Claimed Vessel",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36837,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1309987,
+        "title": "Soulbound",
+        "journalSpellName": "Soulbound",
+        "tooltipName": "Soulbound",
+        "icon": "spell_shadow_soulleech_1",
+        "cast": "Instant",
+        "description": "Malacrass links his soul with Zul'jan, causing the other to berserk if one is defeated, increasing their attack speed and damage done by 100%.",
+        "damage": [],
+        "parentTitle": "Stage Three: Coiled Union",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37191,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1313196,
+        "title": "Soulbound",
+        "journalSpellName": "Soulbound",
+        "tooltipName": "Soulbound",
+        "icon": "spell_shadow_soulleech_1",
+        "cast": "Instant",
+        "description": "100% of damage taken by Zul'jan or Malacrass is additionally dealt to the other.",
+        "damage": [],
+        "parentTitle": "Stage Three: Coiled Union",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37192,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1298381,
+        "title": "Defilement of the Coiled Altar",
+        "journalSpellName": "Defilement of the Coiled Altar",
+        "tooltipName": "Defilement of the Coiled Altar",
+        "icon": "ability_warlock_shadowflame",
+        "cast": "Channeled (8 sec cast)",
+        "description": "Zul'jan defiles The Coiled Altar, applying a barrier that absorbs the next (85259 * 8) healing to all players and gaining 3 applications of Corrupted Toxin every 1 sec for 8 sec.\n\nThe mouths of The Coiled Altar overflow, spewing Defiled Ground beneath them that quickly swell and slowly subside over time.",
+        "damage": [],
+        "parentTitle": "Zul'jan",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36148,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1298795,
+        "title": "Corrupted Toxin",
+        "journalSpellName": "Corrupted Toxin",
+        "tooltipName": "Corrupted Toxin",
+        "icon": "ability_warlock_soulswap",
+        "cast": "Instant",
+        "description": "Zul'jan's melee attacks consume applications of Corrupted Toxin, inflicting 41670 Shadow damage every 1 sec for 6 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 41670,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Defilement of the Coiled Altar",
+        "parentSpellId": 1298381,
+        "depth": 3,
+        "sectionId": 36152,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1298591,
+        "title": "Defiled Ground",
+        "journalSpellName": "Defiled Ground",
+        "tooltipName": "Defiled Ground",
+        "icon": "spell_shadow_shadesofdarkness",
+        "cast": "Instant",
+        "description": "The corrupted ground causes players standing within to absorb 85259 healing every 1 sec.",
+        "damage": [],
+        "parentTitle": "Defilement of the Coiled Altar",
+        "parentSpellId": 1298381,
+        "depth": 3,
+        "sectionId": 36149,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1299267,
+        "title": "Grim Guillotine",
+        "journalSpellName": "Grim Guillotine",
+        "tooltipName": "Grim Guillotine",
+        "icon": "inv_polearm_2h_mawnecromancerboss_d_01_darkblue",
+        "cast": "3.5 sec cast",
+        "description": "Zul'jan throws his axe at a player, inflicting 5417143 Shadow damage split evenly among players within 9 yards of the target2 min and causing them to absorb the next (85259 * 6) healing. The axe then swells with necrotic energies before erupting with a Death's Embrace.\n\nIf Grim Guillotine fails to hit at least 5 players, the axe instead inflicts a Grim Execution.",
+        "damage": [
+          {
+            "amount": 5417143,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Zul'jan",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37079,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1299301,
+        "title": "Grim Execution",
+        "journalSpellName": "Grim Execution",
+        "tooltipName": "Grim Execution",
+        "icon": "inv_polearm_2h_mawnecromancerboss_d_01_darkblue",
+        "cast": "Instant",
+        "description": "Inflicts 1666814 Shadow damage to all players.",
+        "damage": [
+          {
+            "amount": 1666814,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Grim Guillotine",
+        "parentSpellId": 1299267,
+        "depth": 3,
+        "sectionId": 37184,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1299396,
+        "title": "Death's Embrace",
+        "journalSpellName": "Death's Embrace",
+        "tooltipName": "Death's Embrace",
+        "icon": "achievement_boss_ladydeathwhisper",
+        "cast": "Instant",
+        "description": "The Axe erupts in a violent torrent of screaming souls, inflicting 1250110 Shadow damage to players within 40 yards.",
+        "damage": [
+          {
+            "amount": 1250110,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Grim Guillotine",
+        "parentSpellId": 1299267,
+        "depth": 3,
+        "sectionId": 37081,
+        "repeatedSections": 5
+      },
+      {
+        "spellId": 1299401,
+        "title": "Death's Whisper",
+        "journalSpellName": "Death's Whisper",
+        "tooltipName": "Death's Whisper",
+        "icon": "spell_necro_inevitableend",
+        "cast": "Instant",
+        "description": "The nearby explosion inflicts 208352 Shadow damage to players at least 40 yards away from the epicenter.",
+        "damage": [
+          {
+            "amount": 208352,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Grim Guillotine",
+        "parentSpellId": 1299267,
+        "depth": 3,
+        "sectionId": 37083,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1309940,
+        "title": "Guillotined",
+        "journalSpellName": "Guillotined",
+        "tooltipName": "Guillotined",
+        "icon": "inv_polearm_2h_mawnecromancerboss_d_01_darkblue",
+        "cast": "Instant",
+        "description": "Increases damage taken from Grim Guillotine by 500%.",
+        "damage": [],
+        "parentTitle": "Grim Guillotine",
+        "parentSpellId": 1299267,
+        "depth": 3,
+        "sectionId": 36768,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1307279,
+        "title": "Blighted Sever",
+        "journalSpellName": "Blighted Sever",
+        "tooltipName": "Blighted Sever",
+        "icon": "ability_creature_felsunder",
+        "cast": "Channeled (3.5 sec cast)",
+        "description": "Zul'jan unleashes a devastating cleave at his current target, inflicting 833407 Shadow damage to players in a frontal cone. Increases their damage taken from Blighted Sever by 600% for 45 sec and afflicts them with Gravebound.\n\n[Destroys Coalesced Venoms, Virulent Mutations, and Manifestations of Dread.][Destroys Coalesced Venoms and Manifestations of Dread.]",
+        "damage": [
+          {
+            "amount": 833407,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Zul'jan",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36280,
+        "repeatedSections": 0
+      }
+    ],
+    "journalInstance": {
+      "id": 1320,
+      "name": "The Venomous Abyss"
+    }
+  }
+}

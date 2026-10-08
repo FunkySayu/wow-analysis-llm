@@ -1,0 +1,296 @@
+{
+  "readMe": "Class and spec ids (Blizzard's, as used by WCL, Raidbots and KeystoneLoot) and the directory names they map to under data/classes/<class>/<spec>/. Cross-checked in-repo against the class_id/spec_id of every 12_1_talents.json (Balance 11/102, Feral 11/103, Fire 8/63, Frost 8/64) and the Arcane KeystoneLoot export (8/62); the rest are from memory of the game data and unverified here.",
+  "classes": [
+    {
+      "id": 1,
+      "dir": "warrior",
+      "name": "Warrior",
+      "specs": [
+        {
+          "id": 71,
+          "dir": "arms",
+          "name": "Arms"
+        },
+        {
+          "id": 72,
+          "dir": "fury",
+          "name": "Fury"
+        },
+        {
+          "id": 73,
+          "dir": "protection",
+          "name": "Protection"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "dir": "paladin",
+      "name": "Paladin",
+      "specs": [
+        {
+          "id": 65,
+          "dir": "holy",
+          "name": "Holy"
+        },
+        {
+          "id": 66,
+          "dir": "protection",
+          "name": "Protection"
+        },
+        {
+          "id": 70,
+          "dir": "retribution",
+          "name": "Retribution"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "dir": "hunter",
+      "name": "Hunter",
+      "specs": [
+        {
+          "id": 253,
+          "dir": "beast_mastery",
+          "name": "Beast Mastery"
+        },
+        {
+          "id": 254,
+          "dir": "marksmanship",
+          "name": "Marksmanship"
+        },
+        {
+          "id": 255,
+          "dir": "survival",
+          "name": "Survival"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "dir": "rogue",
+      "name": "Rogue",
+      "specs": [
+        {
+          "id": 259,
+          "dir": "assassination",
+          "name": "Assassination"
+        },
+        {
+          "id": 260,
+          "dir": "outlaw",
+          "name": "Outlaw"
+        },
+        {
+          "id": 261,
+          "dir": "subtlety",
+          "name": "Subtlety"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "dir": "priest",
+      "name": "Priest",
+      "specs": [
+        {
+          "id": 256,
+          "dir": "discipline",
+          "name": "Discipline"
+        },
+        {
+          "id": 257,
+          "dir": "holy",
+          "name": "Holy"
+        },
+        {
+          "id": 258,
+          "dir": "shadow",
+          "name": "Shadow"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "dir": "death_knight",
+      "name": "Death Knight",
+      "specs": [
+        {
+          "id": 250,
+          "dir": "blood",
+          "name": "Blood"
+        },
+        {
+          "id": 251,
+          "dir": "frost",
+          "name": "Frost"
+        },
+        {
+          "id": 252,
+          "dir": "unholy",
+          "name": "Unholy"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "dir": "shaman",
+      "name": "Shaman",
+      "specs": [
+        {
+          "id": 262,
+          "dir": "elemental",
+          "name": "Elemental"
+        },
+        {
+          "id": 263,
+          "dir": "enhancement",
+          "name": "Enhancement"
+        },
+        {
+          "id": 264,
+          "dir": "restoration",
+          "name": "Restoration"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "dir": "mage",
+      "name": "Mage",
+      "specs": [
+        {
+          "id": 62,
+          "dir": "arcane",
+          "name": "Arcane"
+        },
+        {
+          "id": 63,
+          "dir": "fire",
+          "name": "Fire"
+        },
+        {
+          "id": 64,
+          "dir": "frost",
+          "name": "Frost"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "dir": "warlock",
+      "name": "Warlock",
+      "specs": [
+        {
+          "id": 265,
+          "dir": "affliction",
+          "name": "Affliction"
+        },
+        {
+          "id": 266,
+          "dir": "demonology",
+          "name": "Demonology"
+        },
+        {
+          "id": 267,
+          "dir": "destruction",
+          "name": "Destruction"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "dir": "monk",
+      "name": "Monk",
+      "specs": [
+        {
+          "id": 268,
+          "dir": "brewmaster",
+          "name": "Brewmaster"
+        },
+        {
+          "id": 270,
+          "dir": "mistweaver",
+          "name": "Mistweaver"
+        },
+        {
+          "id": 269,
+          "dir": "windwalker",
+          "name": "Windwalker"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "dir": "druid",
+      "name": "Druid",
+      "specs": [
+        {
+          "id": 102,
+          "dir": "balance",
+          "name": "Balance"
+        },
+        {
+          "id": 103,
+          "dir": "feral",
+          "name": "Feral"
+        },
+        {
+          "id": 104,
+          "dir": "guardian",
+          "name": "Guardian"
+        },
+        {
+          "id": 105,
+          "dir": "restoration",
+          "name": "Restoration"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "dir": "demon_hunter",
+      "name": "Demon Hunter",
+      "specs": [
+        {
+          "id": 577,
+          "dir": "havoc",
+          "name": "Havoc"
+        },
+        {
+          "id": 581,
+          "dir": "vengeance",
+          "name": "Vengeance"
+        },
+        {
+          "id": 1480,
+          "dir": "devourer",
+          "name": "Devourer"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "dir": "evoker",
+      "name": "Evoker",
+      "specs": [
+        {
+          "id": 1467,
+          "dir": "devastation",
+          "name": "Devastation"
+        },
+        {
+          "id": 1468,
+          "dir": "preservation",
+          "name": "Preservation"
+        },
+        {
+          "id": 1473,
+          "dir": "augmentation",
+          "name": "Augmentation"
+        }
+      ]
+    }
+  ]
+}

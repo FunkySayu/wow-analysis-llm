@@ -1,0 +1,679 @@
+{
+  "classId": 11,
+  "specId": 102,
+  "zones": [
+    {
+      "bossName": null,
+      "encounterSlug": null,
+      "items": [
+        {
+          "itemId": 159137,
+          "slotId": 10
+        },
+        {
+          "itemId": 159288,
+          "slotId": 3
+        },
+        {
+          "itemId": 159300,
+          "slotId": 5
+        },
+        {
+          "itemId": 159301,
+          "slotId": 7
+        },
+        {
+          "itemId": 159304,
+          "slotId": 9
+        },
+        {
+          "itemId": 159312,
+          "slotId": 6
+        },
+        {
+          "itemId": 159313,
+          "slotId": 8
+        },
+        {
+          "itemId": 159459,
+          "slotId": 12
+        },
+        {
+          "itemId": 159667,
+          "slotId": 11
+        },
+        {
+          "itemId": 159921,
+          "slotId": 14
+        },
+        {
+          "itemId": 239048,
+          "slotId": 4
+        },
+        {
+          "itemId": 273649,
+          "slotId": 13
+        },
+        {
+          "itemId": 278245,
+          "slotId": 14
+        }
+      ],
+      "key": "dungeon:249",
+      "type": "dungeon",
+      "zoneName": "Kings' Rest"
+    },
+    {
+      "bossName": null,
+      "encounterSlug": null,
+      "items": [
+        {
+          "itemId": 158366,
+          "slotId": 12
+        },
+        {
+          "itemId": 158368,
+          "slotId": 13
+        },
+        {
+          "itemId": 158369,
+          "slotId": 10
+        },
+        {
+          "itemId": 159317,
+          "slotId": 7
+        },
+        {
+          "itemId": 159327,
+          "slotId": 9
+        },
+        {
+          "itemId": 159329,
+          "slotId": 8
+        },
+        {
+          "itemId": 159337,
+          "slotId": 6
+        },
+        {
+          "itemId": 159636,
+          "slotId": 10
+        },
+        {
+          "itemId": 162544,
+          "slotId": 12
+        },
+        {
+          "itemId": 239033,
+          "slotId": 0
+        },
+        {
+          "itemId": 278982,
+          "slotId": 14
+        }
+      ],
+      "key": "dungeon:250",
+      "type": "dungeon",
+      "zoneName": "Temple of Sethraliss"
+    },
+    {
+      "bossName": null,
+      "encounterSlug": null,
+      "items": [
+        {
+          "itemId": 193751,
+          "slotId": 0
+        },
+        {
+          "itemId": 193757,
+          "slotId": 13
+        },
+        {
+          "itemId": 193758,
+          "slotId": 6
+        },
+        {
+          "itemId": 193761,
+          "slotId": 10
+        },
+        {
+          "itemId": 193763,
+          "slotId": 3
+        },
+        {
+          "itemId": 193764,
+          "slotId": 4
+        },
+        {
+          "itemId": 193766,
+          "slotId": 11
+        },
+        {
+          "itemId": 256428,
+          "slotId": 14
+        }
+      ],
+      "key": "dungeon:399",
+      "type": "dungeon",
+      "zoneName": "Ruby Life Pools"
+    },
+    {
+      "bossName": null,
+      "encounterSlug": null,
+      "items": [
+        {
+          "itemId": 250214,
+          "slotId": 13
+        },
+        {
+          "itemId": 250259,
+          "slotId": 13
+        },
+        {
+          "itemId": 251183,
+          "slotId": 5
+        },
+        {
+          "itemId": 251189,
+          "slotId": 7
+        },
+        {
+          "itemId": 251190,
+          "slotId": 3
+        },
+        {
+          "itemId": 251191,
+          "slotId": 11
+        },
+        {
+          "itemId": 251194,
+          "slotId": 12
+        },
+        {
+          "itemId": 251198,
+          "slotId": 8
+        },
+        {
+          "itemId": 253451,
+          "slotId": 14
+        },
+        {
+          "itemId": 268728,
+          "slotId": 14
+        }
+      ],
+      "key": "dungeon:584",
+      "type": "dungeon",
+      "zoneName": "The Blinding Vale"
+    },
+    {
+      "bossName": null,
+      "encounterSlug": null,
+      "items": [
+        {
+          "itemId": 250224,
+          "slotId": 13
+        },
+        {
+          "itemId": 251223,
+          "slotId": 2
+        },
+        {
+          "itemId": 251225,
+          "slotId": 10
+        },
+        {
+          "itemId": 251226,
+          "slotId": 4
+        },
+        {
+          "itemId": 251234,
+          "slotId": 1
+        },
+        {
+          "itemId": 251235,
+          "slotId": 7
+        },
+        {
+          "itemId": 252258,
+          "slotId": 12
+        },
+        {
+          "itemId": 264336,
+          "slotId": 14
+        }
+      ],
+      "key": "dungeon:585",
+      "type": "dungeon",
+      "zoneName": "Voidscar Arena"
+    },
+    {
+      "bossName": null,
+      "encounterSlug": null,
+      "items": [
+        {
+          "itemId": 251146,
+          "slotId": 2
+        },
+        {
+          "itemId": 251148,
+          "slotId": 12
+        },
+        {
+          "itemId": 251153,
+          "slotId": 9
+        },
+        {
+          "itemId": 251156,
+          "slotId": 10
+        },
+        {
+          "itemId": 251159,
+          "slotId": 4
+        },
+        {
+          "itemId": 251173,
+          "slotId": 1
+        },
+        {
+          "itemId": 264332,
+          "slotId": 14
+        },
+        {
+          "itemId": 271681,
+          "slotId": 11
+        }
+      ],
+      "key": "dungeon:586",
+      "type": "dungeon",
+      "zoneName": "Den of Nalorakk"
+    },
+    {
+      "bossName": null,
+      "encounterSlug": null,
+      "items": [
+        {
+          "itemId": 250215,
+          "slotId": 13
+        },
+        {
+          "itemId": 251123,
+          "slotId": 10
+        },
+        {
+          "itemId": 251124,
+          "slotId": 6
+        },
+        {
+          "itemId": 251130,
+          "slotId": 8
+        },
+        {
+          "itemId": 251132,
+          "slotId": 3
+        },
+        {
+          "itemId": 251135,
+          "slotId": 5
+        },
+        {
+          "itemId": 251136,
+          "slotId": 12
+        },
+        {
+          "itemId": 251140,
+          "slotId": 0
+        },
+        {
+          "itemId": 251142,
+          "slotId": 1
+        },
+        {
+          "itemId": 258045,
+          "slotId": 10
+        },
+        {
+          "itemId": 263238,
+          "slotId": 14
+        }
+      ],
+      "key": "dungeon:587",
+      "type": "dungeon",
+      "zoneName": "Murder Row"
+    },
+    {
+      "bossName": null,
+      "encounterSlug": null,
+      "items": [
+        {
+          "itemId": 273774,
+          "slotId": 2
+        },
+        {
+          "itemId": 273778,
+          "slotId": 10
+        },
+        {
+          "itemId": 273779,
+          "slotId": 11
+        },
+        {
+          "itemId": 273781,
+          "slotId": 1
+        },
+        {
+          "itemId": 273791,
+          "slotId": 0
+        },
+        {
+          "itemId": 273792,
+          "slotId": 12
+        },
+        {
+          "itemId": 273794,
+          "slotId": 13
+        },
+        {
+          "itemId": 273796,
+          "slotId": 13
+        },
+        {
+          "itemId": 276804,
+          "slotId": 14
+        },
+        {
+          "itemId": 279211,
+          "slotId": 14
+        }
+      ],
+      "key": "dungeon:588",
+      "type": "dungeon",
+      "zoneName": "Altar of Fangs"
+    },
+    {
+      "bossName": "Nymrissa Wavecaller",
+      "encounterSlug": "nymrissa",
+      "items": [
+        {
+          "itemId": 268247,
+          "slotId": 9
+        },
+        {
+          "itemId": 268263,
+          "slotId": 11
+        },
+        {
+          "itemId": 268266,
+          "slotId": 12
+        },
+        {
+          "itemId": 270167,
+          "slotId": 13
+        },
+        {
+          "itemId": 279112,
+          "slotId": 14
+        }
+      ],
+      "key": "raid:2849",
+      "type": "raid",
+      "zoneName": "Tidebound Grotto"
+    },
+    {
+      "bossName": "Nek'zali the Soulcoiler",
+      "encounterSlug": "nekzali",
+      "items": [
+        {
+          "itemId": 268203,
+          "slotId": 10
+        },
+        {
+          "itemId": 268235,
+          "slotId": 4
+        },
+        {
+          "itemId": 268240,
+          "slotId": 5
+        },
+        {
+          "itemId": 268248,
+          "slotId": 3
+        },
+        {
+          "itemId": 279115,
+          "slotId": 14
+        },
+        {
+          "itemId": 280305,
+          "slotId": 14
+        },
+        {
+          "itemId": 281227,
+          "slotId": 0
+        }
+      ],
+      "key": "raid:2888",
+      "type": "raid",
+      "zoneName": "The Venomous Abyss"
+    },
+    {
+      "bossName": "Entombed Sentinels",
+      "encounterSlug": "sentinels",
+      "items": [
+        {
+          "itemId": 264716,
+          "slotId": 14
+        },
+        {
+          "itemId": 268197,
+          "slotId": 11
+        },
+        {
+          "itemId": 268219,
+          "slotId": 0
+        },
+        {
+          "itemId": 268250,
+          "slotId": 1
+        },
+        {
+          "itemId": 270911,
+          "slotId": 6
+        }
+      ],
+      "key": "raid:2874",
+      "type": "raid",
+      "zoneName": "The Venomous Abyss"
+    },
+    {
+      "bossName": "The Lost Explorers",
+      "encounterSlug": "explorers",
+      "items": [
+        {
+          "itemId": 268210,
+          "slotId": 10
+        },
+        {
+          "itemId": 268227,
+          "slotId": 7
+        },
+        {
+          "itemId": 270164,
+          "slotId": 13
+        },
+        {
+          "itemId": 270923,
+          "slotId": 2
+        },
+        {
+          "itemId": 279118,
+          "slotId": 14
+        }
+      ],
+      "key": "raid:2894",
+      "type": "raid",
+      "zoneName": "The Venomous Abyss"
+    },
+    {
+      "bossName": "Vashnik the Malignant",
+      "encounterSlug": "vashnik",
+      "items": [
+        {
+          "itemId": 268205,
+          "slotId": 10
+        },
+        {
+          "itemId": 268246,
+          "slotId": 2
+        },
+        {
+          "itemId": 268249,
+          "slotId": 12
+        },
+        {
+          "itemId": 270161,
+          "slotId": 13
+        },
+        {
+          "itemId": 270927,
+          "slotId": 4
+        },
+        {
+          "itemId": 272361,
+          "slotId": 14
+        }
+      ],
+      "key": "raid:2882",
+      "type": "raid",
+      "zoneName": "The Venomous Abyss"
+    },
+    {
+      "bossName": "Sszorak",
+      "encounterSlug": "sszorak",
+      "items": [
+        {
+          "itemId": 244343,
+          "slotId": 14
+        },
+        {
+          "itemId": 268234,
+          "slotId": 6
+        },
+        {
+          "itemId": 268252,
+          "slotId": 12
+        },
+        {
+          "itemId": 270919,
+          "slotId": 8
+        }
+      ],
+      "key": "raid:2871",
+      "type": "raid",
+      "zoneName": "The Venomous Abyss"
+    },
+    {
+      "bossName": "The Twin Fangs",
+      "encounterSlug": "twinfangs",
+      "items": [
+        {
+          "itemId": 268251,
+          "slotId": 1
+        },
+        {
+          "itemId": 268261,
+          "slotId": 9
+        },
+        {
+          "itemId": 270170,
+          "slotId": 13
+        },
+        {
+          "itemId": 270915,
+          "slotId": 0
+        },
+        {
+          "itemId": 279122,
+          "slotId": 14
+        }
+      ],
+      "key": "raid:2887",
+      "type": "raid",
+      "zoneName": "The Venomous Abyss"
+    },
+    {
+      "bossName": "The Coiled Altar",
+      "encounterSlug": "coiledaltar",
+      "items": [
+        {
+          "itemId": 268225,
+          "slotId": 8
+        },
+        {
+          "itemId": 268253,
+          "slotId": 3
+        },
+        {
+          "itemId": 268256,
+          "slotId": 7
+        },
+        {
+          "itemId": 270169,
+          "slotId": 13
+        },
+        {
+          "itemId": 275937,
+          "slotId": 0
+        },
+        {
+          "itemId": 279131,
+          "slotId": 14
+        },
+        {
+          "itemId": 275938,
+          "slotId": 0
+        }
+      ],
+      "key": "raid:2883",
+      "type": "raid",
+      "zoneName": "The Venomous Abyss"
+    },
+    {
+      "bossName": "Ula'tek",
+      "encounterSlug": "ulatek",
+      "items": [
+        {
+          "itemId": 268265,
+          "slotId": 1
+        },
+        {
+          "itemId": 270168,
+          "slotId": 13
+        },
+        {
+          "itemId": 270909,
+          "slotId": 14
+        },
+        {
+          "itemId": 271092,
+          "slotId": 10
+        },
+        {
+          "itemId": 271875,
+          "slotId": 0
+        },
+        {
+          "itemId": 279500,
+          "slotId": 14
+        },
+        {
+          "itemId": 275658,
+          "slotId": 14
+        }
+      ],
+      "key": "raid:2895",
+      "type": "raid",
+      "zoneName": "The Venomous Abyss"
+    }
+  ]
+}

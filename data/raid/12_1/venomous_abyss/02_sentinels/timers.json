@@ -1,0 +1,621 @@
+{
+  "meta": {
+    "source": "NorthernSkyRaidTools",
+    "addon_version": "12.1.10",
+    "extracted_at": "2026-08-25T08:30:32Z",
+    "zone": "venomous-abyss",
+    "notes": [
+      "BigWigs cross-check (2026-08-25) against the locally installed BigWigs_TheVenomousAbyss addon, not a source download -- BigWigs has no absolute timers to diff directly, only duration-keyed gap constants, so cadence (interval between hits) is what's comparable.",
+      "AGREE: Vashnik 'TankHits' (Dripping Fangs, spell 1280935), Heroic. NSRT's absolute timers (10.1, 39.1, 66.1, 94.1, ...) have successive gaps of 27-29s throughout. Vashnik.lua's gapTimer table hardcodes a flat 29s gap for this spell after both the pull-duration(~8s) and repeat-duration(~28s) timeline events. The dominant cadence matches; the 1-2s jitter is expected (BigWigs keys off whole-second-rounded live event durations, NSRT's dataset carries decimal precision from real logs).",
+      "DISAGREE: Nek'zali 'HungeringPyre' (spell 1289855 in NSRT; BigWigs keys the same ability's gap under spell 1305421 -- a cast-vs-effect spellId split that recurs across this addon pair and isn't itself a disagreement). NSRT's phaseTimers give the SAME value (35s into phase 1.5) for BOTH difficulty 15 (Heroic) and difficulty 16 (Mythic). Nekzali.lua's gapTimer table distinguishes them explicitly: timersMythic[1305421][1.5] = {[11] = 35} but timersOther[1305421][1.5] = {[11] = 30} -- BigWigs believes Heroic's gap is 30, not 35. Left as-is per this task's rule (no winner picked silently); a consumer snapping the timeline editor to NSRT's Heroic value for this ability should know it may run ~5s ahead of BigWigs' own model."
+    ],
+    "encounter": "sentinels"
+  },
+  "encounter": {
+    "dungeon_encounter_id": 3445,
+    "slug": "sentinels",
+    "abilities": [
+      {
+        "internal_id": "PoisonHits",
+        "group": "Sentinels",
+        "name": "Poison Tank-Hit",
+        "short_text": "Tank-Hit",
+        "spell_id": 1284458,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              6.4,
+              28.3
+            ],
+            "2": [
+              6.4,
+              28.3,
+              51.4,
+              73.3
+            ],
+            "3": [
+              6.4,
+              28.3,
+              51.4,
+              73.3
+            ],
+            "4": [
+              6.4,
+              28.3,
+              51.4,
+              73.3
+            ],
+            "5": [
+              6.4,
+              28.3,
+              51.4,
+              73.3
+            ]
+          },
+          "16": {
+            "1": [
+              6.4,
+              28.3
+            ],
+            "2": [
+              6.4,
+              28.3,
+              51.4,
+              73.3
+            ],
+            "3": [
+              6.4,
+              28.3,
+              51.4,
+              73.3
+            ],
+            "4": [
+              6.4,
+              28.3,
+              51.4,
+              73.3
+            ],
+            "5": [
+              6.4,
+              28.3,
+              51.4,
+              73.3
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "BloodHits",
+        "group": "Sentinels",
+        "name": "Blood Tank-Hit",
+        "short_text": "Tank-Hit",
+        "spell_id": 1284487,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              7.6,
+              29.5
+            ],
+            "2": [
+              7.6,
+              29.5,
+              51.4,
+              73.3
+            ],
+            "3": [
+              7.6,
+              29.5,
+              51.4,
+              73.3
+            ],
+            "4": [
+              7.6,
+              29.5,
+              51.4,
+              73.3
+            ],
+            "5": [
+              7.6,
+              29.5,
+              51.4,
+              73.3
+            ]
+          },
+          "16": {
+            "1": [
+              7.6,
+              29.5
+            ],
+            "2": [
+              7.6,
+              29.5,
+              51.4,
+              73.3
+            ],
+            "3": [
+              7.6,
+              29.5,
+              51.4,
+              73.3
+            ],
+            "4": [
+              7.6,
+              29.5,
+              51.4,
+              73.3
+            ],
+            "5": [
+              7.6,
+              29.5,
+              51.4,
+              73.3
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "BloodDropPool",
+        "group": "Sentinels",
+        "name": "Tank Drop Pool",
+        "short_text": "Drop-Pool",
+        "spell_id": 1284487,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              8.5,
+              30.4
+            ],
+            "2": [
+              8.5,
+              30.4,
+              52.3,
+              74.2
+            ],
+            "3": [
+              8.5,
+              30.4,
+              52.3,
+              74.2
+            ],
+            "4": [
+              8.5,
+              30.4,
+              52.3,
+              74.2
+            ],
+            "5": [
+              8.5,
+              30.4,
+              52.3,
+              74.2
+            ]
+          },
+          "16": {
+            "1": [
+              8.5,
+              30.4
+            ],
+            "2": [
+              8.5,
+              30.4,
+              52.3,
+              74.2
+            ],
+            "3": [
+              8.5,
+              30.4,
+              52.3,
+              74.2
+            ],
+            "4": [
+              8.5,
+              30.4,
+              52.3,
+              74.2
+            ],
+            "5": [
+              8.5,
+              30.4,
+              52.3,
+              74.2
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "BloodSoak",
+        "group": "Sentinels",
+        "name": "Blood Soak",
+        "short_text": "Blood-Soak",
+        "spell_id": 1288232,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 8,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              26.6
+            ],
+            "2": [
+              26.6,
+              68.8
+            ],
+            "3": [
+              26.6,
+              68.8
+            ],
+            "4": [
+              26.6,
+              68.8
+            ],
+            "5": [
+              26.6,
+              68.8
+            ]
+          },
+          "16": {
+            "1": [
+              26.6
+            ],
+            "2": [
+              26.6,
+              68.8
+            ],
+            "3": [
+              26.6,
+              68.8
+            ],
+            "4": [
+              26.6,
+              68.8
+            ],
+            "5": [
+              26.6,
+              68.8
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "BloodSoakPool",
+        "group": "Sentinels",
+        "name": "Soak-Pool",
+        "short_text": "Drop Pool",
+        "spell_id": 1288232,
+        "phase": 1,
+        "display_type": "Circle",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              32.6
+            ],
+            "2": [
+              32.6,
+              74.8
+            ],
+            "3": [
+              32.6,
+              74.8
+            ],
+            "4": [
+              32.6,
+              74.8
+            ],
+            "5": [
+              32.6,
+              74.8
+            ]
+          },
+          "16": {
+            "1": [
+              32.6
+            ],
+            "2": [
+              32.6,
+              74.8
+            ],
+            "3": [
+              32.6,
+              74.8
+            ],
+            "4": [
+              32.6,
+              74.8
+            ],
+            "5": [
+              32.6,
+              74.8
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "BloodDispels",
+        "group": "Sentinels",
+        "name": "Blood Dispels",
+        "short_text": "Dispels",
+        "spell_id": 1284471,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              45
+            ],
+            "2": [
+              45
+            ],
+            "3": [
+              45
+            ],
+            "4": [
+              45
+            ],
+            "5": [
+              45
+            ]
+          },
+          "16": {
+            "1": [
+              45
+            ],
+            "2": [
+              45
+            ],
+            "3": [
+              45
+            ],
+            "4": [
+              45
+            ],
+            "5": [
+              45
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "PoisonAdd",
+        "group": "Sentinels",
+        "name": "Poison Add",
+        "short_text": "Poison Add",
+        "spell_id": 1284251,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              15.7
+            ],
+            "2": [
+              15.7,
+              68
+            ],
+            "3": [
+              15.7,
+              68
+            ],
+            "4": [
+              15.7,
+              68
+            ],
+            "5": [
+              15.7,
+              68
+            ]
+          },
+          "16": {
+            "1": [
+              13.7
+            ],
+            "2": [
+              13.7,
+              67
+            ],
+            "3": [
+              13.7,
+              67
+            ],
+            "4": [
+              13.7,
+              67
+            ],
+            "5": [
+              13.7,
+              67
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "OrbSpawn",
+        "group": "Sentinels",
+        "name": "Orb Spawn",
+        "short_text": "Bait Orbs",
+        "spell_id": 1284434,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": "Bait",
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              17.2
+            ],
+            "2": [
+              17.2,
+              50
+            ],
+            "3": [
+              17.2,
+              50
+            ],
+            "4": [
+              17.2,
+              50
+            ],
+            "5": [
+              17.2,
+              50
+            ]
+          },
+          "16": {
+            "1": [
+              17.2
+            ],
+            "2": [
+              17.2,
+              47,
+              79.4
+            ],
+            "3": [
+              17.2,
+              47,
+              79.4
+            ],
+            "4": [
+              17.2,
+              47,
+              79.4
+            ],
+            "5": [
+              17.2,
+              47,
+              79.4
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "ShiftingProtovenom",
+        "group": "Sentinels",
+        "name": "Shifting Protovenom",
+        "short_text": "Spread",
+        "spell_id": 1296878,
+        "phase": 1,
+        "display_type": "Circle",
+        "duration": 6,
+        "tts": "Spread",
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "16": {
+            "1": [
+              37.2
+            ],
+            "2": [
+              42,
+              82
+            ],
+            "3": [
+              42,
+              82
+            ],
+            "4": [
+              42,
+              82
+            ],
+            "5": [
+              42,
+              82
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "TransitionDebuffs",
+        "group": "Sentinels",
+        "name": "Transition Debuffs",
+        "short_text": "Number Game",
+        "spell_id": 1284590,
+        "phase": 1,
+        "display_type": "Circle",
+        "duration": 8,
+        "tts": "Spread",
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              46.2
+            ],
+            "2": [
+              91
+            ],
+            "3": [
+              91
+            ],
+            "4": [
+              91
+            ],
+            "5": [
+              91
+            ]
+          },
+          "16": {
+            "1": [
+              46.2
+            ],
+            "2": [
+              91
+            ],
+            "3": [
+              91
+            ],
+            "4": [
+              91
+            ],
+            "5": [
+              91
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      }
+    ]
+  }
+}

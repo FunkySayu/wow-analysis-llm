@@ -1,0 +1,818 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "source": "Blizzard Game Data journal-encounter + Wowhead tooltip API",
+    "buildNamespace": "static-12.1.0_68914-eu",
+    "generatedAt": "2026-09-09T18:19:40+00:00",
+    "generator": "tools/game_knowledge/journal_sync.py",
+    "readMe": "Ability text and damage magnitudes come from Wowhead's tooltip endpoint, which is the only source carrying tuned numbers for this tier -- Blizzard's /data/wow/spell/<id> returns 404 for these ids and the in-game journal text ships 'X' placeholders. A magnitude here is ONE difficulty's value and the endpoint does not say which; cross-check against measured damage taken in profiles/<spec>-<difficulty>.json before quoting it as a Mythic number.",
+    "encounter": "explorers"
+  },
+  "encounter": {
+    "slug": "explorers",
+    "journalEncounterId": 2894,
+    "name": "The Lost Explorers",
+    "description": "A band of tortollans, possessed by spirits, have come to their senses near the sarcophagus of an ancient Soulcoiler. Trapped in the vault, they seek ancient artifacts to protect themselves from further possession by vengeful spirits.",
+    "creatures": [
+      {
+        "id": 6196,
+        "name": "Mor'zahi"
+      },
+      {
+        "id": 6195,
+        "name": "Scrollsage Iku"
+      },
+      {
+        "id": 6193,
+        "name": "First Mate Nama"
+      },
+      {
+        "id": 6194,
+        "name": "Trader Gebbo"
+      }
+    ],
+    "modes": [
+      "LFR",
+      "NORMAL",
+      "HEROIC",
+      "MYTHIC"
+    ],
+    "notes": [
+      {
+        "title": "Overview",
+        "bodyText": "Mor'zahi uses [Dark Whispers] to gain control over a group of tortollan explorers he has lured into the temple. If his control over them is broken, Mor'zahi casts [Mor'zahi's Command], expending all of his energy to reassert control and grant the target additional abilities.\r\n\r\nMor'zahi inflicts deadly damage if he is allowed to finish casting [Final Ascension].\r\n\r\nMor'zahi's concentration can be broken if a tortollan he is controlling consumes a Disgusting Fish.",
+        "bullets": [
+          "Mor'zahi uses [Dark Whispers] to gain control over a group of tortollan explorers he has lured into the temple. If his control over them is broken, Mor'zahi casts [Mor'zahi's Command], expending all of his energy to reassert control and grant the target additional abilities.\r\n\r\nMor'zahi inflicts deadly damage if he is allowed to finish casting [Final Ascension].\r\n\r\nMor'zahi's concentration can be broken if a tortollan he is controlling consumes a Disgusting Fish."
+        ]
+      },
+      {
+        "title": "Damage Dealers",
+        "bodyText": "$bullet; Frost and Fire patches left behind by [Frostfire Volley] can be removed by the opposing elemental efects of [Burning Flames] and [Piercing Frost].\r\n$bullet; [Mighty Thud] inflicts very high damage to all players. Each impact inflicts damage split evenly between players directly hit.\r\n$bullet; Trader Gebbo's [Explosive Surprise] triggers [Blas Wavet], which can be avoided using the mushrooms from [Mushroom Toss].",
+        "bullets": [
+          "Frost and Fire patches left behind by [Frostfire Volley] can be removed by the opposing elemental efects of [Burning Flames] and [Piercing Frost].",
+          "[Mighty Thud] inflicts very high damage to all players. Each impact inflicts damage split evenly between players directly hit.",
+          "Trader Gebbo's [Explosive Surprise] triggers [Blas Wavet], which can be avoided using the mushrooms from [Mushroom Toss]."
+        ]
+      },
+      {
+        "title": "Healers",
+        "bodyText": "$bullet; [Blink Nova] inflicts high damage to all players. Players farther from Scrollsage Iku's target receive less damage.\r\n$bullet; [Icebound Flames] inflicts high damage to a player if Scrollsage Iku is not interrupted, but the lingering effects can be dispelled.\r\n$bullet; [Splinters] inflicts damage over time to any players who stomp on crates thrown by Trader Gebbo.",
+        "bullets": [
+          "[Blink Nova] inflicts high damage to all players. Players farther from Scrollsage Iku's target receive less damage.",
+          "[Icebound Flames] inflicts high damage to a player if Scrollsage Iku is not interrupted, but the lingering effects can be dispelled.",
+          "[Splinters] inflicts damage over time to any players who stomp on crates thrown by Trader Gebbo."
+        ]
+      },
+      {
+        "title": "Tanks",
+        "bodyText": "$bullet; [Shredding Shards] from Scrollsage Iku inflicts high magic damage and vulnerability to this effect to the current target.\r\n$bullet; First Mate Nama's attacks against his current target gain increasing Physical damage from [Steady Strikes].\r\n$bullet; First Mate Nama grants [United Defense] to the tortollan explorers when Scrollsage Iku and Trader Gebbo are both near him.",
+        "bullets": [
+          "[Shredding Shards] from Scrollsage Iku inflicts high magic damage and vulnerability to this effect to the current target.",
+          "First Mate Nama's attacks against his current target gain increasing Physical damage from [Steady Strikes].",
+          "First Mate Nama grants [United Defense] to the tortollan explorers when Scrollsage Iku and Trader Gebbo are both near him."
+        ]
+      },
+      {
+        "title": "Disgusting Fish",
+        "bodyText": "A fish found within one of Trader Gebbo's boxes. Tossing it to a possessed tortollan interrupts Mor'zahi and causes him to repossess them with Mor'zahi's Command.",
+        "bullets": [
+          "A fish found within one of Trader Gebbo's boxes. Tossing it to a possessed tortollan interrupts Mor'zahi and causes him to repossess them with Mor'zahi's Command."
+        ]
+      },
+      {
+        "title": "Bouncy Mushroom",
+        "bodyText": "Jumping on a Bouncy Mushroom will bounce a player high into the air but will perturb the mushroom, triggering Fungal Burst soon after.",
+        "bullets": [
+          "Jumping on a Bouncy Mushroom will bounce a player high into the air but will perturb the mushroom, triggering Fungal Burst soon after."
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "spellId": 1295451,
+        "title": "Dark Whispers",
+        "journalSpellName": "Dark Whispers",
+        "tooltipName": "Dark Whispers",
+        "icon": "inv_hextrollpet_red",
+        "cast": "7 sec cast",
+        "description": "Mor'zahi's dark whispers compel the target to follow his commands.",
+        "damage": [],
+        "parentTitle": "Mor'zahi",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36083,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1297022,
+        "title": "Mor'zahi's Command",
+        "journalSpellName": "Mor'zahi's Command",
+        "tooltipName": "Mor'zahi's Command",
+        "icon": "inv_anguish_missile",
+        "cast": "Channeled (1 min cast)",
+        "description": "Mor'zahi violently retakes control of his target, granting them additional abilities.",
+        "damage": [],
+        "parentTitle": "Dark Whispers",
+        "parentSpellId": 1295451,
+        "depth": 2,
+        "sectionId": 36084,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1292388,
+        "title": "Evil Eyes",
+        "journalSpellName": "Evil Eyes",
+        "tooltipName": "Evil Eyes",
+        "icon": "spell_shadow_auraofdarkness",
+        "cast": "Instant",
+        "description": "The statues within the chamber project spirit flames at players, inflicting 416703 Shadow damage to players within 3 yds of the impact locations.",
+        "damage": [
+          {
+            "amount": 416703,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Mor'zahi",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36085,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295449,
+        "title": "Malevolent Presence",
+        "journalSpellName": "Malevolent Presence",
+        "tooltipName": "Malevolent Presence",
+        "icon": "ability_revendreth_priest",
+        "cast": "Instant",
+        "description": "Mor'zahi glows with ancient power, inflicting 83341 Shadow damage every 2 sec to all players.",
+        "damage": [
+          {
+            "amount": 83341,
+            "school": "Shadow",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Mor'zahi",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36080,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1313303,
+        "title": "Fishy Feedback",
+        "journalSpellName": "Fishy Feedback",
+        "tooltipName": "Fishy Feedback",
+        "icon": "inv_misc_volatilelife",
+        "cast": "Instant",
+        "description": "Mor'zahi Inflicts 666725 Shadow damage and 83341 Shadow damage every 2 sec for 12 sec to all players as his concentration is broken.",
+        "damage": [
+          {
+            "amount": 666725,
+            "school": "Shadow",
+            "everySeconds": 2.0
+          },
+          {
+            "amount": 83341,
+            "school": "Shadow",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Mor'zahi",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37197,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1313126,
+        "title": "Dark Unity",
+        "journalSpellName": "Dark Unity",
+        "tooltipName": "Dark Unity",
+        "icon": "inv_121_trinket_raid_ulatek_golemhearts_red",
+        "cast": "Instant",
+        "description": "Tortollans under Mor'zahi's control share health.",
+        "damage": [],
+        "parentTitle": "Mor'zahi",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 37193,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1292780,
+        "title": "Final Ascension",
+        "journalSpellName": "Final Ascension",
+        "tooltipName": "Final Ascension",
+        "icon": "spell_animarevendreth_nova",
+        "cast": "Instant",
+        "description": "Mor'zahi gathers power slowly for his final ascension. Upon channeling, he inflicts 208352 Shadow damage every 1 sec to all players.",
+        "damage": [
+          {
+            "amount": 208352,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Mor'zahi",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36082,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1291933,
+        "title": "Throw Junk",
+        "journalSpellName": "Throw Junk",
+        "tooltipName": "Throw Junk",
+        "icon": "inv_crate_01",
+        "cast": "3 sec cast",
+        "description": "While under the effects of Mor'zahi's Command, Trader Gebbo throws crates from his inventory which inflict 1000088 Physical damage to players within 3 yds of their impact locations. Stepping on a crate breaks it, inflicting Splinters.",
+        "damage": [
+          {
+            "amount": 1000088,
+            "school": "Physical",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Trader Gebbo",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36074,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1308853,
+        "title": "Splinters",
+        "journalSpellName": "Splinters",
+        "tooltipName": "Splinters",
+        "icon": "inv_artifact_bloodoftheassassinated",
+        "cast": "Instant",
+        "description": "Stomping on crates of junk causes the player to bleed for 50004 Physical damage every 1 sec for 8 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 50004,
+            "school": "Physical",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Throw Junk",
+        "parentSpellId": 1291933,
+        "depth": 2,
+        "sectionId": 36917,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1312868,
+        "title": "Splinters",
+        "journalSpellName": "Splinters",
+        "tooltipName": "Splinters",
+        "icon": "inv_artifact_bloodoftheassassinated",
+        "cast": "Instant",
+        "description": "Stomping on crates of junk inflicts 208352 Physical bleeding damage to all players and causes them to bleed for 25002  damage every 1 sec for 6 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 25002,
+            "school": null,
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Throw Junk",
+        "parentSpellId": 1291933,
+        "depth": 2,
+        "sectionId": 37144,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1310027,
+        "title": "Relic Rupture",
+        "journalSpellName": "Relic Rupture",
+        "tooltipName": "Relic Rupture",
+        "icon": "spell_necro_chillofdeath",
+        "cast": "Instant",
+        "description": "The relic within the crate ruptures with necrotic energy if left untouched after 25 sec, inflicting 2500220 Shadow damage to all players.",
+        "damage": [
+          {
+            "amount": 2500220,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Throw Junk",
+        "parentSpellId": 1291933,
+        "depth": 2,
+        "sectionId": 36984,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1292104,
+        "title": "Mushroom Toss",
+        "journalSpellName": "Mushroom Toss",
+        "tooltipName": "Mushroom Toss",
+        "icon": "inv_mushroom_12",
+        "cast": "7 sec cast",
+        "description": "Trader Gebbo tosses Bouncy Mushrooms at players' locations. Bouncy Mushrooms bounce players high into the air when touched.",
+        "damage": [],
+        "parentTitle": "Trader Gebbo",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36075,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1299855,
+        "title": "Bounce",
+        "journalSpellName": "Bounce",
+        "tooltipName": "Bounce",
+        "icon": "inv_mushroom_06",
+        "cast": "Instant",
+        "description": "A Bouncy Mushroom bounces a player high into the air.",
+        "damage": [],
+        "parentTitle": "Mushroom Toss",
+        "parentSpellId": 1292104,
+        "depth": 2,
+        "sectionId": 37154,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1305618,
+        "title": "Fungal Burst",
+        "journalSpellName": "Fungal Burst",
+        "tooltipName": "Fungal Burst",
+        "icon": "inv_nature_groundstate",
+        "cast": "5 sec cast",
+        "description": "A perturbed mushroom bursts after a short delay, inflicting 416703 Nature damage to players within 5 yds.",
+        "damage": [
+          {
+            "amount": 416703,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Mushroom Toss",
+        "parentSpellId": 1292104,
+        "depth": 2,
+        "sectionId": 36076,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1297625,
+        "title": "Explosive Surprise",
+        "journalSpellName": "Explosive Surprise",
+        "tooltipName": "Explosive Surprise",
+        "icon": "inv_misc_bomb_01",
+        "cast": "Instant",
+        "description": "Trader Gebbo tosses a bomb to the location of a player which inflicts 833407 Physical damage to players within 10 yds on impact.",
+        "damage": [
+          {
+            "amount": 833407,
+            "school": "Physical",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Trader Gebbo",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36077,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1296247,
+        "title": "Concussive Blast",
+        "journalSpellName": "Concussive Blast",
+        "tooltipName": "Concussive Blast",
+        "icon": "inv_wildfirebomb",
+        "cast": "Instant",
+        "description": "The Concussion Bomb explodes, inflicting 416703 Fire damage and knocking back players within 10 yds. Players affected suffer 83341 Fire damage every 1 sec for 12 sec.",
+        "damage": [
+          {
+            "amount": 416703,
+            "school": "Fire",
+            "everySeconds": null
+          },
+          {
+            "amount": 83341,
+            "school": "Fire",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Explosive Surprise",
+        "parentSpellId": 1297625,
+        "depth": 2,
+        "sectionId": 36078,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1305844,
+        "title": "Blast Wave",
+        "journalSpellName": "Blast Wave",
+        "tooltipName": "Blast Wave",
+        "icon": "ability_rhyolith_magmaflow_wave",
+        "cast": "Instant",
+        "description": "A shockwave from an Explosive Bomb inflicts 7500660 Fire damage and 166681 Fire damage every 1 sec for 10 sec to players it contacts.",
+        "damage": [
+          {
+            "amount": 7500660,
+            "school": "Fire",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 166681,
+            "school": "Fire",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Explosive Surprise",
+        "parentSpellId": 1297625,
+        "depth": 2,
+        "sectionId": 36594,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1297650,
+        "title": "Spreading Flames",
+        "journalSpellName": "Spreading Flames",
+        "tooltipName": "Spreading Flames",
+        "icon": "spell_burningbladeshaman_blazing_radiance",
+        "cast": "Instant",
+        "description": "Fire spreads across a large area and inflicts 208352 Fire damage every 1 sec to players within it.",
+        "damage": [
+          {
+            "amount": 208352,
+            "school": "Fire",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Explosive Surprise",
+        "parentSpellId": 1297625,
+        "depth": 2,
+        "sectionId": 36079,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1296252,
+        "title": "Smashing Shovel",
+        "journalSpellName": "Smashing Shovel",
+        "tooltipName": "Smashing Shovel",
+        "icon": "inv_misc_2h_kobold_shovel_a_01",
+        "cast": "Instant",
+        "description": "When one of his allies is defeated, Trader Gebbo wields a shovel which inflicts an additional 416703 Physical damage and knocks players back with each strike.",
+        "damage": [
+          {
+            "amount": 416703,
+            "school": "Physical",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Trader Gebbo",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36089,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295893,
+        "title": "Frostfire Volley",
+        "journalSpellName": "Frostfire Volley",
+        "tooltipName": "Frostfire Volley",
+        "icon": "spell_fire_firebolt02",
+        "cast": "Instant",
+        "description": "While under the effects of Mor'zahi's Command, Scrollsage Iku unleashes a volley of elemental missiles at several targets, inflicting 125011 Fire or Frost damage to players within 10 yds of the targets and afflicting them with Burning Flames or Piercing Frost.\n\nEach missile leaves behind a patch of elemental ground at its impact location.\n\nThese impacts trigger Elemental Explosion if they strike any player afflicted by Burning Flames or Piercing Frost.",
+        "damage": [],
+        "parentTitle": "Scrollsage Iku",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36064,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295952,
+        "title": "Elemental Explosion",
+        "journalSpellName": "Elemental Explosion",
+        "tooltipName": "Elemental Explosion",
+        "icon": "spell_frostresistancetotem_01",
+        "cast": "Instant",
+        "description": "The volatile elemental interaction inflicts 1166769 Frostfire damage to all players.",
+        "damage": [
+          {
+            "amount": 1166769,
+            "school": "Frostfire",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Frostfire Volley",
+        "parentSpellId": 1295893,
+        "depth": 2,
+        "sectionId": 37148,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295928,
+        "title": "Burning Flames",
+        "journalSpellName": "Burning Flames",
+        "tooltipName": "Burning Flames",
+        "icon": "spell_burningsoul",
+        "cast": "Instant",
+        "description": "Inflicts 166681 Fire damage every 1 sec for 1 min or until cancelled by a Frost effect.",
+        "damage": [
+          {
+            "amount": 166681,
+            "school": "Fire",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Frostfire Volley",
+        "parentSpellId": 1295893,
+        "depth": 2,
+        "sectionId": 36062,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1297649,
+        "title": "Fire Patch",
+        "journalSpellName": "Fire Patch",
+        "tooltipName": "Fire Patch",
+        "icon": "spell_fire_felflamering_red",
+        "cast": "Instant",
+        "description": "Inflicts 125015 Fire damage every 1 sec to players within 5 yds.\n\nFrost effects will dissipate this patch.",
+        "damage": [
+          {
+            "amount": 125015,
+            "school": "Fire",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Frostfire Volley",
+        "parentSpellId": 1295893,
+        "depth": 2,
+        "sectionId": 36063,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295954,
+        "title": "Piercing Frost",
+        "journalSpellName": "Piercing Frost",
+        "tooltipName": "Piercing Frost",
+        "icon": "ability_mage_coldasice",
+        "cast": "Instant",
+        "description": "Inflicts 108343 Frost damage every 1 sec and reduces the target's movement speed by 60% for 1 min or until cancelled by a Fire effect.",
+        "damage": [
+          {
+            "amount": 108343,
+            "school": "Frost",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Frostfire Volley",
+        "parentSpellId": 1295893,
+        "depth": 2,
+        "sectionId": 36066,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1297648,
+        "title": "Frost Patch",
+        "journalSpellName": "Frost Patch",
+        "tooltipName": "Frost Patch",
+        "icon": "spell_frost_ring-of-frost",
+        "cast": "Instant",
+        "description": "Inflicts 125011 Frost damage every 1 sec to players within 5 yds.\n\nFire effects will dissipate this effect.",
+        "damage": [
+          {
+            "amount": 125011,
+            "school": "Frost",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Frostfire Volley",
+        "parentSpellId": 1295893,
+        "depth": 2,
+        "sectionId": 36067,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1296025,
+        "title": "Blink Nova",
+        "journalSpellName": "Blink Nova",
+        "tooltipName": "Blink Nova",
+        "icon": "spell_arcane_blink",
+        "cast": "Instant",
+        "description": "Scrollsage Iku gathers arcane power and teleports to the location of a player, inflicting 750066 Arcane damage to all players. Players farther from Scrollsage Iku's target receive less damage.",
+        "damage": [
+          {
+            "amount": 750066,
+            "school": "Arcane",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Scrollsage Iku",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36061,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1286921,
+        "title": "Icebound Flames",
+        "journalSpellName": "Icebound Flames",
+        "tooltipName": "Icebound Flames",
+        "icon": "ability_mage_frostfirebolt",
+        "cast": "Instant",
+        "description": "Scrollsage Iku blasts a player with elemental magic, inflicting 833407 Frostfire damage along with 166681 Frostfire damage every 1 sec while reducing their movement speed by 50% for 12 sec.",
+        "damage": [
+          {
+            "amount": 833407,
+            "school": "Frostfire",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 166681,
+            "school": "Frostfire",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Scrollsage Iku",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36059,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295854,
+        "title": "Shredding Shards",
+        "journalSpellName": "Shredding Shards",
+        "tooltipName": "Shredding Shards",
+        "icon": "spell_frost_iceshard",
+        "cast": "Channeled (3.5 sec cast)",
+        "description": "Scrollsage Iku projects a series of ice shards at her current target, inflicting 83341 Frost damage every 0.5 sec for 3.5 sec.\n\nEach shard increases the target's damage taken from Shredding Shards by 50% for 1.3 min.",
+        "damage": [
+          {
+            "amount": 83341,
+            "school": "Frost",
+            "everySeconds": 0.5
+          }
+        ],
+        "parentTitle": "Scrollsage Iku",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36060,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1291390,
+        "title": "Cataclysmic Invocation",
+        "journalSpellName": "Cataclysmic Invocation",
+        "tooltipName": "Cataclysmic Invocation",
+        "icon": "spell_fire_selfdestruct",
+        "cast": "7 sec cast",
+        "description": "When one of her allies is defeated, Scrollsage Iku unleashes a massive explosion, inflicting 1166769 Fire damage to all players. This damage increases with each cast.",
+        "damage": [
+          {
+            "amount": 1166769,
+            "school": "Fire",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Scrollsage Iku",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36087,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1297646,
+        "title": "United Defense",
+        "journalSpellName": "United Defense",
+        "tooltipName": "United Defense",
+        "icon": "spell_winston_bubble",
+        "cast": "Instant",
+        "description": "First Mate Nama, Scrollsage Iku, and Trader Gebbo reduce the incoming damage they take by 99% while they are within 30 yds of each other.",
+        "damage": [],
+        "parentTitle": "First Mate Nama",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36145,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1296092,
+        "title": "Mighty Thud",
+        "journalSpellName": "Mighty Thud",
+        "tooltipName": "Mighty Thud",
+        "icon": "sha_ability_rogue_bloodyeye_nightmare",
+        "cast": "Instant",
+        "description": "While under the effects of Mor'zahi's Command, First Mate Nama marks three players then leaps to each of their locations.\n\nEach impact inflicts 5417143 Physical damage split evenly among players within 6 yds and knocks them back.\n\nIf Mighty Thud fails to hit a player, it inflicts 5417143 Physical damage to all players.",
+        "damage": [
+          {
+            "amount": 5417143,
+            "school": "Physical",
+            "everySeconds": null
+          },
+          {
+            "amount": 5417143,
+            "school": "Physical",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "First Mate Nama",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36070,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1310500,
+        "title": "Aftershock",
+        "journalSpellName": "Aftershock",
+        "tooltipName": "Aftershock",
+        "icon": "spell_nature_earthquake",
+        "cast": "Instant",
+        "description": "Mighty Thud leaves behind quaking ground that inflicts 166681 Physical damage to players within 6 yds every 1 sec for until canceled.",
+        "damage": [
+          {
+            "amount": 166681,
+            "school": "Physical",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Mighty Thud",
+        "parentSpellId": 1296092,
+        "depth": 2,
+        "sectionId": 37038,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1313690,
+        "title": "Aftershock",
+        "journalSpellName": "Aftershock",
+        "tooltipName": "Aftershock",
+        "icon": "spell_nature_earthquake",
+        "cast": "Instant",
+        "description": "Mighty Thud leaves behind quaking ground that inflicts 166681 Physical damage to players within 6 yds every 1 sec.",
+        "damage": [
+          {
+            "amount": 166681,
+            "school": "Physical",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Mighty Thud",
+        "parentSpellId": 1296092,
+        "depth": 2,
+        "sectionId": 37248,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1296061,
+        "title": "Shell Spin",
+        "journalSpellName": "Shell Spin",
+        "tooltipName": "Shell Spin",
+        "icon": "inv_cape_special_turtleshell_c_02",
+        "cast": "Instant",
+        "description": "First Mate Nama hurls three spinning shells in a cone in front of him. The shells will stun players they come into contact with for 4 sec.",
+        "damage": [],
+        "parentTitle": "First Mate Nama",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36069,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1291930,
+        "title": "Steady Strikes",
+        "journalSpellName": "Steady Strikes",
+        "tooltipName": "Steady Strikes",
+        "icon": "inv_1115_warrior_fastermeleeattacks",
+        "cast": "Instant",
+        "description": "First Mate Nama gains 4% Physical damage to his current target with each attack, lasting 30 sec.",
+        "damage": [],
+        "parentTitle": "First Mate Nama",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36072,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1296227,
+        "title": "Relentless Escalation",
+        "journalSpellName": "Relentless Escalation",
+        "tooltipName": "Relentless Escalation",
+        "icon": "inv_artifact_corruptedbloodofzakajz",
+        "cast": "Instant",
+        "description": "When one of his allies is defeated, First Mate Nama gains 100% increased damage every 1 sec for 30 sec.",
+        "damage": [],
+        "parentTitle": "First Mate Nama",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36088,
+        "repeatedSections": 0
+      }
+    ],
+    "journalInstance": {
+      "id": 1320,
+      "name": "The Venomous Abyss"
+    }
+  }
+}

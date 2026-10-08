@@ -1,0 +1,23 @@
+{
+  "name": "wcl-viz",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "React components for tools/wcl check payloads. One component per check id; builds to a single self-contained IIFE bundle that a report HTML inlines (the Artifact CSP blocks every external host, so nothing may be fetched at runtime).",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

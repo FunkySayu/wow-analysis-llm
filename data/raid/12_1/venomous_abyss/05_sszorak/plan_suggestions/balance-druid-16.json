@@ -1,0 +1,946 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 16,
+    "wclDifficulty": 5,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T19:00:47+00:00",
+    "generator": "tools/warcraftlogs/plan_suggestion_sync.py",
+    "catalog": "data/classes/druid/balance/12_1_cooldowns.json",
+    "parameters": {
+      "sample": 25,
+      "minRechargeSeconds": 25.0,
+      "tightIqrSeconds": 8.0,
+      "minSupport": 0.4,
+      "anchorWindowSeconds": 15.0
+    },
+    "readMe": "Suggestions, not decisions. Every row carries the spread and the pull count behind it; a wide spread means the field disagrees, which is information about the fight rather than a number to copy. Times are phase-relative because kill times are not comparable.",
+    "encounter": "sszorak"
+  },
+  "encounter": {
+    "slug": "sszorak",
+    "wclEncounterId": 3420,
+    "encounterName": "Sszorak",
+    "sample": {
+      "requested": 25,
+      "readable": 25,
+      "used": 25,
+      "unreadable": [],
+      "excludedForPhaseStructure": [],
+      "medianDuration": 379.8,
+      "durationRange": [
+        365.4,
+        404.1
+      ]
+    },
+    "phaseModel": [
+      0.0,
+      100.0,
+      125.0,
+      227.0,
+      252.0,
+      354.1,
+      379.0
+    ],
+    "cooldowns": [
+      {
+        "spellId": 194223,
+        "name": "Celestial Alignment",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 5,
+        "medianGapSeconds": 105.5,
+        "seenInPulls": 25,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 3.1,
+            "atSeconds": 3.1,
+            "spread": {
+              "median": 3.1,
+              "p25": 2.8,
+              "p75": 3.5,
+              "iqr": 0.7,
+              "min": 2.1,
+              "max": 6.2
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Tempest",
+              "occurrence": 1,
+              "offsetSeconds": -6.9,
+              "agreement": 23,
+              "of": 25
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 51.7,
+            "atSeconds": 51.7,
+            "spread": {
+              "median": 51.7,
+              "p25": 50.8,
+              "p75": 54.3,
+              "iqr": 3.5,
+              "min": 48.4,
+              "max": 59.4
+            },
+            "support": {
+              "pulls": 18,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Tempest",
+              "occurrence": 3,
+              "offsetSeconds": -6.6,
+              "agreement": 17,
+              "of": 18
+            }
+          },
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 9.3,
+            "atSeconds": 109.3,
+            "spread": {
+              "median": 9.3,
+              "p25": 8.5,
+              "p75": 10.2,
+              "iqr": 1.7,
+              "min": 7.3,
+              "max": 12.9
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 1,
+              "offsetSeconds": 9.3,
+              "agreement": 25,
+              "of": 25
+            }
+          },
+          {
+            "phase": 4,
+            "ordinal": 1,
+            "atPhaseSeconds": 3.5,
+            "atSeconds": 230.5,
+            "spread": {
+              "median": 3.5,
+              "p25": 2.8,
+              "p75": 4.7,
+              "iqr": 1.9,
+              "min": 0.8,
+              "max": 11.6
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 2,
+              "offsetSeconds": 3.5,
+              "agreement": 25,
+              "of": 25
+            }
+          },
+          {
+            "phase": 6,
+            "ordinal": 1,
+            "atPhaseSeconds": 2.0,
+            "atSeconds": 356.0,
+            "spread": {
+              "median": 2.0,
+              "p25": 0.9,
+              "p75": 2.9,
+              "iqr": 2.0,
+              "min": 0.4,
+              "max": 6.4
+            },
+            "support": {
+              "pulls": 23,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 3,
+              "offsetSeconds": 2.0,
+              "agreement": 23,
+              "of": 23
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 205636,
+        "name": "Force of Nature",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 7,
+        "medianGapSeconds": 57.7,
+        "seenInPulls": 25,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 2.7,
+            "atSeconds": 2.7,
+            "spread": {
+              "median": 2.7,
+              "p25": 2.4,
+              "p75": 3.0,
+              "iqr": 0.6,
+              "min": 1.4,
+              "max": 5.7
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Tempest",
+              "occurrence": 1,
+              "offsetSeconds": -7.5,
+              "agreement": 22,
+              "of": 25
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 52.1,
+            "atSeconds": 52.1,
+            "spread": {
+              "median": 52.1,
+              "p25": 50.4,
+              "p75": 53.3,
+              "iqr": 3.0,
+              "min": 47.9,
+              "max": 58.8
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Tempest",
+              "occurrence": 3,
+              "offsetSeconds": -7.4,
+              "agreement": 23,
+              "of": 25
+            }
+          },
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 8.8,
+            "atSeconds": 108.8,
+            "spread": {
+              "median": 8.8,
+              "p25": 8.1,
+              "p75": 9.7,
+              "iqr": 1.6,
+              "min": 6.5,
+              "max": 12.3
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 1,
+              "offsetSeconds": 8.8,
+              "agreement": 25,
+              "of": 25
+            }
+          },
+          {
+            "phase": 4,
+            "ordinal": 1,
+            "atPhaseSeconds": 2.9,
+            "atSeconds": 230.0,
+            "spread": {
+              "median": 2.9,
+              "p25": 2.4,
+              "p75": 4.2,
+              "iqr": 1.8,
+              "min": 0.1,
+              "max": 11.0
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 2,
+              "offsetSeconds": 2.9,
+              "agreement": 25,
+              "of": 25
+            }
+          },
+          {
+            "phase": 6,
+            "ordinal": 1,
+            "atPhaseSeconds": 2.1,
+            "atSeconds": 356.2,
+            "spread": {
+              "median": 2.1,
+              "p25": 1.1,
+              "p75": 2.4,
+              "iqr": 1.3,
+              "min": 0.3,
+              "max": 6.0
+            },
+            "support": {
+              "pulls": 18,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 3,
+              "offsetSeconds": 2.1,
+              "agreement": 18,
+              "of": 18
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 391528,
+        "name": "Convoke the Spirits",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 4,
+        "medianGapSeconds": 121.3,
+        "seenInPulls": 25,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 6.0,
+            "atSeconds": 6.0,
+            "spread": {
+              "median": 6.0,
+              "p25": 4.7,
+              "p75": 6.7,
+              "iqr": 2.0,
+              "min": 3.3,
+              "max": 9.6
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Tempest",
+              "occurrence": 1,
+              "offsetSeconds": -5.0,
+              "agreement": 23,
+              "of": 25
+            }
+          },
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 13.2,
+            "atSeconds": 113.3,
+            "spread": {
+              "median": 13.2,
+              "p25": 12.1,
+              "p75": 13.8,
+              "iqr": 1.7,
+              "min": 10.8,
+              "max": 16.0
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 1,
+              "offsetSeconds": 13.1,
+              "agreement": 23,
+              "of": 25
+            }
+          },
+          {
+            "phase": 4,
+            "ordinal": 1,
+            "atPhaseSeconds": 7.6,
+            "atSeconds": 234.6,
+            "spread": {
+              "median": 7.6,
+              "p25": 6.4,
+              "p75": 9.4,
+              "iqr": 3.0,
+              "min": 3.9,
+              "max": 15.9
+            },
+            "support": {
+              "pulls": 25,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 2,
+              "offsetSeconds": 7.5,
+              "agreement": 24,
+              "of": 25
+            }
+          },
+          {
+            "phase": 6,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.7,
+            "atSeconds": 359.8,
+            "spread": {
+              "median": 5.7,
+              "p25": 4.7,
+              "p75": 6.6,
+              "iqr": 2.0,
+              "min": 3.5,
+              "max": 10.6
+            },
+            "support": {
+              "pulls": 24,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 3,
+              "offsetSeconds": 5.7,
+              "agreement": 24,
+              "of": 24
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1250533,
+        "name": "Freightrunner's Flask",
+        "role": "unclassified",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 4,
+        "medianGapSeconds": 120.7,
+        "seenInPulls": 17,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 3.0,
+            "atSeconds": 3.0,
+            "spread": {
+              "median": 3.0,
+              "p25": 2.7,
+              "p75": 3.5,
+              "iqr": 0.8,
+              "min": 2.1,
+              "max": 6.2
+            },
+            "support": {
+              "pulls": 17,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Tempest",
+              "occurrence": 1,
+              "offsetSeconds": -6.7,
+              "agreement": 16,
+              "of": 17
+            }
+          },
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 9.3,
+            "atSeconds": 109.3,
+            "spread": {
+              "median": 9.3,
+              "p25": 8.5,
+              "p75": 10.3,
+              "iqr": 1.8,
+              "min": 7.3,
+              "max": 11.6
+            },
+            "support": {
+              "pulls": 17,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 1,
+              "offsetSeconds": 9.3,
+              "agreement": 17,
+              "of": 17
+            }
+          },
+          {
+            "phase": 4,
+            "ordinal": 1,
+            "atPhaseSeconds": 3.2,
+            "atSeconds": 230.2,
+            "spread": {
+              "median": 3.2,
+              "p25": 2.8,
+              "p75": 4.4,
+              "iqr": 1.6,
+              "min": 0.8,
+              "max": 9.0
+            },
+            "support": {
+              "pulls": 17,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 2,
+              "offsetSeconds": 3.2,
+              "agreement": 17,
+              "of": 17
+            }
+          },
+          {
+            "phase": 6,
+            "ordinal": 1,
+            "atPhaseSeconds": 1.1,
+            "atSeconds": 355.2,
+            "spread": {
+              "median": 1.1,
+              "p25": 0.9,
+              "p75": 2.5,
+              "iqr": 1.6,
+              "min": 0.5,
+              "max": 3.0
+            },
+            "support": {
+              "pulls": 15,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Dig In",
+              "occurrence": 3,
+              "offsetSeconds": 1.1,
+              "agreement": 15,
+              "of": 15
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236616,
+        "name": "Light's Potential",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 351.4,
+        "seenInPulls": 14,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 3.1,
+            "atSeconds": 3.1,
+            "spread": {
+              "median": 3.1,
+              "p25": 2.5,
+              "p75": 3.4,
+              "iqr": 0.9,
+              "min": 2.1,
+              "max": 6.2
+            },
+            "support": {
+              "pulls": 14,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Tempest",
+              "occurrence": 1,
+              "offsetSeconds": -9.6,
+              "agreement": 13,
+              "of": 14
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236994,
+        "name": "Potion of Recklessness",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 351.7,
+        "seenInPulls": 11,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 2.7,
+            "atSeconds": 2.7,
+            "spread": {
+              "median": 2.7,
+              "p25": 2.3,
+              "p75": 3.0,
+              "iqr": 0.7,
+              "min": 2.2,
+              "max": 3.7
+            },
+            "support": {
+              "pulls": 10,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Tempest",
+              "occurrence": 1,
+              "offsetSeconds": -6.8,
+              "agreement": 10,
+              "of": 10
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 106898,
+        "name": "Stampeding Roar",
+        "role": "utility",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 3,
+        "medianGapSeconds": 126.4,
+        "seenInPulls": 19,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 25.7,
+            "atSeconds": 25.7,
+            "spread": {
+              "median": 25.7,
+              "p25": 24.9,
+              "p75": 26.3,
+              "iqr": 1.4,
+              "min": 23.8,
+              "max": 75.5
+            },
+            "support": {
+              "pulls": 14,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Venomous Surge",
+              "occurrence": 1,
+              "offsetSeconds": -3.3,
+              "agreement": 9,
+              "of": 14
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102383,
+        "name": "Wild Charge",
+        "role": "movement",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 5.0,
+        "medianGapSeconds": 49.8,
+        "seenInPulls": 24,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 76.4,
+            "atSeconds": 76.4,
+            "spread": {
+              "median": 76.4,
+              "p25": 75.9,
+              "p75": 76.7,
+              "iqr": 0.8,
+              "min": 47.7,
+              "max": 77.0
+            },
+            "support": {
+              "pulls": 11,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Venomous Surge",
+              "occurrence": 2,
+              "offsetSeconds": -0.0,
+              "agreement": 10,
+              "of": 11
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22812,
+        "name": "Barkskin",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 3,
+        "medianGapSeconds": 117.0,
+        "seenInPulls": 25,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 74.3,
+            "atSeconds": 74.3,
+            "spread": {
+              "median": 74.3,
+              "p25": 41.6,
+              "p75": 77.1,
+              "iqr": 35.6,
+              "min": 22.6,
+              "max": 99.0
+            },
+            "support": {
+              "pulls": 18,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Venomous Surge",
+              "occurrence": 2,
+              "offsetSeconds": 1.0,
+              "agreement": 9,
+              "of": 18
+            }
+          },
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 45.1,
+            "atSeconds": 170.1,
+            "spread": {
+              "median": 45.1,
+              "p25": 31.3,
+              "p75": 74.7,
+              "iqr": 43.4,
+              "min": 21.3,
+              "max": 81.1
+            },
+            "support": {
+              "pulls": 20,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Venomous Surge",
+              "occurrence": 3,
+              "offsetSeconds": 0.4,
+              "agreement": 9,
+              "of": 20
+            }
+          },
+          {
+            "phase": 5,
+            "ordinal": 1,
+            "atPhaseSeconds": 47.1,
+            "atSeconds": 299.1,
+            "spread": {
+              "median": 47.1,
+              "p25": 29.7,
+              "p75": 72.6,
+              "iqr": 43.0,
+              "min": 7.4,
+              "max": 94.3
+            },
+            "support": {
+              "pulls": 23,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Venomous Surge",
+              "occurrence": 5,
+              "offsetSeconds": -1.3,
+              "agreement": 10,
+              "of": 23
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 29166,
+        "name": "Innervate",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 185.1,
+        "seenInPulls": 23,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 55.1,
+            "atSeconds": 55.1,
+            "spread": {
+              "median": 55.1,
+              "p25": 42.7,
+              "p75": 69.2,
+              "iqr": 26.6,
+              "min": 3.8,
+              "max": 99.2
+            },
+            "support": {
+              "pulls": 11,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Tempest",
+              "occurrence": 3,
+              "offsetSeconds": -6.8,
+              "agreement": 4,
+              "of": 11
+            }
+          },
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 30.5,
+            "atSeconds": 155.5,
+            "spread": {
+              "median": 30.5,
+              "p25": 12.5,
+              "p75": 77.4,
+              "iqr": 64.9,
+              "min": 3.9,
+              "max": 97.1
+            },
+            "support": {
+              "pulls": 10,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Tempest",
+              "occurrence": 5,
+              "offsetSeconds": -7.2,
+              "agreement": 3,
+              "of": 10
+            }
+          },
+          {
+            "phase": 5,
+            "ordinal": 1,
+            "atPhaseSeconds": 53.1,
+            "atSeconds": 305.1,
+            "spread": {
+              "median": 53.1,
+              "p25": 39.5,
+              "p75": 71.5,
+              "iqr": 31.9,
+              "min": 3.4,
+              "max": 81.9
+            },
+            "support": {
+              "pulls": 10,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Venomous Surge",
+              "occurrence": 6,
+              "offsetSeconds": 3.3,
+              "agreement": 3,
+              "of": 10
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22842,
+        "name": "Frenzied Regeneration",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 106.0,
+        "seenInPulls": 15,
+        "suggestions": [
+          {
+            "phase": 5,
+            "ordinal": 1,
+            "atPhaseSeconds": 49.2,
+            "atSeconds": 301.3,
+            "spread": {
+              "median": 49.2,
+              "p25": 44.5,
+              "p75": 79.8,
+              "iqr": 35.3,
+              "min": 6.1,
+              "max": 85.1
+            },
+            "support": {
+              "pulls": 14,
+              "of": 25
+            },
+            "anchor": {
+              "ability": "Venomous Surge",
+              "occurrence": 6,
+              "offsetSeconds": 2.1,
+              "agreement": 5,
+              "of": 14
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1295247,
+        "name": "Concentrated Silvermoon Health Potion",
+        "role": "unclassified",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": null,
+        "seenInPulls": 20,
+        "suggestions": []
+      },
+      {
+        "spellId": 1850,
+        "name": "Dash",
+        "role": "movement",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 176.6,
+        "seenInPulls": 11,
+        "suggestions": []
+      },
+      {
+        "spellId": 6262,
+        "name": "Healthstone",
+        "role": "unclassified",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": null,
+        "seenInPulls": 18,
+        "suggestions": []
+      },
+      {
+        "spellId": 20484,
+        "name": "Rebirth",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 224.1,
+        "seenInPulls": 11,
+        "suggestions": []
+      },
+      {
+        "spellId": 16979,
+        "name": "Wild Charge",
+        "role": "unclassified",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 127.0,
+        "seenInPulls": 13,
+        "suggestions": []
+      }
+    ]
+  }
+}

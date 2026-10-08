@@ -1,0 +1,556 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 15,
+    "wclDifficulty": 4,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T12:34:01+00:00",
+    "generator": "tools/warcraftlogs/plan_suggestion_sync.py",
+    "catalog": "data/classes/druid/balance/12_1_cooldowns.json",
+    "parameters": {
+      "sample": 22,
+      "minRechargeSeconds": 25.0,
+      "tightIqrSeconds": 8.0,
+      "minSupport": 0.4,
+      "anchorWindowSeconds": 15.0
+    },
+    "readMe": "Suggestions, not decisions. Every row carries the spread and the pull count behind it; a wide spread means the field disagrees, which is information about the fight rather than a number to copy. Times are phase-relative because kill times are not comparable.",
+    "encounter": "nymrissa"
+  },
+  "encounter": {
+    "slug": "nymrissa",
+    "wclEncounterId": 3379,
+    "encounterName": "Nymrissa Wavecaller",
+    "sample": {
+      "requested": 22,
+      "readable": 20,
+      "used": 20,
+      "unreadable": [
+        {
+          "skipped": "SystemExit: Player \"Anonymous\" not found in report a:fWd7Mb4QPjFLnJCh",
+          "code": "a:fWd7Mb4QPjFLnJCh",
+          "fight": 13,
+          "player": "Anonymous"
+        },
+        {
+          "skipped": "SystemExit: Player \"Anonymous\" not found in report a:MFGwq4htajPzVLkv",
+          "code": "a:MFGwq4htajPzVLkv",
+          "fight": 4,
+          "player": "Anonymous"
+        }
+      ],
+      "excludedForPhaseStructure": [],
+      "medianDuration": 241.8,
+      "durationRange": [
+        203.4,
+        331.1
+      ]
+    },
+    "phaseModel": [
+      0.0
+    ],
+    "cooldowns": [
+      {
+        "spellId": 205636,
+        "name": "Force of Nature",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 5,
+        "medianGapSeconds": 45.3,
+        "seenInPulls": 19,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 29.2,
+            "atSeconds": 29.2,
+            "spread": {
+              "median": 29.2,
+              "p25": 26.3,
+              "p75": 31.2,
+              "iqr": 4.8,
+              "min": 22.5,
+              "max": 34.9
+            },
+            "support": {
+              "pulls": 19,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 1,
+              "offsetSeconds": -5.7,
+              "agreement": 19,
+              "of": 19
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 74.5,
+            "atSeconds": 74.5,
+            "spread": {
+              "median": 74.5,
+              "p25": 73.3,
+              "p75": 78.8,
+              "iqr": 5.6,
+              "min": 68.9,
+              "max": 88.2
+            },
+            "support": {
+              "pulls": 19,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 3,
+              "offsetSeconds": -5.0,
+              "agreement": 14,
+              "of": 19
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 139.8,
+            "atSeconds": 139.8,
+            "spread": {
+              "median": 139.8,
+              "p25": 137.6,
+              "p75": 143.6,
+              "iqr": 6.0,
+              "min": 102.5,
+              "max": 149.5
+            },
+            "support": {
+              "pulls": 19,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 5,
+              "offsetSeconds": -5.2,
+              "agreement": 11,
+              "of": 19
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102560,
+        "name": "Incarnation: Chosen of Elune",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 3.0,
+        "medianGapSeconds": 61.1,
+        "seenInPulls": 20,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 29.1,
+            "atSeconds": 29.1,
+            "spread": {
+              "median": 29.1,
+              "p25": 26.7,
+              "p75": 30.7,
+              "iqr": 3.9,
+              "min": 6.2,
+              "max": 34.3
+            },
+            "support": {
+              "pulls": 20,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 1,
+              "offsetSeconds": -5.6,
+              "agreement": 19,
+              "of": 20
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 74.9,
+            "atSeconds": 74.9,
+            "spread": {
+              "median": 74.9,
+              "p25": 73.5,
+              "p75": 78.2,
+              "iqr": 4.7,
+              "min": 31.7,
+              "max": 82.7
+            },
+            "support": {
+              "pulls": 20,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 3,
+              "offsetSeconds": -4.3,
+              "agreement": 16,
+              "of": 20
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 142.1,
+            "atSeconds": 142.1,
+            "spread": {
+              "median": 142.1,
+              "p25": 139.9,
+              "p75": 145.5,
+              "iqr": 5.7,
+              "min": 136.2,
+              "max": 185.9
+            },
+            "support": {
+              "pulls": 20,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 5,
+              "offsetSeconds": -4.5,
+              "agreement": 16,
+              "of": 20
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1293316,
+        "name": "Empowering Venom",
+        "role": "trinket",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 121.7,
+        "seenInPulls": 15,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 28.8,
+            "atSeconds": 28.8,
+            "spread": {
+              "median": 28.8,
+              "p25": 26.0,
+              "p75": 30.0,
+              "iqr": 4.1,
+              "min": 6.2,
+              "max": 34.3
+            },
+            "support": {
+              "pulls": 15,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 1,
+              "offsetSeconds": -6.2,
+              "agreement": 14,
+              "of": 15
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236616,
+        "name": "Light's Potential",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": null,
+        "seenInPulls": 9,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 31.0,
+            "atSeconds": 31.0,
+            "spread": {
+              "median": 31.0,
+              "p25": 27.3,
+              "p75": 34.3,
+              "iqr": 7.0,
+              "min": 22.7,
+              "max": 74.4
+            },
+            "support": {
+              "pulls": 9,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 1,
+              "offsetSeconds": -4.4,
+              "agreement": 7,
+              "of": 9
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102383,
+        "name": "Wild Charge",
+        "role": "movement",
+        "verdict": "situational",
+        "medianUsesPerPull": 4.0,
+        "medianGapSeconds": 42.3,
+        "seenInPulls": 20,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 34.2,
+            "atSeconds": 34.2,
+            "spread": {
+              "median": 34.2,
+              "p25": 28.6,
+              "p75": 86.3,
+              "iqr": 57.7,
+              "min": 1.9,
+              "max": 232.0
+            },
+            "support": {
+              "pulls": 20,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 1,
+              "offsetSeconds": -5.8,
+              "agreement": 10,
+              "of": 20
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 109.7,
+            "atSeconds": 109.7,
+            "spread": {
+              "median": 109.7,
+              "p25": 66.9,
+              "p75": 120.9,
+              "iqr": 54.0,
+              "min": 59.0,
+              "max": 230.7
+            },
+            "support": {
+              "pulls": 17,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 3,
+              "offsetSeconds": -12.2,
+              "agreement": 6,
+              "of": 17
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 139.9,
+            "atSeconds": 139.9,
+            "spread": {
+              "median": 139.9,
+              "p25": 120.9,
+              "p75": 217.3,
+              "iqr": 96.5,
+              "min": 111.1,
+              "max": 254.2
+            },
+            "support": {
+              "pulls": 14,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 5,
+              "offsetSeconds": -7.7,
+              "agreement": 3,
+              "of": 14
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 4,
+            "atPhaseSeconds": 178.8,
+            "atSeconds": 178.8,
+            "spread": {
+              "median": 178.8,
+              "p25": 141.7,
+              "p75": 207.0,
+              "iqr": 65.3,
+              "min": 136.6,
+              "max": 246.7
+            },
+            "support": {
+              "pulls": 11,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 5,
+              "offsetSeconds": -4.8,
+              "agreement": 4,
+              "of": 11
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22812,
+        "name": "Barkskin",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 77.4,
+        "seenInPulls": 17,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 123.5,
+            "atSeconds": 123.5,
+            "spread": {
+              "median": 123.5,
+              "p25": 87.7,
+              "p75": 159.0,
+              "iqr": 71.4,
+              "min": 48.0,
+              "max": 223.0
+            },
+            "support": {
+              "pulls": 17,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Abyssal Rain",
+              "occurrence": 6,
+              "offsetSeconds": 4.3,
+              "agreement": 4,
+              "of": 17
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236994,
+        "name": "Potion of Recklessness",
+        "role": "consumable",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": null,
+        "seenInPulls": 10,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 28.3,
+            "atSeconds": 28.3,
+            "spread": {
+              "median": 28.3,
+              "p25": 24.3,
+              "p75": 32.5,
+              "iqr": 8.2,
+              "min": 4.1,
+              "max": 185.9
+            },
+            "support": {
+              "pulls": 10,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Chilling Frost",
+              "occurrence": 1,
+              "offsetSeconds": -6.7,
+              "agreement": 6,
+              "of": 10
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 61391,
+        "name": "Typhoon",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.5,
+        "medianGapSeconds": 85.0,
+        "seenInPulls": 12,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 98.1,
+            "atSeconds": 98.1,
+            "spread": {
+              "median": 98.1,
+              "p25": 80.8,
+              "p75": 179.2,
+              "iqr": 98.4,
+              "min": 49.2,
+              "max": 204.0
+            },
+            "support": {
+              "pulls": 12,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Abyssal Rain",
+              "occurrence": 6,
+              "offsetSeconds": 7.6,
+              "agreement": 3,
+              "of": 12
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102793,
+        "name": "Ursol's Vortex",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 89.8,
+        "seenInPulls": 13,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 97.2,
+            "atSeconds": 97.2,
+            "spread": {
+              "median": 97.2,
+              "p25": 50.6,
+              "p75": 156.1,
+              "iqr": 105.5,
+              "min": 45.7,
+              "max": 210.8
+            },
+            "support": {
+              "pulls": 13,
+              "of": 20
+            },
+            "anchor": {
+              "ability": "Abyssal Rain",
+              "occurrence": 4,
+              "offsetSeconds": 5.9,
+              "agreement": 4,
+              "of": 13
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -92,7 +92,7 @@ calls, a few seconds total, no batching endpoint found.
 ## Worked example — Arcane Mage, 12.1 PTR (classId 8, specId 62)
 
 Already extracted and saved at
-[data/talents/arcane_mage_12.1_ptr.json](../../data/talents/arcane_mage_12.1_ptr.json):
+[data/classes/mage/arcane/12_1_ptr_talents_raidbots.json](../../../data/classes/mage/arcane/12_1_ptr_talents_raidbots.json):
 43 class-tree nodes, 38 spec-tree nodes (apex talent flagged as `isApex: true`
 — currently "Prismatic Bolt"), and both hero subtrees split out
 (`heroTrees.Spellslinger`, `heroTrees.Sunfury`, 14 nodes each). Every entry

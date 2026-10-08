@@ -1,0 +1,329 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 15,
+    "wclDifficulty": 4,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T12:34:01+00:00",
+    "generator": "tools/warcraftlogs/plan_suggestion_sync.py",
+    "catalog": "data/classes/druid/balance/12_1_cooldowns.json",
+    "parameters": {
+      "sample": 22,
+      "minRechargeSeconds": 25.0,
+      "tightIqrSeconds": 8.0,
+      "minSupport": 0.4,
+      "anchorWindowSeconds": 15.0
+    },
+    "readMe": "Suggestions, not decisions. Every row carries the spread and the pull count behind it; a wide spread means the field disagrees, which is information about the fight rather than a number to copy. Times are phase-relative because kill times are not comparable.",
+    "encounter": "twinfangs"
+  },
+  "encounter": {
+    "slug": "twinfangs",
+    "wclEncounterId": 3421,
+    "encounterName": "The Twin Fangs",
+    "sample": {
+      "requested": 22,
+      "readable": 22,
+      "used": 22,
+      "unreadable": [],
+      "excludedForPhaseStructure": [],
+      "medianDuration": 360.9,
+      "durationRange": [
+        282.1,
+        459.9
+      ]
+    },
+    "phaseModel": [
+      0.0
+    ],
+    "cooldowns": [
+      {
+        "spellId": 1293316,
+        "name": "Empowering Venom",
+        "role": "trinket",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 3.0,
+        "medianGapSeconds": 125.4,
+        "seenInPulls": 18,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 6.0,
+            "atSeconds": 6.0,
+            "spread": {
+              "median": 6.0,
+              "p25": 3.7,
+              "p75": 6.7,
+              "iqr": 3.1,
+              "min": 1.7,
+              "max": 9.0
+            },
+            "support": {
+              "pulls": 18,
+              "of": 22
+            },
+            "anchor": {
+              "ability": "Clotted Bolt",
+              "occurrence": 1,
+              "offsetSeconds": 5.9,
+              "agreement": 1,
+              "of": 18
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102560,
+        "name": "Incarnation: Chosen of Elune",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 4,
+        "medianGapSeconds": 92.3,
+        "seenInPulls": 21,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 6.2,
+            "atSeconds": 6.2,
+            "spread": {
+              "median": 6.2,
+              "p25": 4.3,
+              "p75": 7.0,
+              "iqr": 2.7,
+              "min": 1.7,
+              "max": 13.6
+            },
+            "support": {
+              "pulls": 21,
+              "of": 22
+            },
+            "anchor": {
+              "ability": "Clotted Bolt",
+              "occurrence": 1,
+              "offsetSeconds": 5.8,
+              "agreement": 1,
+              "of": 21
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236616,
+        "name": "Light's Potential",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 347.1,
+        "seenInPulls": 13,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.1,
+            "atSeconds": 5.1,
+            "spread": {
+              "median": 5.1,
+              "p25": 3.3,
+              "p75": 6.5,
+              "iqr": 3.3,
+              "min": 1.7,
+              "max": 8.6
+            },
+            "support": {
+              "pulls": 13,
+              "of": 22
+            },
+            "anchor": null
+          }
+        ]
+      },
+      {
+        "spellId": 106898,
+        "name": "Stampeding Roar",
+        "role": "utility",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": 166.2,
+        "seenInPulls": 12,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 152.4,
+            "atSeconds": 152.4,
+            "spread": {
+              "median": 152.4,
+              "p25": 150.4,
+              "p75": 155.3,
+              "iqr": 4.9,
+              "min": 147.9,
+              "max": 325.8
+            },
+            "support": {
+              "pulls": 12,
+              "of": 22
+            },
+            "anchor": {
+              "ability": "Sanguine Storm",
+              "occurrence": 1,
+              "offsetSeconds": -0.4,
+              "agreement": 5,
+              "of": 12
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22812,
+        "name": "Barkskin",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 99.6,
+        "seenInPulls": 21,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 72.0,
+            "atSeconds": 72.0,
+            "spread": {
+              "median": 72.0,
+              "p25": 57.0,
+              "p75": 122.1,
+              "iqr": 65.1,
+              "min": 50.4,
+              "max": 459.0
+            },
+            "support": {
+              "pulls": 21,
+              "of": 22
+            },
+            "anchor": {
+              "ability": "Stir the Depths",
+              "occurrence": 1,
+              "offsetSeconds": -1.4,
+              "agreement": 7,
+              "of": 21
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 222.7,
+            "atSeconds": 222.7,
+            "spread": {
+              "median": 222.7,
+              "p25": 167.4,
+              "p75": 240.6,
+              "iqr": 73.2,
+              "min": 117.1,
+              "max": 339.9
+            },
+            "support": {
+              "pulls": 17,
+              "of": 22
+            },
+            "anchor": {
+              "ability": "Ravenous Feast",
+              "occurrence": 5,
+              "offsetSeconds": -3.8,
+              "agreement": 2,
+              "of": 17
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 285.3,
+            "atSeconds": 285.3,
+            "spread": {
+              "median": 285.3,
+              "p25": 220.0,
+              "p75": 298.0,
+              "iqr": 78.0,
+              "min": 200.2,
+              "max": 307.0
+            },
+            "support": {
+              "pulls": 9,
+              "of": 22
+            },
+            "anchor": {
+              "ability": "Ravenous Feast",
+              "occurrence": 7,
+              "offsetSeconds": -0.3,
+              "agreement": 2,
+              "of": 9
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102383,
+        "name": "Wild Charge",
+        "role": "movement",
+        "verdict": "situational",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 89.4,
+        "seenInPulls": 16,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 160.0,
+            "atSeconds": 160.0,
+            "spread": {
+              "median": 160.0,
+              "p25": 143.1,
+              "p75": 190.6,
+              "iqr": 47.5,
+              "min": 61.7,
+              "max": 338.0
+            },
+            "support": {
+              "pulls": 16,
+              "of": 22
+            },
+            "anchor": {
+              "ability": "Vile Flood",
+              "occurrence": 2,
+              "offsetSeconds": 3.3,
+              "agreement": 5,
+              "of": 16
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 169.5,
+            "atSeconds": 169.5,
+            "spread": {
+              "median": 169.5,
+              "p25": 165.2,
+              "p75": 267.8,
+              "iqr": 102.6,
+              "min": 153.4,
+              "max": 389.9
+            },
+            "support": {
+              "pulls": 9,
+              "of": 22
+            },
+            "anchor": {
+              "ability": "Vile Flood",
+              "occurrence": 2,
+              "offsetSeconds": 0.4,
+              "agreement": 3,
+              "of": 9
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

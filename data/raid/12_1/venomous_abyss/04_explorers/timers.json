@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "source": "NorthernSkyRaidTools",
+    "addon_version": "12.1.10",
+    "extracted_at": "2026-08-25T08:30:32Z",
+    "zone": "venomous-abyss",
+    "notes": [
+      "BigWigs cross-check (2026-08-25) against the locally installed BigWigs_TheVenomousAbyss addon, not a source download -- BigWigs has no absolute timers to diff directly, only duration-keyed gap constants, so cadence (interval between hits) is what's comparable.",
+      "AGREE: Vashnik 'TankHits' (Dripping Fangs, spell 1280935), Heroic. NSRT's absolute timers (10.1, 39.1, 66.1, 94.1, ...) have successive gaps of 27-29s throughout. Vashnik.lua's gapTimer table hardcodes a flat 29s gap for this spell after both the pull-duration(~8s) and repeat-duration(~28s) timeline events. The dominant cadence matches; the 1-2s jitter is expected (BigWigs keys off whole-second-rounded live event durations, NSRT's dataset carries decimal precision from real logs).",
+      "DISAGREE: Nek'zali 'HungeringPyre' (spell 1289855 in NSRT; BigWigs keys the same ability's gap under spell 1305421 -- a cast-vs-effect spellId split that recurs across this addon pair and isn't itself a disagreement). NSRT's phaseTimers give the SAME value (35s into phase 1.5) for BOTH difficulty 15 (Heroic) and difficulty 16 (Mythic). Nekzali.lua's gapTimer table distinguishes them explicitly: timersMythic[1305421][1.5] = {[11] = 35} but timersOther[1305421][1.5] = {[11] = 30} -- BigWigs believes Heroic's gap is 30, not 35. Left as-is per this task's rule (no winner picked silently); a consumer snapping the timeline editor to NSRT's Heroic value for this ability should know it may run ~5s ahead of BigWigs' own model."
+    ],
+    "encounter": "explorers"
+  },
+  "encounter": {
+    "dungeon_encounter_id": 3497,
+    "slug": "explorers",
+    "abilities": [
+      {
+        "internal_id": "ShreddingShards",
+        "group": "Scrollsage Abilities",
+        "name": "Tank-Hit",
+        "short_text": "Tank-Hit",
+        "spell_id": 1295854,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              30
+            ],
+            "2": [
+              30.5,
+              90.5
+            ],
+            "3": [
+              30.5,
+              90.5
+            ],
+            "4": [
+              30.5,
+              90.5
+            ]
+          },
+          "16": {
+            "1": [
+              30
+            ],
+            "2": [
+              30.5,
+              90.5
+            ],
+            "3": [
+              30.5,
+              90.5
+            ],
+            "4": [
+              30.5,
+              90.5
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "BlinkNova",
+        "group": "Scrollsage Abilities",
+        "name": "Blink Nova",
+        "short_text": "Blink Nova",
+        "spell_id": 1296021,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 9,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              17,
+              48
+            ],
+            "2": [
+              77,
+              108
+            ],
+            "3": [
+              77,
+              108
+            ],
+            "4": [
+              77,
+              108
+            ]
+          },
+          "16": {
+            "1": [
+              17,
+              48
+            ],
+            "2": [
+              77,
+              108
+            ],
+            "3": [
+              77,
+              108
+            ],
+            "4": [
+              77,
+              108
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "FrostfireVolley",
+        "group": "Scrollsage Abilities",
+        "name": "Frostfire Volley",
+        "short_text": "Frostfire Debuffs",
+        "spell_id": 1295891,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [],
+            "2": [
+              8,
+              35
+            ],
+            "3": [
+              8,
+              35
+            ],
+            "4": [
+              8,
+              35
+            ]
+          },
+          "16": {
+            "1": [],
+            "2": [
+              8,
+              35
+            ],
+            "3": [
+              8,
+              35
+            ],
+            "4": [
+              8,
+              35
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "ShellSpinNormal",
+        "group": "First Mate Abilities",
+        "name": "Shell Spin Normal",
+        "short_text": "Bait",
+        "spell_id": 1296062,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              18,
+              34,
+              49
+            ],
+            "2": [
+              78,
+              94,
+              109
+            ],
+            "3": [
+              78,
+              94,
+              109
+            ],
+            "4": [
+              78,
+              94,
+              109
+            ]
+          },
+          "16": {
+            "1": [
+              18,
+              34,
+              49
+            ],
+            "2": [
+              78,
+              94,
+              109
+            ],
+            "3": [
+              78,
+              94,
+              109
+            ],
+            "4": [
+              78,
+              94,
+              109
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "ShellSpinScroll",
+        "group": "First Mate Abilities",
+        "name": "Shell Spin - Scroll Empowered",
+        "short_text": "Bait",
+        "spell_id": 1296062,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [],
+            "2": [
+              17,
+              44
+            ],
+            "3": [
+              17,
+              44
+            ],
+            "4": [
+              17,
+              44
+            ]
+          },
+          "16": {
+            "1": [],
+            "2": [
+              17,
+              44
+            ],
+            "3": [
+              17,
+              44
+            ],
+            "4": [
+              17,
+              44
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "ShellSpinTrader",
+        "group": "First Mate Abilities",
+        "name": "Shell Spin - Trader Empowered",
+        "short_text": "Bait",
+        "spell_id": 1296062,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [],
+            "2": [
+              7,
+              39
+            ],
+            "3": [
+              7,
+              39
+            ],
+            "4": [
+              7,
+              39
+            ]
+          },
+          "16": {
+            "1": [],
+            "2": [
+              7,
+              39
+            ],
+            "3": [
+              7,
+              39
+            ],
+            "4": [
+              7,
+              39
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "MightyThud",
+        "group": "First Mate Abilities",
+        "name": "Soaks",
+        "short_text": "Soaks",
+        "spell_id": 1296133,
+        "phase": 1,
+        "display_type": "Bar",
+        "duration": 15.5,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [],
+            "2": [
+              17.6,
+              50.1
+            ],
+            "3": [
+              17.6,
+              50.1
+            ],
+            "4": [
+              17.6,
+              50.1
+            ]
+          },
+          "16": {
+            "1": [],
+            "2": [
+              17.6,
+              47.6
+            ],
+            "3": [
+              17.6,
+              47.6
+            ],
+            "4": [
+              17.6,
+              47.6
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Fish-Spawn",
+        "group": "Trader Abilities",
+        "name": "Fish Spawn",
+        "short_text": "Fish Spawn",
+        "spell_id": 1295817,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              34
+            ],
+            "2": [
+              94
+            ],
+            "3": [
+              94
+            ],
+            "4": [
+              94
+            ]
+          },
+          "16": {
+            "1": [
+              34
+            ],
+            "2": [
+              94
+            ],
+            "3": [
+              94
+            ],
+            "4": [
+              94
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "MushroomBait",
+        "group": "Trader Abilities",
+        "name": "Mushroom Bait",
+        "short_text": "Bait",
+        "spell_id": 1292105,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 7,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [],
+            "2": [
+              10,
+              42
+            ],
+            "3": [
+              10,
+              42
+            ],
+            "4": [
+              10,
+              42
+            ]
+          },
+          "16": {
+            "1": [],
+            "2": [
+              10,
+              42
+            ],
+            "3": [
+              10,
+              42
+            ],
+            "4": [
+              10,
+              42
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "ExplosiveSurprise",
+        "group": "Trader Abilities",
+        "name": "Bomb Debuff",
+        "short_text": "Bomb inc",
+        "spell_id": 1296249,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [],
+            "2": [
+              13,
+              45.5
+            ],
+            "3": [
+              13,
+              45.5
+            ],
+            "4": [
+              13,
+              45.5
+            ]
+          },
+          "16": {
+            "1": [],
+            "2": [
+              13,
+              45.5
+            ],
+            "3": [
+              13,
+              45.5
+            ],
+            "4": [
+              13,
+              45.5
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "MushroomJump",
+        "group": "Trader Abilities",
+        "name": "Mushroom Jump",
+        "short_text": "Jump",
+        "spell_id": 1299855,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [],
+            "2": [
+              34,
+              65
+            ],
+            "3": [
+              34,
+              65
+            ],
+            "4": [
+              34,
+              65
+            ]
+          },
+          "16": {
+            "1": [],
+            "2": [
+              36,
+              67
+            ],
+            "3": [
+              36,
+              67
+            ],
+            "4": [
+              36,
+              67
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "TimeToThrow",
+        "group": "Trader Abilities",
+        "name": "Time to throw Fish",
+        "short_text": "Time to Throw",
+        "spell_id": 1295817,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 7,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              61
+            ],
+            "2": [
+              121
+            ],
+            "3": [
+              121
+            ]
+          },
+          "16": {
+            "1": [
+              61
+            ],
+            "2": [
+              121
+            ],
+            "3": [
+              121
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "TimeToThrowNonConditional",
+        "group": "Trader Abilities",
+        "name": "non-conditional Time to throw Fish",
+        "short_text": "Time to Throw",
+        "spell_id": 1295817,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 7,
+        "tts": false,
+        "stub": false,
+        "timers": {},
+        "phase_timers": {
+          "15": {
+            "1": [
+              61
+            ],
+            "2": [
+              121
+            ],
+            "3": [
+              121
+            ]
+          },
+          "16": {
+            "1": [
+              61
+            ],
+            "2": [
+              121
+            ],
+            "3": [
+              121
+            ]
+          }
+        },
+        "unresolved_fields": {}
+      }
+    ]
+  }
+}

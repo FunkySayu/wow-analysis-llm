@@ -61,7 +61,7 @@ shell is nearly empty without it).
 
 ```bash
 curl -sL -A "Mozilla/5.0" "https://www.wowhead.com/blue-tracker/topic/us/<id>" -o /tmp/post.html
-perl .claude/skills/wowhead-blueposts/scripts/extract_bluepost.pl /tmp/post.html > scratch/blueposts/<slug>.txt
+perl tools/wowhead/extract_bluepost.pl /tmp/post.html > scratch/blueposts/<slug>.txt
 ```
 
 `-L` is required — the bare numeric URL 301s to the slugged canonical URL. `extract_bluepost.pl`

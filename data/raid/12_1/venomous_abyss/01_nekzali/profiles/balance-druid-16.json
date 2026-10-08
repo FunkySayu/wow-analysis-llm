@@ -1,0 +1,2244 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 16,
+    "wclDifficulty": 5,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T18:28:25+00:00",
+    "generator": "tools/warcraftlogs/encounter_profile_sync.py",
+    "journal": "journal.json",
+    "parameters": {
+      "sample": 100,
+      "damageSample": 10,
+      "collapseSeconds": 2.0,
+      "minOccurrenceSupport": 0.5,
+      "minSegmentPulls": 5
+    },
+    "readMe": "The pool is the top DPS rankings for one spec, which biases it toward fast kills: a mechanic that only appears late may be under-represented or absent, and 'journalOnly' lists catalogued abilities the pool never cast. Times are given both from the pull start (atSeconds) and from the start of the phase segment they landed in (atSegmentSeconds); the second is the stable one. A segment index is not a phase number -- phases repeat, so read phaseId/cycle.",
+    "encounter": "nekzali"
+  },
+  "encounter": {
+    "slug": "nekzali",
+    "wclEncounterId": 3470,
+    "name": "Nek'zali the Soulcoiler",
+    "sample": {
+      "requested": 100,
+      "rankings": 100,
+      "distinctPulls": 98,
+      "readable": 98,
+      "kills": 98,
+      "unreadable": [],
+      "truncatedEventStreams": []
+    },
+    "durationSeconds": {
+      "median": 434.9,
+      "p25": 405.4,
+      "p75": 462.2,
+      "iqr": 56.9,
+      "min": 381.3,
+      "max": 558.8
+    },
+    "composition": {
+      "modal": {
+        "tanks": 2,
+        "healers": 4,
+        "dps": 14,
+        "label": "2/4/14"
+      },
+      "modalShare": 0.99,
+      "distribution": [
+        {
+          "label": "2/4/14",
+          "pulls": 97
+        },
+        {
+          "label": "2/5/13",
+          "pulls": 1
+        }
+      ],
+      "specs": [
+        {
+          "spec": "Arcane Mage",
+          "totalSlots": 165,
+          "pulls": 98,
+          "perPull": 1.68
+        },
+        {
+          "spec": "Demonology Warlock",
+          "totalSlots": 133,
+          "pulls": 92,
+          "perPull": 1.45
+        },
+        {
+          "spec": "Balance Druid",
+          "totalSlots": 128,
+          "pulls": 98,
+          "perPull": 1.31
+        },
+        {
+          "spec": "Arms Warrior",
+          "totalSlots": 117,
+          "pulls": 91,
+          "perPull": 1.29
+        },
+        {
+          "spec": "Blood DeathKnight",
+          "totalSlots": 103,
+          "pulls": 89,
+          "perPull": 1.16
+        },
+        {
+          "spec": "Marksmanship Hunter",
+          "totalSlots": 102,
+          "pulls": 72,
+          "perPull": 1.42
+        },
+        {
+          "spec": "Holy Priest",
+          "totalSlots": 92,
+          "pulls": 83,
+          "perPull": 1.11
+        },
+        {
+          "spec": "Restoration Shaman",
+          "totalSlots": 85,
+          "pulls": 79,
+          "perPull": 1.08
+        },
+        {
+          "spec": "Preservation Evoker",
+          "totalSlots": 79,
+          "pulls": 64,
+          "perPull": 1.23
+        },
+        {
+          "spec": "Holy Paladin",
+          "totalSlots": 73,
+          "pulls": 71,
+          "perPull": 1.03
+        },
+        {
+          "spec": "Windwalker Monk",
+          "totalSlots": 66,
+          "pulls": 65,
+          "perPull": 1.02
+        },
+        {
+          "spec": "Subtlety Rogue",
+          "totalSlots": 65,
+          "pulls": 58,
+          "perPull": 1.12
+        },
+        {
+          "spec": "Elemental Shaman",
+          "totalSlots": 65,
+          "pulls": 62,
+          "perPull": 1.05
+        },
+        {
+          "spec": "Havoc DemonHunter",
+          "totalSlots": 63,
+          "pulls": 61,
+          "perPull": 1.03
+        },
+        {
+          "spec": "Retribution Paladin",
+          "totalSlots": 61,
+          "pulls": 53,
+          "perPull": 1.15
+        },
+        {
+          "spec": "BeastMastery Hunter",
+          "totalSlots": 59,
+          "pulls": 49,
+          "perPull": 1.2
+        },
+        {
+          "spec": "Shadow Priest",
+          "totalSlots": 57,
+          "pulls": 57,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Devourer DemonHunter",
+          "totalSlots": 52,
+          "pulls": 47,
+          "perPull": 1.11
+        },
+        {
+          "spec": "Frost DeathKnight",
+          "totalSlots": 41,
+          "pulls": 38,
+          "perPull": 1.08
+        },
+        {
+          "spec": "Protection Paladin",
+          "totalSlots": 41,
+          "pulls": 39,
+          "perPull": 1.05
+        },
+        {
+          "spec": "Unholy DeathKnight",
+          "totalSlots": 40,
+          "pulls": 38,
+          "perPull": 1.05
+        },
+        {
+          "spec": "Devastation Evoker",
+          "totalSlots": 38,
+          "pulls": 36,
+          "perPull": 1.06
+        },
+        {
+          "spec": "Augmentation Evoker",
+          "totalSlots": 37,
+          "pulls": 34,
+          "perPull": 1.09
+        },
+        {
+          "spec": "Restoration Druid",
+          "totalSlots": 31,
+          "pulls": 31,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Mistweaver Monk",
+          "totalSlots": 23,
+          "pulls": 23,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Assassination Rogue",
+          "totalSlots": 21,
+          "pulls": 20,
+          "perPull": 1.05
+        },
+        {
+          "spec": "Brewmaster Monk",
+          "totalSlots": 19,
+          "pulls": 19,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Enhancement Shaman",
+          "totalSlots": 14,
+          "pulls": 14,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Guardian Druid",
+          "totalSlots": 11,
+          "pulls": 11,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Vengeance DemonHunter",
+          "totalSlots": 11,
+          "pulls": 11,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Protection Warrior",
+          "totalSlots": 11,
+          "pulls": 11,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Affliction Warlock",
+          "totalSlots": 10,
+          "pulls": 10,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Discipline Priest",
+          "totalSlots": 10,
+          "pulls": 10,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Outlaw Rogue",
+          "totalSlots": 10,
+          "pulls": 10,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Destruction Warlock",
+          "totalSlots": 9,
+          "pulls": 9,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Feral Druid",
+          "totalSlots": 6,
+          "pulls": 6,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Fury Warrior",
+          "totalSlots": 6,
+          "pulls": 6,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Survival Hunter",
+          "totalSlots": 4,
+          "pulls": 4,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Frost Mage",
+          "totalSlots": 2,
+          "pulls": 2,
+          "perPull": 1.0
+        }
+      ]
+    },
+    "segments": [
+      {
+        "index": 1,
+        "phaseId": 1,
+        "cycle": 1,
+        "name": "Stage One: Soulcoiler Initiation",
+        "label": "Stage One: Soulcoiler Initiation",
+        "startSeconds": {
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "iqr": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "durationSeconds": {
+          "median": 177.4,
+          "p25": 166.4,
+          "p75": 186.6,
+          "iqr": 20.2,
+          "min": 135.9,
+          "max": 218.3
+        },
+        "support": {
+          "pulls": 98,
+          "reachedIndex": 98,
+          "of": 98
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 2,
+        "phaseId": 2,
+        "cycle": 1,
+        "name": "Intermission: Ritual of Awakening",
+        "label": "Intermission: Ritual of Awakening",
+        "startSeconds": {
+          "median": 177.4,
+          "p25": 166.4,
+          "p75": 186.6,
+          "iqr": 20.2,
+          "min": 135.9,
+          "max": 218.3
+        },
+        "durationSeconds": {
+          "median": 113.8,
+          "p25": 106.4,
+          "p75": 122.1,
+          "iqr": 15.7,
+          "min": 93.4,
+          "max": 162.7
+        },
+        "support": {
+          "pulls": 98,
+          "reachedIndex": 98,
+          "of": 98
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 3,
+        "phaseId": 3,
+        "cycle": 1,
+        "name": "Stage Two: Uncoiling",
+        "label": "Stage Two: Uncoiling",
+        "startSeconds": {
+          "median": 289.3,
+          "p25": 274.0,
+          "p75": 304.8,
+          "iqr": 30.9,
+          "min": 238.4,
+          "max": 370.6
+        },
+        "durationSeconds": {
+          "median": 147.4,
+          "p25": 127.8,
+          "p75": 161.4,
+          "iqr": 33.6,
+          "min": 101.4,
+          "max": 210.0
+        },
+        "support": {
+          "pulls": 98,
+          "reachedIndex": 98,
+          "of": 98
+        },
+        "agreement": 1.0
+      }
+    ],
+    "abilities": [
+      {
+        "name": "Gravebound Advance",
+        "ids": [
+          1287533
+        ],
+        "sources": [
+          "Restless Amani"
+        ],
+        "seenInPulls": 98,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 8.0,
+          "p25": 7.0,
+          "p75": 9.0,
+          "iqr": 2.0,
+          "min": 4.0,
+          "max": 12.0
+        },
+        "cadenceSeconds": {
+          "median": 41.3,
+          "p25": 39.9,
+          "p75": 67.4,
+          "iqr": 27.5,
+          "min": 2.0,
+          "max": 172.2
+        },
+        "firstAtSeconds": {
+          "median": 52.7,
+          "p25": 52.7,
+          "p75": 53.9,
+          "iqr": 1.2,
+          "min": 52.5,
+          "max": 122.4
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1287533,
+          "title": "Gravebound Advance",
+          "description": "Restless Amani are protected by a necrotic barrier, absorbing magic damage equal to 25% of their maximum health. While the barrier holds, the Restless Amani cannot be destroyed and fixate on the Soulcoil Well.",
+          "damage": [],
+          "parentTitle": "Restless Amani"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 52.7,
+              "p25": 52.7,
+              "p75": 53.9,
+              "iqr": 1.2,
+              "min": 52.5,
+              "max": 122.4
+            },
+            "atSegmentSeconds": {
+              "median": 52.7,
+              "p25": 52.7,
+              "p75": 53.9,
+              "iqr": 1.2,
+              "min": 52.5,
+              "max": 122.4
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 121.2,
+              "p25": 121.1,
+              "p75": 121.2,
+              "iqr": 0.1,
+              "min": 55.1,
+              "max": 193.5
+            },
+            "atSegmentSeconds": {
+              "median": 121.2,
+              "p25": 121.1,
+              "p75": 121.2,
+              "iqr": 0.1,
+              "min": 55.1,
+              "max": 193.5
+            },
+            "support": {
+              "pulls": 77,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 207.8,
+              "p25": 196.7,
+              "p75": 220.6,
+              "iqr": 23.9,
+              "min": 167.1,
+              "max": 279.1
+            },
+            "atSegmentSeconds": {
+              "median": 31.1,
+              "p25": 30.0,
+              "p75": 31.2,
+              "iqr": 1.2,
+              "min": 29.0,
+              "max": 93.5
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 261.7,
+              "p25": 249.1,
+              "p75": 274.2,
+              "iqr": 25.2,
+              "min": 183.0,
+              "max": 330.7
+            },
+            "atSegmentSeconds": {
+              "median": 87.3,
+              "p25": 82.4,
+              "p75": 92.5,
+              "iqr": 10.1,
+              "min": 31.2,
+              "max": 120.7
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 314.6,
+              "p25": 304.3,
+              "p75": 329.9,
+              "iqr": 25.6,
+              "min": 263.4,
+              "max": 441.3
+            },
+            "atSegmentSeconds": {
+              "median": 35.2,
+              "p25": 7.4,
+              "p75": 35.2,
+              "iqr": 27.8,
+              "min": 0.7,
+              "max": 75.3
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 354.6,
+              "p25": 337.9,
+              "p75": 378.0,
+              "iqr": 40.1,
+              "min": 284.5,
+              "max": 507.5
+            },
+            "atSegmentSeconds": {
+              "median": 75.2,
+              "p25": 35.6,
+              "p75": 75.2,
+              "iqr": 39.7,
+              "min": 7.0,
+              "max": 155.3
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 390.9,
+              "p25": 375.2,
+              "p75": 409.2,
+              "iqr": 34.0,
+              "min": 312.7,
+              "max": 525.7
+            },
+            "atSegmentSeconds": {
+              "median": 115.2,
+              "p25": 75.2,
+              "p75": 115.2,
+              "iqr": 40.0,
+              "min": 35.2,
+              "max": 156.6
+            },
+            "support": {
+              "pulls": 93,
+              "reachedSegment": 98
+            }
+          }
+        ]
+      },
+      {
+        "name": "Hungering Pyre",
+        "ids": [
+          1289855,
+          1294742
+        ],
+        "sources": [
+          "Echo of Jawae"
+        ],
+        "seenInPulls": 98,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 7.0,
+          "p25": 6.0,
+          "p75": 8.0,
+          "iqr": 2.0,
+          "min": 4.0,
+          "max": 9.0
+        },
+        "cadenceSeconds": {
+          "median": 7.6,
+          "p25": 7.5,
+          "p75": 27.5,
+          "iqr": 20.0,
+          "min": 7.4,
+          "max": 46.2
+        },
+        "firstAtSeconds": {
+          "median": 184.4,
+          "p25": 173.4,
+          "p75": 193.6,
+          "iqr": 20.2,
+          "min": 142.9,
+          "max": 225.3
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1289855,
+          "title": "Hungering Pyre",
+          "description": "The Echo of Jawae erupts in soul fire, inflicting 5000440 Fire damage split evenly between players within 10 yards. Slithering Flames seek out players who are not hit by the pyre.",
+          "damage": [
+            {
+              "amount": 5000440,
+              "school": "Fire",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Echo of Jawae"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 2,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 184.4,
+              "p25": 173.4,
+              "p75": 193.6,
+              "iqr": 20.2,
+              "min": 142.9,
+              "max": 225.3
+            },
+            "atSegmentSeconds": {
+              "median": 7.0,
+              "p25": 7.0,
+              "p75": 7.1,
+              "iqr": 0.1,
+              "min": 6.9,
+              "max": 7.3
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 191.9,
+              "p25": 180.9,
+              "p75": 201.1,
+              "iqr": 20.2,
+              "min": 150.4,
+              "max": 232.8
+            },
+            "atSegmentSeconds": {
+              "median": 14.5,
+              "p25": 14.5,
+              "p75": 14.6,
+              "iqr": 0.1,
+              "min": 14.5,
+              "max": 14.8
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 221.3,
+              "p25": 210.8,
+              "p75": 234.1,
+              "iqr": 23.3,
+              "min": 182.6,
+              "max": 260.3
+            },
+            "atSegmentSeconds": {
+              "median": 42.1,
+              "p25": 42.0,
+              "p75": 42.1,
+              "iqr": 0.1,
+              "min": 42.0,
+              "max": 60.7
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 233.2,
+              "p25": 226.6,
+              "p75": 247.2,
+              "iqr": 20.7,
+              "min": 201.3,
+              "max": 267.8
+            },
+            "atSegmentSeconds": {
+              "median": 62.3,
+              "p25": 49.5,
+              "p75": 66.3,
+              "iqr": 16.7,
+              "min": 49.5,
+              "max": 68.2
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 5,
+            "atSeconds": {
+              "median": 254.3,
+              "p25": 239.9,
+              "p75": 264.5,
+              "iqr": 24.6,
+              "min": 211.7,
+              "max": 305.3
+            },
+            "atSegmentSeconds": {
+              "median": 73.7,
+              "p25": 71.2,
+              "p75": 80.4,
+              "iqr": 9.2,
+              "min": 68.7,
+              "max": 95.8
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 6,
+            "atSeconds": {
+              "median": 268.2,
+              "p25": 260.3,
+              "p75": 284.0,
+              "iqr": 23.7,
+              "min": 231.1,
+              "max": 312.7
+            },
+            "atSegmentSeconds": {
+              "median": 97.1,
+              "p25": 82.0,
+              "p75": 100.8,
+              "iqr": 18.8,
+              "min": 76.2,
+              "max": 103.0
+            },
+            "support": {
+              "pulls": 93,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 7,
+            "atSeconds": {
+              "median": 289.8,
+              "p25": 275.6,
+              "p75": 299.4,
+              "iqr": 23.8,
+              "min": 246.8,
+              "max": 340.3
+            },
+            "atSegmentSeconds": {
+              "median": 107.7,
+              "p25": 105.3,
+              "p75": 110.0,
+              "iqr": 4.8,
+              "min": 103.8,
+              "max": 124.6
+            },
+            "support": {
+              "pulls": 66,
+              "reachedSegment": 98
+            }
+          }
+        ]
+      },
+      {
+        "name": "Invoke",
+        "ids": [
+          1299673
+        ],
+        "sources": [
+          "Nek'zali the Soulcoiler"
+        ],
+        "seenInPulls": 98,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 4.0,
+          "p25": 3.0,
+          "p75": 4.0,
+          "iqr": 1.0,
+          "min": 3.0,
+          "max": 5.0
+        },
+        "cadenceSeconds": {
+          "median": 48.0,
+          "p25": 32.0,
+          "p75": 48.0,
+          "iqr": 16.0,
+          "min": 31.9,
+          "max": 48.1
+        },
+        "firstAtSeconds": {
+          "median": 307.4,
+          "p25": 292.0,
+          "p75": 322.9,
+          "iqr": 30.9,
+          "min": 256.5,
+          "max": 388.6
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1299673,
+          "title": "Invoke",
+          "description": "Nek'zali invokes the Soulcoil Rite and calls upon the Latent Cultists to perform an Entwined Step.",
+          "damage": [],
+          "parentTitle": "Stage Two: Uncoiling"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 307.4,
+              "p25": 292.0,
+              "p75": 322.9,
+              "iqr": 30.9,
+              "min": 256.5,
+              "max": 388.6
+            },
+            "atSegmentSeconds": {
+              "median": 18.1,
+              "p25": 18.0,
+              "p75": 18.1,
+              "iqr": 0.0,
+              "min": 18.0,
+              "max": 18.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 355.4,
+              "p25": 340.0,
+              "p75": 370.9,
+              "iqr": 30.9,
+              "min": 304.4,
+              "max": 436.6
+            },
+            "atSegmentSeconds": {
+              "median": 66.0,
+              "p25": 66.0,
+              "p75": 66.1,
+              "iqr": 0.0,
+              "min": 66.0,
+              "max": 66.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 387.4,
+              "p25": 372.0,
+              "p75": 402.9,
+              "iqr": 30.9,
+              "min": 336.5,
+              "max": 468.6
+            },
+            "atSegmentSeconds": {
+              "median": 98.1,
+              "p25": 98.0,
+              "p75": 98.1,
+              "iqr": 0.1,
+              "min": 98.0,
+              "max": 98.2
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 448.8,
+              "p25": 433.5,
+              "p75": 466.4,
+              "iqr": 32.9,
+              "min": 395.4,
+              "max": 516.6
+            },
+            "atSegmentSeconds": {
+              "median": 146.1,
+              "p25": 146.0,
+              "p75": 146.1,
+              "iqr": 0.0,
+              "min": 146.0,
+              "max": 146.1
+            },
+            "support": {
+              "pulls": 50,
+              "reachedSegment": 98
+            }
+          }
+        ]
+      },
+      {
+        "name": "Possession Barrage",
+        "ids": [
+          1284103
+        ],
+        "sources": [
+          "Nek'zali the Soulcoiler"
+        ],
+        "seenInPulls": 98,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 7.0,
+          "p25": 6.0,
+          "p75": 7.0,
+          "iqr": 1.0,
+          "min": 5.0,
+          "max": 9.0
+        },
+        "cadenceSeconds": {
+          "median": 36.0,
+          "p25": 35.0,
+          "p75": 52.0,
+          "iqr": 17.0,
+          "min": 27.9,
+          "max": 245.6
+        },
+        "firstAtSeconds": {
+          "median": 34.0,
+          "p25": 34.0,
+          "p75": 34.0,
+          "iqr": 0.0,
+          "min": 33.9,
+          "max": 34.1
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1284103,
+          "title": "Possession Barrage",
+          "description": "Nek'zali launches spectral echoes in the direction of her primary target that burst on impact, inflicting 291692 Shadow damage to all players. This damage is reduced the farther each echo travels.",
+          "damage": [
+            {
+              "amount": 291692,
+              "school": "Shadow",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Stage One: Soulcoiler Initiation"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 34.0,
+              "p25": 34.0,
+              "p75": 34.0,
+              "iqr": 0.0,
+              "min": 33.9,
+              "max": 34.1
+            },
+            "atSegmentSeconds": {
+              "median": 34.0,
+              "p25": 34.0,
+              "p75": 34.0,
+              "iqr": 0.0,
+              "min": 33.9,
+              "max": 34.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 70.0,
+              "p25": 70.0,
+              "p75": 70.0,
+              "iqr": 0.0,
+              "min": 69.9,
+              "max": 70.1
+            },
+            "atSegmentSeconds": {
+              "median": 70.0,
+              "p25": 70.0,
+              "p75": 70.0,
+              "iqr": 0.0,
+              "min": 69.9,
+              "max": 70.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 105.0,
+              "p25": 105.0,
+              "p75": 105.0,
+              "iqr": 0.0,
+              "min": 104.9,
+              "max": 105.1
+            },
+            "atSegmentSeconds": {
+              "median": 105.0,
+              "p25": 105.0,
+              "p75": 105.0,
+              "iqr": 0.0,
+              "min": 104.9,
+              "max": 105.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 141.0,
+              "p25": 141.0,
+              "p75": 141.0,
+              "iqr": 0.0,
+              "min": 141.0,
+              "max": 141.1
+            },
+            "atSegmentSeconds": {
+              "median": 141.0,
+              "p25": 141.0,
+              "p75": 141.0,
+              "iqr": 0.0,
+              "min": 141.0,
+              "max": 141.1
+            },
+            "support": {
+              "pulls": 78,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 340.4,
+              "p25": 325.0,
+              "p75": 355.9,
+              "iqr": 30.9,
+              "min": 289.5,
+              "max": 421.6
+            },
+            "atSegmentSeconds": {
+              "median": 51.0,
+              "p25": 51.0,
+              "p75": 51.1,
+              "iqr": 0.0,
+              "min": 51.0,
+              "max": 51.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 368.4,
+              "p25": 352.9,
+              "p75": 383.9,
+              "iqr": 31.0,
+              "min": 317.4,
+              "max": 449.6
+            },
+            "atSegmentSeconds": {
+              "median": 79.0,
+              "p25": 79.0,
+              "p75": 79.1,
+              "iqr": 0.0,
+              "min": 79.0,
+              "max": 79.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 427.3,
+              "p25": 407.1,
+              "p75": 443.4,
+              "iqr": 36.4,
+              "min": 369.5,
+              "max": 501.6
+            },
+            "atSegmentSeconds": {
+              "median": 131.1,
+              "p25": 131.0,
+              "p75": 131.1,
+              "iqr": 0.0,
+              "min": 131.0,
+              "max": 131.1
+            },
+            "support": {
+              "pulls": 68,
+              "reachedSegment": 98
+            }
+          }
+        ]
+      },
+      {
+        "name": "Ritual Burn",
+        "ids": [
+          1297624
+        ],
+        "sources": [
+          "Nek'zali the Soulcoiler"
+        ],
+        "seenInPulls": 98,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 7.0,
+          "p25": 6.0,
+          "p75": 7.0,
+          "iqr": 1.0,
+          "min": 5.0,
+          "max": 12.0
+        },
+        "cadenceSeconds": {
+          "median": 48.0,
+          "p25": 32.8,
+          "p75": 74.7,
+          "iqr": 41.8,
+          "min": 2.4,
+          "max": 240.4
+        },
+        "firstAtSeconds": {
+          "median": 3.0,
+          "p25": 3.0,
+          "p75": 3.0,
+          "iqr": 0.0,
+          "min": 2.9,
+          "max": 3.1
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1297624,
+          "title": "Ritual Burn",
+          "description": "Increases damage taken from Soulcoil Rite by 15% for 1 min. This effect stacks.",
+          "damage": [],
+          "parentTitle": "Soulcoil Rite"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 3.0,
+              "p25": 3.0,
+              "p75": 3.0,
+              "iqr": 0.0,
+              "min": 2.9,
+              "max": 3.1
+            },
+            "atSegmentSeconds": {
+              "median": 3.0,
+              "p25": 3.0,
+              "p75": 3.0,
+              "iqr": 0.0,
+              "min": 2.9,
+              "max": 3.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 77.4,
+              "p25": 76.7,
+              "p75": 77.9,
+              "iqr": 1.2,
+              "min": 70.7,
+              "max": 78.4
+            },
+            "atSegmentSeconds": {
+              "median": 77.4,
+              "p25": 76.7,
+              "p75": 77.9,
+              "iqr": 1.2,
+              "min": 70.7,
+              "max": 78.4
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 148.2,
+              "p25": 147.6,
+              "p75": 148.8,
+              "iqr": 1.2,
+              "min": 74.9,
+              "max": 149.8
+            },
+            "atSegmentSeconds": {
+              "median": 148.2,
+              "p25": 147.6,
+              "p75": 148.8,
+              "iqr": 1.2,
+              "min": 74.9,
+              "max": 149.8
+            },
+            "support": {
+              "pulls": 67,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 307.4,
+              "p25": 292.0,
+              "p75": 322.8,
+              "iqr": 30.8,
+              "min": 256.4,
+              "max": 388.6
+            },
+            "atSegmentSeconds": {
+              "median": 18.0,
+              "p25": 18.0,
+              "p75": 18.1,
+              "iqr": 0.0,
+              "min": 3.7,
+              "max": 18.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 354.9,
+              "p25": 339.7,
+              "p75": 370.8,
+              "iqr": 31.1,
+              "min": 304.4,
+              "max": 436.6
+            },
+            "atSegmentSeconds": {
+              "median": 66.0,
+              "p25": 66.0,
+              "p75": 66.1,
+              "iqr": 0.0,
+              "min": 18.1,
+              "max": 66.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 386.2,
+              "p25": 369.6,
+              "p75": 402.8,
+              "iqr": 33.3,
+              "min": 336.5,
+              "max": 468.6
+            },
+            "atSegmentSeconds": {
+              "median": 98.1,
+              "p25": 98.0,
+              "p75": 98.1,
+              "iqr": 0.0,
+              "min": 66.0,
+              "max": 98.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 444.0,
+              "p25": 410.0,
+              "p75": 460.7,
+              "iqr": 50.7,
+              "min": 368.7,
+              "max": 516.6
+            },
+            "atSegmentSeconds": {
+              "median": 146.0,
+              "p25": 146.0,
+              "p75": 146.1,
+              "iqr": 0.1,
+              "min": 98.0,
+              "max": 146.1
+            },
+            "support": {
+              "pulls": 57,
+              "reachedSegment": 98
+            }
+          }
+        ]
+      },
+      {
+        "name": "Soul Transfer",
+        "ids": [
+          1289902,
+          1292248,
+          1293211
+        ],
+        "sources": [
+          "Nek'zali the Soulcoiler",
+          "Echo of Jawae",
+          "Summoner Jawae"
+        ],
+        "seenInPulls": 98,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 4.0,
+          "p25": 4.0,
+          "p75": 4.0,
+          "iqr": 0.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "cadenceSeconds": {
+          "median": 8.0,
+          "p25": 7.0,
+          "p75": 55.7,
+          "iqr": 48.7,
+          "min": 6.9,
+          "max": 91.5
+        },
+        "firstAtSeconds": {
+          "median": 166.4,
+          "p25": 155.4,
+          "p75": 175.6,
+          "iqr": 20.2,
+          "min": 124.9,
+          "max": 207.3
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1292248,
+          "title": "Soul Transfer",
+          "description": "Jawae transfers her essence to an Echo of Jawae over 15 sec. A surge of soul energy then inflicts 666725 Shadow damage to players caught in the blast.",
+          "damage": [
+            {
+              "amount": 666725,
+              "school": "Shadow",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Echo of Jawae"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 166.4,
+              "p25": 155.4,
+              "p75": 175.6,
+              "iqr": 20.2,
+              "min": 124.9,
+              "max": 207.3
+            },
+            "atSegmentSeconds": {
+              "median": 166.4,
+              "p25": 155.4,
+              "p75": 175.6,
+              "iqr": 20.2,
+              "min": 124.9,
+              "max": 207.3
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 173.4,
+              "p25": 162.4,
+              "p75": 182.6,
+              "iqr": 20.2,
+              "min": 131.9,
+              "max": 214.3
+            },
+            "atSegmentSeconds": {
+              "median": 173.4,
+              "p25": 162.4,
+              "p75": 182.6,
+              "iqr": 20.2,
+              "min": 131.9,
+              "max": 214.3
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 181.4,
+              "p25": 170.4,
+              "p75": 190.6,
+              "iqr": 20.2,
+              "min": 139.9,
+              "max": 222.3
+            },
+            "atSegmentSeconds": {
+              "median": 4.0,
+              "p25": 4.0,
+              "p75": 4.1,
+              "iqr": 0.1,
+              "min": 4.0,
+              "max": 4.3
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 241.1,
+              "p25": 226.9,
+              "p75": 253.6,
+              "iqr": 26.7,
+              "min": 191.0,
+              "max": 303.6
+            },
+            "atSegmentSeconds": {
+              "median": 64.1,
+              "p25": 59.7,
+              "p75": 69.3,
+              "iqr": 9.6,
+              "min": 54.0,
+              "max": 95.5
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          }
+        ]
+      },
+      {
+        "name": "Soulcoil Ignition",
+        "ids": [
+          1285681,
+          1293660,
+          1293664
+        ],
+        "sources": [
+          "Nek'zali the Soulcoiler"
+        ],
+        "seenInPulls": 98,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 3.0,
+          "p25": 2.0,
+          "p75": 3.0,
+          "iqr": 1.0,
+          "min": 2.0,
+          "max": 3.0
+        },
+        "cadenceSeconds": {
+          "median": 73.0,
+          "p25": 71.1,
+          "p75": 73.8,
+          "iqr": 2.7,
+          "min": 67.9,
+          "max": 74.7
+        },
+        "firstAtSeconds": {
+          "median": 3.0,
+          "p25": 3.0,
+          "p75": 3.0,
+          "iqr": 0.0,
+          "min": 2.9,
+          "max": 3.1
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1285681,
+          "title": "Soulcoil Ignition",
+          "description": "Nek'zali stirs the Soulcoil Well, invoking the Soulcoil Rite every 1 sec for 4 sec. During the channel, Anguished Echoes emerge from the well.",
+          "damage": [],
+          "parentTitle": "Stage One: Soulcoiler Initiation"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 3.0,
+              "p25": 3.0,
+              "p75": 3.0,
+              "iqr": 0.0,
+              "min": 2.9,
+              "max": 3.1
+            },
+            "atSegmentSeconds": {
+              "median": 3.0,
+              "p25": 3.0,
+              "p75": 3.0,
+              "iqr": 0.0,
+              "min": 2.9,
+              "max": 3.1
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 76.7,
+              "p25": 76.1,
+              "p75": 77.2,
+              "iqr": 1.1,
+              "min": 74.1,
+              "max": 77.7
+            },
+            "atSegmentSeconds": {
+              "median": 76.7,
+              "p25": 76.1,
+              "p75": 77.2,
+              "iqr": 1.1,
+              "min": 74.1,
+              "max": 77.7
+            },
+            "support": {
+              "pulls": 98,
+              "reachedSegment": 98
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 147.7,
+              "p25": 147.2,
+              "p75": 148.1,
+              "iqr": 0.9,
+              "min": 145.1,
+              "max": 148.7
+            },
+            "atSegmentSeconds": {
+              "median": 147.7,
+              "p25": 147.2,
+              "p75": 148.1,
+              "iqr": 0.9,
+              "min": 145.1,
+              "max": 148.7
+            },
+            "support": {
+              "pulls": 64,
+              "reachedSegment": 98
+            }
+          }
+        ]
+      },
+      {
+        "name": "Soulcoiler's Curse",
+        "ids": [
+          1300238
+        ],
+        "sources": [
+          "Drowned Echo"
+        ],
+        "seenInPulls": 24,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 2.0,
+          "iqr": 1.0,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "cadenceSeconds": {
+          "median": 12.2,
+          "p25": 11.8,
+          "p75": 62.7,
+          "iqr": 50.9,
+          "min": 11.0,
+          "max": 173.6
+        },
+        "firstAtSeconds": {
+          "median": 371.3,
+          "p25": 290.0,
+          "p75": 411.2,
+          "iqr": 121.1,
+          "min": 129.4,
+          "max": 525.6
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1300238,
+          "title": "Soulcoiler's Curse",
+          "description": "The Drowned Echo coils around all players within the well, ejecting them and leaving them Soulcoiled.",
+          "damage": [],
+          "parentTitle": "Drowned Echo"
+        },
+        "occurrences": []
+      },
+      {
+        "name": "Swirling Spirit",
+        "ids": [
+          1300468
+        ],
+        "sources": [
+          "Drowned Echo"
+        ],
+        "seenInPulls": 11,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "cadenceSeconds": {
+          "median": 199.1,
+          "p25": 199.1,
+          "p75": 199.1,
+          "iqr": 0.0,
+          "min": 199.1,
+          "max": 199.1
+        },
+        "firstAtSeconds": {
+          "median": 344.3,
+          "p25": 298.6,
+          "p75": 388.5,
+          "iqr": 89.9,
+          "min": 235.8,
+          "max": 411.0
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1300239,
+          "title": "Swirling Spirit",
+          "description": "Spirits swirl within the Soulcoil Well, inflicting 66673 Shadow damage every 1 sec for 5 sec on contact. This effect stacks.",
+          "damage": [
+            {
+              "amount": 66673,
+              "school": "Shadow",
+              "everySeconds": 1.0
+            }
+          ],
+          "parentTitle": "Immortal Coil"
+        },
+        "occurrences": []
+      },
+      {
+        "name": "Uncoiled Rage",
+        "ids": [
+          1284034
+        ],
+        "sources": [
+          "Nek'zali the Soulcoiler"
+        ],
+        "seenInPulls": 10,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "cadenceSeconds": null,
+        "firstAtSeconds": {
+          "median": 492.4,
+          "p25": 460.1,
+          "p75": 527.1,
+          "iqr": 67.0,
+          "min": 416.9,
+          "max": 554.1
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1284034,
+          "title": "Uncoiled Rage",
+          "description": "Upon reaching full energy, Nek'zali gains her full potential, increasing her attack and movement speeds by 150% and all damage by 500%. Additionally, grants immunity to Taunt effects.",
+          "damage": [],
+          "parentTitle": "Soulcoil Well"
+        },
+        "occurrences": []
+      },
+      {
+        "name": "Ritual of Awakening",
+        "ids": [
+          1295124
+        ],
+        "sources": [
+          "Nek'zali the Soulcoiler"
+        ],
+        "seenInPulls": 87,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "cadenceSeconds": null,
+        "firstAtSeconds": {
+          "median": 157.1,
+          "p25": 143.4,
+          "p75": 167.2,
+          "iqr": 23.8,
+          "min": 114.4,
+          "max": 196.8
+        },
+        "inJournal": false,
+        "journal": null,
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 157.1,
+              "p25": 143.4,
+              "p75": 167.2,
+              "iqr": 23.8,
+              "min": 114.4,
+              "max": 196.8
+            },
+            "atSegmentSeconds": {
+              "median": 157.1,
+              "p25": 143.4,
+              "p75": 167.2,
+              "iqr": 23.8,
+              "min": 114.4,
+              "max": 196.8
+            },
+            "support": {
+              "pulls": 87,
+              "reachedSegment": 98
+            }
+          }
+        ]
+      },
+      {
+        "name": "Anti-Magic Zone",
+        "ids": [
+          145629
+        ],
+        "sources": [
+          "Environment"
+        ],
+        "seenInPulls": 71,
+        "of": 98,
+        "instancesPerPull": {
+          "median": 3.0,
+          "p25": 2.0,
+          "p75": 5.0,
+          "iqr": 3.0,
+          "min": 1.0,
+          "max": 10.0
+        },
+        "cadenceSeconds": {
+          "median": 6.8,
+          "p25": 4.3,
+          "p75": 71.5,
+          "iqr": 67.2,
+          "min": 2.0,
+          "max": 358.1
+        },
+        "firstAtSeconds": {
+          "median": 190.0,
+          "p25": 102.7,
+          "p75": 268.4,
+          "iqr": 165.8,
+          "min": 2.9,
+          "max": 463.0
+        },
+        "inJournal": false,
+        "journal": null,
+        "occurrences": []
+      }
+    ],
+    "journalOnly": [
+      {
+        "title": "Anguished Echoes",
+        "spellId": 1294846,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Corpse Blight",
+        "spellId": 1294729,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Cremation",
+        "spellId": 1289875,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Entwined Step",
+        "spellId": 1293497,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Essence Rend",
+        "spellId": 1287426,
+        "why": "an umbrella section grouping other abilities, not a cast in its own right"
+      },
+      {
+        "title": "Grasping Depths",
+        "spellId": 1293212,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Hollowing Strikes",
+        "spellId": 1284110,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Immortal Coil",
+        "spellId": 1299988,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Latent Cultist",
+        "spellId": 1287198,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Slithering Flame",
+        "spellId": 1294933,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Soul Exhaustion",
+        "spellId": 1300235,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Soulcoil Rite",
+        "spellId": 1284033,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Soulcoil Well",
+        "spellId": 1284032,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Soulcoiled",
+        "spellId": 1290361,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Tether of Awakening",
+        "spellId": 1289696,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Uncoiling",
+        "spellId": 1290003,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Vessel of Awakening",
+        "spellId": 1295263,
+        "why": "neither cast nor damaging in this pool"
+      }
+    ],
+    "damageTaken": {
+      "sampledPulls": [
+        {
+          "code": "Q3zTwXKjM6vdPV9h",
+          "fight": 8
+        },
+        {
+          "code": "bvB4wPXFqJfkrQnN",
+          "fight": 23
+        },
+        {
+          "code": "7BPQnxRaDtYWm6AN",
+          "fight": 14
+        },
+        {
+          "code": "KP3g8BbZD9hTqLkj",
+          "fight": 29
+        },
+        {
+          "code": "GYxbqDNgM9r7a4Bj",
+          "fight": 14
+        },
+        {
+          "code": "ym2tv1Nx4XqGMzPg",
+          "fight": 13
+        },
+        {
+          "code": "L2wCNPvrcFWGTxDR",
+          "fight": 14
+        },
+        {
+          "code": "yCJg3dfc1vxZPFQL",
+          "fight": 15
+        },
+        {
+          "code": "KpaAdRBjz7G1Qrqy",
+          "fight": 19
+        },
+        {
+          "code": "XBGxZvWFgtVHb7k4",
+          "fight": 16
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Soulcoil Rite",
+          "ids": [
+            1288772
+          ],
+          "meanPerPull": 165270059,
+          "meanReducedPerPull": 138367899,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.3409
+        },
+        {
+          "name": "Corpse Blight",
+          "ids": [
+            1307939
+          ],
+          "meanPerPull": 85142754,
+          "meanReducedPerPull": 70122703,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.1756
+        },
+        {
+          "name": "Grasping Depths",
+          "ids": [
+            1293214
+          ],
+          "meanPerPull": 81079096,
+          "meanReducedPerPull": 66289606,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.1673
+        },
+        {
+          "name": "Possession Barrage",
+          "ids": [
+            1292034
+          ],
+          "meanPerPull": 27351060,
+          "meanReducedPerPull": 23762678,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0564
+        },
+        {
+          "name": "Immortal Coil",
+          "ids": [
+            1308227
+          ],
+          "meanPerPull": 22136212,
+          "meanReducedPerPull": 18886269,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0457
+        },
+        {
+          "name": "Melee",
+          "ids": [
+            1
+          ],
+          "meanPerPull": 21608297,
+          "meanReducedPerPull": 13129744,
+          "pulls": 10,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0446
+        },
+        {
+          "name": "Hollowing Strikes",
+          "ids": [
+            1284109
+          ],
+          "meanPerPull": 19057784,
+          "meanReducedPerPull": 16303556,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0393
+        },
+        {
+          "name": "Stagger",
+          "ids": [
+            124255
+          ],
+          "meanPerPull": 10646404,
+          "meanReducedPerPull": 9015928,
+          "pulls": 3,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.022
+        },
+        {
+          "name": "Cremation",
+          "ids": [
+            1289875
+          ],
+          "meanPerPull": 9506334,
+          "meanReducedPerPull": 7944098,
+          "pulls": 8,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0196
+        },
+        {
+          "name": "Uncoiling",
+          "ids": [
+            1292315
+          ],
+          "meanPerPull": 8236194,
+          "meanReducedPerPull": 6807003,
+          "pulls": 9,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.017
+        },
+        {
+          "name": "Latent Cultist",
+          "ids": [
+            1288554
+          ],
+          "meanPerPull": 7594451,
+          "meanReducedPerPull": 6146120,
+          "pulls": 5,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0157
+        },
+        {
+          "name": "Slithering Flame",
+          "ids": [
+            1294933
+          ],
+          "meanPerPull": 7425288,
+          "meanReducedPerPull": 5843940,
+          "pulls": 5,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0153
+        },
+        {
+          "name": "Soulcoil Well",
+          "ids": [
+            1290390
+          ],
+          "meanPerPull": 3918231,
+          "meanReducedPerPull": 3824661,
+          "pulls": 1,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0081
+        },
+        {
+          "name": "Refraction",
+          "ids": [
+            1309786
+          ],
+          "meanPerPull": 3450972,
+          "meanReducedPerPull": 2674508,
+          "pulls": 10,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0071
+        },
+        {
+          "name": "Hungering Pyre",
+          "ids": [
+            1289855
+          ],
+          "meanPerPull": 2810287,
+          "meanReducedPerPull": 2325867,
+          "pulls": 2,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0058
+        },
+        {
+          "name": "Blessing of Dawn",
+          "ids": [
+            210380
+          ],
+          "meanPerPull": 2701732,
+          "meanReducedPerPull": 2403715,
+          "pulls": 1,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0056
+        },
+        {
+          "name": "Soul Transfer",
+          "ids": [
+            1295085
+          ],
+          "meanPerPull": 1991113,
+          "meanReducedPerPull": 503821,
+          "pulls": 1,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0041
+        },
+        {
+          "name": "Time Dilation",
+          "ids": [
+            361029
+          ],
+          "meanPerPull": 1821507,
+          "meanReducedPerPull": 1571536,
+          "pulls": 1,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0038
+        },
+        {
+          "name": "Stretch Time",
+          "ids": [
+            413924
+          ],
+          "meanPerPull": 1583998,
+          "meanReducedPerPull": 1309969,
+          "pulls": 2,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0033
+        },
+        {
+          "name": "Swirling Spirit",
+          "ids": [
+            1300239
+          ],
+          "meanPerPull": 1423750,
+          "meanReducedPerPull": 411794,
+          "pulls": 2,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0029
+        }
+      ]
+    }
+  }
+}

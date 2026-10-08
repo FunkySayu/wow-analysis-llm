@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wow.funkysayu.fr/schemas/talent-tree.json",
+  "title": "Normalised talent tree (docs/design/22-talent-tree-pipeline.md)",
+  "description": "Output shape of tools/talent_tree_sync.py. Validated by a small hand-rolled subset validator in that same tool (no jsonschema dependency -- see the tool's module docstring) and asserted directly in tools/tests/test_talent_tree_sync.py.",
+  "type": "object",
+  "required": ["meta", "spec", "budgets", "full_node_order", "trees"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["branch", "patch", "fetched_at", "source_sha256", "trait_tree_id"],
+      "additionalProperties": false,
+      "properties": {
+        "branch": {"type": "string", "enum": ["live", "ptr"]},
+        "patch": {
+          "type": ["string", "null"],
+          "description": "Operator-supplied via --patch. Not derivable from the feed -- confirmed empirically that no spec entry in either the live or PTR talents.json carries any patch/version string. See 22-talent-tree-pipeline.md 'Doc fixes'."
+        },
+        "fetched_at": {
+          "type": "string",
+          "description": "ISO 8601 UTC timestamp of the underlying network fetch (stable across cache-warm reruns, not 'now' -- see the byte-identical-rerun acceptance criterion)."
+        },
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "trait_tree_id": {"type": "integer"}
+      }
+    },
+    "spec": {
+      "type": "object",
+      "required": ["slug", "class_id", "spec_id", "class_name", "spec_name"],
+      "additionalProperties": false,
+      "properties": {
+        "slug": {"type": "string"},
+        "class_id": {"type": "integer"},
+        "spec_id": {"type": "integer"},
+        "class_name": {"type": "string"},
+        "spec_name": {"type": "string"}
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "required": ["class", "spec", "hero"],
+      "additionalProperties": false,
+      "description": "Derived, not authoritative -- see 22-talent-tree-pipeline.md 'Doc fixes' for why pointLevels (the field this was originally meant to sum) does not exist in the Raidbots feed at all, and what these numbers actually measure instead.",
+      "properties": {
+        "class": {"type": "integer", "minimum": 0},
+        "spec": {"type": "integer", "minimum": 0},
+        "hero": {"type": "integer", "minimum": 0}
+      }
+    },
+    "full_node_order": {
+      "type": "array",
+      "items": {"type": "integer"},
+      "minItems": 1
+    },
+    "trees": {
+      "type": "object",
+      "required": ["class", "spec", "hero"],
+      "additionalProperties": false,
+      "properties": {
+        "class": {"$ref": "#/$defs/plainTree"},
+        "spec": {"$ref": "#/$defs/plainTree"},
+        "hero": {"$ref": "#/$defs/heroTree"}
+      }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": ["id", "spell_id", "name", "icon", "type", "max_ranks", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "integer"},
+        "spell_id": {
+          "type": ["integer", "null"],
+          "description": "Null only for the two hero-subtree-picker entries (e.g. Elune's Chosen / Keeper of the Grove on node type 'subtree') -- they select a subtree, not a spell, and carry no spellId in the raw feed."
+        },
+        "name": {"type": "string"},
+        "icon": {"type": "string"},
+        "type": {"type": "string"},
+        "max_ranks": {"type": "integer", "minimum": 1},
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "node": {
+      "type": "object",
+      "required": [
+        "id", "name", "type", "x", "y", "col", "row", "max_ranks", "req_points",
+        "entry_node", "is_apex", "free", "prev", "next", "entries"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "integer"},
+        "name": {"type": "string"},
+        "type": {"type": "string", "enum": ["single", "choice", "tiered", "subtree"]},
+        "x": {"type": "integer"},
+        "y": {"type": "integer"},
+        "col": {"type": "integer", "minimum": 0},
+        "row": {"type": "integer", "minimum": 0},
+        "max_ranks": {"type": "integer", "minimum": 1},
+        "req_points": {"type": ["integer", "null"], "minimum": 0},
+        "entry_node": {"type": "boolean"},
+        "is_apex": {"type": "boolean"},
+        "free": {
+          "type": "boolean",
+          "description": "Addition beyond the original design doc draft: true for a node granted without spending a talent point (raw feed's freeNode, plus every node of type 'subtree' -- picking a hero subtree costs no point in-game). Needed so 'budgets' (which excludes free ranks) is auditable from the node list alone. See 'Doc fixes'."
+        },
+        "prev": {"type": "array", "items": {"type": "integer"}},
+        "next": {"type": "array", "items": {"type": "integer"}},
+        "entries": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/entry"}}
+      }
+    },
+    "plainTree": {
+      "type": "object",
+      "required": ["nodes"],
+      "additionalProperties": false,
+      "properties": {
+        "nodes": {"type": "array", "items": {"$ref": "#/$defs/node"}}
+      }
+    },
+    "heroTree": {
+      "type": "object",
+      "required": ["subtrees", "nodes"],
+      "additionalProperties": false,
+      "properties": {
+        "subtrees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["slug", "name", "sub_tree_id", "node_ids"],
+            "additionalProperties": false,
+            "properties": {
+              "slug": {"type": "string"},
+              "name": {"type": "string"},
+              "sub_tree_id": {"type": "integer"},
+              "node_ids": {"type": "array", "items": {"type": "integer"}},
+              "undefined_node_ids": {"type": "array", "items": {"type": "integer"}}
+            }
+          }
+        },
+        "nodes": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/node"},
+          "description": "Every heroNodes entry from the raw feed, from both subtrees combined, plus the one subtree-picker node itself (type 'subtree')."
+        }
+      }
+    }
+  }
+}

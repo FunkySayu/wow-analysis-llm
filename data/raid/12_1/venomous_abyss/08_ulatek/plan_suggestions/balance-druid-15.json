@@ -1,0 +1,617 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 15,
+    "wclDifficulty": 4,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T12:34:01+00:00",
+    "generator": "tools/warcraftlogs/plan_suggestion_sync.py",
+    "catalog": "data/classes/druid/balance/12_1_cooldowns.json",
+    "parameters": {
+      "sample": 22,
+      "minRechargeSeconds": 25.0,
+      "tightIqrSeconds": 8.0,
+      "minSupport": 0.4,
+      "anchorWindowSeconds": 15.0
+    },
+    "readMe": "Suggestions, not decisions. Every row carries the spread and the pull count behind it; a wide spread means the field disagrees, which is information about the fight rather than a number to copy. Times are phase-relative because kill times are not comparable.",
+    "encounter": "ulatek"
+  },
+  "encounter": {
+    "slug": "ulatek",
+    "wclEncounterId": 3492,
+    "encounterName": "Ula'tek",
+    "sample": {
+      "requested": 22,
+      "readable": 18,
+      "used": 18,
+      "unreadable": [
+        {
+          "skipped": "SystemExit: Player \"Anonymous\" not found in report a:zv7VqymgwFcrW9tk",
+          "code": "a:zv7VqymgwFcrW9tk",
+          "fight": 25,
+          "player": "Anonymous"
+        },
+        {
+          "skipped": "SystemExit: Player \"Anonymous\" not found in report a:npyTqVfZhK83zHtM",
+          "code": "a:npyTqVfZhK83zHtM",
+          "fight": 3,
+          "player": "Anonymous"
+        },
+        {
+          "skipped": "SystemExit: Player \"Anonymous\" not found in report a:HfXrC18pLRPMV7Tj",
+          "code": "a:HfXrC18pLRPMV7Tj",
+          "fight": 19,
+          "player": "Anonymous"
+        },
+        {
+          "skipped": "SystemExit: Player \"Anonymous\" not found in report a:kmLAgYaPWx9KjzGR",
+          "code": "a:kmLAgYaPWx9KjzGR",
+          "fight": 7,
+          "player": "Anonymous"
+        }
+      ],
+      "excludedForPhaseStructure": [],
+      "medianDuration": 580.7,
+      "durationRange": [
+        450.7,
+        593.2
+      ]
+    },
+    "phaseModel": [
+      0.0,
+      164.1,
+      309.0,
+      362.5
+    ],
+    "cooldowns": [
+      {
+        "spellId": 1293316,
+        "name": "Empowering Venom",
+        "role": "trinket",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 5.0,
+        "medianGapSeconds": 147.8,
+        "seenInPulls": 16,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 9.8,
+            "atSeconds": 9.8,
+            "spread": {
+              "median": 9.8,
+              "p25": 9.6,
+              "p75": 10.1,
+              "iqr": 0.5,
+              "min": 7.9,
+              "max": 11.7
+            },
+            "support": {
+              "pulls": 16,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Mother's Wrath",
+              "occurrence": 1,
+              "offsetSeconds": -0.2,
+              "agreement": 16,
+              "of": 16
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 137.8,
+            "atSeconds": 137.8,
+            "spread": {
+              "median": 137.8,
+              "p25": 137.3,
+              "p75": 138.2,
+              "iqr": 0.8,
+              "min": 134.0,
+              "max": 140.2
+            },
+            "support": {
+              "pulls": 16,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Venomous Heart",
+              "occurrence": 1,
+              "offsetSeconds": 2.2,
+              "agreement": 15,
+              "of": 16
+            }
+          },
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 122.5,
+            "atSeconds": 286.7,
+            "spread": {
+              "median": 122.5,
+              "p25": 122.3,
+              "p75": 123.0,
+              "iqr": 0.7,
+              "min": 119.1,
+              "max": 124.4
+            },
+            "support": {
+              "pulls": 15,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Venomous Heart",
+              "occurrence": 2,
+              "offsetSeconds": 2.1,
+              "agreement": 12,
+              "of": 15
+            }
+          },
+          {
+            "phase": 4,
+            "ordinal": 2,
+            "atPhaseSeconds": 213.6,
+            "atSeconds": 575.9,
+            "spread": {
+              "median": 213.6,
+              "p25": 213.3,
+              "p75": 213.7,
+              "iqr": 0.5,
+              "min": 178.5,
+              "max": 215.4
+            },
+            "support": {
+              "pulls": 9,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Venomous Heart",
+              "occurrence": 3,
+              "offsetSeconds": 2.3,
+              "agreement": 7,
+              "of": 9
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102560,
+        "name": "Incarnation: Chosen of Elune",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 6.0,
+        "medianGapSeconds": 115.7,
+        "seenInPulls": 18,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 9.8,
+            "atSeconds": 9.8,
+            "spread": {
+              "median": 9.8,
+              "p25": 9.5,
+              "p75": 10.3,
+              "iqr": 0.8,
+              "min": 7.9,
+              "max": 12.7
+            },
+            "support": {
+              "pulls": 18,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Mother's Wrath",
+              "occurrence": 1,
+              "offsetSeconds": -0.2,
+              "agreement": 17,
+              "of": 18
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 120.7,
+            "atSeconds": 120.7,
+            "spread": {
+              "median": 120.7,
+              "p25": 118.5,
+              "p75": 124.3,
+              "iqr": 5.8,
+              "min": 35.0,
+              "max": 125.4
+            },
+            "support": {
+              "pulls": 18,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Mother's Wrath",
+              "occurrence": 6,
+              "offsetSeconds": 0.2,
+              "agreement": 7,
+              "of": 18
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 3,
+            "atPhaseSeconds": 137.9,
+            "atSeconds": 137.9,
+            "spread": {
+              "median": 137.9,
+              "p25": 137.4,
+              "p75": 138.8,
+              "iqr": 1.4,
+              "min": 134.1,
+              "max": 143.1
+            },
+            "support": {
+              "pulls": 18,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Venomous Heart",
+              "occurrence": 1,
+              "offsetSeconds": 2.5,
+              "agreement": 17,
+              "of": 18
+            }
+          },
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 122.4,
+            "atSeconds": 286.5,
+            "spread": {
+              "median": 122.4,
+              "p25": 122.2,
+              "p75": 122.9,
+              "iqr": 0.7,
+              "min": 89.7,
+              "max": 124.2
+            },
+            "support": {
+              "pulls": 18,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Venomous Heart",
+              "occurrence": 2,
+              "offsetSeconds": 2.0,
+              "agreement": 14,
+              "of": 18
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22812,
+        "name": "Barkskin",
+        "role": "defensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 4.0,
+        "medianGapSeconds": 101.5,
+        "seenInPulls": 18,
+        "suggestions": [
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 30.5,
+            "atSeconds": 194.6,
+            "spread": {
+              "median": 30.5,
+              "p25": 29.7,
+              "p75": 36.6,
+              "iqr": 6.9,
+              "min": 27.4,
+              "max": 52.2
+            },
+            "support": {
+              "pulls": 16,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Grasping Fangs",
+              "occurrence": 4,
+              "offsetSeconds": 3.8,
+              "agreement": 8,
+              "of": 16
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22842,
+        "name": "Frenzied Regeneration",
+        "role": "defensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 1,
+        "medianGapSeconds": 135.7,
+        "seenInPulls": 11,
+        "suggestions": [
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 46.7,
+            "atSeconds": 210.8,
+            "spread": {
+              "median": 46.7,
+              "p25": 45.1,
+              "p75": 52.1,
+              "iqr": 7.1,
+              "min": 42.7,
+              "max": 54.4
+            },
+            "support": {
+              "pulls": 8,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Malice",
+              "occurrence": 3,
+              "offsetSeconds": 7.8,
+              "agreement": 2,
+              "of": 8
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236616,
+        "name": "Light's Potential",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 399.1,
+        "seenInPulls": 14,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 125.2,
+            "atSeconds": 125.2,
+            "spread": {
+              "median": 125.2,
+              "p25": 122.9,
+              "p75": 128.1,
+              "iqr": 5.2,
+              "min": 118.3,
+              "max": 138.7
+            },
+            "support": {
+              "pulls": 13,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Rage of the Shackled",
+              "occurrence": 1,
+              "offsetSeconds": -3.0,
+              "agreement": 6,
+              "of": 13
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 106898,
+        "name": "Stampeding Roar",
+        "role": "utility",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 144.7,
+        "seenInPulls": 16,
+        "suggestions": [
+          {
+            "phase": 4,
+            "ordinal": 1,
+            "atPhaseSeconds": 113.2,
+            "atSeconds": 475.7,
+            "spread": {
+              "median": 113.2,
+              "p25": 111.9,
+              "p75": 114.1,
+              "iqr": 2.2,
+              "min": 106.8,
+              "max": 116.8
+            },
+            "support": {
+              "pulls": 9,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Circling Prey",
+              "occurrence": 3,
+              "offsetSeconds": 2.1,
+              "agreement": 7,
+              "of": 9
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 783,
+        "name": "Travel Form",
+        "role": "movement",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": 76.0,
+        "seenInPulls": 8,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 159.3,
+            "atSeconds": 159.3,
+            "spread": {
+              "median": 159.3,
+              "p25": 158.1,
+              "p75": 162.3,
+              "iqr": 4.1,
+              "min": 157.1,
+              "max": 163.9
+            },
+            "support": {
+              "pulls": 7,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Hatching Doom",
+              "occurrence": 1,
+              "offsetSeconds": -3.6,
+              "agreement": 4,
+              "of": 7
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102383,
+        "name": "Wild Charge",
+        "role": "movement",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 4.0,
+        "medianGapSeconds": 71.5,
+        "seenInPulls": 18,
+        "suggestions": [
+          {
+            "phase": 4,
+            "ordinal": 1,
+            "atPhaseSeconds": 69.8,
+            "atSeconds": 432.7,
+            "spread": {
+              "median": 69.8,
+              "p25": 66.4,
+              "p75": 73.5,
+              "iqr": 7.1,
+              "min": 4.0,
+              "max": 166.6
+            },
+            "support": {
+              "pulls": 13,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Submerge",
+              "occurrence": 4,
+              "offsetSeconds": 0.8,
+              "agreement": 5,
+              "of": 13
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 29166,
+        "name": "Innervate",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 233.6,
+        "seenInPulls": 12,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 120.5,
+            "atSeconds": 120.5,
+            "spread": {
+              "median": 120.5,
+              "p25": 101.7,
+              "p75": 160.0,
+              "iqr": 58.4,
+              "min": 42.2,
+              "max": 162.1
+            },
+            "support": {
+              "pulls": 9,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Toxin Cloud",
+              "occurrence": 1,
+              "offsetSeconds": -3.8,
+              "agreement": 2,
+              "of": 9
+            }
+          },
+          {
+            "phase": 4,
+            "ordinal": 1,
+            "atPhaseSeconds": 106.7,
+            "atSeconds": 469.6,
+            "spread": {
+              "median": 106.7,
+              "p25": 53.3,
+              "p75": 169.8,
+              "iqr": 116.5,
+              "min": 25.9,
+              "max": 221.7
+            },
+            "support": {
+              "pulls": 10,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Serpent's Bite",
+              "occurrence": 7,
+              "offsetSeconds": -3.9,
+              "agreement": 1,
+              "of": 10
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1850,
+        "name": "Dash",
+        "role": "movement",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": 54.1,
+        "seenInPulls": 10,
+        "suggestions": [
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 51.0,
+            "atSeconds": 215.2,
+            "spread": {
+              "median": 51.0,
+              "p25": 50.2,
+              "p75": 59.2,
+              "iqr": 9.0,
+              "min": 26.7,
+              "max": 60.5
+            },
+            "support": {
+              "pulls": 9,
+              "of": 18
+            },
+            "anchor": {
+              "ability": "Defect: Weakened",
+              "occurrence": 1,
+              "offsetSeconds": -5.2,
+              "agreement": 6,
+              "of": 9
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 202770,
+        "name": "Fury of Elune",
+        "role": "offensive",
+        "verdict": "on-cooldown",
+        "medianUsesPerPull": 20.5,
+        "medianGapSeconds": 26.1,
+        "seenInPulls": 18,
+        "suggestions": []
+      }
+    ]
+  }
+}

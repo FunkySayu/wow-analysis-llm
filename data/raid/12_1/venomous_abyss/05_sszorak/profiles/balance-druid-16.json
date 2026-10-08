@@ -1,0 +1,2291 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 16,
+    "wclDifficulty": 5,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T18:28:25+00:00",
+    "generator": "tools/warcraftlogs/encounter_profile_sync.py",
+    "journal": "journal.json",
+    "parameters": {
+      "sample": 100,
+      "damageSample": 10,
+      "collapseSeconds": 2.0,
+      "minOccurrenceSupport": 0.5,
+      "minSegmentPulls": 5
+    },
+    "readMe": "The pool is the top DPS rankings for one spec, which biases it toward fast kills: a mechanic that only appears late may be under-represented or absent, and 'journalOnly' lists catalogued abilities the pool never cast. Times are given both from the pull start (atSeconds) and from the start of the phase segment they landed in (atSegmentSeconds); the second is the stable one. A segment index is not a phase number -- phases repeat, so read phaseId/cycle.",
+    "encounter": "sszorak"
+  },
+  "encounter": {
+    "slug": "sszorak",
+    "wclEncounterId": 3420,
+    "name": "Sszorak",
+    "sample": {
+      "requested": 100,
+      "rankings": 100,
+      "distinctPulls": 94,
+      "readable": 94,
+      "kills": 94,
+      "unreadable": [],
+      "truncatedEventStreams": []
+    },
+    "durationSeconds": {
+      "median": 382.2,
+      "p25": 376.6,
+      "p75": 390.5,
+      "iqr": 14.0,
+      "min": 360.7,
+      "max": 409.8
+    },
+    "composition": {
+      "modal": {
+        "tanks": 2,
+        "healers": 4,
+        "dps": 14,
+        "label": "2/4/14"
+      },
+      "modalShare": 1.0,
+      "distribution": [
+        {
+          "label": "2/4/14",
+          "pulls": 94
+        }
+      ],
+      "specs": [
+        {
+          "spec": "Arcane Mage",
+          "totalSlots": 160,
+          "pulls": 94,
+          "perPull": 1.7
+        },
+        {
+          "spec": "Arms Warrior",
+          "totalSlots": 133,
+          "pulls": 86,
+          "perPull": 1.55
+        },
+        {
+          "spec": "Demonology Warlock",
+          "totalSlots": 133,
+          "pulls": 91,
+          "perPull": 1.46
+        },
+        {
+          "spec": "BeastMastery Hunter",
+          "totalSlots": 125,
+          "pulls": 82,
+          "perPull": 1.52
+        },
+        {
+          "spec": "Blood DeathKnight",
+          "totalSlots": 120,
+          "pulls": 90,
+          "perPull": 1.33
+        },
+        {
+          "spec": "Balance Druid",
+          "totalSlots": 116,
+          "pulls": 94,
+          "perPull": 1.23
+        },
+        {
+          "spec": "Preservation Evoker",
+          "totalSlots": 113,
+          "pulls": 85,
+          "perPull": 1.33
+        },
+        {
+          "spec": "Holy Priest",
+          "totalSlots": 90,
+          "pulls": 84,
+          "perPull": 1.07
+        },
+        {
+          "spec": "Subtlety Rogue",
+          "totalSlots": 87,
+          "pulls": 77,
+          "perPull": 1.13
+        },
+        {
+          "spec": "Augmentation Evoker",
+          "totalSlots": 81,
+          "pulls": 72,
+          "perPull": 1.12
+        },
+        {
+          "spec": "Holy Paladin",
+          "totalSlots": 77,
+          "pulls": 76,
+          "perPull": 1.01
+        },
+        {
+          "spec": "Elemental Shaman",
+          "totalSlots": 72,
+          "pulls": 70,
+          "perPull": 1.03
+        },
+        {
+          "spec": "Windwalker Monk",
+          "totalSlots": 68,
+          "pulls": 67,
+          "perPull": 1.01
+        },
+        {
+          "spec": "Restoration Shaman",
+          "totalSlots": 58,
+          "pulls": 58,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Devourer DemonHunter",
+          "totalSlots": 56,
+          "pulls": 50,
+          "perPull": 1.12
+        },
+        {
+          "spec": "Havoc DemonHunter",
+          "totalSlots": 52,
+          "pulls": 50,
+          "perPull": 1.04
+        },
+        {
+          "spec": "Marksmanship Hunter",
+          "totalSlots": 46,
+          "pulls": 38,
+          "perPull": 1.21
+        },
+        {
+          "spec": "Protection Paladin",
+          "totalSlots": 31,
+          "pulls": 31,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Shadow Priest",
+          "totalSlots": 30,
+          "pulls": 29,
+          "perPull": 1.03
+        },
+        {
+          "spec": "Unholy DeathKnight",
+          "totalSlots": 29,
+          "pulls": 28,
+          "perPull": 1.04
+        },
+        {
+          "spec": "Frost DeathKnight",
+          "totalSlots": 26,
+          "pulls": 26,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Devastation Evoker",
+          "totalSlots": 20,
+          "pulls": 18,
+          "perPull": 1.11
+        },
+        {
+          "spec": "Retribution Paladin",
+          "totalSlots": 18,
+          "pulls": 18,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Fury Warrior",
+          "totalSlots": 17,
+          "pulls": 15,
+          "perPull": 1.13
+        },
+        {
+          "spec": "Mistweaver Monk",
+          "totalSlots": 16,
+          "pulls": 16,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Restoration Druid",
+          "totalSlots": 15,
+          "pulls": 15,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Brewmaster Monk",
+          "totalSlots": 13,
+          "pulls": 13,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Assassination Rogue",
+          "totalSlots": 12,
+          "pulls": 11,
+          "perPull": 1.09
+        },
+        {
+          "spec": "Enhancement Shaman",
+          "totalSlots": 11,
+          "pulls": 11,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Vengeance DemonHunter",
+          "totalSlots": 9,
+          "pulls": 9,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Affliction Warlock",
+          "totalSlots": 9,
+          "pulls": 9,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Guardian Druid",
+          "totalSlots": 8,
+          "pulls": 8,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Discipline Priest",
+          "totalSlots": 7,
+          "pulls": 7,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Protection Warrior",
+          "totalSlots": 7,
+          "pulls": 7,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Outlaw Rogue",
+          "totalSlots": 5,
+          "pulls": 5,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Destruction Warlock",
+          "totalSlots": 3,
+          "pulls": 3,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Feral Druid",
+          "totalSlots": 3,
+          "pulls": 3,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Frost Mage",
+          "totalSlots": 2,
+          "pulls": 2,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Fire Mage",
+          "totalSlots": 1,
+          "pulls": 1,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Survival Hunter",
+          "totalSlots": 1,
+          "pulls": 1,
+          "perPull": 1.0
+        }
+      ]
+    },
+    "segments": [
+      {
+        "index": 1,
+        "phaseId": 1,
+        "cycle": 1,
+        "name": "Sszorak",
+        "label": "Sszorak",
+        "startSeconds": {
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "iqr": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "durationSeconds": {
+          "median": 100.0,
+          "p25": 100.0,
+          "p75": 100.0,
+          "iqr": 0.0,
+          "min": 99.9,
+          "max": 100.1
+        },
+        "support": {
+          "pulls": 94,
+          "reachedIndex": 94,
+          "of": 94
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 2,
+        "phaseId": 2,
+        "cycle": 1,
+        "name": "Howling Maelstrom",
+        "label": "Howling Maelstrom",
+        "startSeconds": {
+          "median": 100.0,
+          "p25": 100.0,
+          "p75": 100.0,
+          "iqr": 0.0,
+          "min": 99.9,
+          "max": 100.1
+        },
+        "durationSeconds": {
+          "median": 25.0,
+          "p25": 25.0,
+          "p75": 25.0,
+          "iqr": 0.0,
+          "min": 25.0,
+          "max": 25.0
+        },
+        "support": {
+          "pulls": 94,
+          "reachedIndex": 94,
+          "of": 94
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 3,
+        "phaseId": 1,
+        "cycle": 2,
+        "name": "Sszorak",
+        "label": "Sszorak #2",
+        "startSeconds": {
+          "median": 125.0,
+          "p25": 125.0,
+          "p75": 125.0,
+          "iqr": 0.0,
+          "min": 124.9,
+          "max": 125.1
+        },
+        "durationSeconds": {
+          "median": 102.0,
+          "p25": 102.0,
+          "p75": 102.0,
+          "iqr": 0.0,
+          "min": 102.0,
+          "max": 102.1
+        },
+        "support": {
+          "pulls": 94,
+          "reachedIndex": 94,
+          "of": 94
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 4,
+        "phaseId": 2,
+        "cycle": 2,
+        "name": "Howling Maelstrom",
+        "label": "Howling Maelstrom #2",
+        "startSeconds": {
+          "median": 227.0,
+          "p25": 227.0,
+          "p75": 227.1,
+          "iqr": 0.0,
+          "min": 227.0,
+          "max": 227.1
+        },
+        "durationSeconds": {
+          "median": 25.0,
+          "p25": 25.0,
+          "p75": 25.0,
+          "iqr": 0.0,
+          "min": 25.0,
+          "max": 25.1
+        },
+        "support": {
+          "pulls": 94,
+          "reachedIndex": 94,
+          "of": 94
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 5,
+        "phaseId": 1,
+        "cycle": 3,
+        "name": "Sszorak",
+        "label": "Sszorak #3",
+        "startSeconds": {
+          "median": 252.0,
+          "p25": 252.0,
+          "p75": 252.1,
+          "iqr": 0.0,
+          "min": 252.0,
+          "max": 252.1
+        },
+        "durationSeconds": {
+          "median": 102.0,
+          "p25": 102.0,
+          "p75": 102.0,
+          "iqr": 0.0,
+          "min": 101.9,
+          "max": 102.1
+        },
+        "support": {
+          "pulls": 94,
+          "reachedIndex": 94,
+          "of": 94
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 6,
+        "phaseId": 2,
+        "cycle": 3,
+        "name": "Howling Maelstrom",
+        "label": "Howling Maelstrom #3",
+        "startSeconds": {
+          "median": 354.1,
+          "p25": 354.0,
+          "p75": 354.1,
+          "iqr": 0.1,
+          "min": 354.0,
+          "max": 354.1
+        },
+        "durationSeconds": {
+          "median": 25.0,
+          "p25": 22.5,
+          "p75": 25.0,
+          "iqr": 2.5,
+          "min": 6.6,
+          "max": 25.0
+        },
+        "support": {
+          "pulls": 94,
+          "reachedIndex": 94,
+          "of": 94
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 7,
+        "phaseId": 1,
+        "cycle": 4,
+        "name": "Sszorak",
+        "label": "Sszorak #4",
+        "startSeconds": {
+          "median": 379.1,
+          "p25": 376.6,
+          "p75": 379.1,
+          "iqr": 2.5,
+          "min": 360.7,
+          "max": 379.2
+        },
+        "durationSeconds": {
+          "median": 3.1,
+          "p25": 0.0,
+          "p75": 11.5,
+          "iqr": 11.4,
+          "min": 0.0,
+          "max": 30.7
+        },
+        "support": {
+          "pulls": 94,
+          "reachedIndex": 94,
+          "of": 94
+        },
+        "agreement": 1.0
+      }
+    ],
+    "abilities": [
+      {
+        "name": "Dig In",
+        "ids": [
+          1286033
+        ],
+        "sources": [
+          "Sszorak"
+        ],
+        "seenInPulls": 94,
+        "of": 94,
+        "instancesPerPull": {
+          "median": 3.0,
+          "p25": 3.0,
+          "p75": 3.0,
+          "iqr": 0.0,
+          "min": 3.0,
+          "max": 3.0
+        },
+        "cadenceSeconds": {
+          "median": 127.0,
+          "p25": 127.0,
+          "p75": 127.1,
+          "iqr": 0.1,
+          "min": 126.9,
+          "max": 127.1
+        },
+        "firstAtSeconds": {
+          "median": 100.0,
+          "p25": 100.0,
+          "p75": 100.0,
+          "iqr": 0.0,
+          "min": 99.9,
+          "max": 100.1
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1286033,
+          "title": "Dig In",
+          "description": "Sszorak hunkers down during Howling Maelstrom, increasing his damage taken by 30% for 25 sec.",
+          "damage": [],
+          "parentTitle": "Howling Maelstrom"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 2,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 100.0,
+              "p25": 100.0,
+              "p75": 100.0,
+              "iqr": 0.0,
+              "min": 100.0,
+              "max": 100.1
+            },
+            "atSegmentSeconds": {
+              "median": 0.0,
+              "p25": 0.0,
+              "p75": 0.0,
+              "iqr": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            "support": {
+              "pulls": 49,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 227.0,
+              "p25": 227.0,
+              "p75": 227.0,
+              "iqr": 0.0,
+              "min": 227.0,
+              "max": 227.1
+            },
+            "atSegmentSeconds": {
+              "median": 102.0,
+              "p25": 102.0,
+              "p75": 102.0,
+              "iqr": 0.0,
+              "min": 101.9,
+              "max": 102.1
+            },
+            "support": {
+              "pulls": 56,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 354.0,
+              "p25": 354.0,
+              "p75": 354.1,
+              "iqr": 0.1,
+              "min": 354.0,
+              "max": 354.1
+            },
+            "atSegmentSeconds": {
+              "median": 102.0,
+              "p25": 102.0,
+              "p75": 102.0,
+              "iqr": 0.1,
+              "min": 101.9,
+              "max": 102.1
+            },
+            "support": {
+              "pulls": 58,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Mutilate",
+        "ids": [
+          1277027,
+          1277031
+        ],
+        "sources": [
+          "Sszorak"
+        ],
+        "seenInPulls": 94,
+        "of": 94,
+        "instancesPerPull": {
+          "median": 12.0,
+          "p25": 12.0,
+          "p75": 12.0,
+          "iqr": 0.0,
+          "min": 12.0,
+          "max": 14.0
+        },
+        "cadenceSeconds": {
+          "median": 16.5,
+          "p25": 8.5,
+          "p75": 43.0,
+          "iqr": 34.5,
+          "min": 3.9,
+          "max": 88.5
+        },
+        "firstAtSeconds": {
+          "median": 8.0,
+          "p25": 8.0,
+          "p75": 12.1,
+          "iqr": 4.1,
+          "min": 8.0,
+          "max": 20.6
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1277027,
+          "title": "Mutilate",
+          "description": "Sszorak rakes his venom-coated claws in a frontal cone, inflicting 4792088 Nature damage split evenly among players struck and afflicting them with Mutilated Gash.\n\nIf Mutilate strikes 5 or fewer players, it inflicts deadly damage.",
+          "damage": [
+            {
+              "amount": 4792088,
+              "school": "Nature",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Apex Predator"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 8.0,
+              "p25": 8.0,
+              "p75": 12.1,
+              "iqr": 4.1,
+              "min": 8.0,
+              "max": 20.6
+            },
+            "atSegmentSeconds": {
+              "median": 8.0,
+              "p25": 8.0,
+              "p75": 12.1,
+              "iqr": 4.1,
+              "min": 8.0,
+              "max": 20.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 20.5,
+              "p25": 16.5,
+              "p75": 24.5,
+              "iqr": 8.0,
+              "min": 12.0,
+              "max": 24.6
+            },
+            "atSegmentSeconds": {
+              "median": 20.5,
+              "p25": 16.5,
+              "p75": 24.5,
+              "iqr": 8.0,
+              "min": 12.0,
+              "max": 24.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 55.0,
+              "p25": 55.0,
+              "p75": 63.0,
+              "iqr": 8.0,
+              "min": 55.0,
+              "max": 67.5
+            },
+            "atSegmentSeconds": {
+              "median": 55.0,
+              "p25": 55.0,
+              "p75": 63.0,
+              "iqr": 8.0,
+              "min": 55.0,
+              "max": 67.5
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 67.5,
+              "p25": 63.1,
+              "p75": 71.5,
+              "iqr": 8.4,
+              "min": 59.0,
+              "max": 71.5
+            },
+            "atSegmentSeconds": {
+              "median": 67.5,
+              "p25": 63.1,
+              "p75": 71.5,
+              "iqr": 8.4,
+              "min": 59.0,
+              "max": 71.5
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 139.0,
+              "p25": 135.1,
+              "p75": 139.1,
+              "iqr": 4.0,
+              "min": 135.0,
+              "max": 147.6
+            },
+            "atSegmentSeconds": {
+              "median": 14.0,
+              "p25": 10.1,
+              "p75": 14.1,
+              "iqr": 4.0,
+              "min": 9.9,
+              "max": 22.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 147.6,
+              "p25": 143.5,
+              "p75": 151.5,
+              "iqr": 8.0,
+              "min": 139.0,
+              "max": 151.6
+            },
+            "atSegmentSeconds": {
+              "median": 22.6,
+              "p25": 18.5,
+              "p75": 26.5,
+              "iqr": 8.0,
+              "min": 14.0,
+              "max": 26.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 182.1,
+              "p25": 182.0,
+              "p75": 186.1,
+              "iqr": 4.1,
+              "min": 182.0,
+              "max": 194.6
+            },
+            "atSegmentSeconds": {
+              "median": 57.1,
+              "p25": 57.0,
+              "p75": 61.1,
+              "iqr": 4.1,
+              "min": 57.0,
+              "max": 69.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 194.5,
+              "p25": 191.5,
+              "p75": 198.5,
+              "iqr": 7.0,
+              "min": 186.0,
+              "max": 198.6
+            },
+            "atSegmentSeconds": {
+              "median": 69.5,
+              "p25": 66.5,
+              "p75": 73.5,
+              "iqr": 7.0,
+              "min": 61.0,
+              "max": 73.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 262.1,
+              "p25": 262.1,
+              "p75": 270.1,
+              "iqr": 8.0,
+              "min": 262.0,
+              "max": 274.6
+            },
+            "atSegmentSeconds": {
+              "median": 10.1,
+              "p25": 10.0,
+              "p75": 18.0,
+              "iqr": 8.0,
+              "min": 9.9,
+              "max": 22.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 274.6,
+              "p25": 270.6,
+              "p75": 278.6,
+              "iqr": 8.0,
+              "min": 266.0,
+              "max": 278.6
+            },
+            "atSegmentSeconds": {
+              "median": 22.6,
+              "p25": 18.5,
+              "p75": 26.5,
+              "iqr": 8.0,
+              "min": 13.9,
+              "max": 26.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 309.1,
+              "p25": 309.1,
+              "p75": 317.1,
+              "iqr": 8.0,
+              "min": 309.0,
+              "max": 321.6
+            },
+            "atSegmentSeconds": {
+              "median": 57.1,
+              "p25": 57.0,
+              "p75": 65.1,
+              "iqr": 8.1,
+              "min": 57.0,
+              "max": 69.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 321.6,
+              "p25": 317.1,
+              "p75": 325.6,
+              "iqr": 8.5,
+              "min": 313.0,
+              "max": 325.6
+            },
+            "atSegmentSeconds": {
+              "median": 69.6,
+              "p25": 65.1,
+              "p75": 73.5,
+              "iqr": 8.4,
+              "min": 61.0,
+              "max": 73.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Raging Crosswinds",
+        "ids": [
+          1285419,
+          1285425,
+          1285453,
+          1297096,
+          1297111
+        ],
+        "sources": [
+          "Sszorak",
+          "Environment"
+        ],
+        "seenInPulls": 94,
+        "of": 94,
+        "instancesPerPull": {
+          "median": 6.0,
+          "p25": 6.0,
+          "p75": 6.0,
+          "iqr": 0.0,
+          "min": 6.0,
+          "max": 6.0
+        },
+        "cadenceSeconds": {
+          "median": 47.0,
+          "p25": 47.0,
+          "p75": 80.0,
+          "iqr": 33.0,
+          "min": 46.9,
+          "max": 80.1
+        },
+        "firstAtSeconds": {
+          "median": 39.0,
+          "p25": 39.0,
+          "p75": 39.0,
+          "iqr": 0.0,
+          "min": 38.9,
+          "max": 39.0
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1285419,
+          "title": "Raging Crosswinds",
+          "description": "The Altar of the Six Winds imbues several players with roiling winds, inflicting 20835 Nature damage every 1 sec for 8 sec.\n\nUpon expiration, the winds inflict 500044 Nature damage to players within 6 yards. The winds then knock each affected player in the indicated direction and apply Turbulent Gusts.",
+          "damage": [
+            {
+              "amount": 20835,
+              "school": "Nature",
+              "everySeconds": 1.0
+            },
+            {
+              "amount": 500044,
+              "school": "Nature",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": null
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 39.0,
+              "p25": 39.0,
+              "p75": 39.0,
+              "iqr": 0.0,
+              "min": 38.9,
+              "max": 39.0
+            },
+            "atSegmentSeconds": {
+              "median": 39.0,
+              "p25": 39.0,
+              "p75": 39.0,
+              "iqr": 0.0,
+              "min": 38.9,
+              "max": 39.0
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 86.0,
+              "p25": 86.0,
+              "p75": 86.0,
+              "iqr": 0.0,
+              "min": 85.9,
+              "max": 86.1
+            },
+            "atSegmentSeconds": {
+              "median": 86.0,
+              "p25": 86.0,
+              "p75": 86.0,
+              "iqr": 0.0,
+              "min": 85.9,
+              "max": 86.1
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 166.0,
+              "p25": 166.0,
+              "p75": 166.0,
+              "iqr": 0.0,
+              "min": 166.0,
+              "max": 166.1
+            },
+            "atSegmentSeconds": {
+              "median": 41.0,
+              "p25": 41.0,
+              "p75": 41.0,
+              "iqr": 0.0,
+              "min": 40.9,
+              "max": 41.1
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 213.0,
+              "p25": 213.0,
+              "p75": 213.0,
+              "iqr": 0.0,
+              "min": 213.0,
+              "max": 213.1
+            },
+            "atSegmentSeconds": {
+              "median": 88.0,
+              "p25": 88.0,
+              "p75": 88.0,
+              "iqr": 0.0,
+              "min": 87.9,
+              "max": 88.1
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 293.1,
+              "p25": 293.0,
+              "p75": 293.1,
+              "iqr": 0.1,
+              "min": 293.0,
+              "max": 293.1
+            },
+            "atSegmentSeconds": {
+              "median": 41.0,
+              "p25": 41.0,
+              "p75": 41.0,
+              "iqr": 0.1,
+              "min": 40.9,
+              "max": 41.1
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 340.1,
+              "p25": 340.0,
+              "p75": 340.1,
+              "iqr": 0.1,
+              "min": 340.0,
+              "max": 340.1
+            },
+            "atSegmentSeconds": {
+              "median": 88.0,
+              "p25": 88.0,
+              "p75": 88.0,
+              "iqr": 0.1,
+              "min": 87.9,
+              "max": 88.1
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Ravage",
+        "ids": [
+          1277002,
+          1277101
+        ],
+        "sources": [
+          "Sszorak"
+        ],
+        "seenInPulls": 94,
+        "of": 94,
+        "instancesPerPull": {
+          "median": 12.0,
+          "p25": 12.0,
+          "p75": 12.0,
+          "iqr": 0.0,
+          "min": 12.0,
+          "max": 14.0
+        },
+        "cadenceSeconds": {
+          "median": 16.5,
+          "p25": 8.5,
+          "p75": 43.0,
+          "iqr": 34.5,
+          "min": 3.9,
+          "max": 88.6
+        },
+        "firstAtSeconds": {
+          "median": 11.9,
+          "p25": 8.0,
+          "p75": 16.0,
+          "iqr": 8.0,
+          "min": 7.9,
+          "max": 20.5
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1277002,
+          "title": "Ravage",
+          "description": "Sszorak slashes repeatedly, inflicting 3500308 Physical damage to all players in a frontal cone and increasing their damage taken from Ravage by 600% for 25 sec. This effect stacks.",
+          "damage": [
+            {
+              "amount": 3500308,
+              "school": "Physical",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Apex Predator"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 11.9,
+              "p25": 8.0,
+              "p75": 16.0,
+              "iqr": 8.0,
+              "min": 7.9,
+              "max": 20.5
+            },
+            "atSegmentSeconds": {
+              "median": 11.9,
+              "p25": 8.0,
+              "p75": 16.0,
+              "iqr": 8.0,
+              "min": 7.9,
+              "max": 20.5
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 24.5,
+              "p25": 20.5,
+              "p75": 24.5,
+              "iqr": 4.0,
+              "min": 12.0,
+              "max": 24.5
+            },
+            "atSegmentSeconds": {
+              "median": 24.5,
+              "p25": 20.5,
+              "p75": 24.5,
+              "iqr": 4.0,
+              "min": 12.0,
+              "max": 24.5
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 59.0,
+              "p25": 55.0,
+              "p75": 63.0,
+              "iqr": 8.0,
+              "min": 55.0,
+              "max": 67.5
+            },
+            "atSegmentSeconds": {
+              "median": 59.0,
+              "p25": 55.0,
+              "p75": 63.0,
+              "iqr": 8.0,
+              "min": 55.0,
+              "max": 67.5
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 71.5,
+              "p25": 63.5,
+              "p75": 71.5,
+              "iqr": 8.0,
+              "min": 59.0,
+              "max": 71.5
+            },
+            "atSegmentSeconds": {
+              "median": 71.5,
+              "p25": 63.5,
+              "p75": 71.5,
+              "iqr": 8.0,
+              "min": 59.0,
+              "max": 71.5
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 135.1,
+              "p25": 135.0,
+              "p75": 142.0,
+              "iqr": 7.0,
+              "min": 135.0,
+              "max": 147.6
+            },
+            "atSegmentSeconds": {
+              "median": 10.1,
+              "p25": 10.0,
+              "p75": 17.0,
+              "iqr": 7.0,
+              "min": 9.9,
+              "max": 22.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 151.5,
+              "p25": 147.5,
+              "p75": 151.5,
+              "iqr": 4.0,
+              "min": 139.0,
+              "max": 151.6
+            },
+            "atSegmentSeconds": {
+              "median": 26.5,
+              "p25": 22.5,
+              "p75": 26.5,
+              "iqr": 4.0,
+              "min": 14.0,
+              "max": 26.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 186.0,
+              "p25": 182.1,
+              "p75": 190.1,
+              "iqr": 8.0,
+              "min": 182.0,
+              "max": 194.6
+            },
+            "atSegmentSeconds": {
+              "median": 61.0,
+              "p25": 57.0,
+              "p75": 65.0,
+              "iqr": 8.0,
+              "min": 57.0,
+              "max": 69.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 198.5,
+              "p25": 194.5,
+              "p75": 198.5,
+              "iqr": 4.0,
+              "min": 186.0,
+              "max": 198.6
+            },
+            "atSegmentSeconds": {
+              "median": 73.5,
+              "p25": 69.5,
+              "p75": 73.5,
+              "iqr": 4.1,
+              "min": 61.0,
+              "max": 73.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 266.0,
+              "p25": 262.1,
+              "p75": 270.6,
+              "iqr": 8.5,
+              "min": 262.0,
+              "max": 274.6
+            },
+            "atSegmentSeconds": {
+              "median": 14.0,
+              "p25": 10.0,
+              "p75": 18.5,
+              "iqr": 8.5,
+              "min": 10.0,
+              "max": 22.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 278.5,
+              "p25": 274.5,
+              "p75": 278.6,
+              "iqr": 4.1,
+              "min": 266.0,
+              "max": 278.6
+            },
+            "atSegmentSeconds": {
+              "median": 26.4,
+              "p25": 22.5,
+              "p75": 26.5,
+              "iqr": 4.1,
+              "min": 13.9,
+              "max": 26.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 313.0,
+              "p25": 309.1,
+              "p75": 316.0,
+              "iqr": 6.9,
+              "min": 309.0,
+              "max": 321.6
+            },
+            "atSegmentSeconds": {
+              "median": 61.0,
+              "p25": 57.0,
+              "p75": 64.0,
+              "iqr": 7.0,
+              "min": 56.9,
+              "max": 69.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 325.5,
+              "p25": 321.5,
+              "p75": 325.6,
+              "iqr": 4.1,
+              "min": 313.0,
+              "max": 325.6
+            },
+            "atSegmentSeconds": {
+              "median": 73.4,
+              "p25": 69.5,
+              "p75": 73.5,
+              "iqr": 4.0,
+              "min": 61.0,
+              "max": 73.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Tempest",
+        "ids": [
+          1287072
+        ],
+        "sources": [
+          "Sszorak"
+        ],
+        "seenInPulls": 94,
+        "of": 94,
+        "instancesPerPull": {
+          "median": 6.0,
+          "p25": 6.0,
+          "p75": 6.0,
+          "iqr": 0.0,
+          "min": 6.0,
+          "max": 7.0
+        },
+        "cadenceSeconds": {
+          "median": 51.0,
+          "p25": 47.0,
+          "p75": 80.0,
+          "iqr": 33.0,
+          "min": 38.9,
+          "max": 88.1
+        },
+        "firstAtSeconds": {
+          "median": 16.5,
+          "p25": 12.5,
+          "p75": 20.5,
+          "iqr": 8.0,
+          "min": 12.5,
+          "max": 20.6
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1287072,
+          "title": "Tempest",
+          "description": "Sszorak forms vortices of poisonous wind which spiral around the arena. These inflict 500044 Nature damage plus an additional 208352 Nature damage every 1 sec and reduce movement speed by 30% for 6 sec. This effect stacks.",
+          "damage": [
+            {
+              "amount": 500044,
+              "school": "Nature",
+              "everySeconds": 1.0
+            },
+            {
+              "amount": 208352,
+              "school": "Nature",
+              "everySeconds": 1.0
+            }
+          ],
+          "parentTitle": "Apex Predator"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 16.5,
+              "p25": 12.5,
+              "p75": 20.5,
+              "iqr": 8.0,
+              "min": 12.5,
+              "max": 20.6
+            },
+            "atSegmentSeconds": {
+              "median": 16.5,
+              "p25": 12.5,
+              "p75": 20.5,
+              "iqr": 8.0,
+              "min": 12.5,
+              "max": 20.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 63.5,
+              "p25": 59.5,
+              "p75": 67.5,
+              "iqr": 8.0,
+              "min": 59.5,
+              "max": 67.6
+            },
+            "atSegmentSeconds": {
+              "median": 63.5,
+              "p25": 59.5,
+              "p75": 67.5,
+              "iqr": 8.0,
+              "min": 59.5,
+              "max": 67.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 143.5,
+              "p25": 139.6,
+              "p75": 147.5,
+              "iqr": 7.9,
+              "min": 139.5,
+              "max": 147.6
+            },
+            "atSegmentSeconds": {
+              "median": 18.5,
+              "p25": 14.6,
+              "p75": 22.5,
+              "iqr": 7.9,
+              "min": 14.5,
+              "max": 22.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 190.5,
+              "p25": 186.5,
+              "p75": 194.5,
+              "iqr": 8.0,
+              "min": 186.5,
+              "max": 194.6
+            },
+            "atSegmentSeconds": {
+              "median": 65.5,
+              "p25": 61.5,
+              "p75": 69.5,
+              "iqr": 7.9,
+              "min": 61.5,
+              "max": 69.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 270.6,
+              "p25": 266.6,
+              "p75": 274.5,
+              "iqr": 7.9,
+              "min": 266.5,
+              "max": 274.6
+            },
+            "atSegmentSeconds": {
+              "median": 18.5,
+              "p25": 14.5,
+              "p75": 22.4,
+              "iqr": 7.9,
+              "min": 14.4,
+              "max": 22.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 317.6,
+              "p25": 313.6,
+              "p75": 321.6,
+              "iqr": 8.0,
+              "min": 313.5,
+              "max": 321.6
+            },
+            "atSegmentSeconds": {
+              "median": 65.5,
+              "p25": 61.5,
+              "p75": 69.5,
+              "iqr": 8.0,
+              "min": 61.4,
+              "max": 69.6
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Venomous Surge",
+        "ids": [
+          1305959
+        ],
+        "sources": [
+          "Sszorak"
+        ],
+        "seenInPulls": 94,
+        "of": 94,
+        "instancesPerPull": {
+          "median": 6.0,
+          "p25": 6.0,
+          "p75": 6.0,
+          "iqr": 0.0,
+          "min": 6.0,
+          "max": 6.0
+        },
+        "cadenceSeconds": {
+          "median": 47.5,
+          "p25": 47.0,
+          "p75": 79.8,
+          "iqr": 32.8,
+          "min": 46.5,
+          "max": 80.1
+        },
+        "firstAtSeconds": {
+          "median": 29.0,
+          "p25": 29.0,
+          "p75": 29.0,
+          "iqr": 0.0,
+          "min": 28.9,
+          "max": 30.1
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1305959,
+          "title": "Venomous Surge",
+          "description": "Sszorak heaves fresh venom onto several players, inflicting 100009 Nature damage every 1 sec for 10 sec.\n\nUpon expiration, the venom detonates forming a Viscous Cyst and inflicting 500044 Nature damage to all players, decreasing in damage as distance increases.",
+          "damage": [
+            {
+              "amount": 100009,
+              "school": "Nature",
+              "everySeconds": 1.0
+            },
+            {
+              "amount": 500044,
+              "school": "Nature",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": null
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 29.0,
+              "p25": 29.0,
+              "p75": 29.0,
+              "iqr": 0.0,
+              "min": 28.9,
+              "max": 30.1
+            },
+            "atSegmentSeconds": {
+              "median": 29.0,
+              "p25": 29.0,
+              "p75": 29.0,
+              "iqr": 0.0,
+              "min": 28.9,
+              "max": 30.1
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 76.2,
+              "p25": 76.0,
+              "p75": 76.6,
+              "iqr": 0.6,
+              "min": 75.9,
+              "max": 77.4
+            },
+            "atSegmentSeconds": {
+              "median": 76.2,
+              "p25": 76.0,
+              "p75": 76.6,
+              "iqr": 0.6,
+              "min": 75.9,
+              "max": 77.4
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 156.0,
+              "p25": 156.0,
+              "p75": 156.0,
+              "iqr": 0.0,
+              "min": 156.0,
+              "max": 156.1
+            },
+            "atSegmentSeconds": {
+              "median": 31.0,
+              "p25": 31.0,
+              "p75": 31.0,
+              "iqr": 0.0,
+              "min": 30.9,
+              "max": 31.1
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 203.1,
+              "p25": 203.0,
+              "p75": 203.3,
+              "iqr": 0.3,
+              "min": 203.0,
+              "max": 204.3
+            },
+            "atSegmentSeconds": {
+              "median": 78.1,
+              "p25": 78.0,
+              "p75": 78.3,
+              "iqr": 0.3,
+              "min": 77.9,
+              "max": 79.3
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 283.1,
+              "p25": 283.0,
+              "p75": 283.1,
+              "iqr": 0.1,
+              "min": 283.0,
+              "max": 283.1
+            },
+            "atSegmentSeconds": {
+              "median": 31.0,
+              "p25": 31.0,
+              "p75": 31.0,
+              "iqr": 0.1,
+              "min": 30.9,
+              "max": 31.1
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 330.1,
+              "p25": 330.0,
+              "p75": 330.1,
+              "iqr": 0.1,
+              "min": 330.0,
+              "max": 330.7
+            },
+            "atSegmentSeconds": {
+              "median": 78.0,
+              "p25": 78.0,
+              "p75": 78.0,
+              "iqr": 0.1,
+              "min": 77.9,
+              "max": 78.7
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Anti-Magic Zone",
+        "ids": [
+          145629
+        ],
+        "sources": [
+          "Environment"
+        ],
+        "seenInPulls": 84,
+        "of": 94,
+        "instancesPerPull": {
+          "median": 5.0,
+          "p25": 3.0,
+          "p75": 6.0,
+          "iqr": 3.0,
+          "min": 2.0,
+          "max": 10.0
+        },
+        "cadenceSeconds": {
+          "median": 7.5,
+          "p25": 4.7,
+          "p75": 79.9,
+          "iqr": 75.2,
+          "min": 2.0,
+          "max": 295.1
+        },
+        "firstAtSeconds": {
+          "median": 69.7,
+          "p25": 53.5,
+          "p75": 80.4,
+          "iqr": 27.0,
+          "min": 7.1,
+          "max": 339.8
+        },
+        "inJournal": false,
+        "journal": null,
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 59.4,
+              "p25": 24.3,
+              "p75": 70.3,
+              "iqr": 46.0,
+              "min": 7.1,
+              "max": 96.1
+            },
+            "atSegmentSeconds": {
+              "median": 59.4,
+              "p25": 24.3,
+              "p75": 70.3,
+              "iqr": 46.0,
+              "min": 7.1,
+              "max": 96.1
+            },
+            "support": {
+              "pulls": 64,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 69.4,
+              "p25": 59.0,
+              "p75": 77.4,
+              "iqr": 18.3,
+              "min": 11.5,
+              "max": 82.3
+            },
+            "atSegmentSeconds": {
+              "median": 69.4,
+              "p25": 59.0,
+              "p75": 77.4,
+              "iqr": 18.3,
+              "min": 11.5,
+              "max": 82.3
+            },
+            "support": {
+              "pulls": 50,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 276.8,
+              "p25": 271.8,
+              "p75": 315.9,
+              "iqr": 44.1,
+              "min": 259.8,
+              "max": 351.5
+            },
+            "atSegmentSeconds": {
+              "median": 24.8,
+              "p25": 19.7,
+              "p75": 63.8,
+              "iqr": 44.1,
+              "min": 7.7,
+              "max": 99.5
+            },
+            "support": {
+              "pulls": 69,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 283.2,
+              "p25": 275.8,
+              "p75": 326.5,
+              "iqr": 50.7,
+              "min": 263.1,
+              "max": 345.3
+            },
+            "atSegmentSeconds": {
+              "median": 31.2,
+              "p25": 23.7,
+              "p75": 74.5,
+              "iqr": 50.8,
+              "min": 11.0,
+              "max": 93.3
+            },
+            "support": {
+              "pulls": 52,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      }
+    ],
+    "journalOnly": [
+      {
+        "title": "Apex Predator",
+        "spellId": 1277025,
+        "why": "an umbrella section grouping other abilities, not a cast in its own right"
+      },
+      {
+        "title": "Caustic Claws",
+        "spellId": 1305998,
+        "why": "an umbrella section grouping other abilities, not a cast in its own right"
+      },
+      {
+        "title": "Caustic Residue",
+        "spellId": 1296602,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Corroding Venom",
+        "spellId": 1282869,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Howling Maelstrom",
+        "spellId": 1285732,
+        "why": "an umbrella section grouping other abilities, not a cast in its own right"
+      },
+      {
+        "title": "Mutilated Gash",
+        "spellId": 1277051,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Serpent's Fury",
+        "spellId": 1297367,
+        "why": "an umbrella section grouping other abilities, not a cast in its own right"
+      },
+      {
+        "title": "To the Slaughter",
+        "spellId": 1297414,
+        "why": "an umbrella section grouping other abilities, not a cast in its own right"
+      },
+      {
+        "title": "Turbulent Gusts",
+        "spellId": 1285447,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Ula'tek's Presence",
+        "spellId": 1285961,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Unbound Ferocity",
+        "spellId": 1296898,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Virulence",
+        "spellId": 1297707,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Viscous Cyst",
+        "spellId": 1287008,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      }
+    ],
+    "damageTaken": {
+      "sampledPulls": [
+        {
+          "code": "JKCp7y1ZLn4QX2tT",
+          "fight": 8
+        },
+        {
+          "code": "7BPQnxRaDtYWm6AN",
+          "fight": 30
+        },
+        {
+          "code": "NHbD9aMnWQpw1BZ3",
+          "fight": 24
+        },
+        {
+          "code": "Dw6Zpr2Kaq8GXyJV",
+          "fight": 47
+        },
+        {
+          "code": "68RN2CVTjprx3b9L",
+          "fight": 50
+        },
+        {
+          "code": "zZKQ1Cr3aYnw94Nj",
+          "fight": 25
+        },
+        {
+          "code": "B7bZytHP1h4m6Wjk",
+          "fight": 35
+        },
+        {
+          "code": "Vmz4H8vQYTXM6dhw",
+          "fight": 23
+        },
+        {
+          "code": "GYxbqDNgM9r7a4Bj",
+          "fight": 32
+        },
+        {
+          "code": "cfAHaGBD4Ch38Mvt",
+          "fight": 59
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Ula'tek's Presence",
+          "ids": [
+            1285965
+          ],
+          "meanPerPull": 216198424,
+          "meanReducedPerPull": 172407508,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.351
+        },
+        {
+          "name": "Mutilated Gash",
+          "ids": [
+            1285998
+          ],
+          "meanPerPull": 152371279,
+          "meanReducedPerPull": 131666007,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.2474
+        },
+        {
+          "name": "Viscous Cyst",
+          "ids": [
+            1287205
+          ],
+          "meanPerPull": 106513045,
+          "meanReducedPerPull": 91869519,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.1729
+        },
+        {
+          "name": "Virulence",
+          "ids": [
+            1312189
+          ],
+          "meanPerPull": 38178423,
+          "meanReducedPerPull": 33317193,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.062
+        },
+        {
+          "name": "Mutilate",
+          "ids": [
+            1285999
+          ],
+          "meanPerPull": 35957598,
+          "meanReducedPerPull": 22791568,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0584
+        },
+        {
+          "name": "Melee",
+          "ids": [
+            1
+          ],
+          "meanPerPull": 23797053,
+          "meanReducedPerPull": 14008582,
+          "pulls": 10,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0386
+        },
+        {
+          "name": "Tempest",
+          "ids": [
+            1287083
+          ],
+          "meanPerPull": 12049746,
+          "meanReducedPerPull": 10188630,
+          "pulls": 8,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0196
+        },
+        {
+          "name": "Ravage",
+          "ids": [
+            1277101
+          ],
+          "meanPerPull": 10158608,
+          "meanReducedPerPull": 4869405,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0165
+        },
+        {
+          "name": "Venomous Surge",
+          "ids": [
+            1306120,
+            1312156
+          ],
+          "meanPerPull": 9682991,
+          "meanReducedPerPull": 9181684,
+          "pulls": 12,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0157
+        },
+        {
+          "name": "Refraction",
+          "ids": [
+            1309786
+          ],
+          "meanPerPull": 6324980,
+          "meanReducedPerPull": 4812683,
+          "pulls": 10,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0103
+        },
+        {
+          "name": "Burning Rush",
+          "ids": [
+            111400
+          ],
+          "meanPerPull": 2606368,
+          "meanReducedPerPull": 2345757,
+          "pulls": 2,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0042
+        },
+        {
+          "name": "Stretch Time",
+          "ids": [
+            413924
+          ],
+          "meanPerPull": 2152744,
+          "meanReducedPerPull": 1658207,
+          "pulls": 1,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0035
+        }
+      ]
+    }
+  }
+}

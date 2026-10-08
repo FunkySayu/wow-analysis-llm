@@ -1,0 +1,3785 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 16,
+    "wclDifficulty": 5,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T18:28:25+00:00",
+    "generator": "tools/warcraftlogs/encounter_profile_sync.py",
+    "journal": "journal.json",
+    "parameters": {
+      "sample": 100,
+      "damageSample": 10,
+      "collapseSeconds": 2.0,
+      "minOccurrenceSupport": 0.5,
+      "minSegmentPulls": 5
+    },
+    "readMe": "The pool is the top DPS rankings for one spec, which biases it toward fast kills: a mechanic that only appears late may be under-represented or absent, and 'journalOnly' lists catalogued abilities the pool never cast. Times are given both from the pull start (atSeconds) and from the start of the phase segment they landed in (atSegmentSeconds); the second is the stable one. A segment index is not a phase number -- phases repeat, so read phaseId/cycle.",
+    "encounter": "explorers"
+  },
+  "encounter": {
+    "slug": "explorers",
+    "wclEncounterId": 3497,
+    "name": "The Lost Explorers",
+    "sample": {
+      "requested": 100,
+      "rankings": 100,
+      "distinctPulls": 96,
+      "readable": 96,
+      "kills": 96,
+      "unreadable": [],
+      "truncatedEventStreams": []
+    },
+    "durationSeconds": {
+      "median": 376.3,
+      "p25": 348.5,
+      "p75": 396.3,
+      "iqr": 47.8,
+      "min": 303.1,
+      "max": 435.1
+    },
+    "composition": {
+      "modal": {
+        "tanks": 2,
+        "healers": 4,
+        "dps": 14,
+        "label": "2/4/14"
+      },
+      "modalShare": 0.77,
+      "distribution": [
+        {
+          "label": "2/4/14",
+          "pulls": 74
+        },
+        {
+          "label": "2/5/13",
+          "pulls": 22
+        }
+      ],
+      "specs": [
+        {
+          "spec": "Arcane Mage",
+          "totalSlots": 150,
+          "pulls": 90,
+          "perPull": 1.67
+        },
+        {
+          "spec": "Marksmanship Hunter",
+          "totalSlots": 135,
+          "pulls": 81,
+          "perPull": 1.67
+        },
+        {
+          "spec": "Balance Druid",
+          "totalSlots": 130,
+          "pulls": 96,
+          "perPull": 1.35
+        },
+        {
+          "spec": "Arms Warrior",
+          "totalSlots": 119,
+          "pulls": 87,
+          "perPull": 1.37
+        },
+        {
+          "spec": "Blood DeathKnight",
+          "totalSlots": 102,
+          "pulls": 88,
+          "perPull": 1.16
+        },
+        {
+          "spec": "Preservation Evoker",
+          "totalSlots": 99,
+          "pulls": 79,
+          "perPull": 1.25
+        },
+        {
+          "spec": "Destruction Warlock",
+          "totalSlots": 95,
+          "pulls": 67,
+          "perPull": 1.42
+        },
+        {
+          "spec": "Holy Priest",
+          "totalSlots": 87,
+          "pulls": 79,
+          "perPull": 1.1
+        },
+        {
+          "spec": "Holy Paladin",
+          "totalSlots": 76,
+          "pulls": 73,
+          "perPull": 1.04
+        },
+        {
+          "spec": "Restoration Shaman",
+          "totalSlots": 73,
+          "pulls": 70,
+          "perPull": 1.04
+        },
+        {
+          "spec": "Elemental Shaman",
+          "totalSlots": 70,
+          "pulls": 65,
+          "perPull": 1.08
+        },
+        {
+          "spec": "Demonology Warlock",
+          "totalSlots": 68,
+          "pulls": 52,
+          "perPull": 1.31
+        },
+        {
+          "spec": "Shadow Priest",
+          "totalSlots": 67,
+          "pulls": 63,
+          "perPull": 1.06
+        },
+        {
+          "spec": "Windwalker Monk",
+          "totalSlots": 60,
+          "pulls": 60,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Devourer DemonHunter",
+          "totalSlots": 55,
+          "pulls": 51,
+          "perPull": 1.08
+        },
+        {
+          "spec": "Havoc DemonHunter",
+          "totalSlots": 54,
+          "pulls": 52,
+          "perPull": 1.04
+        },
+        {
+          "spec": "Devastation Evoker",
+          "totalSlots": 54,
+          "pulls": 49,
+          "perPull": 1.1
+        },
+        {
+          "spec": "Protection Paladin",
+          "totalSlots": 43,
+          "pulls": 42,
+          "perPull": 1.02
+        },
+        {
+          "spec": "Assassination Rogue",
+          "totalSlots": 41,
+          "pulls": 39,
+          "perPull": 1.05
+        },
+        {
+          "spec": "Retribution Paladin",
+          "totalSlots": 35,
+          "pulls": 32,
+          "perPull": 1.09
+        },
+        {
+          "spec": "BeastMastery Hunter",
+          "totalSlots": 33,
+          "pulls": 29,
+          "perPull": 1.14
+        },
+        {
+          "spec": "Augmentation Evoker",
+          "totalSlots": 32,
+          "pulls": 32,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Subtlety Rogue",
+          "totalSlots": 31,
+          "pulls": 31,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Frost DeathKnight",
+          "totalSlots": 29,
+          "pulls": 27,
+          "perPull": 1.07
+        },
+        {
+          "spec": "Mistweaver Monk",
+          "totalSlots": 27,
+          "pulls": 27,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Restoration Druid",
+          "totalSlots": 27,
+          "pulls": 27,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Frost Mage",
+          "totalSlots": 20,
+          "pulls": 18,
+          "perPull": 1.11
+        },
+        {
+          "spec": "Protection Warrior",
+          "totalSlots": 19,
+          "pulls": 18,
+          "perPull": 1.06
+        },
+        {
+          "spec": "Unholy DeathKnight",
+          "totalSlots": 19,
+          "pulls": 18,
+          "perPull": 1.06
+        },
+        {
+          "spec": "Discipline Priest",
+          "totalSlots": 17,
+          "pulls": 17,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Enhancement Shaman",
+          "totalSlots": 13,
+          "pulls": 13,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Brewmaster Monk",
+          "totalSlots": 13,
+          "pulls": 13,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Guardian Druid",
+          "totalSlots": 9,
+          "pulls": 9,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Vengeance DemonHunter",
+          "totalSlots": 6,
+          "pulls": 6,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Outlaw Rogue",
+          "totalSlots": 5,
+          "pulls": 5,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Affliction Warlock",
+          "totalSlots": 3,
+          "pulls": 3,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Feral Druid",
+          "totalSlots": 1,
+          "pulls": 1,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Fire Mage",
+          "totalSlots": 1,
+          "pulls": 1,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Fury Warrior",
+          "totalSlots": 1,
+          "pulls": 1,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Survival Hunter",
+          "totalSlots": 1,
+          "pulls": 1,
+          "perPull": 1.0
+        }
+      ]
+    },
+    "segments": [
+      {
+        "index": 1,
+        "phaseId": 1,
+        "cycle": 1,
+        "name": "The Lost Explorers",
+        "label": "The Lost Explorers",
+        "startSeconds": {
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "iqr": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "durationSeconds": {
+          "median": 61.4,
+          "p25": 59.8,
+          "p75": 63.3,
+          "iqr": 3.4,
+          "min": 48.7,
+          "max": 66.9
+        },
+        "support": {
+          "pulls": 96,
+          "reachedIndex": 96,
+          "of": 96
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 2,
+        "phaseId": 2,
+        "cycle": 1,
+        "name": "Scrollsage Iku: Binding Anguish",
+        "label": "Scrollsage Iku: Binding Anguish",
+        "startSeconds": {
+          "median": 60.7,
+          "p25": 59.7,
+          "p75": 62.3,
+          "iqr": 2.5,
+          "min": 57.1,
+          "max": 65.0
+        },
+        "durationSeconds": {
+          "median": 60.0,
+          "p25": 60.0,
+          "p75": 60.0,
+          "iqr": 0.0,
+          "min": 60.0,
+          "max": 60.0
+        },
+        "support": {
+          "pulls": 43,
+          "reachedIndex": 96,
+          "of": 96
+        },
+        "agreement": 0.45
+      },
+      {
+        "index": 3,
+        "phaseId": 1,
+        "cycle": 2,
+        "name": "The Lost Explorers",
+        "label": "The Lost Explorers #2",
+        "startSeconds": {
+          "median": 121.4,
+          "p25": 119.8,
+          "p75": 123.3,
+          "iqr": 3.5,
+          "min": 108.7,
+          "max": 126.9
+        },
+        "durationSeconds": {
+          "median": 62.4,
+          "p25": 60.4,
+          "p75": 64.3,
+          "iqr": 3.9,
+          "min": 50.5,
+          "max": 66.7
+        },
+        "support": {
+          "pulls": 96,
+          "reachedIndex": 96,
+          "of": 96
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 4,
+        "phaseId": 3,
+        "cycle": 1,
+        "name": "First Mate Nama: Binding Anguish",
+        "label": "First Mate Nama: Binding Anguish",
+        "startSeconds": {
+          "median": 183.6,
+          "p25": 180.5,
+          "p75": 185.9,
+          "iqr": 5.4,
+          "min": 167.9,
+          "max": 189.5
+        },
+        "durationSeconds": {
+          "median": 60.0,
+          "p25": 60.0,
+          "p75": 60.0,
+          "iqr": 0.0,
+          "min": 60.0,
+          "max": 60.0
+        },
+        "support": {
+          "pulls": 50,
+          "reachedIndex": 96,
+          "of": 96
+        },
+        "agreement": 0.52
+      },
+      {
+        "index": 5,
+        "phaseId": 1,
+        "cycle": 3,
+        "name": "The Lost Explorers",
+        "label": "The Lost Explorers #3",
+        "startSeconds": {
+          "median": 243.7,
+          "p25": 240.6,
+          "p75": 246.8,
+          "iqr": 6.1,
+          "min": 223.9,
+          "max": 253.7
+        },
+        "durationSeconds": {
+          "median": 61.7,
+          "p25": 59.9,
+          "p75": 63.9,
+          "iqr": 4.0,
+          "min": 54.3,
+          "max": 72.0
+        },
+        "support": {
+          "pulls": 96,
+          "reachedIndex": 96,
+          "of": 96
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 6,
+        "phaseId": 4,
+        "cycle": 1,
+        "name": "Trader Gebbo: Binding Anguish",
+        "label": "Trader Gebbo: Binding Anguish",
+        "startSeconds": {
+          "median": 305.7,
+          "p25": 300.7,
+          "p75": 309.8,
+          "iqr": 9.1,
+          "min": 287.0,
+          "max": 317.7
+        },
+        "durationSeconds": {
+          "median": 60.0,
+          "p25": 41.7,
+          "p75": 60.0,
+          "iqr": 18.3,
+          "min": 4.5,
+          "max": 60.0
+        },
+        "support": {
+          "pulls": 58,
+          "reachedIndex": 94,
+          "of": 96
+        },
+        "agreement": 0.62
+      },
+      {
+        "index": 7,
+        "phaseId": 1,
+        "cycle": 4,
+        "name": "The Lost Explorers",
+        "label": "The Lost Explorers #4",
+        "startSeconds": {
+          "median": 366.1,
+          "p25": 359.0,
+          "p75": 369.5,
+          "iqr": 10.5,
+          "min": 339.7,
+          "max": 379.6
+        },
+        "durationSeconds": {
+          "median": 26.9,
+          "p25": 11.9,
+          "p75": 40.8,
+          "iqr": 28.9,
+          "min": 0.4,
+          "max": 69.9
+        },
+        "support": {
+          "pulls": 61,
+          "reachedIndex": 61,
+          "of": 96
+        },
+        "agreement": 1.0
+      }
+    ],
+    "abilities": [
+      {
+        "name": "Blink Nova",
+        "ids": [
+          1296021,
+          1296025
+        ],
+        "sources": [
+          "Scrollsage Iku"
+        ],
+        "seenInPulls": 96,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 14.0,
+          "p25": 14.0,
+          "p75": 16.0,
+          "iqr": 2.0,
+          "min": 12.0,
+          "max": 18.0
+        },
+        "cadenceSeconds": {
+          "median": 7.0,
+          "p25": 7.0,
+          "p75": 24.1,
+          "iqr": 17.1,
+          "min": 6.9,
+          "max": 91.0
+        },
+        "firstAtSeconds": {
+          "median": 10.0,
+          "p25": 10.0,
+          "p75": 10.0,
+          "iqr": 0.0,
+          "min": 9.9,
+          "max": 10.1
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1296025,
+          "title": "Blink Nova",
+          "description": "Scrollsage Iku gathers arcane power and teleports to the location of a player, inflicting 750066 Arcane damage to all players. Players farther from Scrollsage Iku's target receive less damage.",
+          "damage": [
+            {
+              "amount": 750066,
+              "school": "Arcane",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Scrollsage Iku"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 10.0,
+              "p25": 10.0,
+              "p75": 10.0,
+              "iqr": 0.0,
+              "min": 9.9,
+              "max": 10.1
+            },
+            "atSegmentSeconds": {
+              "median": 10.0,
+              "p25": 10.0,
+              "p75": 10.0,
+              "iqr": 0.0,
+              "min": 9.9,
+              "max": 10.1
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 17.0,
+              "p25": 17.0,
+              "p75": 17.0,
+              "iqr": 0.0,
+              "min": 16.9,
+              "max": 17.0
+            },
+            "atSegmentSeconds": {
+              "median": 17.0,
+              "p25": 17.0,
+              "p75": 17.0,
+              "iqr": 0.0,
+              "min": 16.9,
+              "max": 17.0
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 41.0,
+              "p25": 41.0,
+              "p75": 41.0,
+              "iqr": 0.0,
+              "min": 40.8,
+              "max": 41.0
+            },
+            "atSegmentSeconds": {
+              "median": 41.0,
+              "p25": 41.0,
+              "p75": 41.0,
+              "iqr": 0.0,
+              "min": 40.8,
+              "max": 41.0
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 48.0,
+              "p25": 48.0,
+              "p75": 48.0,
+              "iqr": 0.0,
+              "min": 47.8,
+              "max": 48.0
+            },
+            "atSegmentSeconds": {
+              "median": 48.0,
+              "p25": 48.0,
+              "p75": 48.0,
+              "iqr": 0.0,
+              "min": 47.8,
+              "max": 48.0
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 133.4,
+              "p25": 131.9,
+              "p75": 135.4,
+              "iqr": 3.5,
+              "min": 119.9,
+              "max": 139.0
+            },
+            "atSegmentSeconds": {
+              "median": 12.0,
+              "p25": 11.6,
+              "p75": 12.4,
+              "iqr": 0.8,
+              "min": 10.9,
+              "max": 12.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 140.4,
+              "p25": 138.9,
+              "p75": 142.4,
+              "iqr": 3.5,
+              "min": 126.9,
+              "max": 146.0
+            },
+            "atSegmentSeconds": {
+              "median": 19.1,
+              "p25": 18.6,
+              "p75": 19.4,
+              "iqr": 0.8,
+              "min": 17.9,
+              "max": 19.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 164.4,
+              "p25": 162.9,
+              "p75": 166.4,
+              "iqr": 3.5,
+              "min": 150.9,
+              "max": 170.0
+            },
+            "atSegmentSeconds": {
+              "median": 43.1,
+              "p25": 42.6,
+              "p75": 43.4,
+              "iqr": 0.8,
+              "min": 41.9,
+              "max": 43.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 171.6,
+              "p25": 169.9,
+              "p75": 173.4,
+              "iqr": 3.5,
+              "min": 157.9,
+              "max": 177.0
+            },
+            "atSegmentSeconds": {
+              "median": 50.1,
+              "p25": 49.6,
+              "p75": 50.4,
+              "iqr": 0.8,
+              "min": 48.9,
+              "max": 50.9
+            },
+            "support": {
+              "pulls": 93,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 256.1,
+              "p25": 252.6,
+              "p75": 259.2,
+              "iqr": 6.6,
+              "min": 236.4,
+              "max": 265.7
+            },
+            "atSegmentSeconds": {
+              "median": 12.0,
+              "p25": 11.7,
+              "p75": 12.5,
+              "iqr": 0.8,
+              "min": 10.8,
+              "max": 12.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 263.1,
+              "p25": 259.6,
+              "p75": 266.2,
+              "iqr": 6.6,
+              "min": 243.4,
+              "max": 272.7
+            },
+            "atSegmentSeconds": {
+              "median": 19.0,
+              "p25": 18.7,
+              "p75": 19.5,
+              "iqr": 0.8,
+              "min": 17.8,
+              "max": 19.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 287.1,
+              "p25": 283.6,
+              "p75": 290.2,
+              "iqr": 6.6,
+              "min": 267.4,
+              "max": 296.7
+            },
+            "atSegmentSeconds": {
+              "median": 43.0,
+              "p25": 42.7,
+              "p75": 43.5,
+              "iqr": 0.8,
+              "min": 41.8,
+              "max": 43.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 294.1,
+              "p25": 290.5,
+              "p75": 297.3,
+              "iqr": 6.8,
+              "min": 274.4,
+              "max": 303.7
+            },
+            "atSegmentSeconds": {
+              "median": 50.1,
+              "p25": 49.7,
+              "p75": 50.5,
+              "iqr": 0.8,
+              "min": 48.8,
+              "max": 51.0
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 377.9,
+              "p25": 371.1,
+              "p75": 380.1,
+              "iqr": 9.0,
+              "min": 352.2,
+              "max": 391.7
+            },
+            "atSegmentSeconds": {
+              "median": 12.0,
+              "p25": 12.0,
+              "p75": 12.1,
+              "iqr": 0.1,
+              "min": 11.2,
+              "max": 12.9
+            },
+            "support": {
+              "pulls": 37,
+              "reachedSegment": 61
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dark Whispers",
+        "ids": [
+          1301667
+        ],
+        "sources": [
+          "Scrollsage Iku",
+          "First Mate Nama",
+          "Trader Gebbo"
+        ],
+        "seenInPulls": 96,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 3.0,
+          "p25": 2.0,
+          "p75": 3.0,
+          "iqr": 1.0,
+          "min": 2.0,
+          "max": 3.0
+        },
+        "cadenceSeconds": {
+          "median": 121.9,
+          "p25": 120.3,
+          "p75": 124.1,
+          "iqr": 3.8,
+          "min": 110.5,
+          "max": 126.8
+        },
+        "firstAtSeconds": {
+          "median": 121.5,
+          "p25": 119.8,
+          "p75": 123.3,
+          "iqr": 3.5,
+          "min": 108.7,
+          "max": 126.9
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1295451,
+          "title": "Dark Whispers",
+          "description": "Mor'zahi's dark whispers compel the target to follow his commands.",
+          "damage": [],
+          "parentTitle": "Mor'zahi"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 2,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 121.6,
+              "p25": 120.0,
+              "p75": 123.2,
+              "iqr": 3.2,
+              "min": 116.7,
+              "max": 126.9
+            },
+            "atSegmentSeconds": {
+              "median": 60.0,
+              "p25": 60.0,
+              "p75": 60.0,
+              "iqr": 0.0,
+              "min": 59.9,
+              "max": 60.0
+            },
+            "support": {
+              "pulls": 50,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 4,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 243.6,
+              "p25": 240.6,
+              "p75": 246.1,
+              "iqr": 5.5,
+              "min": 223.9,
+              "max": 250.5
+            },
+            "atSegmentSeconds": {
+              "median": 60.0,
+              "p25": 60.0,
+              "p75": 60.0,
+              "iqr": 0.0,
+              "min": 59.9,
+              "max": 60.0
+            },
+            "support": {
+              "pulls": 51,
+              "reachedSegment": 96
+            }
+          }
+        ]
+      },
+      {
+        "name": "Evil Eyes",
+        "ids": [
+          1292758
+        ],
+        "sources": [
+          "Creepy Statue"
+        ],
+        "seenInPulls": 96,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 3.0,
+          "p25": 3.0,
+          "p75": 3.0,
+          "iqr": 0.0,
+          "min": 2.0,
+          "max": 3.0
+        },
+        "cadenceSeconds": {
+          "median": 122.4,
+          "p25": 120.3,
+          "p75": 124.4,
+          "iqr": 4.1,
+          "min": 110.1,
+          "max": 128.4
+        },
+        "firstAtSeconds": {
+          "median": 57.5,
+          "p25": 55.9,
+          "p75": 59.2,
+          "iqr": 3.4,
+          "min": 44.5,
+          "max": 62.9
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1292388,
+          "title": "Evil Eyes",
+          "description": "The statues within the chamber project spirit flames at players, inflicting 416703 Shadow damage to players within 3 yds of the impact locations.",
+          "damage": [
+            {
+              "amount": 416703,
+              "school": "Shadow",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Mor'zahi"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 57.5,
+              "p25": 55.9,
+              "p75": 59.2,
+              "iqr": 3.4,
+              "min": 44.5,
+              "max": 62.9
+            },
+            "atSegmentSeconds": {
+              "median": 57.5,
+              "p25": 55.9,
+              "p75": 59.2,
+              "iqr": 3.4,
+              "min": 44.5,
+              "max": 62.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 180.1,
+              "p25": 176.7,
+              "p75": 183.1,
+              "iqr": 6.5,
+              "min": 160.1,
+              "max": 189.5
+            },
+            "atSegmentSeconds": {
+              "median": 58.5,
+              "p25": 56.3,
+              "p75": 60.4,
+              "iqr": 4.1,
+              "min": 45.9,
+              "max": 62.6
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 301.8,
+              "p25": 297.2,
+              "p75": 306.0,
+              "iqr": 8.8,
+              "min": 275.7,
+              "max": 315.2
+            },
+            "atSegmentSeconds": {
+              "median": 58.2,
+              "p25": 56.1,
+              "p75": 59.8,
+              "iqr": 3.7,
+              "min": 50.4,
+              "max": 64.3
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 96
+            }
+          }
+        ]
+      },
+      {
+        "name": "Final Ascension",
+        "ids": [
+          1292779,
+          1297075
+        ],
+        "sources": [
+          "Mor'zahi"
+        ],
+        "seenInPulls": 96,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 4.0,
+          "p25": 3.8,
+          "p75": 4.0,
+          "iqr": 0.2,
+          "min": 3.0,
+          "max": 7.0
+        },
+        "cadenceSeconds": {
+          "median": 120.7,
+          "p25": 109.8,
+          "p75": 122.8,
+          "iqr": 13.0,
+          "min": 60.0,
+          "max": 125.9
+        },
+        "firstAtSeconds": {
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "iqr": 0.0,
+          "min": 0.0,
+          "max": 0.1
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1292780,
+          "title": "Final Ascension",
+          "description": "Mor'zahi gathers power slowly for his final ascension. Upon channeling, he inflicts 208352 Shadow damage every 1 sec to all players.",
+          "damage": [
+            {
+              "amount": 208352,
+              "school": "Shadow",
+              "everySeconds": 1.0
+            }
+          ],
+          "parentTitle": "Mor'zahi"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 0.0,
+              "p25": 0.0,
+              "p75": 0.0,
+              "iqr": 0.0,
+              "min": 0.0,
+              "max": 0.1
+            },
+            "atSegmentSeconds": {
+              "median": 0.0,
+              "p25": 0.0,
+              "p75": 0.0,
+              "iqr": 0.0,
+              "min": 0.0,
+              "max": 0.1
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 122.0,
+              "p25": 120.5,
+              "p75": 124.1,
+              "iqr": 3.6,
+              "min": 109.1,
+              "max": 188.3
+            },
+            "atSegmentSeconds": {
+              "median": 0.7,
+              "p25": 0.7,
+              "p75": 0.8,
+              "iqr": 0.2,
+              "min": 0.0,
+              "max": 65.0
+            },
+            "support": {
+              "pulls": 95,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 244.4,
+              "p25": 241.4,
+              "p75": 247.9,
+              "iqr": 6.5,
+              "min": 225.1,
+              "max": 315.5
+            },
+            "atSegmentSeconds": {
+              "median": 0.8,
+              "p25": 0.7,
+              "p75": 0.9,
+              "iqr": 0.2,
+              "min": 0.0,
+              "max": 65.0
+            },
+            "support": {
+              "pulls": 95,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 366.9,
+              "p25": 361.1,
+              "p75": 370.5,
+              "iqr": 9.4,
+              "min": 340.5,
+              "max": 380.4
+            },
+            "atSegmentSeconds": {
+              "median": 0.8,
+              "p25": 0.7,
+              "p75": 0.8,
+              "iqr": 0.1,
+              "min": 0.3,
+              "max": 1.3
+            },
+            "support": {
+              "pulls": 58,
+              "reachedSegment": 61
+            }
+          }
+        ]
+      },
+      {
+        "name": "Frostfire Volley",
+        "ids": [
+          1295891
+        ],
+        "sources": [
+          "Scrollsage Iku"
+        ],
+        "seenInPulls": 96,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 2.0,
+          "p25": 2.0,
+          "p75": 2.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "cadenceSeconds": {
+          "median": 27.0,
+          "p25": 27.0,
+          "p75": 27.0,
+          "iqr": 0.0,
+          "min": 26.9,
+          "max": 27.1
+        },
+        "firstAtSeconds": {
+          "median": 191.8,
+          "p25": 76.3,
+          "p75": 201.6,
+          "iqr": 125.3,
+          "min": 72.4,
+          "max": 330.8
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1295893,
+          "title": "Frostfire Volley",
+          "description": "While under the effects of Mor'zahi's Command, Scrollsage Iku unleashes a volley of elemental missiles at several targets, inflicting 125011 Fire or Frost damage to players within 10 yds of the targets and afflicting them with Burning Flames or Piercing Frost.\n\nEach missile leaves behind a patch of elemental ground at its impact location.\n\nThese impacts trigger Elemental Explosion if they strike any player afflicted by Burning Flames or Piercing Frost.",
+          "damage": [],
+          "parentTitle": "Scrollsage Iku"
+        },
+        "occurrences": []
+      },
+      {
+        "name": "Mor'zahi's Command",
+        "ids": [
+          1296975,
+          1297022,
+          1297024
+        ],
+        "sources": [
+          "Mor'zahi"
+        ],
+        "seenInPulls": 96,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 3.0,
+          "p25": 3.0,
+          "p75": 3.0,
+          "iqr": 0.0,
+          "min": 2.0,
+          "max": 3.0
+        },
+        "cadenceSeconds": {
+          "median": 122.0,
+          "p25": 120.3,
+          "p75": 124.1,
+          "iqr": 3.8,
+          "min": 110.5,
+          "max": 128.5
+        },
+        "firstAtSeconds": {
+          "median": 61.5,
+          "p25": 59.8,
+          "p75": 63.3,
+          "iqr": 3.5,
+          "min": 48.7,
+          "max": 66.9
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1297022,
+          "title": "Mor'zahi's Command",
+          "description": "Mor'zahi violently retakes control of his target, granting them additional abilities.",
+          "damage": [],
+          "parentTitle": "Dark Whispers"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 61.7,
+              "p25": 59.9,
+              "p75": 63.3,
+              "iqr": 3.4,
+              "min": 50.1,
+              "max": 66.9
+            },
+            "atSegmentSeconds": {
+              "median": 61.7,
+              "p25": 59.9,
+              "p75": 63.3,
+              "iqr": 3.4,
+              "min": 50.1,
+              "max": 66.9
+            },
+            "support": {
+              "pulls": 64,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 184.2,
+              "p25": 180.5,
+              "p75": 186.6,
+              "iqr": 6.1,
+              "min": 163.9,
+              "max": 193.6
+            },
+            "atSegmentSeconds": {
+              "median": 62.6,
+              "p25": 60.3,
+              "p75": 64.0,
+              "iqr": 3.7,
+              "min": 53.7,
+              "max": 66.7
+            },
+            "support": {
+              "pulls": 71,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 306.2,
+              "p25": 300.7,
+              "p75": 310.1,
+              "iqr": 9.4,
+              "min": 279.7,
+              "max": 319.6
+            },
+            "atSegmentSeconds": {
+              "median": 61.7,
+              "p25": 59.4,
+              "p75": 63.7,
+              "iqr": 4.4,
+              "min": 54.3,
+              "max": 68.5
+            },
+            "support": {
+              "pulls": 58,
+              "reachedSegment": 96
+            }
+          }
+        ]
+      },
+      {
+        "name": "Shell Spin",
+        "ids": [
+          1296062
+        ],
+        "sources": [
+          "First Mate Nama"
+        ],
+        "seenInPulls": 96,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 13.0,
+          "p25": 12.8,
+          "p75": 14.0,
+          "iqr": 1.2,
+          "min": 11.0,
+          "max": 16.0
+        },
+        "cadenceSeconds": {
+          "median": 16.0,
+          "p25": 15.1,
+          "p75": 32.0,
+          "iqr": 16.9,
+          "min": 7.9,
+          "max": 99.9
+        },
+        "firstAtSeconds": {
+          "median": 22.0,
+          "p25": 22.0,
+          "p75": 22.0,
+          "iqr": 0.0,
+          "min": 21.8,
+          "max": 22.2
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1296061,
+          "title": "Shell Spin",
+          "description": "First Mate Nama hurls three spinning shells in a cone in front of him. The shells will stun players they come into contact with for 4 sec.",
+          "damage": [],
+          "parentTitle": "First Mate Nama"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 22.0,
+              "p25": 22.0,
+              "p75": 22.0,
+              "iqr": 0.0,
+              "min": 21.8,
+              "max": 22.2
+            },
+            "atSegmentSeconds": {
+              "median": 22.0,
+              "p25": 22.0,
+              "p75": 22.0,
+              "iqr": 0.0,
+              "min": 21.8,
+              "max": 22.2
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 38.0,
+              "p25": 38.0,
+              "p75": 38.0,
+              "iqr": 0.0,
+              "min": 37.8,
+              "max": 38.1
+            },
+            "atSegmentSeconds": {
+              "median": 38.0,
+              "p25": 38.0,
+              "p75": 38.0,
+              "iqr": 0.0,
+              "min": 37.8,
+              "max": 38.1
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 53.0,
+              "p25": 53.0,
+              "p75": 53.0,
+              "iqr": 0.0,
+              "min": 52.8,
+              "max": 53.0
+            },
+            "atSegmentSeconds": {
+              "median": 53.0,
+              "p25": 53.0,
+              "p75": 53.0,
+              "iqr": 0.0,
+              "min": 52.8,
+              "max": 53.0
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 79.5,
+              "p25": 75.8,
+              "p75": 83.1,
+              "iqr": 7.3,
+              "min": 53.0,
+              "max": 86.7
+            },
+            "atSegmentSeconds": {
+              "median": 21.2,
+              "p25": 13.1,
+              "p75": 22.0,
+              "iqr": 9.0,
+              "min": 2.9,
+              "max": 22.9
+            },
+            "support": {
+              "pulls": 77,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 108.8,
+              "p25": 106.5,
+              "p75": 110.3,
+              "iqr": 3.8,
+              "min": 60.9,
+              "max": 113.7
+            },
+            "atSegmentSeconds": {
+              "median": 48.3,
+              "p25": 45.1,
+              "p75": 49.1,
+              "iqr": 4.0,
+              "min": 12.2,
+              "max": 49.9
+            },
+            "support": {
+              "pulls": 76,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 145.4,
+              "p25": 143.9,
+              "p75": 147.4,
+              "iqr": 3.5,
+              "min": 131.9,
+              "max": 151.0
+            },
+            "atSegmentSeconds": {
+              "median": 24.1,
+              "p25": 23.6,
+              "p75": 24.4,
+              "iqr": 0.8,
+              "min": 22.9,
+              "max": 24.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 161.4,
+              "p25": 159.9,
+              "p75": 163.4,
+              "iqr": 3.5,
+              "min": 147.9,
+              "max": 167.0
+            },
+            "atSegmentSeconds": {
+              "median": 40.1,
+              "p25": 39.7,
+              "p75": 40.4,
+              "iqr": 0.8,
+              "min": 38.9,
+              "max": 40.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 176.6,
+              "p25": 175.0,
+              "p75": 178.4,
+              "iqr": 3.4,
+              "min": 162.9,
+              "max": 182.0
+            },
+            "atSegmentSeconds": {
+              "median": 55.0,
+              "p25": 54.6,
+              "p75": 55.4,
+              "iqr": 0.8,
+              "min": 53.9,
+              "max": 55.9
+            },
+            "support": {
+              "pulls": 92,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 268.1,
+              "p25": 264.6,
+              "p75": 271.2,
+              "iqr": 6.6,
+              "min": 248.4,
+              "max": 277.7
+            },
+            "atSegmentSeconds": {
+              "median": 24.0,
+              "p25": 23.7,
+              "p75": 24.5,
+              "iqr": 0.8,
+              "min": 22.8,
+              "max": 24.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 284.1,
+              "p25": 280.6,
+              "p75": 287.2,
+              "iqr": 6.6,
+              "min": 264.4,
+              "max": 293.7
+            },
+            "atSegmentSeconds": {
+              "median": 40.1,
+              "p25": 39.7,
+              "p75": 40.5,
+              "iqr": 0.8,
+              "min": 38.8,
+              "max": 41.0
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 299.0,
+              "p25": 295.6,
+              "p75": 302.2,
+              "iqr": 6.7,
+              "min": 282.9,
+              "max": 308.7
+            },
+            "atSegmentSeconds": {
+              "median": 55.0,
+              "p25": 54.7,
+              "p75": 55.5,
+              "iqr": 0.8,
+              "min": 53.8,
+              "max": 55.9
+            },
+            "support": {
+              "pulls": 91,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 6,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 319.1,
+              "p25": 314.5,
+              "p75": 324.6,
+              "iqr": 10.1,
+              "min": 296.1,
+              "max": 337.3
+            },
+            "atSegmentSeconds": {
+              "median": 13.0,
+              "p25": 12.7,
+              "p75": 13.5,
+              "iqr": 0.8,
+              "min": 0.3,
+              "max": 22.9
+            },
+            "support": {
+              "pulls": 64,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 6,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 351.4,
+              "p25": 343.9,
+              "p75": 355.4,
+              "iqr": 11.5,
+              "min": 308.3,
+              "max": 364.3
+            },
+            "atSegmentSeconds": {
+              "median": 45.1,
+              "p25": 44.7,
+              "p75": 45.8,
+              "iqr": 1.1,
+              "min": 12.2,
+              "max": 49.9
+            },
+            "support": {
+              "pulls": 48,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Shredding Shards",
+        "ids": [
+          1295854,
+          1310616
+        ],
+        "sources": [
+          "Scrollsage Iku"
+        ],
+        "seenInPulls": 96,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 6.0,
+          "p25": 6.0,
+          "p75": 6.0,
+          "iqr": 0.0,
+          "min": 5.0,
+          "max": 7.0
+        },
+        "cadenceSeconds": {
+          "median": 60.1,
+          "p25": 60.0,
+          "p75": 63.1,
+          "iqr": 3.1,
+          "min": 49.9,
+          "max": 69.0
+        },
+        "firstAtSeconds": {
+          "median": 30.0,
+          "p25": 30.0,
+          "p75": 30.0,
+          "iqr": 0.0,
+          "min": 29.8,
+          "max": 30.0
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1295854,
+          "title": "Shredding Shards",
+          "description": "Scrollsage Iku projects a series of ice shards at her current target, inflicting 83341 Frost damage every 0.5 sec for 3.5 sec.\n\nEach shard increases the target's damage taken from Shredding Shards by 50% for 1.3 min.",
+          "damage": [
+            {
+              "amount": 83341,
+              "school": "Frost",
+              "everySeconds": 0.5
+            }
+          ],
+          "parentTitle": "Scrollsage Iku"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 30.0,
+              "p25": 30.0,
+              "p75": 30.0,
+              "iqr": 0.0,
+              "min": 29.8,
+              "max": 30.0
+            },
+            "atSegmentSeconds": {
+              "median": 30.0,
+              "p25": 30.0,
+              "p75": 30.0,
+              "iqr": 0.0,
+              "min": 29.8,
+              "max": 30.0
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 93.4,
+              "p25": 91.9,
+              "p75": 95.3,
+              "iqr": 3.4,
+              "min": 79.9,
+              "max": 99.0
+            },
+            "atSegmentSeconds": {
+              "median": 32.0,
+              "p25": 31.6,
+              "p75": 32.4,
+              "iqr": 0.8,
+              "min": 30.9,
+              "max": 32.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 153.4,
+              "p25": 151.8,
+              "p75": 155.4,
+              "iqr": 3.6,
+              "min": 139.9,
+              "max": 159.0
+            },
+            "atSegmentSeconds": {
+              "median": 32.0,
+              "p25": 31.6,
+              "p75": 32.4,
+              "iqr": 0.8,
+              "min": 30.9,
+              "max": 32.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 4,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 216.1,
+              "p25": 212.5,
+              "p75": 219.2,
+              "iqr": 6.7,
+              "min": 196.4,
+              "max": 225.7
+            },
+            "atSegmentSeconds": {
+              "median": 32.0,
+              "p25": 31.6,
+              "p75": 32.4,
+              "iqr": 0.8,
+              "min": 28.2,
+              "max": 32.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 276.1,
+              "p25": 272.5,
+              "p75": 279.2,
+              "iqr": 6.7,
+              "min": 256.4,
+              "max": 285.7
+            },
+            "atSegmentSeconds": {
+              "median": 32.0,
+              "p25": 31.7,
+              "p75": 32.5,
+              "iqr": 0.8,
+              "min": 30.8,
+              "max": 32.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 6,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 337.9,
+              "p25": 332.4,
+              "p75": 341.2,
+              "iqr": 8.8,
+              "min": 312.2,
+              "max": 351.7
+            },
+            "atSegmentSeconds": {
+              "median": 32.0,
+              "p25": 31.7,
+              "p75": 32.4,
+              "iqr": 0.7,
+              "min": 31.1,
+              "max": 33.0
+            },
+            "support": {
+              "pulls": 74,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Throw Junk",
+        "ids": [
+          1291933,
+          1291934,
+          1306137,
+          1306145
+        ],
+        "sources": [
+          "Trader Gebbo"
+        ],
+        "seenInPulls": 96,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 25.0,
+          "p25": 23.0,
+          "p75": 26.0,
+          "iqr": 3.0,
+          "min": 21.0,
+          "max": 30.0
+        },
+        "cadenceSeconds": {
+          "median": 4.0,
+          "p25": 4.0,
+          "p75": 23.0,
+          "iqr": 19.0,
+          "min": 3.9,
+          "max": 49.1
+        },
+        "firstAtSeconds": {
+          "median": 23.0,
+          "p25": 23.0,
+          "p75": 23.0,
+          "iqr": 0.0,
+          "min": 22.8,
+          "max": 23.0
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1291933,
+          "title": "Throw Junk",
+          "description": "While under the effects of Mor'zahi's Command, Trader Gebbo throws crates from his inventory which inflict 1000088 Physical damage to players within 3 yds of their impact locations. Stepping on a crate breaks it, inflicting Splinters.",
+          "damage": [
+            {
+              "amount": 1000088,
+              "school": "Physical",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Trader Gebbo"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 23.0,
+              "p25": 23.0,
+              "p75": 23.0,
+              "iqr": 0.0,
+              "min": 22.8,
+              "max": 23.0
+            },
+            "atSegmentSeconds": {
+              "median": 23.0,
+              "p25": 23.0,
+              "p75": 23.0,
+              "iqr": 0.0,
+              "min": 22.8,
+              "max": 23.0
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 27.0,
+              "p25": 27.0,
+              "p75": 27.0,
+              "iqr": 0.0,
+              "min": 26.8,
+              "max": 27.0
+            },
+            "atSegmentSeconds": {
+              "median": 27.0,
+              "p25": 27.0,
+              "p75": 27.0,
+              "iqr": 0.0,
+              "min": 26.8,
+              "max": 27.0
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 31.0,
+              "p25": 31.0,
+              "p75": 31.0,
+              "iqr": 0.0,
+              "min": 30.8,
+              "max": 31.0
+            },
+            "atSegmentSeconds": {
+              "median": 31.0,
+              "p25": 31.0,
+              "p75": 31.0,
+              "iqr": 0.0,
+              "min": 30.8,
+              "max": 31.0
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 54.0,
+              "p25": 54.0,
+              "p75": 54.0,
+              "iqr": 0.0,
+              "min": 53.8,
+              "max": 54.1
+            },
+            "atSegmentSeconds": {
+              "median": 54.0,
+              "p25": 54.0,
+              "p75": 54.0,
+              "iqr": 0.0,
+              "min": 53.8,
+              "max": 54.1
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 5,
+            "atSeconds": {
+              "median": 58.0,
+              "p25": 58.0,
+              "p75": 58.0,
+              "iqr": 0.0,
+              "min": 57.8,
+              "max": 58.0
+            },
+            "atSegmentSeconds": {
+              "median": 58.0,
+              "p25": 58.0,
+              "p75": 58.0,
+              "iqr": 0.0,
+              "min": 57.8,
+              "max": 58.0
+            },
+            "support": {
+              "pulls": 84,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 78.3,
+              "p25": 72.6,
+              "p75": 92.0,
+              "iqr": 19.4,
+              "min": 54.0,
+              "max": 99.0
+            },
+            "atSegmentSeconds": {
+              "median": 18.5,
+              "p25": 11.7,
+              "p75": 31.6,
+              "iqr": 19.9,
+              "min": 0.2,
+              "max": 32.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 88.8,
+              "p25": 77.2,
+              "p75": 96.0,
+              "iqr": 18.8,
+              "min": 69.3,
+              "max": 103.0
+            },
+            "atSegmentSeconds": {
+              "median": 28.6,
+              "p25": 16.0,
+              "p75": 35.6,
+              "iqr": 19.6,
+              "min": 11.6,
+              "max": 36.8
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 100.8,
+              "p25": 98.8,
+              "p75": 116.0,
+              "iqr": 17.2,
+              "min": 73.3,
+              "max": 122.6
+            },
+            "atSegmentSeconds": {
+              "median": 39.1,
+              "p25": 38.4,
+              "p75": 55.2,
+              "iqr": 16.8,
+              "min": 15.6,
+              "max": 56.8
+            },
+            "support": {
+              "pulls": 67,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 2,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 104.5,
+              "p25": 102.8,
+              "p75": 106.6,
+              "iqr": 3.8,
+              "min": 96.3,
+              "max": 126.6
+            },
+            "atSegmentSeconds": {
+              "median": 43.0,
+              "p25": 42.6,
+              "p75": 43.5,
+              "iqr": 0.9,
+              "min": 38.6,
+              "max": 60.0
+            },
+            "support": {
+              "pulls": 53,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 146.1,
+              "p25": 144.0,
+              "p75": 148.3,
+              "iqr": 4.4,
+              "min": 119.6,
+              "max": 152.0
+            },
+            "atSegmentSeconds": {
+              "median": 25.0,
+              "p25": 24.6,
+              "p75": 25.2,
+              "iqr": 0.6,
+              "min": 0.0,
+              "max": 25.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 150.1,
+              "p25": 148.2,
+              "p75": 152.4,
+              "iqr": 4.2,
+              "min": 136.9,
+              "max": 156.0
+            },
+            "atSegmentSeconds": {
+              "median": 29.0,
+              "p25": 28.6,
+              "p75": 29.2,
+              "iqr": 0.6,
+              "min": 25.0,
+              "max": 29.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 154.1,
+              "p25": 152.2,
+              "p75": 156.3,
+              "iqr": 4.2,
+              "min": 140.9,
+              "max": 160.0
+            },
+            "atSegmentSeconds": {
+              "median": 33.0,
+              "p25": 32.6,
+              "p75": 33.2,
+              "iqr": 0.6,
+              "min": 29.0,
+              "max": 33.9
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 177.1,
+              "p25": 175.2,
+              "p75": 179.4,
+              "iqr": 4.2,
+              "min": 152.6,
+              "max": 183.0
+            },
+            "atSegmentSeconds": {
+              "median": 56.0,
+              "p25": 55.6,
+              "p75": 56.1,
+              "iqr": 0.5,
+              "min": 33.0,
+              "max": 56.9
+            },
+            "support": {
+              "pulls": 93,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 5,
+            "atSeconds": {
+              "median": 181.8,
+              "p25": 179.7,
+              "p75": 183.4,
+              "iqr": 3.7,
+              "min": 167.9,
+              "max": 187.0
+            },
+            "atSegmentSeconds": {
+              "median": 59.7,
+              "p25": 59.6,
+              "p75": 60.1,
+              "iqr": 0.5,
+              "min": 56.0,
+              "max": 60.8
+            },
+            "support": {
+              "pulls": 77,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 4,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 200.9,
+              "p25": 193.6,
+              "p75": 209.4,
+              "iqr": 15.8,
+              "min": 166.6,
+              "max": 221.7
+            },
+            "atSegmentSeconds": {
+              "median": 12.5,
+              "p25": 11.3,
+              "p75": 25.0,
+              "iqr": 13.8,
+              "min": 0.0,
+              "max": 32.0
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 4,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 205.7,
+              "p25": 200.8,
+              "p75": 213.4,
+              "iqr": 12.6,
+              "min": 176.4,
+              "max": 225.7
+            },
+            "atSegmentSeconds": {
+              "median": 25.4,
+              "p25": 16.0,
+              "p75": 29.0,
+              "iqr": 13.0,
+              "min": 10.8,
+              "max": 36.1
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 4,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 227.8,
+              "p25": 220.7,
+              "p75": 240.2,
+              "iqr": 19.5,
+              "min": 180.4,
+              "max": 245.2
+            },
+            "atSegmentSeconds": {
+              "median": 39.5,
+              "p25": 38.3,
+              "p75": 56.0,
+              "iqr": 17.7,
+              "min": 14.8,
+              "max": 56.9
+            },
+            "support": {
+              "pulls": 94,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 4,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 231.2,
+              "p25": 225.4,
+              "p75": 237.7,
+              "iqr": 12.3,
+              "min": 203.4,
+              "max": 249.1
+            },
+            "atSegmentSeconds": {
+              "median": 43.2,
+              "p25": 42.6,
+              "p75": 58.4,
+              "iqr": 15.8,
+              "min": 37.8,
+              "max": 60.0
+            },
+            "support": {
+              "pulls": 70,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 266.1,
+              "p25": 247.9,
+              "p75": 270.3,
+              "iqr": 22.3,
+              "min": 227.9,
+              "max": 278.7
+            },
+            "atSegmentSeconds": {
+              "median": 24.6,
+              "p25": 0.8,
+              "p75": 25.1,
+              "iqr": 24.2,
+              "min": 0.0,
+              "max": 25.8
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 271.3,
+              "p25": 268.9,
+              "p75": 274.3,
+              "iqr": 5.4,
+              "min": 252.9,
+              "max": 282.7
+            },
+            "atSegmentSeconds": {
+              "median": 28.6,
+              "p25": 25.8,
+              "p75": 29.1,
+              "iqr": 3.2,
+              "min": 25.0,
+              "max": 29.8
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 275.3,
+              "p25": 272.9,
+              "p75": 278.3,
+              "iqr": 5.4,
+              "min": 256.9,
+              "max": 286.7
+            },
+            "atSegmentSeconds": {
+              "median": 32.6,
+              "p25": 29.8,
+              "p75": 33.1,
+              "iqr": 3.2,
+              "min": 29.0,
+              "max": 33.8
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 297.2,
+              "p25": 280.4,
+              "p75": 301.4,
+              "iqr": 21.0,
+              "min": 260.9,
+              "max": 309.7
+            },
+            "atSegmentSeconds": {
+              "median": 55.6,
+              "p25": 33.8,
+              "p75": 56.1,
+              "iqr": 22.2,
+              "min": 33.0,
+              "max": 56.8
+            },
+            "support": {
+              "pulls": 91,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 5,
+            "atSeconds": {
+              "median": 303.3,
+              "p25": 300.0,
+              "p75": 306.5,
+              "iqr": 6.5,
+              "min": 283.9,
+              "max": 313.7
+            },
+            "atSegmentSeconds": {
+              "median": 59.6,
+              "p25": 56.5,
+              "p75": 60.0,
+              "iqr": 3.5,
+              "min": 56.0,
+              "max": 60.8
+            },
+            "support": {
+              "pulls": 77,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 6,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 330.0,
+              "p25": 302.7,
+              "p75": 338.4,
+              "iqr": 35.7,
+              "min": 280.4,
+              "max": 350.2
+            },
+            "atSegmentSeconds": {
+              "median": 25.0,
+              "p25": 2.2,
+              "p75": 32.0,
+              "iqr": 29.8,
+              "min": 0.1,
+              "max": 32.8
+            },
+            "support": {
+              "pulls": 77,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 6,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 335.3,
+              "p25": 327.9,
+              "p75": 342.9,
+              "iqr": 15.0,
+              "min": 284.4,
+              "max": 354.1
+            },
+            "atSegmentSeconds": {
+              "median": 31.7,
+              "p25": 28.6,
+              "p75": 36.0,
+              "iqr": 7.4,
+              "min": 4.2,
+              "max": 36.9
+            },
+            "support": {
+              "pulls": 75,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Mighty Thud",
+        "ids": [
+          1296094,
+          1296095,
+          1296133,
+          1296135
+        ],
+        "sources": [
+          "First Mate Nama"
+        ],
+        "seenInPulls": 94,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 2.0,
+          "p25": 2.0,
+          "p75": 2.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "cadenceSeconds": {
+          "median": 32.0,
+          "p25": 32.0,
+          "p75": 32.0,
+          "iqr": 0.0,
+          "min": 31.9,
+          "max": 32.1
+        },
+        "firstAtSeconds": {
+          "median": 199.4,
+          "p25": 192.7,
+          "p75": 300.6,
+          "iqr": 107.8,
+          "min": 74.6,
+          "max": 334.7
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1296092,
+          "title": "Mighty Thud",
+          "description": "While under the effects of Mor'zahi's Command, First Mate Nama marks three players then leaps to each of their locations.\n\nEach impact inflicts 5417143 Physical damage split evenly among players within 6 yds and knocks them back.\n\nIf Mighty Thud fails to hit a player, it inflicts 5417143 Physical damage to all players.",
+          "damage": [
+            {
+              "amount": 5417143,
+              "school": "Physical",
+              "everySeconds": null
+            },
+            {
+              "amount": 5417143,
+              "school": "Physical",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "First Mate Nama"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 4,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 198.7,
+              "p25": 195.2,
+              "p75": 201.1,
+              "iqr": 5.9,
+              "min": 182.9,
+              "max": 204.1
+            },
+            "atSegmentSeconds": {
+              "median": 15.0,
+              "p25": 14.7,
+              "p75": 15.4,
+              "iqr": 0.8,
+              "min": 13.8,
+              "max": 15.9
+            },
+            "support": {
+              "pulls": 50,
+              "reachedSegment": 96
+            }
+          },
+          {
+            "segmentIndex": 4,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 230.7,
+              "p25": 227.2,
+              "p75": 233.1,
+              "iqr": 5.9,
+              "min": 214.9,
+              "max": 236.2
+            },
+            "atSegmentSeconds": {
+              "median": 47.0,
+              "p25": 46.7,
+              "p75": 47.4,
+              "iqr": 0.8,
+              "min": 45.8,
+              "max": 47.9
+            },
+            "support": {
+              "pulls": 50,
+              "reachedSegment": 96
+            }
+          }
+        ]
+      },
+      {
+        "name": "Bounce",
+        "ids": [
+          1299855
+        ],
+        "sources": [
+          "Bouncy Mushroom"
+        ],
+        "seenInPulls": 92,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 2.0,
+          "p25": 2.0,
+          "p75": 2.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "cadenceSeconds": {
+          "median": 32.0,
+          "p25": 32.0,
+          "p75": 32.0,
+          "iqr": 0.0,
+          "min": 31.9,
+          "max": 32.1
+        },
+        "firstAtSeconds": {
+          "median": 314.5,
+          "p25": 78.6,
+          "p75": 322.4,
+          "iqr": 243.8,
+          "min": 62.9,
+          "max": 333.2
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1299855,
+          "title": "Bounce",
+          "description": "A Bouncy Mushroom bounces a player high into the air.",
+          "damage": [],
+          "parentTitle": "Mushroom Toss"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 6,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 320.9,
+              "p25": 316.5,
+              "p75": 324.6,
+              "iqr": 8.1,
+              "min": 302.1,
+              "max": 333.2
+            },
+            "atSegmentSeconds": {
+              "median": 15.1,
+              "p25": 14.7,
+              "p75": 15.4,
+              "iqr": 0.8,
+              "min": 14.2,
+              "max": 15.9
+            },
+            "support": {
+              "pulls": 56,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Mushroom Toss",
+        "ids": [
+          1292104,
+          1292105
+        ],
+        "sources": [
+          "Trader Gebbo"
+        ],
+        "seenInPulls": 92,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 2.0,
+          "p25": 2.0,
+          "p75": 2.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "cadenceSeconds": {
+          "median": 32.0,
+          "p25": 32.0,
+          "p75": 32.0,
+          "iqr": 0.0,
+          "min": 31.9,
+          "max": 32.1
+        },
+        "firstAtSeconds": {
+          "median": 311.5,
+          "p25": 75.5,
+          "p75": 319.3,
+          "iqr": 243.8,
+          "min": 59.9,
+          "max": 330.2
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1292104,
+          "title": "Mushroom Toss",
+          "description": "Trader Gebbo tosses Bouncy Mushrooms at players' locations. Bouncy Mushrooms bounce players high into the air when touched.",
+          "damage": [],
+          "parentTitle": "Trader Gebbo"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 6,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 317.9,
+              "p25": 313.4,
+              "p75": 321.6,
+              "iqr": 8.2,
+              "min": 299.0,
+              "max": 330.2
+            },
+            "atSegmentSeconds": {
+              "median": 12.0,
+              "p25": 11.7,
+              "p75": 12.4,
+              "iqr": 0.7,
+              "min": 11.2,
+              "max": 12.9
+            },
+            "support": {
+              "pulls": 56,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Explosive Surprise",
+        "ids": [
+          1296249,
+          1297625
+        ],
+        "sources": [
+          "Trader Gebbo"
+        ],
+        "seenInPulls": 90,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 4.0,
+          "p25": 4.0,
+          "p75": 4.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 4.0
+        },
+        "cadenceSeconds": {
+          "median": 10.0,
+          "p25": 10.0,
+          "p75": 22.0,
+          "iqr": 12.0,
+          "min": 9.9,
+          "max": 22.1
+        },
+        "firstAtSeconds": {
+          "median": 313.9,
+          "p25": 78.5,
+          "p75": 322.1,
+          "iqr": 243.7,
+          "min": 62.9,
+          "max": 333.2
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1297625,
+          "title": "Explosive Surprise",
+          "description": "Trader Gebbo tosses a bomb to the location of a player which inflicts 833407 Physical damage to players within 10 yds on impact.",
+          "damage": [
+            {
+              "amount": 833407,
+              "school": "Physical",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Trader Gebbo"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 6,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 320.9,
+              "p25": 316.5,
+              "p75": 324.4,
+              "iqr": 7.9,
+              "min": 302.1,
+              "max": 333.2
+            },
+            "atSegmentSeconds": {
+              "median": 15.0,
+              "p25": 14.7,
+              "p75": 15.4,
+              "iqr": 0.7,
+              "min": 14.2,
+              "max": 15.9
+            },
+            "support": {
+              "pulls": 54,
+              "reachedSegment": 94
+            }
+          },
+          {
+            "segmentIndex": 6,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 330.0,
+              "p25": 325.7,
+              "p75": 334.2,
+              "iqr": 8.5,
+              "min": 312.1,
+              "max": 343.2
+            },
+            "atSegmentSeconds": {
+              "median": 25.0,
+              "p25": 24.7,
+              "p75": 25.5,
+              "iqr": 0.8,
+              "min": 24.2,
+              "max": 25.9
+            },
+            "support": {
+              "pulls": 49,
+              "reachedSegment": 94
+            }
+          }
+        ]
+      },
+      {
+        "name": "Relic Rupture",
+        "ids": [
+          1310028
+        ],
+        "sources": [
+          "Useless Junk"
+        ],
+        "seenInPulls": 80,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 2.0,
+          "p25": 1.8,
+          "p75": 3.2,
+          "iqr": 1.5,
+          "min": 1.0,
+          "max": 8.0
+        },
+        "cadenceSeconds": {
+          "median": 41.5,
+          "p25": 23.0,
+          "p75": 78.5,
+          "iqr": 55.6,
+          "min": 3.3,
+          "max": 297.0
+        },
+        "firstAtSeconds": {
+          "median": 164.6,
+          "p25": 90.1,
+          "p75": 213.4,
+          "iqr": 123.4,
+          "min": 41.6,
+          "max": 403.1
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1310027,
+          "title": "Relic Rupture",
+          "description": "The relic within the crate ruptures with necrotic energy if left untouched after 25 sec, inflicting 2500220 Shadow damage to all players.",
+          "damage": [
+            {
+              "amount": 2500220,
+              "school": "Shadow",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Throw Junk"
+        },
+        "occurrences": []
+      },
+      {
+        "name": "Smashing Shovel",
+        "ids": [
+          1296252
+        ],
+        "sources": [
+          "Trader Gebbo"
+        ],
+        "seenInPulls": 51,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.5,
+          "iqr": 0.5,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "cadenceSeconds": {
+          "median": 7.3,
+          "p25": 4.9,
+          "p75": 13.3,
+          "iqr": 8.4,
+          "min": 2.4,
+          "max": 19.9
+        },
+        "firstAtSeconds": {
+          "median": 360.9,
+          "p25": 333.0,
+          "p75": 381.0,
+          "iqr": 48.0,
+          "min": 296.4,
+          "max": 410.2
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1296252,
+          "title": "Smashing Shovel",
+          "description": "When one of his allies is defeated, Trader Gebbo wields a shovel which inflicts an additional 416703 Physical damage and knocks players back with each strike.",
+          "damage": [
+            {
+              "amount": 416703,
+              "school": "Physical",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Trader Gebbo"
+        },
+        "occurrences": []
+      },
+      {
+        "name": "Relentless Escalation",
+        "ids": [
+          1296227
+        ],
+        "sources": [
+          "First Mate Nama"
+        ],
+        "seenInPulls": 25,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "cadenceSeconds": {
+          "median": 7.9,
+          "p25": 7.0,
+          "p75": 8.8,
+          "iqr": 1.8,
+          "min": 6.1,
+          "max": 9.7
+        },
+        "firstAtSeconds": {
+          "median": 368.6,
+          "p25": 338.3,
+          "p75": 391.5,
+          "iqr": 53.2,
+          "min": 302.5,
+          "max": 420.1
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1296227,
+          "title": "Relentless Escalation",
+          "description": "When one of his allies is defeated, First Mate Nama gains 100% increased damage every 1 sec for 30 sec.",
+          "damage": [],
+          "parentTitle": "First Mate Nama"
+        },
+        "occurrences": []
+      },
+      {
+        "name": "Icebound Flames",
+        "ids": [
+          1286922
+        ],
+        "sources": [
+          "Scrollsage Iku"
+        ],
+        "seenInPulls": 20,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.2,
+          "iqr": 0.2,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "cadenceSeconds": {
+          "median": 27.3,
+          "p25": 7.5,
+          "p75": 131.8,
+          "iqr": 124.3,
+          "min": 4.9,
+          "max": 249.2
+        },
+        "firstAtSeconds": {
+          "median": 227.9,
+          "p25": 100.6,
+          "p75": 316.9,
+          "iqr": 216.2,
+          "min": 40.0,
+          "max": 390.2
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1286921,
+          "title": "Icebound Flames",
+          "description": "Scrollsage Iku blasts a player with elemental magic, inflicting 833407 Frostfire damage along with 166681 Frostfire damage every 1 sec while reducing their movement speed by 50% for 12 sec.",
+          "damage": [
+            {
+              "amount": 833407,
+              "school": "Frostfire",
+              "everySeconds": 1.0
+            },
+            {
+              "amount": 166681,
+              "school": "Frostfire",
+              "everySeconds": 1.0
+            }
+          ],
+          "parentTitle": "Scrollsage Iku"
+        },
+        "occurrences": []
+      },
+      {
+        "name": "Cataclysmic Invocation",
+        "ids": [
+          1291390
+        ],
+        "sources": [
+          "Scrollsage Iku"
+        ],
+        "seenInPulls": 1,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "cadenceSeconds": null,
+        "firstAtSeconds": {
+          "median": 340.5,
+          "p25": 340.5,
+          "p75": 340.5,
+          "iqr": 0.0,
+          "min": 340.5,
+          "max": 340.5
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1291390,
+          "title": "Cataclysmic Invocation",
+          "description": "When one of her allies is defeated, Scrollsage Iku unleashes a massive explosion, inflicting 1166769 Fire damage to all players. This damage increases with each cast.",
+          "damage": [
+            {
+              "amount": 1166769,
+              "school": "Fire",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Scrollsage Iku"
+        },
+        "occurrences": []
+      },
+      {
+        "name": "Creepy Flames",
+        "ids": [
+          1292796
+        ],
+        "sources": [
+          "Creepy Statue"
+        ],
+        "seenInPulls": 96,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "cadenceSeconds": null,
+        "firstAtSeconds": {
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "iqr": 0.0,
+          "min": 0.0,
+          "max": 0.1
+        },
+        "inJournal": false,
+        "journal": null,
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 0.0,
+              "p25": 0.0,
+              "p75": 0.0,
+              "iqr": 0.0,
+              "min": 0.0,
+              "max": 0.1
+            },
+            "atSegmentSeconds": {
+              "median": 0.0,
+              "p25": 0.0,
+              "p75": 0.0,
+              "iqr": 0.0,
+              "min": 0.0,
+              "max": 0.1
+            },
+            "support": {
+              "pulls": 96,
+              "reachedSegment": 96
+            }
+          }
+        ]
+      },
+      {
+        "name": "Anti-Magic Zone",
+        "ids": [
+          145629
+        ],
+        "sources": [
+          "Environment"
+        ],
+        "seenInPulls": 48,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 2.5,
+          "p25": 1.0,
+          "p75": 4.0,
+          "iqr": 3.0,
+          "min": 1.0,
+          "max": 7.0
+        },
+        "cadenceSeconds": {
+          "median": 6.2,
+          "p25": 3.7,
+          "p75": 32.9,
+          "iqr": 29.2,
+          "min": 2.1,
+          "max": 359.5
+        },
+        "firstAtSeconds": {
+          "median": 138.9,
+          "p25": 86.5,
+          "p75": 278.8,
+          "iqr": 192.3,
+          "min": 12.1,
+          "max": 411.2
+        },
+        "inJournal": false,
+        "journal": null,
+        "occurrences": []
+      },
+      {
+        "name": "Haunting Spirits",
+        "ids": [
+          1310561
+        ],
+        "sources": [
+          "Environment"
+        ],
+        "seenInPulls": 2,
+        "of": 96,
+        "instancesPerPull": {
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "cadenceSeconds": null,
+        "firstAtSeconds": {
+          "median": 358.8,
+          "p25": 354.1,
+          "p75": 363.5,
+          "iqr": 9.3,
+          "min": 349.5,
+          "max": 368.1
+        },
+        "inJournal": false,
+        "journal": null,
+        "occurrences": []
+      }
+    ],
+    "journalOnly": [
+      {
+        "title": "Aftershock",
+        "spellId": 1310500,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Blast Wave",
+        "spellId": 1305844,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Burning Flames",
+        "spellId": 1295928,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Concussive Blast",
+        "spellId": 1296247,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Dark Unity",
+        "spellId": 1313126,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Elemental Explosion",
+        "spellId": 1295952,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Fire Patch",
+        "spellId": 1297649,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Fishy Feedback",
+        "spellId": 1313303,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Frost Patch",
+        "spellId": 1297648,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Fungal Burst",
+        "spellId": 1305618,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Malevolent Presence",
+        "spellId": 1295449,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Piercing Frost",
+        "spellId": 1295954,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Splinters",
+        "spellId": 1308853,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Spreading Flames",
+        "spellId": 1297650,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Steady Strikes",
+        "spellId": 1291930,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "United Defense",
+        "spellId": 1297646,
+        "why": "neither cast nor damaging in this pool"
+      }
+    ],
+    "damageTaken": {
+      "sampledPulls": [
+        {
+          "code": "Dw6Zpr2Kaq8GXyJV",
+          "fight": 36
+        },
+        {
+          "code": "ZhmgKCcQNt7fbLap",
+          "fight": 18
+        },
+        {
+          "code": "1vXNht9kBnGmyf2T",
+          "fight": 51
+        },
+        {
+          "code": "Dr9ZwPCgpm4AT1JF",
+          "fight": 41
+        },
+        {
+          "code": "B7bZytHP1h4m6Wjk",
+          "fight": 31
+        },
+        {
+          "code": "ym2tv1Nx4XqGMzPg",
+          "fight": 19
+        },
+        {
+          "code": "Q3HJxnKdfzWLMAjc",
+          "fight": 33
+        },
+        {
+          "code": "htN1qK62H4CXAnfM",
+          "fight": 28
+        },
+        {
+          "code": "Vdc16r8fakpYhTbv",
+          "fight": 30
+        },
+        {
+          "code": "9VY3DQv8mBWt1fdG",
+          "fight": 35
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Splinters",
+          "ids": [
+            1312853
+          ],
+          "meanPerPull": 224747995,
+          "meanReducedPerPull": 188065601,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.3531
+        },
+        {
+          "name": "Malevolent Presence",
+          "ids": [
+            1295450
+          ],
+          "meanPerPull": 224348470,
+          "meanReducedPerPull": 173872484,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.3525
+        },
+        {
+          "name": "Melee",
+          "ids": [
+            1
+          ],
+          "meanPerPull": 64925037,
+          "meanReducedPerPull": 45414406,
+          "pulls": 10,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.102
+        },
+        {
+          "name": "Blink Nova",
+          "ids": [
+            1294334
+          ],
+          "meanPerPull": 57102247,
+          "meanReducedPerPull": 47952729,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0897
+        },
+        {
+          "name": "Mighty Thud",
+          "ids": [
+            1300237
+          ],
+          "meanPerPull": 15513290,
+          "meanReducedPerPull": 12946629,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0244
+        },
+        {
+          "name": "Blast Wave",
+          "ids": [
+            1305844
+          ],
+          "meanPerPull": 13962294,
+          "meanReducedPerPull": 8288493,
+          "pulls": 3,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0219
+        },
+        {
+          "name": "Shredding Shards",
+          "ids": [
+            1310616
+          ],
+          "meanPerPull": 8125924,
+          "meanReducedPerPull": 5472600,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0128
+        },
+        {
+          "name": "Final Ascension",
+          "ids": [
+            1292780
+          ],
+          "meanPerPull": 5971261,
+          "meanReducedPerPull": 5377873,
+          "pulls": 3,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0094
+        },
+        {
+          "name": "Refraction",
+          "ids": [
+            1309786
+          ],
+          "meanPerPull": 4785633,
+          "meanReducedPerPull": 3586226,
+          "pulls": 10,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0075
+        },
+        {
+          "name": "Blessing of Dawn",
+          "ids": [
+            210380
+          ],
+          "meanPerPull": 2490567,
+          "meanReducedPerPull": 2139752,
+          "pulls": 2,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0039
+        },
+        {
+          "name": "Stretch Time",
+          "ids": [
+            413924
+          ],
+          "meanPerPull": 2249298,
+          "meanReducedPerPull": 1884792,
+          "pulls": 9,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0035
+        },
+        {
+          "name": "Burning Flames",
+          "ids": [
+            1310667
+          ],
+          "meanPerPull": 1414027,
+          "meanReducedPerPull": 1209088,
+          "pulls": 9,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0022
+        },
+        {
+          "name": "Throw Junk",
+          "ids": [
+            1291935,
+            1306127
+          ],
+          "meanPerPull": 1340553,
+          "meanReducedPerPull": 1013962,
+          "pulls": 11,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0021
+        },
+        {
+          "name": "Time Dilation",
+          "ids": [
+            361029
+          ],
+          "meanPerPull": 1056592,
+          "meanReducedPerPull": 950108,
+          "pulls": 4,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0017
+        },
+        {
+          "name": "Spreading Flames",
+          "ids": [
+            1314061
+          ],
+          "meanPerPull": 984263,
+          "meanReducedPerPull": 323714,
+          "pulls": 1,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0015
+        },
+        {
+          "name": "Burning Rush",
+          "ids": [
+            111400
+          ],
+          "meanPerPull": 983122,
+          "meanReducedPerPull": 884829,
+          "pulls": 2,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0015
+        },
+        {
+          "name": "Fel Armor",
+          "ids": [
+            387846
+          ],
+          "meanPerPull": 943412,
+          "meanReducedPerPull": 330265,
+          "pulls": 6,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0015
+        },
+        {
+          "name": "Piercing Frost",
+          "ids": [
+            1310662
+          ],
+          "meanPerPull": 898238,
+          "meanReducedPerPull": 761948,
+          "pulls": 8,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0014
+        },
+        {
+          "name": "Icebound Flames",
+          "ids": [
+            1286922
+          ],
+          "meanPerPull": 876008,
+          "meanReducedPerPull": 613623,
+          "pulls": 3,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0014
+        },
+        {
+          "name": "Aftershock",
+          "ids": [
+            1310500
+          ],
+          "meanPerPull": 771798,
+          "meanReducedPerPull": 638889,
+          "pulls": 8,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0012
+        },
+        {
+          "name": "Evil Eyes",
+          "ids": [
+            1292764
+          ],
+          "meanPerPull": 660263,
+          "meanReducedPerPull": 434823,
+          "pulls": 3,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.001
+        },
+        {
+          "name": "Blessing of Sacrifice",
+          "ids": [
+            6940
+          ],
+          "meanPerPull": 581961,
+          "meanReducedPerPull": 536105,
+          "pulls": 1,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0009
+        },
+        {
+          "name": "Explosive Surprise",
+          "ids": [
+            1296245
+          ],
+          "meanPerPull": 539206,
+          "meanReducedPerPull": 184054,
+          "pulls": 3,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0008
+        },
+        {
+          "name": "Fire Patch",
+          "ids": [
+            1297649
+          ],
+          "meanPerPull": 336934,
+          "meanReducedPerPull": 283972,
+          "pulls": 6,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0005
+        },
+        {
+          "name": "Set Fire to the Pain",
+          "ids": [
+            453286
+          ],
+          "meanPerPull": 228180,
+          "meanReducedPerPull": 198993,
+          "pulls": 2,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0004
+        },
+        {
+          "name": "Falling",
+          "ids": [
+            3
+          ],
+          "meanPerPull": 203948,
+          "meanReducedPerPull": 0,
+          "pulls": 4,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0003
+        },
+        {
+          "name": "Frost Patch",
+          "ids": [
+            1297648
+          ],
+          "meanPerPull": 159651,
+          "meanReducedPerPull": 131388,
+          "pulls": 3,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0003
+        },
+        {
+          "name": "Shadow Word: Death",
+          "ids": [
+            32409
+          ],
+          "meanPerPull": 142838,
+          "meanReducedPerPull": 91782,
+          "pulls": 2,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0002
+        },
+        {
+          "name": "Frostfire Volley",
+          "ids": [
+            1295893,
+            1295985
+          ],
+          "meanPerPull": 137210,
+          "meanReducedPerPull": 61115,
+          "pulls": 3,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0002
+        },
+        {
+          "name": "Seriously Sharp Seashell",
+          "ids": [
+            1292299
+          ],
+          "meanPerPull": 44556,
+          "meanReducedPerPull": 34386,
+          "pulls": 2,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0001
+        }
+      ]
+    }
+  }
+}

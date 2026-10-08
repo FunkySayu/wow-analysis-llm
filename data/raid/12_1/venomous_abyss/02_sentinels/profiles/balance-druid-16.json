@@ -1,0 +1,3548 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 16,
+    "wclDifficulty": 5,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T18:28:25+00:00",
+    "generator": "tools/warcraftlogs/encounter_profile_sync.py",
+    "journal": "journal.json",
+    "parameters": {
+      "sample": 100,
+      "damageSample": 10,
+      "collapseSeconds": 2.0,
+      "minOccurrenceSupport": 0.5,
+      "minSegmentPulls": 5
+    },
+    "readMe": "The pool is the top DPS rankings for one spec, which biases it toward fast kills: a mechanic that only appears late may be under-represented or absent, and 'journalOnly' lists catalogued abilities the pool never cast. Times are given both from the pull start (atSeconds) and from the start of the phase segment they landed in (atSegmentSeconds); the second is the stable one. A segment index is not a phase number -- phases repeat, so read phaseId/cycle.",
+    "encounter": "sentinels"
+  },
+  "encounter": {
+    "slug": "sentinels",
+    "wclEncounterId": 3445,
+    "name": "Entombed Sentinels",
+    "sample": {
+      "requested": 100,
+      "rankings": 100,
+      "distinctPulls": 97,
+      "readable": 97,
+      "kills": 97,
+      "unreadable": [],
+      "truncatedEventStreams": []
+    },
+    "durationSeconds": {
+      "median": 399.1,
+      "p25": 384.3,
+      "p75": 411.9,
+      "iqr": 27.7,
+      "min": 333.9,
+      "max": 430.6
+    },
+    "composition": {
+      "modal": {
+        "tanks": 2,
+        "healers": 4,
+        "dps": 14,
+        "label": "2/4/14"
+      },
+      "modalShare": 1.0,
+      "distribution": [
+        {
+          "label": "2/4/14",
+          "pulls": 97
+        }
+      ],
+      "specs": [
+        {
+          "spec": "Destruction Warlock",
+          "totalSlots": 154,
+          "pulls": 94,
+          "perPull": 1.64
+        },
+        {
+          "spec": "Arcane Mage",
+          "totalSlots": 149,
+          "pulls": 95,
+          "perPull": 1.57
+        },
+        {
+          "spec": "Arms Warrior",
+          "totalSlots": 133,
+          "pulls": 92,
+          "perPull": 1.45
+        },
+        {
+          "spec": "Marksmanship Hunter",
+          "totalSlots": 132,
+          "pulls": 81,
+          "perPull": 1.63
+        },
+        {
+          "spec": "Balance Druid",
+          "totalSlots": 128,
+          "pulls": 97,
+          "perPull": 1.32
+        },
+        {
+          "spec": "Blood DeathKnight",
+          "totalSlots": 107,
+          "pulls": 90,
+          "perPull": 1.19
+        },
+        {
+          "spec": "Holy Priest",
+          "totalSlots": 93,
+          "pulls": 84,
+          "perPull": 1.11
+        },
+        {
+          "spec": "Preservation Evoker",
+          "totalSlots": 90,
+          "pulls": 74,
+          "perPull": 1.22
+        },
+        {
+          "spec": "Holy Paladin",
+          "totalSlots": 87,
+          "pulls": 85,
+          "perPull": 1.02
+        },
+        {
+          "spec": "Elemental Shaman",
+          "totalSlots": 74,
+          "pulls": 71,
+          "perPull": 1.04
+        },
+        {
+          "spec": "Shadow Priest",
+          "totalSlots": 74,
+          "pulls": 70,
+          "perPull": 1.06
+        },
+        {
+          "spec": "Subtlety Rogue",
+          "totalSlots": 73,
+          "pulls": 66,
+          "perPull": 1.11
+        },
+        {
+          "spec": "Windwalker Monk",
+          "totalSlots": 70,
+          "pulls": 69,
+          "perPull": 1.01
+        },
+        {
+          "spec": "Restoration Shaman",
+          "totalSlots": 66,
+          "pulls": 66,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Havoc DemonHunter",
+          "totalSlots": 60,
+          "pulls": 59,
+          "perPull": 1.02
+        },
+        {
+          "spec": "Devourer DemonHunter",
+          "totalSlots": 51,
+          "pulls": 42,
+          "perPull": 1.21
+        },
+        {
+          "spec": "Retribution Paladin",
+          "totalSlots": 45,
+          "pulls": 41,
+          "perPull": 1.1
+        },
+        {
+          "spec": "BeastMastery Hunter",
+          "totalSlots": 42,
+          "pulls": 35,
+          "perPull": 1.2
+        },
+        {
+          "spec": "Protection Paladin",
+          "totalSlots": 41,
+          "pulls": 40,
+          "perPull": 1.02
+        },
+        {
+          "spec": "Augmentation Evoker",
+          "totalSlots": 32,
+          "pulls": 31,
+          "perPull": 1.03
+        },
+        {
+          "spec": "Devastation Evoker",
+          "totalSlots": 31,
+          "pulls": 30,
+          "perPull": 1.03
+        },
+        {
+          "spec": "Unholy DeathKnight",
+          "totalSlots": 26,
+          "pulls": 25,
+          "perPull": 1.04
+        },
+        {
+          "spec": "Frost DeathKnight",
+          "totalSlots": 24,
+          "pulls": 24,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Restoration Druid",
+          "totalSlots": 24,
+          "pulls": 24,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Assassination Rogue",
+          "totalSlots": 24,
+          "pulls": 23,
+          "perPull": 1.04
+        },
+        {
+          "spec": "Brewmaster Monk",
+          "totalSlots": 18,
+          "pulls": 18,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Mistweaver Monk",
+          "totalSlots": 17,
+          "pulls": 17,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Protection Warrior",
+          "totalSlots": 14,
+          "pulls": 14,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Discipline Priest",
+          "totalSlots": 11,
+          "pulls": 11,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Demonology Warlock",
+          "totalSlots": 8,
+          "pulls": 7,
+          "perPull": 1.14
+        },
+        {
+          "spec": "Vengeance DemonHunter",
+          "totalSlots": 7,
+          "pulls": 7,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Outlaw Rogue",
+          "totalSlots": 7,
+          "pulls": 7,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Guardian Druid",
+          "totalSlots": 7,
+          "pulls": 7,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Feral Druid",
+          "totalSlots": 5,
+          "pulls": 5,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Frost Mage",
+          "totalSlots": 5,
+          "pulls": 5,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Enhancement Shaman",
+          "totalSlots": 4,
+          "pulls": 4,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Affliction Warlock",
+          "totalSlots": 2,
+          "pulls": 2,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Survival Hunter",
+          "totalSlots": 2,
+          "pulls": 2,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Fire Mage",
+          "totalSlots": 2,
+          "pulls": 2,
+          "perPull": 1.0
+        },
+        {
+          "spec": "Fury Warrior",
+          "totalSlots": 1,
+          "pulls": 1,
+          "perPull": 1.0
+        }
+      ]
+    },
+    "segments": [
+      {
+        "index": 1,
+        "phaseId": 1,
+        "cycle": 1,
+        "name": "Stage One: Entombed Sentinels",
+        "label": "Stage One: Entombed Sentinels",
+        "startSeconds": {
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "iqr": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "durationSeconds": {
+          "median": 46.3,
+          "p25": 46.2,
+          "p75": 46.4,
+          "iqr": 0.2,
+          "min": 45.9,
+          "max": 46.5
+        },
+        "support": {
+          "pulls": 97,
+          "reachedIndex": 97,
+          "of": 97
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 2,
+        "phaseId": 2,
+        "cycle": 1,
+        "name": "Intermission: Vitriolic Stasis",
+        "label": "Intermission: Vitriolic Stasis",
+        "startSeconds": {
+          "median": 46.3,
+          "p25": 46.2,
+          "p75": 46.4,
+          "iqr": 0.2,
+          "min": 45.9,
+          "max": 46.5
+        },
+        "durationSeconds": {
+          "median": 11.0,
+          "p25": 10.0,
+          "p75": 13.0,
+          "iqr": 3.0,
+          "min": 8.0,
+          "max": 18.0
+        },
+        "support": {
+          "pulls": 97,
+          "reachedIndex": 97,
+          "of": 97
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 3,
+        "phaseId": 1,
+        "cycle": 2,
+        "name": "Stage One: Entombed Sentinels",
+        "label": "Stage One: Entombed Sentinels #2",
+        "startSeconds": {
+          "median": 57.5,
+          "p25": 56.2,
+          "p75": 59.4,
+          "iqr": 3.2,
+          "min": 54.1,
+          "max": 64.3
+        },
+        "durationSeconds": {
+          "median": 91.0,
+          "p25": 91.0,
+          "p75": 91.0,
+          "iqr": 0.0,
+          "min": 90.9,
+          "max": 91.0
+        },
+        "support": {
+          "pulls": 97,
+          "reachedIndex": 97,
+          "of": 97
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 4,
+        "phaseId": 2,
+        "cycle": 2,
+        "name": "Intermission: Vitriolic Stasis",
+        "label": "Intermission: Vitriolic Stasis #2",
+        "startSeconds": {
+          "median": 148.4,
+          "p25": 147.2,
+          "p75": 150.4,
+          "iqr": 3.2,
+          "min": 145.1,
+          "max": 155.3
+        },
+        "durationSeconds": {
+          "median": 12.0,
+          "p25": 10.0,
+          "p75": 14.0,
+          "iqr": 4.0,
+          "min": 7.0,
+          "max": 20.0
+        },
+        "support": {
+          "pulls": 97,
+          "reachedIndex": 97,
+          "of": 97
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 5,
+        "phaseId": 1,
+        "cycle": 3,
+        "name": "Stage One: Entombed Sentinels",
+        "label": "Stage One: Entombed Sentinels #3",
+        "startSeconds": {
+          "median": 161.2,
+          "p25": 159.0,
+          "p75": 163.5,
+          "iqr": 4.5,
+          "min": 153.3,
+          "max": 171.4
+        },
+        "durationSeconds": {
+          "median": 91.0,
+          "p25": 91.0,
+          "p75": 91.0,
+          "iqr": 0.0,
+          "min": 90.9,
+          "max": 91.1
+        },
+        "support": {
+          "pulls": 97,
+          "reachedIndex": 97,
+          "of": 97
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 6,
+        "phaseId": 2,
+        "cycle": 3,
+        "name": "Intermission: Vitriolic Stasis",
+        "label": "Intermission: Vitriolic Stasis #3",
+        "startSeconds": {
+          "median": 252.2,
+          "p25": 250.0,
+          "p75": 254.5,
+          "iqr": 4.5,
+          "min": 244.3,
+          "max": 262.4
+        },
+        "durationSeconds": {
+          "median": 12.0,
+          "p25": 10.0,
+          "p75": 14.0,
+          "iqr": 4.0,
+          "min": 7.0,
+          "max": 26.0
+        },
+        "support": {
+          "pulls": 97,
+          "reachedIndex": 97,
+          "of": 97
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 7,
+        "phaseId": 1,
+        "cycle": 4,
+        "name": "Stage One: Entombed Sentinels",
+        "label": "Stage One: Entombed Sentinels #4",
+        "startSeconds": {
+          "median": 264.3,
+          "p25": 261.1,
+          "p75": 267.3,
+          "iqr": 6.3,
+          "min": 256.1,
+          "max": 285.2
+        },
+        "durationSeconds": {
+          "median": 91.0,
+          "p25": 91.0,
+          "p75": 91.0,
+          "iqr": 0.0,
+          "min": 67.9,
+          "max": 102.3
+        },
+        "support": {
+          "pulls": 97,
+          "reachedIndex": 97,
+          "of": 97
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 8,
+        "phaseId": 2,
+        "cycle": 4,
+        "name": "Intermission: Vitriolic Stasis",
+        "label": "Intermission: Vitriolic Stasis #4",
+        "startSeconds": {
+          "median": 354.5,
+          "p25": 351.4,
+          "p75": 358.3,
+          "iqr": 6.9,
+          "min": 347.1,
+          "max": 368.4
+        },
+        "durationSeconds": {
+          "median": 12.0,
+          "p25": 10.0,
+          "p75": 14.7,
+          "iqr": 4.7,
+          "min": 6.0,
+          "max": 23.0
+        },
+        "support": {
+          "pulls": 86,
+          "reachedIndex": 86,
+          "of": 97
+        },
+        "agreement": 1.0
+      },
+      {
+        "index": 9,
+        "phaseId": 1,
+        "cycle": 5,
+        "name": "Stage One: Entombed Sentinels",
+        "label": "Stage One: Entombed Sentinels #5",
+        "startSeconds": {
+          "median": 368.3,
+          "p25": 363.3,
+          "p75": 372.0,
+          "iqr": 8.7,
+          "min": 353.1,
+          "max": 382.4
+        },
+        "durationSeconds": {
+          "median": 34.9,
+          "p25": 24.1,
+          "p75": 44.3,
+          "iqr": 20.2,
+          "min": 1.2,
+          "max": 70.6
+        },
+        "support": {
+          "pulls": 86,
+          "reachedIndex": 86,
+          "of": 97
+        },
+        "agreement": 1.0
+      }
+    ],
+    "abilities": [
+      {
+        "name": "Blighted Blood",
+        "ids": [
+          1284483
+        ],
+        "sources": [
+          "Blood of Ula'tek"
+        ],
+        "seenInPulls": 97,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 4.0,
+          "p25": 4.0,
+          "p75": 4.0,
+          "iqr": 0.0,
+          "min": 4.0,
+          "max": 5.0
+        },
+        "cadenceSeconds": {
+          "median": 102.0,
+          "p25": 59.6,
+          "p75": 104.4,
+          "iqr": 44.8,
+          "min": 53.4,
+          "max": 117.4
+        },
+        "firstAtSeconds": {
+          "median": 42.9,
+          "p25": 42.1,
+          "p75": 43.1,
+          "iqr": 1.0,
+          "min": 42.0,
+          "max": 43.4
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1284471,
+          "title": "Blighted Blood",
+          "description": "The Blood of Ula'tek infects players with blood venom, inflicting 208352 Shadow damage every 2 sec for 18 sec.",
+          "damage": [
+            {
+              "amount": 208352,
+              "school": "Shadow",
+              "everySeconds": 2.0
+            }
+          ],
+          "parentTitle": "Blood of Ula'tek"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 42.9,
+              "p25": 42.1,
+              "p75": 43.1,
+              "iqr": 1.0,
+              "min": 42.0,
+              "max": 43.4
+            },
+            "atSegmentSeconds": {
+              "median": 42.9,
+              "p25": 42.1,
+              "p75": 43.1,
+              "iqr": 1.0,
+              "min": 42.0,
+              "max": 43.4
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 100.4,
+              "p25": 98.7,
+              "p75": 101.7,
+              "iqr": 3.0,
+              "min": 96.4,
+              "max": 107.4
+            },
+            "atSegmentSeconds": {
+              "median": 42.6,
+              "p25": 42.3,
+              "p75": 42.9,
+              "iqr": 0.6,
+              "min": 42.0,
+              "max": 43.2
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 203.6,
+              "p25": 201.2,
+              "p75": 206.4,
+              "iqr": 5.2,
+              "min": 195.7,
+              "max": 214.1
+            },
+            "atSegmentSeconds": {
+              "median": 42.7,
+              "p25": 42.3,
+              "p75": 42.9,
+              "iqr": 0.7,
+              "min": 42.0,
+              "max": 43.5
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 307.2,
+              "p25": 303.3,
+              "p75": 309.9,
+              "iqr": 6.6,
+              "min": 298.5,
+              "max": 328.5
+            },
+            "atSegmentSeconds": {
+              "median": 42.6,
+              "p25": 42.3,
+              "p75": 42.9,
+              "iqr": 0.6,
+              "min": 42.0,
+              "max": 43.3
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          }
+        ]
+      },
+      {
+        "name": "Bloodvenom Injection",
+        "ids": [
+          1284487
+        ],
+        "sources": [
+          "Blood of Ula'tek"
+        ],
+        "seenInPulls": 97,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 15.0,
+          "p25": 15.0,
+          "p75": 16.0,
+          "iqr": 1.0,
+          "min": 13.0,
+          "max": 17.0
+        },
+        "cadenceSeconds": {
+          "median": 21.9,
+          "p25": 21.9,
+          "p75": 32.6,
+          "iqr": 10.7,
+          "min": 21.5,
+          "max": 50.2
+        },
+        "firstAtSeconds": {
+          "median": 8.4,
+          "p25": 7.7,
+          "p75": 8.6,
+          "iqr": 0.9,
+          "min": 7.4,
+          "max": 9.7
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1284487,
+          "title": "Bloodvenom Injection",
+          "description": "The Blood of Ula'tek injects its current target with a blood venom, inflicting 2500220 Physical damage immediately with an additional 41670 Shadow damage every 1 sec for 40 sec. This effect stacks.",
+          "damage": [
+            {
+              "amount": 2500220,
+              "school": "Physical",
+              "everySeconds": null
+            },
+            {
+              "amount": 41670,
+              "school": "Shadow",
+              "everySeconds": 1.0
+            }
+          ],
+          "parentTitle": "Blood of Ula'tek"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 8.4,
+              "p25": 7.7,
+              "p75": 8.6,
+              "iqr": 0.9,
+              "min": 7.4,
+              "max": 9.7
+            },
+            "atSegmentSeconds": {
+              "median": 8.4,
+              "p25": 7.7,
+              "p75": 8.6,
+              "iqr": 0.9,
+              "min": 7.4,
+              "max": 9.7
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 30.4,
+              "p25": 29.8,
+              "p75": 30.6,
+              "iqr": 0.8,
+              "min": 29.0,
+              "max": 32.8
+            },
+            "atSegmentSeconds": {
+              "median": 30.4,
+              "p25": 29.8,
+              "p75": 30.6,
+              "iqr": 0.8,
+              "min": 29.0,
+              "max": 32.8
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 65.9,
+              "p25": 64.0,
+              "p75": 67.2,
+              "iqr": 3.2,
+              "min": 61.9,
+              "max": 72.1
+            },
+            "atSegmentSeconds": {
+              "median": 8.1,
+              "p25": 7.8,
+              "p75": 8.4,
+              "iqr": 0.6,
+              "min": 7.5,
+              "max": 9.6
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 88.3,
+              "p25": 86.4,
+              "p75": 89.3,
+              "iqr": 2.9,
+              "min": 83.8,
+              "max": 95.0
+            },
+            "atSegmentSeconds": {
+              "median": 30.2,
+              "p25": 29.9,
+              "p75": 30.7,
+              "iqr": 0.8,
+              "min": 29.4,
+              "max": 32.6
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 110.2,
+              "p25": 108.4,
+              "p75": 111.2,
+              "iqr": 2.8,
+              "min": 105.6,
+              "max": 116.9
+            },
+            "atSegmentSeconds": {
+              "median": 52.2,
+              "p25": 51.7,
+              "p75": 52.7,
+              "iqr": 1.0,
+              "min": 51.2,
+              "max": 54.5
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 132.4,
+              "p25": 130.3,
+              "p75": 133.2,
+              "iqr": 2.9,
+              "min": 127.5,
+              "max": 138.7
+            },
+            "atSegmentSeconds": {
+              "median": 74.1,
+              "p25": 73.7,
+              "p75": 74.7,
+              "iqr": 1.1,
+              "min": 73.1,
+              "max": 76.4
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 169.1,
+              "p25": 166.8,
+              "p75": 171.8,
+              "iqr": 5.0,
+              "min": 161.6,
+              "max": 179.6
+            },
+            "atSegmentSeconds": {
+              "median": 8.2,
+              "p25": 7.8,
+              "p75": 8.5,
+              "iqr": 0.6,
+              "min": 7.5,
+              "max": 9.9
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 191.3,
+              "p25": 188.7,
+              "p75": 194.0,
+              "iqr": 5.3,
+              "min": 183.7,
+              "max": 202.7
+            },
+            "atSegmentSeconds": {
+              "median": 30.2,
+              "p25": 29.8,
+              "p75": 30.6,
+              "iqr": 0.8,
+              "min": 29.1,
+              "max": 34.4
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 213.6,
+              "p25": 210.6,
+              "p75": 216.2,
+              "iqr": 5.6,
+              "min": 205.6,
+              "max": 224.5
+            },
+            "atSegmentSeconds": {
+              "median": 52.2,
+              "p25": 51.7,
+              "p75": 52.7,
+              "iqr": 1.0,
+              "min": 51.2,
+              "max": 57.3
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 235.5,
+              "p25": 232.5,
+              "p75": 238.2,
+              "iqr": 5.7,
+              "min": 227.4,
+              "max": 246.5
+            },
+            "atSegmentSeconds": {
+              "median": 74.1,
+              "p25": 73.6,
+              "p75": 74.9,
+              "iqr": 1.3,
+              "min": 73.1,
+              "max": 80.6
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 272.5,
+              "p25": 268.7,
+              "p75": 275.4,
+              "iqr": 6.7,
+              "min": 263.6,
+              "max": 293.6
+            },
+            "atSegmentSeconds": {
+              "median": 8.1,
+              "p25": 7.8,
+              "p75": 8.4,
+              "iqr": 0.6,
+              "min": 7.5,
+              "max": 9.5
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 294.6,
+              "p25": 291.0,
+              "p75": 298.0,
+              "iqr": 7.0,
+              "min": 285.9,
+              "max": 315.5
+            },
+            "atSegmentSeconds": {
+              "median": 30.1,
+              "p25": 29.7,
+              "p75": 30.5,
+              "iqr": 0.8,
+              "min": 29.1,
+              "max": 40.1
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 316.5,
+              "p25": 313.2,
+              "p75": 319.9,
+              "iqr": 6.7,
+              "min": 307.7,
+              "max": 337.3
+            },
+            "atSegmentSeconds": {
+              "median": 52.0,
+              "p25": 51.6,
+              "p75": 52.5,
+              "iqr": 0.9,
+              "min": 51.1,
+              "max": 61.9
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 337.9,
+              "p25": 335.3,
+              "p75": 341.7,
+              "iqr": 6.4,
+              "min": 329.6,
+              "max": 359.6
+            },
+            "atSegmentSeconds": {
+              "median": 74.1,
+              "p25": 73.5,
+              "p75": 74.6,
+              "iqr": 1.0,
+              "min": 73.1,
+              "max": 83.8
+            },
+            "support": {
+              "pulls": 92,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 9,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 376.6,
+              "p25": 371.4,
+              "p75": 380.1,
+              "iqr": 8.6,
+              "min": 361.6,
+              "max": 390.5
+            },
+            "atSegmentSeconds": {
+              "median": 8.1,
+              "p25": 7.8,
+              "p75": 8.5,
+              "iqr": 0.7,
+              "min": 7.5,
+              "max": 10.6
+            },
+            "support": {
+              "pulls": 80,
+              "reachedSegment": 86
+            }
+          },
+          {
+            "segmentIndex": 9,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 398.4,
+              "p25": 393.6,
+              "p75": 402.1,
+              "iqr": 8.6,
+              "min": 383.5,
+              "max": 412.4
+            },
+            "atSegmentSeconds": {
+              "median": 30.1,
+              "p25": 29.8,
+              "p75": 30.5,
+              "iqr": 0.7,
+              "min": 29.4,
+              "max": 32.9
+            },
+            "support": {
+              "pulls": 47,
+              "reachedSegment": 86
+            }
+          }
+        ]
+      },
+      {
+        "name": "Contaminate",
+        "ids": [
+          1284257
+        ],
+        "sources": [
+          "Venom Coagulation"
+        ],
+        "seenInPulls": 97,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 8.0,
+          "p25": 7.0,
+          "p75": 8.0,
+          "iqr": 1.0,
+          "min": 6.0,
+          "max": 8.0
+        },
+        "cadenceSeconds": {
+          "median": 52.3,
+          "p25": 51.5,
+          "p75": 53.1,
+          "iqr": 1.6,
+          "min": 44.9,
+          "max": 64.5
+        },
+        "firstAtSeconds": {
+          "median": 18.0,
+          "p25": 17.9,
+          "p75": 18.2,
+          "iqr": 0.3,
+          "min": 16.9,
+          "max": 18.8
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1284257,
+          "title": "Contaminate",
+          "description": "The Venom Coagulation continually radiates a contaminating essence, inflicting 116677 Nature damage to all players every 3 sec.",
+          "damage": [
+            {
+              "amount": 116677,
+              "school": "Nature",
+              "everySeconds": 3.0
+            }
+          ],
+          "parentTitle": "Venom Coagulation"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 18.0,
+              "p25": 17.9,
+              "p75": 18.2,
+              "iqr": 0.3,
+              "min": 16.9,
+              "max": 18.8
+            },
+            "atSegmentSeconds": {
+              "median": 18.0,
+              "p25": 17.9,
+              "p75": 18.2,
+              "iqr": 0.3,
+              "min": 16.9,
+              "max": 18.8
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 75.5,
+              "p25": 73.8,
+              "p75": 77.5,
+              "iqr": 3.7,
+              "min": 71.7,
+              "max": 82.5
+            },
+            "atSegmentSeconds": {
+              "median": 17.8,
+              "p25": 17.6,
+              "p75": 18.2,
+              "iqr": 0.6,
+              "min": 17.0,
+              "max": 18.8
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 127.7,
+              "p25": 126.1,
+              "p75": 129.9,
+              "iqr": 3.8,
+              "min": 124.0,
+              "max": 135.2
+            },
+            "atSegmentSeconds": {
+              "median": 70.2,
+              "p25": 69.9,
+              "p75": 70.6,
+              "iqr": 0.7,
+              "min": 69.2,
+              "max": 71.1
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 179.1,
+              "p25": 176.7,
+              "p75": 181.4,
+              "iqr": 4.7,
+              "min": 170.6,
+              "max": 189.0
+            },
+            "atSegmentSeconds": {
+              "median": 17.9,
+              "p25": 17.6,
+              "p75": 18.2,
+              "iqr": 0.6,
+              "min": 17.3,
+              "max": 18.8
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 231.6,
+              "p25": 228.9,
+              "p75": 233.6,
+              "iqr": 4.7,
+              "min": 222.5,
+              "max": 241.3
+            },
+            "atSegmentSeconds": {
+              "median": 70.2,
+              "p25": 69.9,
+              "p75": 70.5,
+              "iqr": 0.5,
+              "min": 69.2,
+              "max": 71.9
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 282.3,
+              "p25": 278.8,
+              "p75": 285.7,
+              "iqr": 6.9,
+              "min": 273.8,
+              "max": 303.0
+            },
+            "atSegmentSeconds": {
+              "median": 17.9,
+              "p25": 17.7,
+              "p75": 18.3,
+              "iqr": 0.7,
+              "min": 17.0,
+              "max": 18.9
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 334.5,
+              "p25": 330.8,
+              "p75": 337.8,
+              "iqr": 7.0,
+              "min": 326.1,
+              "max": 355.7
+            },
+            "atSegmentSeconds": {
+              "median": 70.3,
+              "p25": 70.0,
+              "p75": 70.6,
+              "iqr": 0.6,
+              "min": 69.3,
+              "max": 71.6
+            },
+            "support": {
+              "pulls": 93,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 9,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 386.0,
+              "p25": 381.1,
+              "p75": 389.6,
+              "iqr": 8.5,
+              "min": 371.4,
+              "max": 400.0
+            },
+            "atSegmentSeconds": {
+              "median": 18.0,
+              "p25": 17.6,
+              "p75": 18.2,
+              "iqr": 0.6,
+              "min": 16.9,
+              "max": 19.4
+            },
+            "support": {
+              "pulls": 71,
+              "reachedSegment": 86
+            }
+          }
+        ]
+      },
+      {
+        "name": "Empowering Slam",
+        "ids": [
+          1284458
+        ],
+        "sources": [
+          "Breath of Ula'tek"
+        ],
+        "seenInPulls": 97,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 16.0,
+          "p25": 15.0,
+          "p75": 16.0,
+          "iqr": 1.0,
+          "min": 13.0,
+          "max": 17.0
+        },
+        "cadenceSeconds": {
+          "median": 21.9,
+          "p25": 21.9,
+          "p75": 32.8,
+          "iqr": 10.9,
+          "min": 21.5,
+          "max": 50.2
+        },
+        "firstAtSeconds": {
+          "median": 6.2,
+          "p25": 6.1,
+          "p75": 6.3,
+          "iqr": 0.2,
+          "min": 5.8,
+          "max": 8.8
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1284458,
+          "title": "Empowering Slam",
+          "description": "The Breath of Ula'tek slams its current target, inflicting 2500220 Physical damage. Each time the golem slams the same target, it empowers itself and gains 10% additional Physical damage dealt until it slams a different target.",
+          "damage": [
+            {
+              "amount": 2500220,
+              "school": "Physical",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Breath of Ula'tek"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 6.2,
+              "p25": 6.1,
+              "p75": 6.3,
+              "iqr": 0.2,
+              "min": 5.8,
+              "max": 8.8
+            },
+            "atSegmentSeconds": {
+              "median": 6.2,
+              "p25": 6.1,
+              "p75": 6.3,
+              "iqr": 0.2,
+              "min": 5.8,
+              "max": 8.8
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 1,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 28.1,
+              "p25": 28.0,
+              "p75": 28.4,
+              "iqr": 0.4,
+              "min": 27.7,
+              "max": 30.6
+            },
+            "atSegmentSeconds": {
+              "median": 28.1,
+              "p25": 28.0,
+              "p75": 28.4,
+              "iqr": 0.4,
+              "min": 27.7,
+              "max": 30.6
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 63.8,
+              "p25": 62.4,
+              "p75": 65.8,
+              "iqr": 3.4,
+              "min": 59.8,
+              "max": 72.1
+            },
+            "atSegmentSeconds": {
+              "median": 6.2,
+              "p25": 5.9,
+              "p75": 6.5,
+              "iqr": 0.6,
+              "min": 5.5,
+              "max": 8.4
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 85.9,
+              "p25": 84.3,
+              "p75": 87.7,
+              "iqr": 3.4,
+              "min": 81.7,
+              "max": 94.8
+            },
+            "atSegmentSeconds": {
+              "median": 28.2,
+              "p25": 27.8,
+              "p75": 28.7,
+              "iqr": 0.9,
+              "min": 27.3,
+              "max": 30.7
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 108.2,
+              "p25": 106.1,
+              "p75": 109.9,
+              "iqr": 3.8,
+              "min": 103.6,
+              "max": 116.7
+            },
+            "atSegmentSeconds": {
+              "median": 50.3,
+              "p25": 49.8,
+              "p75": 50.8,
+              "iqr": 1.0,
+              "min": 49.2,
+              "max": 52.7
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 130.2,
+              "p25": 128.4,
+              "p75": 131.8,
+              "iqr": 3.4,
+              "min": 125.5,
+              "max": 138.5
+            },
+            "atSegmentSeconds": {
+              "median": 72.3,
+              "p25": 71.8,
+              "p75": 72.7,
+              "iqr": 0.9,
+              "min": 71.1,
+              "max": 74.6
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 167.7,
+              "p25": 164.9,
+              "p75": 170.1,
+              "iqr": 5.2,
+              "min": 159.2,
+              "max": 177.2
+            },
+            "atSegmentSeconds": {
+              "median": 6.1,
+              "p25": 5.9,
+              "p75": 6.5,
+              "iqr": 0.6,
+              "min": 5.5,
+              "max": 9.8
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 189.7,
+              "p25": 186.7,
+              "p75": 192.1,
+              "iqr": 5.4,
+              "min": 181.8,
+              "max": 199.0
+            },
+            "atSegmentSeconds": {
+              "median": 28.2,
+              "p25": 27.8,
+              "p75": 28.5,
+              "iqr": 0.7,
+              "min": 27.4,
+              "max": 32.1
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 211.9,
+              "p25": 209.0,
+              "p75": 214.0,
+              "iqr": 5.0,
+              "min": 204.5,
+              "max": 220.9
+            },
+            "atSegmentSeconds": {
+              "median": 50.2,
+              "p25": 49.8,
+              "p75": 50.9,
+              "iqr": 1.0,
+              "min": 49.3,
+              "max": 54.0
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 234.0,
+              "p25": 230.8,
+              "p75": 235.8,
+              "iqr": 5.0,
+              "min": 226.4,
+              "max": 242.8
+            },
+            "atSegmentSeconds": {
+              "median": 72.1,
+              "p25": 71.8,
+              "p75": 73.0,
+              "iqr": 1.2,
+              "min": 71.1,
+              "max": 75.9
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 270.6,
+              "p25": 267.2,
+              "p75": 274.2,
+              "iqr": 7.0,
+              "min": 261.9,
+              "max": 291.2
+            },
+            "atSegmentSeconds": {
+              "median": 6.2,
+              "p25": 5.9,
+              "p75": 6.5,
+              "iqr": 0.6,
+              "min": 5.6,
+              "max": 10.7
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 292.9,
+              "p25": 289.2,
+              "p75": 296.2,
+              "iqr": 7.0,
+              "min": 283.8,
+              "max": 313.0
+            },
+            "atSegmentSeconds": {
+              "median": 28.2,
+              "p25": 27.8,
+              "p75": 28.6,
+              "iqr": 0.8,
+              "min": 27.4,
+              "max": 32.6
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 314.9,
+              "p25": 311.1,
+              "p75": 318.1,
+              "iqr": 7.0,
+              "min": 305.7,
+              "max": 336.1
+            },
+            "atSegmentSeconds": {
+              "median": 50.2,
+              "p25": 49.8,
+              "p75": 50.6,
+              "iqr": 0.8,
+              "min": 49.3,
+              "max": 54.9
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 4,
+            "atSeconds": {
+              "median": 336.6,
+              "p25": 333.4,
+              "p75": 340.1,
+              "iqr": 6.7,
+              "min": 327.6,
+              "max": 358.4
+            },
+            "atSegmentSeconds": {
+              "median": 72.1,
+              "p25": 71.8,
+              "p75": 72.6,
+              "iqr": 0.8,
+              "min": 71.1,
+              "max": 76.8
+            },
+            "support": {
+              "pulls": 93,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 9,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 374.4,
+              "p25": 369.3,
+              "p75": 378.2,
+              "iqr": 8.9,
+              "min": 359.2,
+              "max": 388.4
+            },
+            "atSegmentSeconds": {
+              "median": 6.3,
+              "p25": 5.9,
+              "p75": 6.7,
+              "iqr": 0.8,
+              "min": 5.1,
+              "max": 10.3
+            },
+            "support": {
+              "pulls": 81,
+              "reachedSegment": 86
+            }
+          },
+          {
+            "segmentIndex": 9,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 396.3,
+              "p25": 391.6,
+              "p75": 400.1,
+              "iqr": 8.4,
+              "min": 381.1,
+              "max": 416.3
+            },
+            "atSegmentSeconds": {
+              "median": 28.2,
+              "p25": 27.8,
+              "p75": 28.9,
+              "iqr": 1.2,
+              "min": 27.4,
+              "max": 43.0
+            },
+            "support": {
+              "pulls": 51,
+              "reachedSegment": 86
+            }
+          }
+        ]
+      },
+      {
+        "name": "Shifting Protovenom",
+        "ids": [
+          1296878
+        ],
+        "sources": [
+          "Vashnik"
+        ],
+        "seenInPulls": 97,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 7.0,
+          "p25": 7.0,
+          "p75": 8.0,
+          "iqr": 1.0,
+          "min": 6.0,
+          "max": 8.0
+        },
+        "cadenceSeconds": {
+          "median": 58.0,
+          "p25": 41.0,
+          "p75": 62.0,
+          "iqr": 21.0,
+          "min": 40.9,
+          "max": 76.0
+        },
+        "firstAtSeconds": {
+          "median": 36.2,
+          "p25": 36.1,
+          "p75": 36.3,
+          "iqr": 0.2,
+          "min": 35.8,
+          "max": 36.4
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1296878,
+          "title": "Shifting Protovenom",
+          "description": "Vashnik contaminates random players with a prototype venom, inflicting 233354 Plague damage every 2 sec.\n\nComing into contact with another Protovenom neutralizes them harmlessly, while colliding with an uncontaminated player causes a Protovenom Eruption.",
+          "damage": [
+            {
+              "amount": 233354,
+              "school": "Plague",
+              "everySeconds": 2.0
+            }
+          ],
+          "parentTitle": "Vashnik the Malignant"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 36.2,
+              "p25": 36.1,
+              "p75": 36.3,
+              "iqr": 0.2,
+              "min": 35.8,
+              "max": 36.4
+            },
+            "atSegmentSeconds": {
+              "median": 36.2,
+              "p25": 36.1,
+              "p75": 36.3,
+              "iqr": 0.2,
+              "min": 35.8,
+              "max": 36.4
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 97.4,
+              "p25": 96.1,
+              "p75": 99.3,
+              "iqr": 3.2,
+              "min": 94.0,
+              "max": 104.2
+            },
+            "atSegmentSeconds": {
+              "median": 39.9,
+              "p25": 39.9,
+              "p75": 39.9,
+              "iqr": 0.0,
+              "min": 39.8,
+              "max": 40.0
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 138.4,
+              "p25": 137.1,
+              "p75": 140.3,
+              "iqr": 3.2,
+              "min": 135.0,
+              "max": 145.2
+            },
+            "atSegmentSeconds": {
+              "median": 80.9,
+              "p25": 80.9,
+              "p75": 80.9,
+              "iqr": 0.0,
+              "min": 80.8,
+              "max": 81.0
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 201.1,
+              "p25": 198.9,
+              "p75": 203.4,
+              "iqr": 4.5,
+              "min": 193.2,
+              "max": 211.3
+            },
+            "atSegmentSeconds": {
+              "median": 39.9,
+              "p25": 39.9,
+              "p75": 39.9,
+              "iqr": 0.1,
+              "min": 39.8,
+              "max": 40.0
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 242.1,
+              "p25": 239.9,
+              "p75": 244.4,
+              "iqr": 4.5,
+              "min": 234.2,
+              "max": 252.3
+            },
+            "atSegmentSeconds": {
+              "median": 80.9,
+              "p25": 80.9,
+              "p75": 80.9,
+              "iqr": 0.1,
+              "min": 80.8,
+              "max": 80.9
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 304.2,
+              "p25": 300.9,
+              "p75": 307.2,
+              "iqr": 6.3,
+              "min": 296.0,
+              "max": 325.1
+            },
+            "atSegmentSeconds": {
+              "median": 39.9,
+              "p25": 39.9,
+              "p75": 39.9,
+              "iqr": 0.0,
+              "min": 39.8,
+              "max": 40.0
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 345.1,
+              "p25": 341.3,
+              "p75": 348.2,
+              "iqr": 6.9,
+              "min": 337.0,
+              "max": 366.1
+            },
+            "atSegmentSeconds": {
+              "median": 80.9,
+              "p25": 80.9,
+              "p75": 80.9,
+              "iqr": 0.0,
+              "min": 80.8,
+              "max": 81.0
+            },
+            "support": {
+              "pulls": 92,
+              "reachedSegment": 97
+            }
+          }
+        ]
+      },
+      {
+        "name": "Toxic Droplets",
+        "ids": [
+          1284434
+        ],
+        "sources": [
+          "Breath of Ula'tek"
+        ],
+        "seenInPulls": 97,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 11.0,
+          "p25": 11.0,
+          "p75": 11.0,
+          "iqr": 0.0,
+          "min": 9.0,
+          "max": 12.0
+        },
+        "cadenceSeconds": {
+          "median": 32.9,
+          "p25": 32.8,
+          "p75": 37.7,
+          "iqr": 4.9,
+          "min": 31.5,
+          "max": 64.5
+        },
+        "firstAtSeconds": {
+          "median": 15.1,
+          "p25": 15.0,
+          "p75": 15.3,
+          "iqr": 0.3,
+          "min": 14.0,
+          "max": 15.9
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1284434,
+          "title": "Toxic Droplets",
+          "description": "The Breath of Ula'tek sprays forth many toxic droplets, which each erupt into Noxious Blast after 12 sec. Players can destroy the droplets by stepping on top of them, suffering 375033 Nature damage.",
+          "damage": [
+            {
+              "amount": 375033,
+              "school": "Nature",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Breath of Ula'tek"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 15.1,
+              "p25": 15.0,
+              "p75": 15.3,
+              "iqr": 0.3,
+              "min": 14.0,
+              "max": 15.9
+            },
+            "atSegmentSeconds": {
+              "median": 15.1,
+              "p25": 15.0,
+              "p75": 15.3,
+              "iqr": 0.3,
+              "min": 14.0,
+              "max": 15.9
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 72.7,
+              "p25": 71.1,
+              "p75": 74.6,
+              "iqr": 3.5,
+              "min": 68.8,
+              "max": 79.6
+            },
+            "atSegmentSeconds": {
+              "median": 15.0,
+              "p25": 14.7,
+              "p75": 15.3,
+              "iqr": 0.7,
+              "min": 14.2,
+              "max": 15.8
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 105.4,
+              "p25": 103.7,
+              "p75": 107.4,
+              "iqr": 3.7,
+              "min": 101.7,
+              "max": 112.3
+            },
+            "atSegmentSeconds": {
+              "median": 47.8,
+              "p25": 47.4,
+              "p75": 48.1,
+              "iqr": 0.7,
+              "min": 46.7,
+              "max": 48.7
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 138.2,
+              "p25": 136.3,
+              "p75": 140.0,
+              "iqr": 3.7,
+              "min": 134.3,
+              "max": 145.1
+            },
+            "atSegmentSeconds": {
+              "median": 80.5,
+              "p25": 80.2,
+              "p75": 80.9,
+              "iqr": 0.7,
+              "min": 78.7,
+              "max": 81.5
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 176.2,
+              "p25": 173.8,
+              "p75": 178.5,
+              "iqr": 4.7,
+              "min": 168.2,
+              "max": 186.2
+            },
+            "atSegmentSeconds": {
+              "median": 15.0,
+              "p25": 14.8,
+              "p75": 15.3,
+              "iqr": 0.5,
+              "min": 14.4,
+              "max": 15.7
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 208.6,
+              "p25": 206.6,
+              "p75": 211.1,
+              "iqr": 4.5,
+              "min": 201.4,
+              "max": 218.9
+            },
+            "atSegmentSeconds": {
+              "median": 47.8,
+              "p25": 47.5,
+              "p75": 48.1,
+              "iqr": 0.6,
+              "min": 46.4,
+              "max": 48.6
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 241.4,
+              "p25": 239.2,
+              "p75": 244.0,
+              "iqr": 4.8,
+              "min": 234.2,
+              "max": 251.8
+            },
+            "atSegmentSeconds": {
+              "median": 80.6,
+              "p25": 80.3,
+              "p75": 80.9,
+              "iqr": 0.7,
+              "min": 79.1,
+              "max": 81.8
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 279.5,
+              "p25": 276.0,
+              "p75": 282.8,
+              "iqr": 6.8,
+              "min": 271.0,
+              "max": 300.2
+            },
+            "atSegmentSeconds": {
+              "median": 15.1,
+              "p25": 14.8,
+              "p75": 15.4,
+              "iqr": 0.6,
+              "min": 14.1,
+              "max": 16.1
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 312.3,
+              "p25": 308.8,
+              "p75": 315.6,
+              "iqr": 6.8,
+              "min": 303.8,
+              "max": 333.0
+            },
+            "atSegmentSeconds": {
+              "median": 47.9,
+              "p25": 47.6,
+              "p75": 48.3,
+              "iqr": 0.7,
+              "min": 46.7,
+              "max": 48.9
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 3,
+            "atSeconds": {
+              "median": 344.6,
+              "p25": 341.3,
+              "p75": 348.4,
+              "iqr": 7.1,
+              "min": 336.6,
+              "max": 365.0
+            },
+            "atSegmentSeconds": {
+              "median": 80.8,
+              "p25": 80.3,
+              "p75": 81.1,
+              "iqr": 0.8,
+              "min": 79.5,
+              "max": 82.1
+            },
+            "support": {
+              "pulls": 89,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 9,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 383.1,
+              "p25": 377.8,
+              "p75": 386.8,
+              "iqr": 9.0,
+              "min": 368.2,
+              "max": 397.1
+            },
+            "atSegmentSeconds": {
+              "median": 15.0,
+              "p25": 14.7,
+              "p75": 15.4,
+              "iqr": 0.7,
+              "min": 14.0,
+              "max": 15.7
+            },
+            "support": {
+              "pulls": 74,
+              "reachedSegment": 86
+            }
+          }
+        ]
+      },
+      {
+        "name": "Unstable Miasma",
+        "ids": [
+          1288232
+        ],
+        "sources": [
+          "Blood of Ula'tek"
+        ],
+        "seenInPulls": 97,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 8.0,
+          "p25": 7.0,
+          "p75": 8.0,
+          "iqr": 1.0,
+          "min": 7.0,
+          "max": 9.0
+        },
+        "cadenceSeconds": {
+          "median": 56.7,
+          "p25": 41.3,
+          "p75": 61.1,
+          "iqr": 19.7,
+          "min": 41.0,
+          "max": 74.5
+        },
+        "firstAtSeconds": {
+          "median": 17.8,
+          "p25": 17.7,
+          "p75": 17.9,
+          "iqr": 0.2,
+          "min": 16.7,
+          "max": 18.3
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1288232,
+          "title": "Unstable Miasma",
+          "description": "The Blood of Ula'tek marks a player with unstable miasma. After 8 sec, the miasma erupts, inflicting 5000440 Shadow damage split evenly among players within 7.5 yards. This impact spreads applications of Clinging Murk among the targets struck.",
+          "damage": [
+            {
+              "amount": 5000440,
+              "school": "Shadow",
+              "everySeconds": null
+            }
+          ],
+          "parentTitle": "Blood of Ula'tek"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 17.8,
+              "p25": 17.7,
+              "p75": 17.9,
+              "iqr": 0.2,
+              "min": 16.7,
+              "max": 18.3
+            },
+            "atSegmentSeconds": {
+              "median": 17.8,
+              "p25": 17.7,
+              "p75": 17.9,
+              "iqr": 0.2,
+              "min": 16.7,
+              "max": 18.3
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 75.3,
+              "p25": 73.6,
+              "p75": 77.2,
+              "iqr": 3.6,
+              "min": 71.3,
+              "max": 82.3
+            },
+            "atSegmentSeconds": {
+              "median": 17.6,
+              "p25": 17.4,
+              "p75": 17.9,
+              "iqr": 0.5,
+              "min": 17.0,
+              "max": 18.6
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 116.7,
+              "p25": 114.9,
+              "p75": 118.8,
+              "iqr": 3.9,
+              "min": 112.6,
+              "max": 124.0
+            },
+            "atSegmentSeconds": {
+              "median": 59.0,
+              "p25": 58.8,
+              "p75": 59.4,
+              "iqr": 0.6,
+              "min": 58.3,
+              "max": 60.6
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 178.4,
+              "p25": 176.5,
+              "p75": 181.2,
+              "iqr": 4.7,
+              "min": 170.8,
+              "max": 188.8
+            },
+            "atSegmentSeconds": {
+              "median": 17.6,
+              "p25": 17.4,
+              "p75": 17.9,
+              "iqr": 0.6,
+              "min": 17.0,
+              "max": 18.5
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 220.4,
+              "p25": 217.8,
+              "p75": 222.8,
+              "iqr": 5.0,
+              "min": 212.5,
+              "max": 230.1
+            },
+            "atSegmentSeconds": {
+              "median": 59.1,
+              "p25": 58.8,
+              "p75": 59.3,
+              "iqr": 0.5,
+              "min": 58.3,
+              "max": 60.3
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 281.9,
+              "p25": 278.6,
+              "p75": 285.3,
+              "iqr": 6.7,
+              "min": 273.6,
+              "max": 302.8
+            },
+            "atSegmentSeconds": {
+              "median": 17.6,
+              "p25": 17.4,
+              "p75": 17.9,
+              "iqr": 0.5,
+              "min": 17.0,
+              "max": 18.3
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 323.3,
+              "p25": 320.0,
+              "p75": 326.8,
+              "iqr": 6.8,
+              "min": 314.9,
+              "max": 344.5
+            },
+            "atSegmentSeconds": {
+              "median": 59.1,
+              "p25": 58.7,
+              "p75": 59.4,
+              "iqr": 0.7,
+              "min": 58.3,
+              "max": 59.9
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 9,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 385.6,
+              "p25": 380.9,
+              "p75": 388.6,
+              "iqr": 7.7,
+              "min": 370.8,
+              "max": 399.7
+            },
+            "atSegmentSeconds": {
+              "median": 17.6,
+              "p25": 17.3,
+              "p75": 17.9,
+              "iqr": 0.6,
+              "min": 17.0,
+              "max": 18.2
+            },
+            "support": {
+              "pulls": 71,
+              "reachedSegment": 86
+            }
+          }
+        ]
+      },
+      {
+        "name": "Venom Coagulation",
+        "ids": [
+          1284251
+        ],
+        "sources": [
+          "Breath of Ula'tek"
+        ],
+        "seenInPulls": 97,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 8.0,
+          "p25": 8.0,
+          "p75": 8.0,
+          "iqr": 0.0,
+          "min": 7.0,
+          "max": 8.0
+        },
+        "cadenceSeconds": {
+          "median": 52.3,
+          "p25": 51.5,
+          "p75": 52.8,
+          "iqr": 1.3,
+          "min": 44.9,
+          "max": 64.7
+        },
+        "firstAtSeconds": {
+          "median": 12.2,
+          "p25": 12.1,
+          "p75": 12.4,
+          "iqr": 0.3,
+          "min": 11.5,
+          "max": 12.7
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1284251,
+          "title": "Venom Coagulation",
+          "description": "The Breath of Ula'tek vomits up a sticky mass of venom that animates itself into a living slime.",
+          "damage": [],
+          "parentTitle": "Breath of Ula'tek"
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 1,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 12.2,
+              "p25": 12.1,
+              "p75": 12.4,
+              "iqr": 0.3,
+              "min": 11.5,
+              "max": 12.7
+            },
+            "atSegmentSeconds": {
+              "median": 12.2,
+              "p25": 12.1,
+              "p75": 12.4,
+              "iqr": 0.3,
+              "min": 11.5,
+              "max": 12.7
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 69.7,
+              "p25": 68.2,
+              "p75": 71.7,
+              "iqr": 3.5,
+              "min": 65.9,
+              "max": 76.7
+            },
+            "atSegmentSeconds": {
+              "median": 12.1,
+              "p25": 11.8,
+              "p75": 12.4,
+              "iqr": 0.6,
+              "min": 11.5,
+              "max": 12.9
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 3,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 122.0,
+              "p25": 120.2,
+              "p75": 124.0,
+              "iqr": 3.8,
+              "min": 118.2,
+              "max": 129.4
+            },
+            "atSegmentSeconds": {
+              "median": 64.3,
+              "p25": 64.0,
+              "p75": 64.7,
+              "iqr": 0.7,
+              "min": 63.4,
+              "max": 65.3
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 173.3,
+              "p25": 170.8,
+              "p75": 175.6,
+              "iqr": 4.8,
+              "min": 165.2,
+              "max": 183.2
+            },
+            "atSegmentSeconds": {
+              "median": 12.1,
+              "p25": 11.9,
+              "p75": 12.4,
+              "iqr": 0.5,
+              "min": 11.5,
+              "max": 13.0
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 5,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 225.8,
+              "p25": 223.1,
+              "p75": 227.7,
+              "iqr": 4.6,
+              "min": 217.5,
+              "max": 235.4
+            },
+            "atSegmentSeconds": {
+              "median": 64.4,
+              "p25": 64.1,
+              "p75": 64.6,
+              "iqr": 0.5,
+              "min": 63.4,
+              "max": 65.7
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 276.5,
+              "p25": 273.0,
+              "p75": 279.9,
+              "iqr": 6.9,
+              "min": 268.0,
+              "max": 297.2
+            },
+            "atSegmentSeconds": {
+              "median": 12.2,
+              "p25": 11.9,
+              "p75": 12.5,
+              "iqr": 0.6,
+              "min": 11.6,
+              "max": 13.1
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 7,
+            "ordinal": 2,
+            "atSeconds": {
+              "median": 328.9,
+              "p25": 325.2,
+              "p75": 332.1,
+              "iqr": 6.9,
+              "min": 320.3,
+              "max": 349.9
+            },
+            "atSegmentSeconds": {
+              "median": 64.5,
+              "p25": 64.1,
+              "p75": 64.8,
+              "iqr": 0.7,
+              "min": 63.6,
+              "max": 65.8
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 9,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 380.3,
+              "p25": 375.3,
+              "p75": 383.8,
+              "iqr": 8.5,
+              "min": 365.3,
+              "max": 394.2
+            },
+            "atSegmentSeconds": {
+              "median": 12.2,
+              "p25": 11.8,
+              "p75": 12.4,
+              "iqr": 0.6,
+              "min": 11.2,
+              "max": 12.7
+            },
+            "support": {
+              "pulls": 77,
+              "reachedSegment": 86
+            }
+          }
+        ]
+      },
+      {
+        "name": "Vitriolic Stasis",
+        "ids": [
+          1284588,
+          1284606
+        ],
+        "sources": [
+          "Blood of Ula'tek",
+          "Breath of Ula'tek"
+        ],
+        "seenInPulls": 97,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 4.0,
+          "p25": 4.0,
+          "p75": 4.0,
+          "iqr": 0.0,
+          "min": 3.0,
+          "max": 4.0
+        },
+        "cadenceSeconds": {
+          "median": 103.0,
+          "p25": 101.0,
+          "p75": 105.0,
+          "iqr": 4.0,
+          "min": 98.0,
+          "max": 111.0
+        },
+        "firstAtSeconds": {
+          "median": 46.3,
+          "p25": 46.2,
+          "p75": 46.4,
+          "iqr": 0.2,
+          "min": 45.9,
+          "max": 46.5
+        },
+        "inJournal": true,
+        "journal": {
+          "spellId": 1284588,
+          "title": "Vitriolic Stasis",
+          "description": "Upon reaching 100 energy, both Sentinels rush together and begin to balance their fluid levels over 30 sec. This process reduces their damage taken by 99% and restores health to the weaker Sentinel until it matches the other.",
+          "damage": [],
+          "parentTitle": null
+        },
+        "occurrences": [
+          {
+            "segmentIndex": 2,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 46.3,
+              "p25": 46.2,
+              "p75": 46.4,
+              "iqr": 0.2,
+              "min": 46.0,
+              "max": 46.5
+            },
+            "atSegmentSeconds": {
+              "median": 0.0,
+              "p25": 0.0,
+              "p75": 0.0,
+              "iqr": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            "support": {
+              "pulls": 55,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 4,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 148.3,
+              "p25": 146.4,
+              "p75": 150.5,
+              "iqr": 4.1,
+              "min": 145.1,
+              "max": 155.3
+            },
+            "atSegmentSeconds": {
+              "median": 0.0,
+              "p25": 0.0,
+              "p75": 0.0,
+              "iqr": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            "support": {
+              "pulls": 57,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 6,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 252.3,
+              "p25": 250.2,
+              "p75": 254.4,
+              "iqr": 4.2,
+              "min": 244.3,
+              "max": 260.4
+            },
+            "atSegmentSeconds": {
+              "median": 0.0,
+              "p25": 0.0,
+              "p75": 0.0,
+              "iqr": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            "support": {
+              "pulls": 51,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 8,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 355.5,
+              "p25": 352.0,
+              "p75": 358.3,
+              "iqr": 6.3,
+              "min": 347.1,
+              "max": 368.4
+            },
+            "atSegmentSeconds": {
+              "median": 0.0,
+              "p25": 0.0,
+              "p75": 0.0,
+              "iqr": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            "support": {
+              "pulls": 49,
+              "reachedSegment": 86
+            }
+          }
+        ]
+      },
+      {
+        "name": "Concealing Shadows",
+        "ids": [
+          1297724
+        ],
+        "sources": [
+          "Vashnik"
+        ],
+        "seenInPulls": 97,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 4.0,
+          "p25": 4.0,
+          "p75": 4.0,
+          "iqr": 0.0,
+          "min": 3.0,
+          "max": 4.0
+        },
+        "cadenceSeconds": {
+          "median": 103.0,
+          "p25": 101.0,
+          "p75": 105.0,
+          "iqr": 4.0,
+          "min": 98.0,
+          "max": 111.0
+        },
+        "firstAtSeconds": {
+          "median": 49.3,
+          "p25": 49.2,
+          "p75": 49.4,
+          "iqr": 0.2,
+          "min": 48.9,
+          "max": 49.5
+        },
+        "inJournal": false,
+        "journal": null,
+        "occurrences": [
+          {
+            "segmentIndex": 2,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 49.3,
+              "p25": 49.2,
+              "p75": 49.4,
+              "iqr": 0.2,
+              "min": 48.9,
+              "max": 49.5
+            },
+            "atSegmentSeconds": {
+              "median": 3.0,
+              "p25": 3.0,
+              "p75": 3.0,
+              "iqr": 0.0,
+              "min": 3.0,
+              "max": 3.1
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 4,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 151.5,
+              "p25": 150.2,
+              "p75": 153.4,
+              "iqr": 3.2,
+              "min": 148.1,
+              "max": 158.3
+            },
+            "atSegmentSeconds": {
+              "median": 3.0,
+              "p25": 3.0,
+              "p75": 3.0,
+              "iqr": 0.0,
+              "min": 2.9,
+              "max": 3.1
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 6,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 255.2,
+              "p25": 253.0,
+              "p75": 257.5,
+              "iqr": 4.5,
+              "min": 247.3,
+              "max": 265.4
+            },
+            "atSegmentSeconds": {
+              "median": 3.0,
+              "p25": 3.0,
+              "p75": 3.0,
+              "iqr": 0.0,
+              "min": 2.9,
+              "max": 3.1
+            },
+            "support": {
+              "pulls": 97,
+              "reachedSegment": 97
+            }
+          },
+          {
+            "segmentIndex": 8,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 357.5,
+              "p25": 354.4,
+              "p75": 361.3,
+              "iqr": 6.9,
+              "min": 350.1,
+              "max": 371.4
+            },
+            "atSegmentSeconds": {
+              "median": 3.0,
+              "p25": 3.0,
+              "p75": 3.0,
+              "iqr": 0.0,
+              "min": 3.0,
+              "max": 3.1
+            },
+            "support": {
+              "pulls": 86,
+              "reachedSegment": 86
+            }
+          }
+        ]
+      },
+      {
+        "name": "Anti-Magic Zone",
+        "ids": [
+          145629
+        ],
+        "sources": [
+          "Environment"
+        ],
+        "seenInPulls": 83,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 4.0,
+          "p25": 3.0,
+          "p75": 6.0,
+          "iqr": 3.0,
+          "min": 1.0,
+          "max": 10.0
+        },
+        "cadenceSeconds": {
+          "median": 7.9,
+          "p25": 4.7,
+          "p75": 97.0,
+          "iqr": 92.3,
+          "min": 2.2,
+          "max": 371.0
+        },
+        "firstAtSeconds": {
+          "median": 80.6,
+          "p25": 24.2,
+          "p75": 123.1,
+          "iqr": 98.8,
+          "min": 19.8,
+          "max": 398.8
+        },
+        "inJournal": false,
+        "journal": null,
+        "occurrences": [
+          {
+            "segmentIndex": 3,
+            "ordinal": 1,
+            "atSeconds": {
+              "median": 82.2,
+              "p25": 79.5,
+              "p75": 118.6,
+              "iqr": 39.1,
+              "min": 66.2,
+              "max": 129.7
+            },
+            "atSegmentSeconds": {
+              "median": 24.1,
+              "p25": 22.0,
+              "p75": 62.5,
+              "iqr": 40.5,
+              "min": 5.8,
+              "max": 66.3
+            },
+            "support": {
+              "pulls": 51,
+              "reachedSegment": 97
+            }
+          }
+        ]
+      },
+      {
+        "name": "Berserk",
+        "ids": [
+          26662
+        ],
+        "sources": [
+          "Breath of Ula'tek",
+          "Blood of Ula'tek"
+        ],
+        "seenInPulls": 11,
+        "of": 97,
+        "instancesPerPull": {
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "iqr": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "cadenceSeconds": null,
+        "firstAtSeconds": {
+          "median": 420.8,
+          "p25": 420.6,
+          "p75": 421.1,
+          "iqr": 0.5,
+          "min": 420.0,
+          "max": 422.1
+        },
+        "inJournal": false,
+        "journal": null,
+        "occurrences": []
+      }
+    ],
+    "journalOnly": [
+      {
+        "title": "Blood Venom",
+        "spellId": 1284208,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Clinging Murk",
+        "spellId": 1288297,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Cultivated Burst",
+        "spellId": 1284941,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Helical Toxins",
+        "spellId": 1284590,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Living Venom",
+        "spellId": 1284207,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Mark of Acid",
+        "spellId": 1284494,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Mark of Blood",
+        "spellId": 1284503,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Noxious Blast",
+        "spellId": 1284452,
+        "why": "applied rather than cast: deals damage in the pool but emits no cast event"
+      },
+      {
+        "title": "Protovenom Eruption",
+        "spellId": 1296962,
+        "why": "neither cast nor damaging in this pool"
+      },
+      {
+        "title": "Ula'tek's Dominance",
+        "spellId": 1290193,
+        "why": "neither cast nor damaging in this pool"
+      }
+    ],
+    "damageTaken": {
+      "sampledPulls": [
+        {
+          "code": "V76nwYjfXKA8Czdv",
+          "fight": 63
+        },
+        {
+          "code": "KP3g8BbZD9hTqLkj",
+          "fight": 47
+        },
+        {
+          "code": "4Xh3MDxmJNVnWFj9",
+          "fight": 8
+        },
+        {
+          "code": "DhNCvmKwtBg9364r",
+          "fight": 62
+        },
+        {
+          "code": "3x1DNpyz6TGbJKRj",
+          "fight": 37
+        },
+        {
+          "code": "BJ423Rtpf9qrw78x",
+          "fight": 34
+        },
+        {
+          "code": "pLH7RWd64k9mbPft",
+          "fight": 18
+        },
+        {
+          "code": "bmnRga4712AwVFDH",
+          "fight": 46
+        },
+        {
+          "code": "91AnHXKvkQZMVrab",
+          "fight": 37
+        },
+        {
+          "code": "t8P1yFXxbDdrWQ9a",
+          "fight": 57
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Mark of Blood",
+          "ids": [
+            1284506
+          ],
+          "meanPerPull": 178416618,
+          "meanReducedPerPull": 152052647,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.2826
+        },
+        {
+          "name": "Mark of Acid",
+          "ids": [
+            1284500
+          ],
+          "meanPerPull": 176482565,
+          "meanReducedPerPull": 148067111,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.2795
+        },
+        {
+          "name": "Contaminate",
+          "ids": [
+            1284258
+          ],
+          "meanPerPull": 82164845,
+          "meanReducedPerPull": 69386870,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.1301
+        },
+        {
+          "name": "Melee",
+          "ids": [
+            1
+          ],
+          "meanPerPull": 51118040,
+          "meanReducedPerPull": 31612130,
+          "pulls": 10,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.081
+        },
+        {
+          "name": "Toxic Droplets",
+          "ids": [
+            1284451
+          ],
+          "meanPerPull": 41325002,
+          "meanReducedPerPull": 34863220,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0655
+        },
+        {
+          "name": "Stagger",
+          "ids": [
+            124255
+          ],
+          "meanPerPull": 27215403,
+          "meanReducedPerPull": 20635896,
+          "pulls": 1,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0431
+        },
+        {
+          "name": "Bloodvenom Injection",
+          "ids": [
+            1284487,
+            1310126
+          ],
+          "meanPerPull": 20091641,
+          "meanReducedPerPull": 16318194,
+          "pulls": 13,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0318
+        },
+        {
+          "name": "Unstable Miasma",
+          "ids": [
+            1288282
+          ],
+          "meanPerPull": 15686723,
+          "meanReducedPerPull": 13393399,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0248
+        },
+        {
+          "name": "Noxious Blast",
+          "ids": [
+            1284452
+          ],
+          "meanPerPull": 7048152,
+          "meanReducedPerPull": 6475551,
+          "pulls": 2,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0112
+        },
+        {
+          "name": "Empowering Slam",
+          "ids": [
+            1284458
+          ],
+          "meanPerPull": 6692350,
+          "meanReducedPerPull": 5298741,
+          "pulls": 10,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0106
+        },
+        {
+          "name": "Blood Venom",
+          "ids": [
+            1284210
+          ],
+          "meanPerPull": 4816177,
+          "meanReducedPerPull": 4321856,
+          "pulls": 4,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0076
+        },
+        {
+          "name": "Refraction",
+          "ids": [
+            1309786
+          ],
+          "meanPerPull": 4279517,
+          "meanReducedPerPull": 3181046,
+          "pulls": 10,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0068
+        },
+        {
+          "name": "Living Venom",
+          "ids": [
+            1284209
+          ],
+          "meanPerPull": 3528261,
+          "meanReducedPerPull": 3247052,
+          "pulls": 3,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0056
+        },
+        {
+          "name": "Shifting Protovenom",
+          "ids": [
+            1296882
+          ],
+          "meanPerPull": 2750469,
+          "meanReducedPerPull": 2108634,
+          "pulls": 9,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0044
+        },
+        {
+          "name": "Blessing of Dawn",
+          "ids": [
+            210380
+          ],
+          "meanPerPull": 2474373,
+          "meanReducedPerPull": 2120657,
+          "pulls": 1,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0039
+        },
+        {
+          "name": "Blighted Blood",
+          "ids": [
+            1284471
+          ],
+          "meanPerPull": 2289852,
+          "meanReducedPerPull": 1687150,
+          "pulls": 7,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0036
+        },
+        {
+          "name": "Stretch Time",
+          "ids": [
+            413924
+          ],
+          "meanPerPull": 2280580,
+          "meanReducedPerPull": 2105384,
+          "pulls": 2,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.0036
+        },
+        {
+          "name": "Burning Rush",
+          "ids": [
+            111400
+          ],
+          "meanPerPull": 1256967,
+          "meanReducedPerPull": 1136561,
+          "pulls": 5,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.002
+        },
+        {
+          "name": "Clinging Murk",
+          "ids": [
+            1303097
+          ],
+          "meanPerPull": 648554,
+          "meanReducedPerPull": 625012,
+          "pulls": 1,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.001
+        },
+        {
+          "name": "Fel Armor",
+          "ids": [
+            387846
+          ],
+          "meanPerPull": 645450,
+          "meanReducedPerPull": 147339,
+          "pulls": 1,
+          "inJournal": false,
+          "shareOfRaidDamageTaken": 0.001
+        },
+        {
+          "name": "Helical Toxins",
+          "ids": [
+            1284813
+          ],
+          "meanPerPull": 142369,
+          "meanReducedPerPull": 108581,
+          "pulls": 3,
+          "inJournal": true,
+          "shareOfRaidDamageTaken": 0.0002
+        }
+      ]
+    }
+  }
+}

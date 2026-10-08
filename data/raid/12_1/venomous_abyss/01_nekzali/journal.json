@@ -1,0 +1,648 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "source": "Blizzard Game Data journal-encounter + Wowhead tooltip API",
+    "buildNamespace": "static-12.1.0_68914-eu",
+    "generatedAt": "2026-09-09T18:19:40+00:00",
+    "generator": "tools/game_knowledge/journal_sync.py",
+    "readMe": "Ability text and damage magnitudes come from Wowhead's tooltip endpoint, which is the only source carrying tuned numbers for this tier -- Blizzard's /data/wow/spell/<id> returns 404 for these ids and the in-game journal text ships 'X' placeholders. A magnitude here is ONE difficulty's value and the endpoint does not say which; cross-check against measured damage taken in profiles/<spec>-<difficulty>.json before quoting it as a Mythic number.",
+    "encounter": "nekzali"
+  },
+  "encounter": {
+    "slug": "nekzali",
+    "journalEncounterId": 2888,
+    "name": "Nek'zali the Soulcoiler",
+    "description": "Long ago, the shadow hunter Nek'zali and her followers were entombed for the blasphemous act of summoning Ula'tek. Restored by the very power she unleashed, she calls the other Soulcoilers from their tombs to serve her once more.",
+    "creatures": [
+      {
+        "id": 6155,
+        "name": "Nek'zali"
+      },
+      {
+        "id": 6190,
+        "name": "Raised Amani"
+      },
+      {
+        "id": 6191,
+        "name": "Latent Cultist"
+      },
+      {
+        "id": 6192,
+        "name": "Echo of Jawae"
+      }
+    ],
+    "modes": [
+      "LFR",
+      "NORMAL",
+      "HEROIC",
+      "MYTHIC"
+    ],
+    "notes": [
+      {
+        "title": "Overview",
+        "bodyText": "As Nek'zali energizes the [Soulcoil Well] by invoking the [Soulcoil Rite], she provokes the [Restless Amani] to the well. \r\n\r\nUpon reaching 50% health, Nek'zali retreats to begin the [Ritual of Awakening]. Destroying Echoes of Jawae removes their [Tethers of Awakening] and draws her back. \r\n\r\nUpon reaching full energy, she unwinds the Soulcoil and begins [Uncoiling], empowering her with new abilities until her defeat.",
+        "bullets": [
+          "As Nek'zali energizes the [Soulcoil Well] by invoking the [Soulcoil Rite], she provokes the [Restless Amani] to the well. \r\n\r\nUpon reaching 50% health, Nek'zali retreats to begin the [Ritual of Awakening]. Destroying Echoes of Jawae removes their [Tethers of Awakening] and draws her back. \r\n\r\nUpon reaching full energy, she unwinds the Soulcoil and begins [Uncoiling], empowering her with new abilities until her defeat."
+        ]
+      },
+      {
+        "title": "Damage Dealers",
+        "bodyText": "$bullet; [Essence Rend] lingers and leaves behind a [Latent Cultist] upon expiration.\r\n$bullet; [Restless Amani] awaken from the sarcophagi on the outer edges of the room, empowered with [Gravebound Advance] until they are destroyed.\r\n$bullet;  Echoes of Jawae awaken during [Soul Transfer] and provide Nek'zali with [Tether of Awakening].",
+        "bullets": [
+          "[Essence Rend] lingers and leaves behind a [Latent Cultist] upon expiration.",
+          "[Restless Amani] awaken from the sarcophagi on the outer edges of the room, empowered with [Gravebound Advance] until they are destroyed.",
+          "Echoes of Jawae awaken during [Soul Transfer] and provide Nek'zali with [Tether of Awakening]."
+        ]
+      },
+      {
+        "title": "Healers",
+        "bodyText": "$bullet; [Essence Rend] lingers and leaves behind a [Latent Cultist] upon expiration.\r\n$bullet; [Soulcoil Ignition] inflicts significant damage to all players.\r\n$bullet; [Soulcoil Rite] inflicts deadly damage if too many souls enter the[Soulcoil Well].",
+        "bullets": [
+          "[Essence Rend] lingers and leaves behind a [Latent Cultist] upon expiration.",
+          "[Soulcoil Ignition] inflicts significant damage to all players.",
+          "[Soulcoil Rite] inflicts deadly damage if too many souls enter the[Soulcoil Well]."
+        ]
+      },
+      {
+        "title": "Tanks",
+        "bodyText": "$bullet; [Possession Barrage] inflicts damage based on the distance each barrage travels.\r\n$bullet;  Echoes of Jawae awaken during [Soul Transfer] and provide Nekk'zali with [Tether of Awakening].\r\n$bullet; Nek'zali attacks her target with [Hollowing Strikes].",
+        "bullets": [
+          "[Possession Barrage] inflicts damage based on the distance each barrage travels.",
+          "Echoes of Jawae awaken during [Soul Transfer] and provide Nekk'zali with [Tether of Awakening].",
+          "Nek'zali attacks her target with [Hollowing Strikes]."
+        ]
+      },
+      {
+        "title": "Restless Amani",
+        "bodyText": "Ancient spirits return to their corpses, and make their way towards the [Soulcoil Well].\r\n",
+        "bullets": [
+          "Ancient spirits return to their corpses, and make their way towards the [Soulcoil Well]."
+        ]
+      },
+      {
+        "title": "Intermission: Ritual of Awakening",
+        "bodyText": "Upon reaching 50% health, Nek'zali retreats to the Soulcoil Well and summons an Echo of Jawae that protects her from harm.",
+        "bullets": [
+          "Upon reaching 50% health, Nek'zali retreats to the Soulcoil Well and summons an Echo of Jawae that protects her from harm."
+        ]
+      },
+      {
+        "title": "Echo of Jawae",
+        "bodyText": "A spectral echo that protects Nek'zali from harm. Defeating an Echo of Jawae severs their Tether of Awakening.",
+        "bullets": [
+          "A spectral echo that protects Nek'zali from harm. Defeating an Echo of Jawae severs their Tether of Awakening."
+        ]
+      },
+      {
+        "title": "Stage Two: Uncoiling",
+        "bodyText": "Nek'zali uncoils the Soulcoil Well, gaining new abilities until defeated.",
+        "bullets": [
+          "Nek'zali uncoils the Soulcoil Well, gaining new abilities until defeated."
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "spellId": 1284032,
+        "title": "Soulcoil Well",
+        "journalSpellName": "Soulcoil Well",
+        "tooltipName": "Soulcoil Well",
+        "icon": "achievment_boss_wellofeternity",
+        "cast": "Instant",
+        "description": "A well of necrotic energy used to raise the cult of the Soulcoilers. Any Restless Amani that reach the well trigger a Soulcoil Rite.\n\nStanding in the well inflicts 125011 Shadow damage every 1 sec. Players who die within the well are Soulcoiled.",
+        "damage": [
+          {
+            "amount": 125011,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Stage One: Soulcoiler Initiation",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36049,
+        "repeatedSections": 4
+      },
+      {
+        "spellId": 1284033,
+        "title": "Soulcoil Rite",
+        "journalSpellName": "Soulcoil Rite",
+        "tooltipName": "Soulcoil Rite",
+        "icon": "spell_necro_deathsknell",
+        "cast": "Instant",
+        "description": "The Soulcoil Well churns, granting Nek'zali 5 energy. Inflicts 66673 Shadow damage to all players and an additional 20835 Shadow damage every 2 sec for 44 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 66673,
+            "school": "Shadow",
+            "everySeconds": null
+          },
+          {
+            "amount": 20835,
+            "school": "Shadow",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Soulcoil Well",
+        "parentSpellId": 1284032,
+        "depth": 2,
+        "sectionId": 36048,
+        "repeatedSections": 5
+      },
+      {
+        "spellId": 1297624,
+        "title": "Ritual Burn",
+        "journalSpellName": "Ritual Burn",
+        "tooltipName": "Ritual Burn",
+        "icon": "inv_everburningignition_blue",
+        "cast": "Instant",
+        "description": "Increases damage taken from Soulcoil Rite by 15% for 1 min. This effect stacks.",
+        "damage": [],
+        "parentTitle": "Soulcoil Rite",
+        "parentSpellId": 1284033,
+        "depth": 3,
+        "sectionId": 36541,
+        "repeatedSections": 2
+      },
+      {
+        "spellId": 1284034,
+        "title": "Uncoiled Rage",
+        "journalSpellName": "Uncoiled Rage",
+        "tooltipName": "Uncoiled Rage",
+        "icon": "ability_deathknight_necroticaura",
+        "cast": "5 sec cast",
+        "description": "Upon reaching full energy, Nek'zali gains her full potential, increasing her attack and movement speeds by 150% and all damage by 500%. Additionally, grants immunity to Taunt effects.",
+        "damage": [],
+        "parentTitle": "Soulcoil Well",
+        "parentSpellId": 1284032,
+        "depth": 2,
+        "sectionId": 37169,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1290361,
+        "title": "Soulcoiled",
+        "journalSpellName": "Soulcoiled",
+        "tooltipName": "Soulcoiled",
+        "icon": "inv_10_dungeonjewelry_dragon_ring_2coiledserpent_green",
+        "cast": "Instant",
+        "description": "Nek'zali claims a player's soul, compelling them towards the Soulcoil Well. The target is sacrificed upon reaching its waters, triggering Soulcoil Rite.",
+        "damage": [],
+        "parentTitle": "Soulcoil Well",
+        "parentSpellId": 1284032,
+        "depth": 2,
+        "sectionId": 36050,
+        "repeatedSections": 5
+      },
+      {
+        "spellId": 1285681,
+        "title": "Soulcoil Ignition",
+        "journalSpellName": "Soulcoil Ignition",
+        "tooltipName": "Soulcoil Ignition",
+        "icon": "spell_shadow_soulleech_2",
+        "cast": "Channeled (4 sec cast)",
+        "description": "Nek'zali stirs the Soulcoil Well, invoking the Soulcoil Rite every 1 sec for 4 sec. During the channel, Anguished Echoes emerge from the well.",
+        "damage": [],
+        "parentTitle": "Stage One: Soulcoiler Initiation",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35666,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1294846,
+        "title": "Anguished Echoes",
+        "journalSpellName": "Anguished Echoes",
+        "tooltipName": "Anguished Echoes",
+        "icon": "ability_argus_soulburst",
+        "cast": "Instant",
+        "description": "An anguished spirit emerges, inflicting 500044 Shadow damage to players within 5 yards of its impact location and knocking them away.",
+        "damage": [
+          {
+            "amount": 500044,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Soulcoil Ignition",
+        "parentSpellId": 1285681,
+        "depth": 2,
+        "sectionId": 36544,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1287426,
+        "title": "Essence Rend",
+        "journalSpellName": "Essence Rend",
+        "tooltipName": "Essence Rend",
+        "icon": "spell_necro_deathall",
+        "cast": "Instant",
+        "description": "Nek'zali entraps several players, pulling them in for 5 sec before knocking them away and inflicting 166681 Shadow damage.\n\nA ghostly essence remains, inflicting 66673 Shadow damage every 1 sec for 15 sec. Upon removal, a Latent Cultist emerges at the player's location.",
+        "damage": [
+          {
+            "amount": 166681,
+            "school": "Shadow",
+            "everySeconds": null
+          },
+          {
+            "amount": 66673,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Stage One: Soulcoiler Initiation",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36993,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1287198,
+        "title": "Latent Cultist",
+        "journalSpellName": "Latent Cultist",
+        "tooltipName": "Latent Cultist",
+        "icon": "inv_hextrollpet_blue",
+        "cast": "Instant",
+        "description": "A cultist's spirit materializes, inflicting 541714 Shadow damage to players within 6 yards. Necrotic energy clings to the spirit, inflicting 275024 Shadow damage every 1 sec and reducing movement speed of players standing within it by 40%.",
+        "damage": [
+          {
+            "amount": 541714,
+            "school": "Shadow",
+            "everySeconds": null
+          },
+          {
+            "amount": 275024,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Essence Rend",
+        "parentSpellId": 1287426,
+        "depth": 2,
+        "sectionId": 36994,
+        "repeatedSections": 3
+      },
+      {
+        "spellId": 1295263,
+        "title": "Vessel of Awakening",
+        "journalSpellName": "Vessel of Awakening",
+        "tooltipName": "Vessel of Awakening",
+        "icon": "spell_shadow_animatedead",
+        "cast": "Instant",
+        "description": "A corpse lingers on the ground to be repossessed by Restless Amani while the Ritual of Awakening is active. Reawakened Amani become empowered, inflicting 125011 Shadow damage every 1 sec for 5 sec.",
+        "damage": [
+          {
+            "amount": 125011,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Restless Amani",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37172,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1287533,
+        "title": "Gravebound Advance",
+        "journalSpellName": "Gravebound Advance",
+        "tooltipName": "Gravebound Advance",
+        "icon": "spell_necro_undyingrelentlessness",
+        "cast": "Instant",
+        "description": "Restless Amani are protected by a necrotic barrier, absorbing magic damage equal to 25% of their maximum health. While the barrier holds, the Restless Amani cannot be destroyed and fixate on the Soulcoil Well.",
+        "damage": [],
+        "parentTitle": "Restless Amani",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37173,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1294729,
+        "title": "Corpse Blight",
+        "journalSpellName": "Corpse Blight",
+        "tooltipName": "Corpse Blight",
+        "icon": "spell_shadow_corpseexplode",
+        "cast": "Instant",
+        "description": "Restless Amani erupt in necrosis, inflicting 20835 Plague damage to all players and an additional 1667 Plague damage every 1 sec for 15 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 20835,
+            "school": "Plague",
+            "everySeconds": null
+          },
+          {
+            "amount": 1667,
+            "school": "Plague",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Restless Amani",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37174,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1284103,
+        "title": "Possession Barrage",
+        "journalSpellName": "Possession Barrage",
+        "tooltipName": "Possession Barrage",
+        "icon": "spell_shadow_possession",
+        "cast": "6 sec cast",
+        "description": "Nek'zali launches spectral echoes in the direction of her primary target that burst on impact, inflicting 291692 Shadow damage to all players. This damage is reduced the farther each echo travels.",
+        "damage": [
+          {
+            "amount": 291692,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stage One: Soulcoiler Initiation",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36595,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1284110,
+        "title": "Hollowing Strikes",
+        "journalSpellName": "Hollowing Strikes",
+        "tooltipName": "Hollowing Strikes",
+        "icon": "warlock_spelldrain",
+        "cast": "Instant",
+        "description": "Nek'zali's melee attacks tear away a part of the target's soul, inflicting 16668 Shadow damage every 3 sec and reducing healing and absorption effects received by 5% for 15 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 16668,
+            "school": "Shadow",
+            "everySeconds": 3.0
+          }
+        ],
+        "parentTitle": "Stage One: Soulcoiler Initiation",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36196,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1292248,
+        "title": "Soul Transfer",
+        "journalSpellName": "Soul Transfer",
+        "tooltipName": "Soul Transfer",
+        "icon": "ability_necrolord_fleshcraft",
+        "cast": "15 sec cast",
+        "description": "Jawae transfers her essence to an Echo of Jawae over 15 sec. A surge of soul energy then inflicts 666725 Shadow damage to players caught in the blast.",
+        "damage": [
+          {
+            "amount": 666725,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Echo of Jawae",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36582,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1289696,
+        "title": "Tether of Awakening",
+        "journalSpellName": "Tether of Awakening",
+        "tooltipName": "Tether of Awakening",
+        "icon": "spell_animamaldraxxus_beam",
+        "cast": "Channeled (0 sec cast)",
+        "description": "Tethered to the Soulcoil Well, gaining immunity to all damage.",
+        "damage": [],
+        "parentTitle": "Echo of Jawae",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36577,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1289855,
+        "title": "Hungering Pyre",
+        "journalSpellName": "Hungering Pyre",
+        "tooltipName": "Hungering Pyre",
+        "icon": "ability_mage_livingbomb",
+        "cast": "7.5 sec cast",
+        "description": "The Echo of Jawae erupts in soul fire, inflicting 5000440 Fire damage split evenly between players within 10 yards. Slithering Flames seek out players who are not hit by the pyre.",
+        "damage": [
+          {
+            "amount": 5000440,
+            "school": "Fire",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Echo of Jawae",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 37141,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1294933,
+        "title": "Slithering Flame",
+        "journalSpellName": "Slithering Flame",
+        "tooltipName": "Slithering Flame",
+        "icon": "spell_nature_guardianward",
+        "cast": "Instant",
+        "description": "A serpentine flame slithers to a player and ignites, inflicting 250022 Fire damage and an additional 41670 Fire damage every 1 sec for 20 sec.",
+        "damage": [
+          {
+            "amount": 250022,
+            "school": "Fire",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 41670,
+            "school": "Fire",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Hungering Pyre",
+        "parentSpellId": 1289855,
+        "depth": 3,
+        "sectionId": 37142,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1289875,
+        "title": "Cremation",
+        "journalSpellName": "Cremation",
+        "tooltipName": "Cremation",
+        "icon": "ability_warlock_cremation",
+        "cast": "Instant",
+        "description": "The flames explode, incinerating corpses and Restless Amani within 4 yards. Inflicts 125011 Fire damage to players and an additional 25002 Fire damage every 1 sec for 20 sec.",
+        "damage": [
+          {
+            "amount": 125011,
+            "school": "Fire",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 25002,
+            "school": "Fire",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Hungering Pyre",
+        "parentSpellId": 1289855,
+        "depth": 3,
+        "sectionId": 37143,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1293212,
+        "title": "Grasping Depths",
+        "journalSpellName": "Grasping Depths",
+        "tooltipName": "Grasping Depths",
+        "icon": "spell_necro_inevitableend",
+        "cast": "Instant",
+        "description": "A Drowned Echo awakens within the well, periodically pulling players towards the well and inflicting 8334 Shadow damage every 1 sec to all players until it is defeated. Players may enter the well while the echo lives, and are marked with Soul Exhaustion upon leaving.",
+        "damage": [
+          {
+            "amount": 8334,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Intermission: Ritual of Awakening",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36272,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1299988,
+        "title": "Immortal Coil",
+        "journalSpellName": "Immortal Coil",
+        "tooltipName": "Immortal Coil",
+        "icon": "spell_necro_deathlyecho",
+        "cast": "Instant",
+        "description": "Necrotic energy within the well inflicts 58338 Shadow damage every 1 sec.",
+        "damage": [
+          {
+            "amount": 58338,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Grasping Depths",
+        "parentSpellId": 1293212,
+        "depth": 2,
+        "sectionId": 36281,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1300238,
+        "title": "Soulcoiler's Curse",
+        "journalSpellName": "Soulcoiler's Curse",
+        "tooltipName": "Soulcoiler's Curse",
+        "icon": "inv_121_trinket_dungeon_ulatek_fangstone",
+        "cast": "10 sec cast",
+        "description": "The Drowned Echo coils around all players within the well, ejecting them and leaving them Soulcoiled.",
+        "damage": [],
+        "parentTitle": "Drowned Echo",
+        "parentSpellId": null,
+        "depth": 4,
+        "sectionId": 36275,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1300239,
+        "title": "Swirling Spirit",
+        "journalSpellName": "Swirling Spirit",
+        "tooltipName": "Swirling Spirit",
+        "icon": "achievement_halloween_ghost_01",
+        "cast": "Instant",
+        "description": "Spirits swirl within the Soulcoil Well, inflicting 66673 Shadow damage every 1 sec for 5 sec on contact. This effect stacks.",
+        "damage": [
+          {
+            "amount": 66673,
+            "school": "Shadow",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Immortal Coil",
+        "parentSpellId": 1299988,
+        "depth": 3,
+        "sectionId": 36277,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1300235,
+        "title": "Soul Exhaustion",
+        "journalSpellName": "Soul Exhaustion",
+        "tooltipName": "Soul Exhaustion",
+        "icon": "inv_soulbarrier",
+        "cast": "Instant",
+        "description": "The Soulcoil Well marks those who leave it, increasing damage taken from Soulcoil Well and Immortal Coil by 300%.",
+        "damage": [],
+        "parentTitle": "Grasping Depths",
+        "parentSpellId": 1293212,
+        "depth": 2,
+        "sectionId": 36274,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1290003,
+        "title": "Uncoiling",
+        "journalSpellName": "Uncoiling",
+        "tooltipName": "Uncoiling",
+        "icon": "inv_12_profession_thematicfoozles_moteofpurelight_green",
+        "cast": "5 sec cast",
+        "description": "Nek'zali pours all her power into the Soulcoil Well, causing it to overflow, energizing her and inflicting 8334 Shadow damage every 0.9 sec until she is defeated.",
+        "damage": [
+          {
+            "amount": 8334,
+            "school": "Shadow",
+            "everySeconds": 0.9
+          }
+        ],
+        "parentTitle": "Stage Two: Uncoiling",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 35787,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1299673,
+        "title": "Invoke",
+        "journalSpellName": "Invoke",
+        "tooltipName": "Invoke",
+        "icon": "warrior_disruptingshout",
+        "cast": "5 sec cast",
+        "description": "Nek'zali invokes the Soulcoil Rite and calls upon the Latent Cultists to perform an Entwined Step.",
+        "damage": [],
+        "parentTitle": "Stage Two: Uncoiling",
+        "parentSpellId": null,
+        "depth": 1,
+        "sectionId": 36790,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1293497,
+        "title": "Entwined Step",
+        "journalSpellName": "Entwined Step",
+        "tooltipName": "Entwined Step",
+        "icon": "ability_monk_souldance",
+        "cast": "Instant",
+        "description": "Latent Cultists reenact an ancient ritual, repositioning around the Soulcoil Well.",
+        "damage": [],
+        "parentTitle": "Latent Cultist",
+        "parentSpellId": 1287198,
+        "depth": 3,
+        "sectionId": 36792,
+        "repeatedSections": 1
+      }
+    ],
+    "journalInstance": {
+      "id": 1320,
+      "name": "The Venomous Abyss"
+    }
+  }
+}

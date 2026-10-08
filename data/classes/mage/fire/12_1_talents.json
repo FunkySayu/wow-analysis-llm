@@ -1,0 +1,3975 @@
+{
+  "meta": {
+    "branch": "live",
+    "patch": "12.1",
+    "fetched_at": "2026-10-08T09:08:42Z",
+    "source_sha256": "c7aa8c79db6dadcd32d0ac3a436003d90a673f4aff34c2515d937a0cf441fa88",
+    "trait_tree_id": 658
+  },
+  "spec": {
+    "slug": "fire-mage",
+    "class_id": 8,
+    "spec_id": 63,
+    "class_name": "Mage",
+    "spec_name": "Fire"
+  },
+  "budgets": {
+    "class": 47,
+    "spec": 47,
+    "hero": 13
+  },
+  "full_node_order": [
+    62084,
+    62085,
+    62086,
+    62087,
+    62088,
+    62091,
+    62092,
+    62094,
+    62096,
+    62098,
+    62100,
+    62102,
+    62104,
+    62105,
+    62107,
+    62110,
+    62112,
+    62114,
+    62115,
+    62116,
+    62117,
+    62119,
+    62121,
+    62122,
+    62123,
+    62124,
+    62125,
+    62127,
+    62129,
+    62150,
+    62151,
+    62153,
+    62157,
+    62163,
+    62164,
+    62170,
+    62173,
+    62174,
+    62176,
+    62177,
+    62178,
+    62179,
+    62180,
+    62181,
+    62182,
+    62184,
+    62185,
+    81468,
+    93524,
+    94632,
+    94633,
+    94634,
+    94635,
+    94636,
+    94637,
+    94638,
+    94639,
+    94640,
+    94641,
+    94642,
+    94643,
+    94644,
+    94645,
+    94646,
+    94647,
+    94648,
+    94649,
+    94650,
+    94651,
+    94652,
+    94653,
+    94654,
+    94655,
+    94656,
+    94657,
+    94658,
+    94659,
+    94660,
+    94661,
+    94662,
+    94663,
+    94664,
+    99828,
+    99829,
+    99830,
+    100989,
+    100995,
+    100998,
+    100999,
+    101004,
+    101007,
+    101009,
+    101015,
+    101016,
+    101019,
+    101021,
+    101024,
+    101027,
+    101029,
+    101883,
+    102438,
+    102439,
+    102440,
+    102441,
+    102445,
+    102446,
+    102449,
+    102451,
+    102453,
+    102454,
+    102460,
+    102462,
+    102465,
+    102467,
+    102468,
+    102469,
+    102470,
+    102471,
+    102472,
+    102474,
+    102475,
+    102476,
+    102480,
+    103771,
+    104113,
+    108535,
+    108536,
+    108537,
+    108538,
+    108539,
+    108541,
+    108551,
+    108653,
+    108654,
+    108655,
+    108656,
+    108657,
+    108658,
+    108659,
+    108660,
+    108661,
+    108662,
+    108664,
+    108665,
+    108849,
+    108850,
+    108851,
+    108852,
+    108853,
+    108855,
+    108857,
+    108858,
+    108859,
+    108860,
+    108863,
+    108864,
+    109002,
+    109393,
+    109394,
+    109395,
+    109396,
+    109397,
+    109398,
+    109399,
+    109400,
+    109401,
+    109402,
+    109403,
+    109404,
+    109406,
+    109407,
+    109408,
+    109409,
+    109411,
+    109412,
+    109478,
+    109667,
+    109668,
+    109669,
+    109670,
+    109671,
+    109672,
+    109673,
+    109674,
+    109675,
+    109915,
+    109916,
+    109956,
+    110078,
+    110079,
+    110080,
+    110081,
+    110082,
+    110086,
+    110087,
+    110088,
+    110089,
+    110258,
+    110283,
+    110321,
+    110322,
+    110420,
+    110422,
+    110423,
+    110442,
+    110597,
+    110849,
+    110850
+  ],
+  "trees": {
+    "class": {
+      "nodes": [
+        {
+          "id": 62119,
+          "name": "Blazing Barrier",
+          "type": "single",
+          "x": 3900,
+          "y": 1500,
+          "col": 3,
+          "row": 0,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": true,
+          "is_apex": false,
+          "free": true,
+          "prev": [],
+          "next": [
+            62115,
+            62122
+          ],
+          "entries": [
+            {
+              "id": 80178,
+              "spell_id": 235313,
+              "name": "Blazing Barrier",
+              "icon": "ability_mage_moltenarmor",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Blazing BarrierTalent3% of base manaInstant30 sec cooldown1 ChargeRequires MageShields you in flame, absorbing [30 / 100 * Total Health * (1 + Versatility)] damage [Molten Skin: and reducing Physical damage taken by 0%] for 1 min.\n\nMelee attacks against you cause the attacker to take (14.375% of Spell Power) Fire damage."
+            }
+          ]
+        },
+        {
+          "id": 62115,
+          "name": "Alter Time",
+          "type": "single",
+          "x": 3300,
+          "y": 2100,
+          "col": 2,
+          "row": 1,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62119
+          ],
+          "next": [
+            108654,
+            62102
+          ],
+          "entries": [
+            {
+              "id": 80174,
+              "spell_id": 342245,
+              "name": "Alter Time",
+              "icon": "spell_mage_altertime",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Alter TimeTalent1% of base manaInstant1 min cooldownRequires MageAlters the fabric of time, returning you to your current location and health when cast a second time, or after 10 sec. Effect negated by long distance or death."
+            }
+          ]
+        },
+        {
+          "id": 62122,
+          "name": "Ice Block",
+          "type": "single",
+          "x": 4500,
+          "y": 2100,
+          "col": 4,
+          "row": 1,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62119
+          ],
+          "next": [
+            62123,
+            62107
+          ],
+          "entries": [
+            {
+              "id": 80181,
+              "spell_id": 45438,
+              "name": "Ice Block",
+              "icon": "spell_frost_frost",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Ice BlockTalentInstant4 min cooldown1 ChargeRequires MageEncases you in a block of ice, protecting you from all attacks and damage for 10 sec, but during that time you cannot attack, move, or cast spells.\n\nCauses Hypothermia, preventing you from recasting Ice Block for 30 sec."
+            }
+          ]
+        },
+        {
+          "id": 108654,
+          "name": "Time Walk / Temporal Realignment",
+          "type": "choice",
+          "x": 2700,
+          "y": 2700,
+          "col": 1,
+          "row": 2,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62115
+          ],
+          "next": [
+            62114
+          ],
+          "entries": [
+            {
+              "id": 134183,
+              "spell_id": 1244087,
+              "name": "Time Walk",
+              "icon": "warrior_doubletime",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Time WalkTalentRequires MageAlter Time resets the cooldown of Blink and Shimmer when you return to your original location."
+            },
+            {
+              "id": 134182,
+              "spell_id": 1244090,
+              "name": "Temporal Realignment",
+              "icon": "ability_evoker_timedilation",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Temporal RealignmentTalentRequires MageUpon dropping below 25% health, your past self corrects your timeline, casting Alter Time and instantly returning 20% of your maximum health and healing you for an additional 30% over 6 sec."
+            }
+          ]
+        },
+        {
+          "id": 62102,
+          "name": "Master of Time",
+          "type": "single",
+          "x": 3300,
+          "y": 2700,
+          "col": 2,
+          "row": 2,
+          "max_ranks": 2,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62115
+          ],
+          "next": [
+            62114,
+            108660
+          ],
+          "entries": [
+            {
+              "id": 80159,
+              "spell_id": 342249,
+              "name": "Master of Time",
+              "icon": "inv_belt_armor_waistoftime_d_01",
+              "type": "passive",
+              "max_ranks": 2,
+              "description": "Master of TimeTalentRequires MageRequires level 25\nReduces the cooldown of Alter Time by 5 sec."
+            }
+          ]
+        },
+        {
+          "id": 62123,
+          "name": "Winter's Protection",
+          "type": "single",
+          "x": 4500,
+          "y": 2700,
+          "col": 4,
+          "row": 2,
+          "max_ranks": 2,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62122
+          ],
+          "next": [
+            108660,
+            62124
+          ],
+          "entries": [
+            {
+              "id": 80182,
+              "spell_id": 382424,
+              "name": "Winter's Protection",
+              "icon": "spell_ice_rune",
+              "type": "passive",
+              "max_ranks": 2,
+              "description": "Winter's ProtectionTalentRequires MageThe cooldown of Ice Block is reduced by 30 sec."
+            }
+          ]
+        },
+        {
+          "id": 62107,
+          "name": "Frost Conditioning",
+          "type": "single",
+          "x": 5100,
+          "y": 2700,
+          "col": 5,
+          "row": 2,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62122
+          ],
+          "next": [
+            62124
+          ],
+          "entries": [
+            {
+              "id": 80165,
+              "spell_id": 1250315,
+              "name": "Frost Conditioning",
+              "icon": "spell_frost_icefloes",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Frost ConditioningTalentRequires MageHypothermia's duration is reduced by 10 sec."
+            }
+          ]
+        },
+        {
+          "id": 62114,
+          "name": "Arcane Warding",
+          "type": "single",
+          "x": 2700,
+          "y": 3300,
+          "col": 1,
+          "row": 3,
+          "max_ranks": 2,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62102,
+            108654
+          ],
+          "next": [
+            62084,
+            62104
+          ],
+          "entries": [
+            {
+              "id": 80173,
+              "spell_id": 383092,
+              "name": "Arcane Warding",
+              "icon": "spell_arcane_arcaneresilience",
+              "type": "passive",
+              "max_ranks": 2,
+              "description": "Arcane WardingTalentRequires MageReduces magic damage taken by 4%."
+            }
+          ]
+        },
+        {
+          "id": 108660,
+          "name": "Inspired Intellect",
+          "type": "single",
+          "x": 3900,
+          "y": 3300,
+          "col": 3,
+          "row": 3,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62123,
+            62102
+          ],
+          "next": [
+            62104,
+            101883,
+            62116
+          ],
+          "entries": [
+            {
+              "id": 134190,
+              "spell_id": 458437,
+              "name": "Inspired Intellect",
+              "icon": "spell_holy_arcaneintellect",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Inspired IntellectTalentRequires MageArcane Intellect grants you an additional 2% Intellect."
+            }
+          ]
+        },
+        {
+          "id": 62124,
+          "name": "Mirror Image",
+          "type": "single",
+          "x": 5100,
+          "y": 3300,
+          "col": 5,
+          "row": 3,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62107,
+            62123
+          ],
+          "next": [
+            62116,
+            108662
+          ],
+          "entries": [
+            {
+              "id": 80183,
+              "spell_id": 55342,
+              "name": "Mirror Image",
+              "icon": "spell_magic_lesserinvisibilty",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Mirror ImageTalent2% of base manaInstant2 min cooldownRequires MageCreates 3 copies of you nearby for 15 sec, which cast spells and attack your enemies. While active, you generate significantly reduced threat.\n\nTaking direct damage will cause one of your images to dissipate. (2s cooldown)"
+            }
+          ]
+        },
+        {
+          "id": 62084,
+          "name": "Spellsteal",
+          "type": "single",
+          "x": 2100,
+          "y": 3900,
+          "col": 0,
+          "row": 4,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62114
+          ],
+          "next": [
+            110082,
+            62105
+          ],
+          "entries": [
+            {
+              "id": 80140,
+              "spell_id": 30449,
+              "name": "Spellsteal",
+              "icon": "spell_arcane_arcane02",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "SpellstealTalent21% of base mana40 yd rangeInstantRequires MageSteals [Kleptomania: all beneficial magic effects from the target. These effects lasts a maximum of 2 min / a beneficial magic effect from the target. This effect lasts a maximum of 2 min]."
+            }
+          ]
+        },
+        {
+          "id": 62104,
+          "name": "Quick Witted",
+          "type": "single",
+          "x": 3300,
+          "y": 3900,
+          "col": 2,
+          "row": 4,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            108660,
+            62114
+          ],
+          "next": [
+            62105,
+            110079,
+            108661
+          ],
+          "entries": [
+            {
+              "id": 80161,
+              "spell_id": 382297,
+              "name": "Quick Witted",
+              "icon": "ability_priest_surgeofdarkness",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Quick WittedTalentRequires MageCounterspell's cooldown is reduced by 5 sec."
+            }
+          ]
+        },
+        {
+          "id": 101883,
+          "name": "Dragon's Breath / Supernova",
+          "type": "choice",
+          "x": 3900,
+          "y": 3900,
+          "col": 3,
+          "row": 4,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            108660
+          ],
+          "next": [
+            108661
+          ],
+          "entries": [
+            {
+              "id": 125819,
+              "spell_id": 31661,
+              "name": "Dragon's Breath",
+              "icon": "inv_misc_head_dragon_01",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Dragon's BreathTalent4% of base manaInstant45 sec cooldownRequires MageEnemies in a 12 yd cone in front of you take (66.99% of Spell Power) Fire damage and are disoriented for 4 sec. Damage will cancel the effect.\n\nFire\nAlways deals a critical strike and contributes to Hot Streak."
+            },
+            {
+              "id": 125818,
+              "spell_id": 157980,
+              "name": "Supernova",
+              "icon": "spell_mage_supernova",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "SupernovaTalent40 yd rangeInstant45 sec cooldownRequires MageRequires level 45\nPulses arcane energy around the target enemy or ally, dealing (34.5% of Spell Power) Arcane damage to all enemies within 8 yds, and knocking them upward. A primary enemy target will take 100% increased damage."
+            }
+          ]
+        },
+        {
+          "id": 62116,
+          "name": "Remove Curse",
+          "type": "single",
+          "x": 4500,
+          "y": 3900,
+          "col": 4,
+          "row": 4,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            108660,
+            62124
+          ],
+          "next": [
+            108661,
+            110078,
+            93524
+          ],
+          "entries": [
+            {
+              "id": 80175,
+              "spell_id": 475,
+              "name": "Remove Curse",
+              "icon": "spell_nature_removecurse",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Remove CurseTalent1.3% of base mana40 yd rangeInstant8 sec cooldownRequires MageRemoves all Curses from a friendly target."
+            }
+          ]
+        },
+        {
+          "id": 108662,
+          "name": "Improved Conjuration",
+          "type": "single",
+          "x": 5700,
+          "y": 3900,
+          "col": 6,
+          "row": 4,
+          "max_ranks": 2,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62124
+          ],
+          "next": [
+            93524
+          ],
+          "entries": [
+            {
+              "id": 134192,
+              "spell_id": 1244025,
+              "name": "Improved Conjuration",
+              "icon": "spell_arcane_focusedpower",
+              "type": "passive",
+              "max_ranks": 2,
+              "description": "Improved ConjurationTalentRequires MageMirror Image's cooldown is reduced by 30 sec."
+            }
+          ]
+        },
+        {
+          "id": 110082,
+          "name": "Improved Spellsteal",
+          "type": "single",
+          "x": 2100,
+          "y": 4500,
+          "col": 0,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62084
+          ],
+          "next": [
+            62110
+          ],
+          "entries": [
+            {
+              "id": 136581,
+              "spell_id": 1270827,
+              "name": "Improved Spellsteal",
+              "icon": "spell_arcane_arcane02",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Improved SpellstealTalentRequires MageSpellsteal repeats its effect after 4 sec, but it now has a cooldown of 4.0 sec."
+            }
+          ]
+        },
+        {
+          "id": 62105,
+          "name": "Shimmer / Improved Blink",
+          "type": "choice",
+          "x": 2700,
+          "y": 4500,
+          "col": 1,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62104,
+            62084
+          ],
+          "next": [
+            62110,
+            62125,
+            62127
+          ],
+          "entries": [
+            {
+              "id": 80163,
+              "spell_id": 212653,
+              "name": "Shimmer",
+              "icon": "spell_arcane_massdispel",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "ShimmerTalentReplaces Blink\n2% of base manaInstant30 sec cooldown1 ChargeRequires MageRequires level 25\nTeleports you 20 yds forward, unless something is in the way. Unaffected by the global cooldown and castable while casting."
+            },
+            {
+              "id": 134197,
+              "spell_id": 1244340,
+              "name": "Improved Blink",
+              "icon": "spell_arcane_blink",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Improved BlinkTalentRequires Mage[Shimmer / Blink]'s cooldown is reduced by 2 sec."
+            }
+          ]
+        },
+        {
+          "id": 110079,
+          "name": "Improved Counterspell",
+          "type": "single",
+          "x": 3300,
+          "y": 4500,
+          "col": 2,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62104
+          ],
+          "next": [
+            62127
+          ],
+          "entries": [
+            {
+              "id": 136577,
+              "spell_id": 1270865,
+              "name": "Improved Counterspell",
+              "icon": "inv_1115_mage_counterspell",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Improved CounterspellTalentRequires MageCounterspell prevents casting for an additional 1.0 sec."
+            }
+          ]
+        },
+        {
+          "id": 108661,
+          "name": "Overflowing Energy",
+          "type": "single",
+          "x": 3900,
+          "y": 4500,
+          "col": 3,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62116,
+            62104,
+            101883
+          ],
+          "next": [
+            62127,
+            110597,
+            62098
+          ],
+          "entries": [
+            {
+              "id": 134191,
+              "spell_id": 390218,
+              "name": "Overflowing Energy",
+              "icon": "spell_arcane_manatap",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Overflowing EnergyTalentRequires Mage Arcane\nEach time your Arcane Barrage fails to critically strike, it gains 10% increased critical strike chance.\n\nCritical strike bonus is removed when the affected spell critically strikes.\n\n Fire\nEach time your Fireball fails to critically strike, it gains 20% increased critical strike chance.\n\nCritical strike bonus is removed when the affected spell critically strikes.\n\n Frost\nEach time your Frostbolt fails to critically strike, it gains 10% increased critical strike chance.\n\nCritical strike bonus is removed when the affected spell critically strikes."
+            }
+          ]
+        },
+        {
+          "id": 110078,
+          "name": "Improved Remove Curse",
+          "type": "single",
+          "x": 4500,
+          "y": 4500,
+          "col": 4,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62116
+          ],
+          "next": [
+            62098
+          ],
+          "entries": [
+            {
+              "id": 136576,
+              "spell_id": 1270847,
+              "name": "Improved Remove Curse",
+              "icon": "spell_nature_removecurse",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Improved Remove CurseTalentRequires MageCasting Remove Curse on a friendly target also casts it on yourself, but its cooldown is increased by 20 sec."
+            }
+          ]
+        },
+        {
+          "id": 93524,
+          "name": "Greater Invisibility",
+          "type": "single",
+          "x": 5100,
+          "y": 4500,
+          "col": 5,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62116,
+            108662
+          ],
+          "next": [
+            62098,
+            62112,
+            108659
+          ],
+          "entries": [
+            {
+              "id": 115877,
+              "spell_id": 110959,
+              "name": "Greater Invisibility",
+              "icon": "ability_mage_greaterinvisibility",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Greater InvisibilityTalentInstant2 min cooldownRequires MageMakes you invisible and untargetable for 20 sec, removing all threat. Any action taken cancels this effect."
+            }
+          ]
+        },
+        {
+          "id": 62110,
+          "name": "Improved Frost Nova / Ice Ward",
+          "type": "choice",
+          "x": 2100,
+          "y": 5100,
+          "col": 0,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62105,
+            110082
+          ],
+          "next": [
+            108658
+          ],
+          "entries": [
+            {
+              "id": 80168,
+              "spell_id": 343183,
+              "name": "Improved Frost Nova",
+              "icon": "spell_frost_frostnova",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Improved Frost NovaTalentRequires MageFrost Nova duration is increased by 2 sec."
+            },
+            {
+              "id": 136466,
+              "spell_id": 205036,
+              "name": "Ice Ward",
+              "icon": "spell_frost_frostward",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Ice WardTalentRequires MageRequires level 40\nFrost Nova now has 2 charges."
+            }
+          ]
+        },
+        {
+          "id": 62125,
+          "name": "Captured Thoughts",
+          "type": "single",
+          "x": 2700,
+          "y": 5100,
+          "col": 1,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62105
+          ],
+          "next": [
+            108658
+          ],
+          "entries": [
+            {
+              "id": 134184,
+              "spell_id": 1270872,
+              "name": "Captured Thoughts",
+              "icon": "spell_nature_elementalabsorption",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Captured ThoughtsTalentRequires Mage Frost\nThe duration of Brain Freeze is increased by 15 sec.\n\n Arcane\nThe duration of Clearcasting is increased by 10 sec.\n\n Fire\nThe duration of Hot Streak is increased by 15 sec."
+            }
+          ]
+        },
+        {
+          "id": 62127,
+          "name": "Tome of Rhonin",
+          "type": "single",
+          "x": 3300,
+          "y": 5100,
+          "col": 2,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62105,
+            108661,
+            110079
+          ],
+          "next": [
+            108658,
+            110081,
+            62096
+          ],
+          "entries": [
+            {
+              "id": 80187,
+              "spell_id": 382493,
+              "name": "Tome of Rhonin",
+              "icon": "inv_misc_book_04",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Tome of RhoninTalentRequires MageIncreases critical strike chance by 2%."
+            }
+          ]
+        },
+        {
+          "id": 110597,
+          "name": "Improved Warding",
+          "type": "single",
+          "x": 3900,
+          "y": 5100,
+          "col": 3,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            108661
+          ],
+          "next": [
+            62096
+          ],
+          "entries": [
+            {
+              "id": 137410,
+              "spell_id": 1297073,
+              "name": "Improved Warding",
+              "icon": "inv_cloth_raidmage_p_01helm",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Improved WardingTalentRequires MageDamage taken from area of effect attacks reduced by 4%."
+            }
+          ]
+        },
+        {
+          "id": 62098,
+          "name": "Tome of Antonidas",
+          "type": "single",
+          "x": 4500,
+          "y": 5100,
+          "col": 4,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            108661,
+            93524,
+            110078
+          ],
+          "next": [
+            62096,
+            110080,
+            108657
+          ],
+          "entries": [
+            {
+              "id": 80155,
+              "spell_id": 382490,
+              "name": "Tome of Antonidas",
+              "icon": "inv_misc_book_18",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Tome of AntonidasTalentRequires MageIncreases Haste by 2%."
+            }
+          ]
+        },
+        {
+          "id": 62112,
+          "name": "Incantation of Swiftness",
+          "type": "single",
+          "x": 5100,
+          "y": 5100,
+          "col": 5,
+          "row": 6,
+          "max_ranks": 2,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            93524
+          ],
+          "next": [
+            108657
+          ],
+          "entries": [
+            {
+              "id": 80170,
+              "spell_id": 382293,
+              "name": "Incantation of Swiftness",
+              "icon": "rogue_burstofspeed",
+              "type": "passive",
+              "max_ranks": 2,
+              "description": "Incantation of SwiftnessTalentRequires Mage[Greater Invisibility: Greater]Invisibility increases your movement speed by 20% for 6 sec."
+            }
+          ]
+        },
+        {
+          "id": 108659,
+          "name": "Master of Escape",
+          "type": "single",
+          "x": 5700,
+          "y": 5100,
+          "col": 6,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            93524
+          ],
+          "next": [
+            108657
+          ],
+          "entries": [
+            {
+              "id": 134189,
+              "spell_id": 210476,
+              "name": "Master of Escape",
+              "icon": "ability_mage_invisibility",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Master of EscapeTalentRequires MageReduces the cooldown of Invisibility by 60 sec."
+            }
+          ]
+        },
+        {
+          "id": 108658,
+          "name": "Charm of Aegwynn",
+          "type": "single",
+          "x": 2700,
+          "y": 5700,
+          "col": 1,
+          "row": 7,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62110,
+            62127,
+            62125
+          ],
+          "next": [
+            62086,
+            62087,
+            62129
+          ],
+          "entries": [
+            {
+              "id": 134188,
+              "spell_id": 1244105,
+              "name": "Charm of Aegwynn",
+              "icon": "inv_nerubian_necklace_02_color5",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Charm of AegwynnTalentRequires MageThe critical strike damage of your spells is increased by 5%."
+            }
+          ]
+        },
+        {
+          "id": 110081,
+          "name": "Brainstorm",
+          "type": "single",
+          "x": 3300,
+          "y": 5700,
+          "col": 2,
+          "row": 7,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62127
+          ],
+          "next": [
+            62129
+          ],
+          "entries": [
+            {
+              "id": 136579,
+              "spell_id": 461261,
+              "name": "Brainstorm",
+              "icon": "ability_kaztik_dominatemind",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "BrainstormTalentRequires Mage Frost\nGaining Brain Freeze increases your Intellect by 1% for 8 sec. Multiple instances may overlap.\n\n Arcane\nGaining Clearcasting increases your Intellect by 1% for 8 sec. Multiple instances may overlap.\n\n Fire\nGaining Hot Streak increases your Intellect by 1% for 8 sec. Multiple instances may overlap."
+            }
+          ]
+        },
+        {
+          "id": 62096,
+          "name": "Flow of Time",
+          "type": "single",
+          "x": 3900,
+          "y": 5700,
+          "col": 3,
+          "row": 7,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62098,
+            62127,
+            110597
+          ],
+          "next": [
+            62129,
+            62088,
+            62100
+          ],
+          "entries": [
+            {
+              "id": 80153,
+              "spell_id": 382268,
+              "name": "Flow of Time",
+              "icon": "spell_arcane_blink",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Flow of TimeTalentRequires MageThe cooldowns of Blink and Shimmer are reduced by 3 sec."
+            }
+          ]
+        },
+        {
+          "id": 110080,
+          "name": "Mana Confluence",
+          "type": "single",
+          "x": 4500,
+          "y": 5700,
+          "col": 4,
+          "row": 7,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62098
+          ],
+          "next": [
+            62100
+          ],
+          "entries": [
+            {
+              "id": 136578,
+              "spell_id": 1270845,
+              "name": "Mana Confluence",
+              "icon": "spell_shaman_blessingoftheeternals",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Mana ConfluenceTalentRequires MageYour mana costs are reduced by 5%."
+            }
+          ]
+        },
+        {
+          "id": 108657,
+          "name": "Charm of Medivh",
+          "type": "single",
+          "x": 5100,
+          "y": 5700,
+          "col": 5,
+          "row": 7,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62112,
+            108659,
+            62098
+          ],
+          "next": [
+            62100,
+            62092,
+            62091
+          ],
+          "entries": [
+            {
+              "id": 134187,
+              "spell_id": 1244107,
+              "name": "Charm of Medivh",
+              "icon": "inv_nerubian_necklace_02_color1",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Charm of MedivhTalentRequires MageYour Mastery is increased by 3%."
+            }
+          ]
+        },
+        {
+          "id": 62086,
+          "name": "Permafrost Bauble",
+          "type": "single",
+          "x": 2100,
+          "y": 6300,
+          "col": 0,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            108658
+          ],
+          "next": [
+            62085
+          ],
+          "entries": [
+            {
+              "id": 80142,
+              "spell_id": 1265517,
+              "name": "Permafrost Bauble",
+              "icon": "inv_10_dungeonjewelry_primalist_necklace_2_frost",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Permafrost BaubleTalentRequires MageThe cooldown of Ice Block and Ice Cold are reduced by 30 sec."
+            }
+          ]
+        },
+        {
+          "id": 62087,
+          "name": "Freezing Cold / Ice Nova",
+          "type": "choice",
+          "x": 2700,
+          "y": 6300,
+          "col": 1,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            108658
+          ],
+          "next": [
+            62085
+          ],
+          "entries": [
+            {
+              "id": 80143,
+              "spell_id": 386763,
+              "name": "Freezing Cold",
+              "icon": "spell_frost_glacier",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Freezing ColdTalentRequires MageEnemies hit by Cone of Cold are frozen in place for 5 sec instead of snared.\n\nWhen your roots expire or are dispelled, your target is snared by 80%, decaying over 3 sec."
+            },
+            {
+              "id": 134199,
+              "spell_id": 157997,
+              "name": "Ice Nova",
+              "icon": "spell_mage_icenova",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Ice NovaTalent40 yd rangeInstant25 sec cooldownRequires MageRequires level 15\nCauses a whirl of icy wind around the enemy, dealing (138% of Spell Power) Frost damage to the target and all other enemies within 8 yds, freezing them in place for 2 sec. Damage reduced beyond 8 targets."
+            }
+          ]
+        },
+        {
+          "id": 62129,
+          "name": "Time Manipulation",
+          "type": "single",
+          "x": 3300,
+          "y": 6300,
+          "col": 2,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62096,
+            108658,
+            110081
+          ],
+          "next": [
+            62085,
+            62094
+          ],
+          "entries": [
+            {
+              "id": 80189,
+              "spell_id": 387807,
+              "name": "Time Manipulation",
+              "icon": "spell_nature_timestop",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Time ManipulationTalentRequires MageThe cooldowns of your loss of control spells are reduced by 5 sec."
+            }
+          ]
+        },
+        {
+          "id": 62088,
+          "name": "Ring of Frost / Mass Polymorph",
+          "type": "choice",
+          "x": 3900,
+          "y": 6300,
+          "col": 3,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62096
+          ],
+          "next": [
+            62094
+          ],
+          "entries": [
+            {
+              "id": 80144,
+              "spell_id": 113724,
+              "name": "Ring of Frost",
+              "icon": "spell_frost_ring_of_frost",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Ring of FrostTalent8% of base mana30 yd range2 sec cast45 sec cooldownRequires MageRequires level 40\nSummons a Ring of Frost for 10 sec at the target location. Enemies entering the ring are incapacitated for 10 sec. Limit 10 targets.\n\nWhen the incapacitate expires, enemies are slowed by 65% for 4 sec."
+            },
+            {
+              "id": 134198,
+              "spell_id": 383121,
+              "name": "Mass Polymorph",
+              "icon": "spell_nature_doublepolymorph1",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Mass PolymorphTalent4% of base mana1.7 sec cast1 min cooldownRequires MageTransforms all enemies within 10 yards into sheep, wandering around incapacitated for 15 sec. While affected, the victims cannot take actions but will regenerate health very quickly. Damage will cancel the effect.\n\nOnly works on Beasts, Humanoids and Critters."
+            }
+          ]
+        },
+        {
+          "id": 62100,
+          "name": "Energized Barriers",
+          "type": "single",
+          "x": 4500,
+          "y": 6300,
+          "col": 4,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            108657,
+            62096,
+            110080
+          ],
+          "next": [
+            62094,
+            108656
+          ],
+          "entries": [
+            {
+              "id": 80157,
+              "spell_id": 386828,
+              "name": "Energized Barriers",
+              "icon": "spell_mage_temporalshield",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Energized BarriersTalentRequires MageCasting your barrier removes all snare effects."
+            }
+          ]
+        },
+        {
+          "id": 62092,
+          "name": "Mass Invisibility",
+          "type": "single",
+          "x": 5100,
+          "y": 6300,
+          "col": 5,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            108657
+          ],
+          "next": [
+            108656
+          ],
+          "entries": [
+            {
+              "id": 115878,
+              "spell_id": 414664,
+              "name": "Mass Invisibility",
+              "icon": "ability_mage_massinvisibility",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Mass InvisibilityTalent6% of base manaInstant5 min cooldownRequires MageYou and your allies within 40 yards instantly become invisible for 12 sec. Taking any action will cancel the effect.\n\nDoes not affect allies in combat."
+            }
+          ]
+        },
+        {
+          "id": 62091,
+          "name": "Barrier Diffusion",
+          "type": "single",
+          "x": 5700,
+          "y": 6300,
+          "col": 6,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            108657
+          ],
+          "next": [
+            108656
+          ],
+          "entries": [
+            {
+              "id": 80147,
+              "spell_id": 455428,
+              "name": "Barrier Diffusion",
+              "icon": "spell_mage_evanesce",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Barrier DiffusionTalentRequires MageWhen your Barrier is removed, reduce its cooldown by 5 sec."
+            }
+          ]
+        },
+        {
+          "id": 62085,
+          "name": "Ice Cold",
+          "type": "single",
+          "x": 2700,
+          "y": 6900,
+          "col": 1,
+          "row": 9,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62087,
+            62086,
+            62129
+          ],
+          "next": [],
+          "entries": [
+            {
+              "id": 80141,
+              "spell_id": 414659,
+              "name": "Ice Cold",
+              "icon": "spell_fire_bluefire",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Ice ColdTalentRequires MageIce Block now reduces all damage taken by 70% for 6 sec but no longer grants Immunity, prevents movement, attacks, or casting spells. Does not incur the Global Cooldown."
+            }
+          ]
+        },
+        {
+          "id": 62094,
+          "name": "Spatial Manipulation / Reflection",
+          "type": "choice",
+          "x": 3900,
+          "y": 6900,
+          "col": 3,
+          "row": 9,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62088,
+            62129,
+            62100
+          ],
+          "next": [],
+          "entries": [
+            {
+              "id": 126060,
+              "spell_id": 1244031,
+              "name": "Spatial Manipulation",
+              "icon": "spell_mage_overpowered",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Spatial ManipulationTalentRequires Mage[Shimmer / Blink] gains an additional charge."
+            },
+            {
+              "id": 136580,
+              "spell_id": 1270829,
+              "name": "Reflection",
+              "icon": "ability_hunter_displacement",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "ReflectionTalentRequires MageAfter casting [Shimmer / Blink], it is replaced with Reflection for 8 sec.\n\n Reflection\nTeleports you back to where you last [Shimmer: Shimmered / Blinked]. Castable while casting and unaffected by the global cooldown."
+            }
+          ]
+        },
+        {
+          "id": 108656,
+          "name": "Improved Blazing Barrier",
+          "type": "single",
+          "x": 5100,
+          "y": 6900,
+          "col": 5,
+          "row": 9,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            62092,
+            62091,
+            62100
+          ],
+          "next": [],
+          "entries": [
+            {
+              "id": 134186,
+              "spell_id": 321708,
+              "name": "Improved Blazing Barrier",
+              "icon": "ability_mage_moltenarmor",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Improved Blazing BarrierTalentRequires MageBlazing Barrier gains an additional charge and cauterizes your wounds, healing you for 15% of the damage it absorbs."
+            }
+          ]
+        }
+      ]
+    },
+    "spec": {
+      "nodes": [
+        {
+          "id": 100998,
+          "name": "Pyroblast",
+          "type": "single",
+          "x": 12300,
+          "y": 1500,
+          "col": 3,
+          "row": 0,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": true,
+          "is_apex": false,
+          "free": false,
+          "prev": [],
+          "next": [
+            100989,
+            110321,
+            109409
+          ],
+          "entries": [
+            {
+              "id": 124759,
+              "spell_id": 11366,
+              "name": "Pyroblast",
+              "icon": "spell_fire_fireball02",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "PyroblastTalent1.5% of base mana40 yd range4 sec castRequires MageHurls an immense fiery boulder that causes (638.8% of Spell Power) Fire damage."
+            }
+          ]
+        },
+        {
+          "id": 100989,
+          "name": "Fire Blast",
+          "type": "single",
+          "x": 11700,
+          "y": 2100,
+          "col": 2,
+          "row": 1,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            100998
+          ],
+          "next": [
+            109407,
+            100995
+          ],
+          "entries": [
+            {
+              "id": 124750,
+              "spell_id": 108853,
+              "name": "Fire Blast",
+              "icon": "spell_fire_fireball",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Fire BlastTalent1% of base mana40 yd rangeInstant14 sec cooldown1 ChargeRequires MageBlasts the enemy, critically striking for [(98.625% of Spell Power) * 2] Fire damage.\n\nCastable while casting other spells."
+            }
+          ]
+        },
+        {
+          "id": 110321,
+          "name": "Firestarter",
+          "type": "single",
+          "x": 12300,
+          "y": 2100,
+          "col": 3,
+          "row": 1,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            100998
+          ],
+          "next": [],
+          "entries": [
+            {
+              "id": 136878,
+              "spell_id": 205026,
+              "name": "Firestarter",
+              "icon": "spell_fire_fire",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "FirestarterTalentRequires MageRequires level 15\nYour Fireball and Pyroblast spells always deal a critical strike when the target is above 90% health."
+            }
+          ]
+        },
+        {
+          "id": 109409,
+          "name": "Flamestrike / Flamestrike",
+          "type": "choice",
+          "x": 12900,
+          "y": 2100,
+          "col": 4,
+          "row": 1,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            100998
+          ],
+          "next": [
+            100995,
+            109406
+          ],
+          "entries": [
+            {
+              "id": 135619,
+              "spell_id": 2120,
+              "name": "Flamestrike",
+              "icon": "spell_fire_selfdestruct",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "FlamestrikeTalent1.5% of base mana40 yd range3.5 sec castRequires MageCalls down a pillar of fire, burning all enemies within the area for (345% of Spell Power) Fire damage. Deals reduced damage beyond 8 targets.\n\nThis spell is cast at a selected location.\n\nFire\nLeaves behind a patch of flames that burns enemies within it for (6 * (15% of Spell Power)) Fire damage over 6 sec."
+            },
+            {
+              "id": 135602,
+              "spell_id": 1254851,
+              "name": "Flamestrike",
+              "icon": "spell_fire_selfdestruct",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "FlamestrikeTalent1.5% of base mana40 yd range3.5 sec castRequires MageCalls down a pillar of fire on your target, burning all enemies within the area for (345% of Spell Power) Fire damage. Deals reduced damage beyond 8 targets.\n\nThis spell is cast at your target.\n\nFire\nLeaves behind a patch of flames that burns enemies within it for (6 * (15% of Spell Power)) Fire damage over 6 sec."
+            }
+          ]
+        },
+        {
+          "id": 109407,
+          "name": "Ignition",
+          "type": "single",
+          "x": 11100,
+          "y": 2700,
+          "col": 1,
+          "row": 2,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            100989
+          ],
+          "next": [
+            101027
+          ],
+          "entries": [
+            {
+              "id": 135616,
+              "spell_id": 1254756,
+              "name": "Ignition",
+              "icon": "item_sparkofragnoros",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "IgnitionTalentRequires MageFire Blast now spreads 50% of your target's Ignite to 1 enemy.\n\nFlamestrike applies 15% more Ignite."
+            }
+          ]
+        },
+        {
+          "id": 100995,
+          "name": "Combustion",
+          "type": "single",
+          "x": 12300,
+          "y": 2700,
+          "col": 3,
+          "row": 2,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109409,
+            100989
+          ],
+          "next": [
+            109403
+          ],
+          "entries": [
+            {
+              "id": 124756,
+              "spell_id": 190319,
+              "name": "Combustion",
+              "icon": "spell_fire_sealoffire",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "CombustionTalent10% of base manaInstant2 min cooldownRequires MageEngulfs you in flames for 10 sec, increasing your spells' critical strike chance by 100%.\n[\nAdditionally, increases your spell damage by 0%.]\n\nCastable while casting other spells.\n\nFire\nAdditionally, increases your Mastery by 75% of your critical strike chance."
+            }
+          ]
+        },
+        {
+          "id": 109406,
+          "name": "Fuel the Fire",
+          "type": "single",
+          "x": 13500,
+          "y": 2700,
+          "col": 5,
+          "row": 2,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109409
+          ],
+          "next": [
+            101021
+          ],
+          "entries": [
+            {
+              "id": 135615,
+              "spell_id": 416094,
+              "name": "Fuel the Fire",
+              "icon": "ability_warlock_inferno",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Fuel the FireTalentRequires MageFlamestrike has a chance equal to 100% of your spell critical strike chance to build up to a Hot Streak.\n\nFlamestrike deals 5% increased damage for each enemy it damages, up to 25%."
+            }
+          ]
+        },
+        {
+          "id": 101027,
+          "name": "Fervent Flickering",
+          "type": "single",
+          "x": 11100,
+          "y": 3300,
+          "col": 1,
+          "row": 3,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109407
+          ],
+          "next": [
+            110322,
+            101009
+          ],
+          "entries": [
+            {
+              "id": 124793,
+              "spell_id": 387044,
+              "name": "Fervent Flickering",
+              "icon": "ability_warlock_burningembers",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Fervent FlickeringTalentRequires MageFire Blast gains 1 additional charge and its damage is increased by 25%."
+            }
+          ]
+        },
+        {
+          "id": 109403,
+          "name": "Cauterize",
+          "type": "single",
+          "x": 12300,
+          "y": 3300,
+          "col": 3,
+          "row": 3,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            100995
+          ],
+          "next": [
+            101009,
+            101024,
+            101029
+          ],
+          "entries": [
+            {
+              "id": 135612,
+              "spell_id": 86949,
+              "name": "Cauterize",
+              "icon": "spell_fire_rune",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "CauterizeTalentRequires MageFatal damage instead brings you to 35% health and then burns you for 28% of your maximum health over 6 sec.\n\nWhile burning, movement slowing effects are suppressed and your movement speed is increased by 150%.\n\nThis effect cannot occur more than once every 6 min."
+            }
+          ]
+        },
+        {
+          "id": 101021,
+          "name": "Meteor",
+          "type": "single",
+          "x": 13500,
+          "y": 3300,
+          "col": 5,
+          "row": 3,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109406
+          ],
+          "next": [
+            101029,
+            101016
+          ],
+          "entries": [
+            {
+              "id": 124786,
+              "spell_id": 153561,
+              "name": "Meteor",
+              "icon": "spell_mage_meteor",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "MeteorTalent1% of base mana40 yd rangeInstant45 sec cooldownRequires MageCalls down a meteor which lands at the target location after 3 sec, dealing (900% of Spell Power) Fire damage to all enemies, and burns the ground, dealing [8 * (104% of Spell Power)] Fire damage over 4 sec to all enemies in the area.\n\nDamage reduced beyond 8 targets."
+            }
+          ]
+        },
+        {
+          "id": 110322,
+          "name": "Scorch",
+          "type": "single",
+          "x": 11100,
+          "y": 3900,
+          "col": 1,
+          "row": 4,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            101027
+          ],
+          "next": [
+            109411,
+            109408
+          ],
+          "entries": [
+            {
+              "id": 136879,
+              "spell_id": 2948,
+              "name": "Scorch",
+              "icon": "spell_fire_soulburn",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "ScorchTalent1% of base mana40 yd range1.5 sec castRequires MageScorches an enemy for (100% of Spell Power) Fire damage.\n\nWhen cast on a target below 30% health, Scorch is a guaranteed critical strike.\n\nCastable while moving."
+            }
+          ]
+        },
+        {
+          "id": 101009,
+          "name": "Flame On",
+          "type": "single",
+          "x": 11700,
+          "y": 3900,
+          "col": 2,
+          "row": 4,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109403,
+            101027
+          ],
+          "next": [
+            109408,
+            109401
+          ],
+          "entries": [
+            {
+              "id": 124771,
+              "spell_id": 205029,
+              "name": "Flame On",
+              "icon": "inv_helm_circlet_firelands_d_01",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Flame OnTalentRequires MageRequires level 35\nFire Blast gains 1 additional charge and its cooldown is reduced by 2.0 sec."
+            }
+          ]
+        },
+        {
+          "id": 101024,
+          "name": "Kindling",
+          "type": "single",
+          "x": 12300,
+          "y": 3900,
+          "col": 3,
+          "row": 4,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109403
+          ],
+          "next": [
+            109401
+          ],
+          "entries": [
+            {
+              "id": 124789,
+              "spell_id": 1254194,
+              "name": "Kindling",
+              "icon": "spell_mage_kindling",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "KindlingTalentRequires MageCombustion's cooldown is reduced by 60 sec."
+            }
+          ]
+        },
+        {
+          "id": 101029,
+          "name": "Critical Mass",
+          "type": "single",
+          "x": 12900,
+          "y": 3900,
+          "col": 4,
+          "row": 4,
+          "max_ranks": 2,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109403,
+            101021
+          ],
+          "next": [
+            109401,
+            109399
+          ],
+          "entries": [
+            {
+              "id": 124795,
+              "spell_id": 117216,
+              "name": "Critical Mass",
+              "icon": "spell_fire_volcano",
+              "type": "passive",
+              "max_ranks": 2,
+              "description": "Critical MassTalentRequires MageYour spells have a 4% increased chance to deal a critical strike.\n\nYou gain 10% more of the Critical Strike stat from all sources."
+            }
+          ]
+        },
+        {
+          "id": 101016,
+          "name": "Deep Impact",
+          "type": "single",
+          "x": 13500,
+          "y": 3900,
+          "col": 5,
+          "row": 4,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            101021
+          ],
+          "next": [
+            109399,
+            109400
+          ],
+          "entries": [
+            {
+              "id": 124779,
+              "spell_id": 1254857,
+              "name": "Deep Impact",
+              "icon": "spell_fire_moltenblood",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Deep ImpactTalentRequires MageThe enemy closest to the center of Meteor's impact takes 75% increased damage."
+            }
+          ]
+        },
+        {
+          "id": 109411,
+          "name": "Heat Shimmer",
+          "type": "single",
+          "x": 10500,
+          "y": 4500,
+          "col": 0,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            110322
+          ],
+          "next": [
+            110087
+          ],
+          "entries": [
+            {
+              "id": 135621,
+              "spell_id": 457735,
+              "name": "Heat Shimmer",
+              "icon": "ability_rhyolith_magmaflow_wave",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Heat ShimmerTalentRequires MageApproximately 3 procs per minuteWhile Combustion is not active, damage from Ignite has a small chance to make your next Scorch instant, deal 100% increased damage, and deal damage as though your target was below 30% health."
+            }
+          ]
+        },
+        {
+          "id": 109408,
+          "name": "Scald",
+          "type": "single",
+          "x": 11700,
+          "y": 4500,
+          "col": 2,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            101009,
+            110322
+          ],
+          "next": [
+            110087,
+            109402,
+            109412
+          ],
+          "entries": [
+            {
+              "id": 135617,
+              "spell_id": 450746,
+              "name": "Scald",
+              "icon": "ability_racial_foregedinflames",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "ScaldTalentRequires MageFireball always critically strikes enemies below 30% health.\n\nWhen Fireball or Scorch damage an enemy below 30% health, Fireball deals 25% increased damage and Scorch deals 250% increased damage."
+            }
+          ]
+        },
+        {
+          "id": 109401,
+          "name": "Controlled Destruction",
+          "type": "single",
+          "x": 12300,
+          "y": 4500,
+          "col": 3,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            101024,
+            101029,
+            101009
+          ],
+          "next": [
+            109412
+          ],
+          "entries": [
+            {
+              "id": 135609,
+              "spell_id": 383669,
+              "name": "Controlled Destruction",
+              "icon": "spell_fire_playingwithfire",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Controlled DestructionTalentRequires MageDamaging an enemy with Fireball, Pyroblast, or Flamestrike increases the damage it receives from Ignite by 0.2%. Stacks up to 50 times."
+            }
+          ]
+        },
+        {
+          "id": 109399,
+          "name": "Mote of Flame",
+          "type": "single",
+          "x": 12900,
+          "y": 4500,
+          "col": 4,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            101029,
+            101016
+          ],
+          "next": [
+            109412,
+            109398,
+            110086
+          ],
+          "entries": [
+            {
+              "id": 135607,
+              "spell_id": 343230,
+              "name": "Mote of Flame",
+              "icon": "inv_10_elementalcombinedfoozles_fire",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Mote of FlameTalentRequires MageAll Fire damage dealt increased by 3%."
+            }
+          ]
+        },
+        {
+          "id": 109400,
+          "name": "Blast Zone",
+          "type": "single",
+          "x": 14100,
+          "y": 4500,
+          "col": 6,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            101016
+          ],
+          "next": [
+            110086
+          ],
+          "entries": [
+            {
+              "id": 135608,
+              "spell_id": 416719,
+              "name": "Blast Zone",
+              "icon": "spell_fire_elementaldevastation",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Blast ZoneTalentRequires MageMeteor's cooldown is reduced by 15 sec."
+            }
+          ]
+        },
+        {
+          "id": 110087,
+          "name": "Conflagration",
+          "type": "single",
+          "x": 11100,
+          "y": 5100,
+          "col": 1,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109408,
+            109411
+          ],
+          "next": [
+            109404
+          ],
+          "entries": [
+            {
+              "id": 136588,
+              "spell_id": 1271171,
+              "name": "Conflagration",
+              "icon": "spell_shaman_firenova",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "ConflagrationTalentRequires MageFire Blast deals (40% of Spell Power) additional Fire damage to up to 8 nearby enemies."
+            }
+          ]
+        },
+        {
+          "id": 109402,
+          "name": "Intensifying Flame",
+          "type": "single",
+          "x": 11700,
+          "y": 5100,
+          "col": 2,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109408
+          ],
+          "next": [
+            109404,
+            101019
+          ],
+          "entries": [
+            {
+              "id": 135610,
+              "spell_id": 416714,
+              "name": "Intensifying Flame",
+              "icon": "spell_fire_incinerate",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Intensifying FlameTalentRequires MageWhile Ignite is on 3 or fewer enemies it flares up dealing an additional 30% of its damage to affected targets."
+            }
+          ]
+        },
+        {
+          "id": 109412,
+          "name": "Spontaneous Combustion",
+          "type": "single",
+          "x": 12300,
+          "y": 5100,
+          "col": 3,
+          "row": 6,
+          "max_ranks": 2,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109399,
+            109401,
+            109408
+          ],
+          "next": [
+            101019
+          ],
+          "entries": [
+            {
+              "id": 135622,
+              "spell_id": 451875,
+              "name": "Spontaneous Combustion",
+              "icon": "ability_mage_worldinflames",
+              "type": "passive",
+              "max_ranks": 2,
+              "description": "Spontaneous CombustionTalentRequires MageCasting Combustion refreshes up to 1 charge of Fire Blast."
+            }
+          ]
+        },
+        {
+          "id": 109398,
+          "name": "Molten Fury",
+          "type": "single",
+          "x": 12900,
+          "y": 5100,
+          "col": 4,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109399
+          ],
+          "next": [
+            101019,
+            101004
+          ],
+          "entries": [
+            {
+              "id": 135606,
+              "spell_id": 457803,
+              "name": "Molten Fury",
+              "icon": "warrior_talent_icon_furyintheblood",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Molten FuryTalentRequires MageDamage dealt to targets below 35% health is increased by 15%."
+            }
+          ]
+        },
+        {
+          "id": 110086,
+          "name": "Inflame",
+          "type": "single",
+          "x": 13500,
+          "y": 5100,
+          "col": 5,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": 8,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109399,
+            109400
+          ],
+          "next": [
+            101004
+          ],
+          "entries": [
+            {
+              "id": 136587,
+              "spell_id": 417467,
+              "name": "Inflame",
+              "icon": "spell_fire_ragnaros_lavabolt",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "InflameTalentRequires MageHot Streak increases the amount of Ignite damage from Pyroblast or Flamestrike by an additional 25%."
+            }
+          ]
+        },
+        {
+          "id": 109404,
+          "name": "Wildfire",
+          "type": "single",
+          "x": 11100,
+          "y": 5700,
+          "col": 1,
+          "row": 7,
+          "max_ranks": 2,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109402,
+            110087
+          ],
+          "next": [
+            109395,
+            109393
+          ],
+          "entries": [
+            {
+              "id": 135613,
+              "spell_id": 1254828,
+              "name": "Wildfire",
+              "icon": "ability_warlock_inferno",
+              "type": "passive",
+              "max_ranks": 2,
+              "description": "WildfireTalentRequires MageFire Blast damage increased by 10% and it now spreads Ignite to 1 additional target."
+            }
+          ]
+        },
+        {
+          "id": 101019,
+          "name": "Fevered Incantation",
+          "type": "single",
+          "x": 12300,
+          "y": 5700,
+          "col": 3,
+          "row": 7,
+          "max_ranks": 2,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109398,
+            109412,
+            109402
+          ],
+          "next": [
+            109393,
+            109396,
+            109394
+          ],
+          "entries": [
+            {
+              "id": 124783,
+              "spell_id": 383810,
+              "name": "Fevered Incantation",
+              "icon": "inv_misc_enchantedpearld",
+              "type": "passive",
+              "max_ranks": 2,
+              "description": "Fevered IncantationTalentRequires MageEach consecutive critical strike you deal increases critical strike damage you deal by 1%, up to 4% for 6 sec."
+            }
+          ]
+        },
+        {
+          "id": 101004,
+          "name": "Fire's Ire",
+          "type": "single",
+          "x": 13500,
+          "y": 5700,
+          "col": 5,
+          "row": 7,
+          "max_ranks": 2,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109398,
+            110086
+          ],
+          "next": [
+            109394,
+            110089
+          ],
+          "entries": [
+            {
+              "id": 124765,
+              "spell_id": 450831,
+              "name": "Fire's Ire",
+              "icon": "achievement_boss_lordanthricyst",
+              "type": "passive",
+              "max_ranks": 2,
+              "description": "Fire's IreTalentRequires MageYour spell critical strike chance is increased by 2.5%.\n\nCombustion increases your critical strike damage by 2.5%."
+            }
+          ]
+        },
+        {
+          "id": 109395,
+          "name": "Master of Flame",
+          "type": "single",
+          "x": 10500,
+          "y": 6300,
+          "col": 0,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109404
+          ],
+          "next": [
+            110088
+          ],
+          "entries": [
+            {
+              "id": 135603,
+              "spell_id": 384174,
+              "name": "Master of Flame",
+              "icon": "inv_trinket_firelands_02",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Master of FlameTalentRequires MageIgnite deals 15% more damage when Combustion is not active.\n\nFire Blast now spreads an additional 50% of your Ignite."
+            }
+          ]
+        },
+        {
+          "id": 109393,
+          "name": "From the Ashes",
+          "type": "single",
+          "x": 11700,
+          "y": 6300,
+          "col": 2,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            101019,
+            109404
+          ],
+          "next": [
+            100999,
+            101007
+          ],
+          "entries": [
+            {
+              "id": 135600,
+              "spell_id": 342344,
+              "name": "From the Ashes",
+              "icon": "inv_misc_phoenixegg",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "From the AshesTalentRequires MageRequires level 35\nFire Blast damage increased by 15%. \n\nYour direct damage spells reduce the cooldown of Fire Blast by 0.50 sec. (100ms cooldown)"
+            }
+          ]
+        },
+        {
+          "id": 109396,
+          "name": "Fiery Rush",
+          "type": "single",
+          "x": 12300,
+          "y": 6300,
+          "col": 3,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            101019
+          ],
+          "next": [
+            101007
+          ],
+          "entries": [
+            {
+              "id": 135604,
+              "spell_id": 383634,
+              "name": "Fiery Rush",
+              "icon": "inv_summerfest_firespirit",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Fiery RushTalentRequires MageWhile Combustion is active, Fire Blast recharges 50% faster."
+            }
+          ]
+        },
+        {
+          "id": 109394,
+          "name": "Flame Accelerant",
+          "type": "single",
+          "x": 12900,
+          "y": 6300,
+          "col": 4,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            101019,
+            101004
+          ],
+          "next": [
+            101007,
+            101015
+          ],
+          "entries": [
+            {
+              "id": 135601,
+              "spell_id": 453282,
+              "name": "Flame Accelerant",
+              "icon": "inv_ember",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Flame AccelerantTalentRequires MageThe cast time of Pyroblast and Flamestrike is reduced by 20%."
+            }
+          ]
+        },
+        {
+          "id": 110089,
+          "name": "Pyromaniac",
+          "type": "single",
+          "x": 14100,
+          "y": 6300,
+          "col": 6,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            101004
+          ],
+          "next": [
+            109397
+          ],
+          "entries": [
+            {
+              "id": 136590,
+              "spell_id": 451466,
+              "name": "Pyromaniac",
+              "icon": "inv_misc_volatilefire",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "PyromaniacTalentRequires MageCasting Pyroblast or Flamestrike while Hot Streak is active has a 6% chance to repeat the spell cast at 50% effectiveness.\n\nThis effect counts as consuming Hot Streak. (700ms cooldown)"
+            }
+          ]
+        },
+        {
+          "id": 110088,
+          "name": "Burnout",
+          "type": "single",
+          "x": 10500,
+          "y": 6900,
+          "col": 0,
+          "row": 9,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109395
+          ],
+          "next": [],
+          "entries": [
+            {
+              "id": 136589,
+              "spell_id": 1271177,
+              "name": "Burnout",
+              "icon": "ability_mage_burnout",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "BurnoutTalentRequires MageWhen Combustion expires, all of your active Ignites explode, dealing 75% of their remaining damage."
+            }
+          ]
+        },
+        {
+          "id": 100999,
+          "name": "Feel the Burn",
+          "type": "single",
+          "x": 11700,
+          "y": 6900,
+          "col": 2,
+          "row": 9,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109393
+          ],
+          "next": [],
+          "entries": [
+            {
+              "id": 124760,
+              "spell_id": 383391,
+              "name": "Feel the Burn",
+              "icon": "spell_fire_fireball",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Feel the BurnTalentRequires MageFire Blast increases your mastery by 2% for 4 sec. Multiple applications may overlap. (100ms cooldown)"
+            }
+          ]
+        },
+        {
+          "id": 101007,
+          "name": "Slow Burn / Burn It All",
+          "type": "choice",
+          "x": 12300,
+          "y": 6900,
+          "col": 3,
+          "row": 9,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109394,
+            109393,
+            109396
+          ],
+          "next": [],
+          "entries": [
+            {
+              "id": 124769,
+              "spell_id": 383967,
+              "name": "Slow Burn",
+              "icon": "spell_fire_sealoffire",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Slow BurnTalentRequires MageCombustion grants mastery equal to 75% of your Critical Strike stat.\n\nCombustion causes your spells to apply Ignite at 15% increased effectiveness."
+            },
+            {
+              "id": 135618,
+              "spell_id": 1254512,
+              "name": "Burn It All",
+              "icon": "ability_mage_fierypayback",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Burn It AllTalentRequires MageCombustion grants you 10% increased spell damage plus an additional 20% of your critical strike chance as spell damage."
+            }
+          ]
+        },
+        {
+          "id": 101015,
+          "name": "Pyroclasm",
+          "type": "single",
+          "x": 12900,
+          "y": 6900,
+          "col": 4,
+          "row": 9,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109394
+          ],
+          "next": [],
+          "entries": [
+            {
+              "id": 124778,
+              "spell_id": 269650,
+              "name": "Pyroclasm",
+              "icon": "spell_shaman_lavasurge",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "PyroclasmTalentRequires MageConsuming Hot Streak has a 15% chance to make your next non-instant Pyroblast or Flamestrike cast within 20 sec deal 230% additional damage.\n\nMaximum 2 stacks."
+            }
+          ]
+        },
+        {
+          "id": 109397,
+          "name": "Cinderstorm",
+          "type": "single",
+          "x": 14100,
+          "y": 6900,
+          "col": 6,
+          "row": 9,
+          "max_ranks": 1,
+          "req_points": 20,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            110089
+          ],
+          "next": [],
+          "entries": [
+            {
+              "id": 135605,
+              "spell_id": 1254865,
+              "name": "Cinderstorm",
+              "icon": "spell_fire_flare",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "CinderstormTalent40 yd rangeRequires MageCasting Pyroblast or Flamestrike has a 8% chance to summon a storm of 5 cinders that pursue your target. Upon reaching your target, each cinder deals (200% of Spell Power) Fire damage, applies Ignite at 100% effectiveness, and spreads 50% of your Ignite to up to 1 nearby target."
+            }
+          ]
+        },
+        {
+          "id": 110423,
+          "name": "Fired Up / Fired Up / Fired Up",
+          "type": "tiered",
+          "x": 12300,
+          "y": 7650,
+          "col": 3,
+          "row": 10,
+          "max_ranks": 4,
+          "req_points": 20,
+          "entry_node": true,
+          "is_apex": true,
+          "free": false,
+          "prev": [],
+          "next": [],
+          "entries": [
+            {
+              "id": 137037,
+              "spell_id": 1257343,
+              "name": "Fired Up",
+              "icon": "inv12_apextalent_mage_firedup",
+              "type": "tierrank",
+              "max_ranks": 1,
+              "description": "Fired UpTalent40 yd rangeRequires MageConsuming Hot Streak has a 20% chance to grant you a stack of Fired Up, increasing your Fire damage by 2% for 8 sec. Multiple applications may overlap."
+            },
+            {
+              "id": 137036,
+              "spell_id": 1257349,
+              "name": "Fired Up",
+              "icon": "ability_warlock_backdraft",
+              "type": "tierrank",
+              "max_ranks": 2,
+              "description": "Fired UpTalent40 yd rangeRequires MageGaining Fired Up reduces the cooldown of Fire Blast by 2.5 sec.\n\nAll Fire damage dealt is increased by 5%."
+            },
+            {
+              "id": 137035,
+              "spell_id": 1257348,
+              "name": "Fired Up",
+              "icon": "ability_warlock_burningembers",
+              "type": "tierrank",
+              "max_ranks": 1,
+              "description": "Fired UpTalent40 yd rangeRequires MageCombustion significantly increases your chance of gaining Fired Up, reducing each time you gain Fired Up.\n\nAdditionally Fired Up now extends Combustion's duration by 1.0 sec."
+            }
+          ]
+        }
+      ]
+    },
+    "hero": {
+      "subtrees": [
+        {
+          "slug": "frostfire",
+          "name": "Frostfire",
+          "sub_tree_id": 41,
+          "node_ids": [
+            109956,
+            94642,
+            94641,
+            94633,
+            109672,
+            94638,
+            94640,
+            94634,
+            109671,
+            94639,
+            94632,
+            94637,
+            109670,
+            94635
+          ],
+          "undefined_node_ids": [
+            94636
+          ]
+        },
+        {
+          "slug": "sunfury",
+          "name": "Sunfury",
+          "sub_tree_id": 39,
+          "node_ids": [
+            94647,
+            94653,
+            94652,
+            94644,
+            109675,
+            94649,
+            94645,
+            94651,
+            109674,
+            94650,
+            94643,
+            94648,
+            109673,
+            94646
+          ],
+          "undefined_node_ids": []
+        }
+      ],
+      "nodes": [
+        {
+          "id": 109956,
+          "name": "Frostfire Bolt",
+          "type": "single",
+          "x": 15000,
+          "y": 1500,
+          "col": 7,
+          "row": 0,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": true,
+          "is_apex": false,
+          "free": true,
+          "prev": [],
+          "next": [
+            94642,
+            94641,
+            94633,
+            109672
+          ],
+          "entries": [
+            {
+              "id": 136441,
+              "spell_id": 431044,
+              "name": "Frostfire Bolt",
+              "icon": "inv_ability_frostfiremage_frostfirebolt",
+              "type": "active",
+              "max_ranks": 1,
+              "description": "Frostfire BoltTalent2% of base mana40 yd range1.75 sec castRequires MageLaunches a bolt of frostfire at the enemy, causing (259.4% of Spell Power) Frostfire damage, slowing movement speed by 50%, and causing an additional (21.6% of Spell Power) Frostfire damage over 8 sec.\n\nFrost\nApplies 1 stack of Freezing."
+            }
+          ]
+        },
+        {
+          "id": 94642,
+          "name": "Imbued Warding / Meltdown",
+          "type": "choice",
+          "x": 14100,
+          "y": 2100,
+          "col": 5,
+          "row": 1,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109956
+          ],
+          "next": [
+            94638
+          ],
+          "entries": [
+            {
+              "id": 117245,
+              "spell_id": 431066,
+              "name": "Imbued Warding",
+              "icon": "inv_10_jewelcrafting_gem3primal_fire_cut_blue",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Imbued WardingTalentRequires Mage Fire\nBlazing Barrier also casts an Ice Barrier at 25% effectiveness.\n\n Frost\nIce Barrier also casts a Blazing Barrier at 25% effectiveness."
+            },
+            {
+              "id": 117776,
+              "spell_id": 431131,
+              "name": "Meltdown",
+              "icon": "spell_frost_arcticwinds",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "MeltdownTalentRequires MageYou melt slightly out of your Ice Block and Ice Cold, allowing you to move slowly during Ice Block and increasing your movement speed over time.\n\nIce Block and Ice Cold trigger a Blazing Barrier when they end."
+            }
+          ]
+        },
+        {
+          "id": 94641,
+          "name": "Frostfire Empowerment",
+          "type": "single",
+          "x": 14700,
+          "y": 2100,
+          "col": 6,
+          "row": 1,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109956
+          ],
+          "next": [
+            94640
+          ],
+          "entries": [
+            {
+              "id": 117244,
+              "spell_id": 431176,
+              "name": "Frostfire Empowerment",
+              "icon": "spell_frostfire_orb",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Frostfire EmpowermentTalentRequires Mage Fire\nCasting Frostfire spells has a 10% chance to activate Frostfire Empowerment, causing your next Frostfire Bolt to be instant cast, deal 60% increased damage, explode for 60% of its damage to nearby enemies. Damage reduced beyond 5 targets.\n\n Frost\nCasting Frostfire spells has a 10% chance to activate Frostfire Empowerment, causing your next Frostfire Bolt to be instant cast, deal 60% increased damage, explode for 60% of its damage to nearby enemies. Damage reduced beyond 5 targets.\n\nDamage from Frostfire Empowerment applies 1 stack of Freezing."
+            }
+          ]
+        },
+        {
+          "id": 94633,
+          "name": "Elemental Affinity / Flame and Frost",
+          "type": "choice",
+          "x": 15300,
+          "y": 2100,
+          "col": 8,
+          "row": 1,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109956
+          ],
+          "next": [
+            94634
+          ],
+          "entries": [
+            {
+              "id": 117236,
+              "spell_id": 431067,
+              "name": "Elemental Affinity",
+              "icon": "inv_10_dungeonjewelry_dragon_trinket_5_red",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Elemental AffinityTalentRequires Mage Frost\nThe cooldown of Fire spells is reduced by 30%.\n\n Fire\nThe cooldown of Frost spells with a base cooldown shorter than 4 minutes is reduced by 30%."
+            },
+            {
+              "id": 117775,
+              "spell_id": 431112,
+              "name": "Flame and Frost",
+              "icon": "spell_firefrost_orb",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Flame and FrostTalentRequires Mage Fire\nCauterize resets the cooldown of your Frost spells with a base cooldown shorter than 4 minutes when it activates.\n\n Frost\nIce Block and Ice Cold reset the cooldowns of your Fire spells."
+            }
+          ]
+        },
+        {
+          "id": 109672,
+          "name": "Duality",
+          "type": "single",
+          "x": 15900,
+          "y": 2100,
+          "col": 9,
+          "row": 1,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109956
+          ],
+          "next": [
+            109671
+          ],
+          "entries": [
+            {
+              "id": 135923,
+              "spell_id": 1262843,
+              "name": "Duality",
+              "icon": "ability_mage_frostfirebolt",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "DualityTalentRequires Mage Frost\nCasting Glacial Spike also casts a Pyroblast, dealing (881.3% of Spell Power) Fire damage.\n\n Fire\nCasting Pyroblast has a 20% chance to also cast a Glacial Spike, dealing (366.24% of Spell Power) Frost damage."
+            }
+          ]
+        },
+        {
+          "id": 94638,
+          "name": "Heat Sink",
+          "type": "single",
+          "x": 14100,
+          "y": 2700,
+          "col": 5,
+          "row": 2,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94642
+          ],
+          "next": [
+            94639
+          ],
+          "entries": [
+            {
+              "id": 117241,
+              "spell_id": 1248002,
+              "name": "Heat Sink",
+              "icon": "spell_fire_masterofelements",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Heat SinkTalentRequires Mage Fire\nFire Blast now deals Frostfire damage and its damage is increased by 15%.\n\n Frost\nFlurry now deals Frostfire damage and its damage is increased by 25%."
+            }
+          ]
+        },
+        {
+          "id": 94640,
+          "name": "Thermal Conditioning / Severe Temperatures",
+          "type": "choice",
+          "x": 14700,
+          "y": 2700,
+          "col": 6,
+          "row": 2,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94641
+          ],
+          "next": [
+            94632
+          ],
+          "entries": [
+            {
+              "id": 117243,
+              "spell_id": 431117,
+              "name": "Thermal Conditioning",
+              "icon": "spell_fireresistancetotem_01",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Thermal ConditioningTalentRequires MageFrostfire Bolt's cast time is reduced by 10%."
+            },
+            {
+              "id": 134441,
+              "spell_id": 431189,
+              "name": "Severe Temperatures",
+              "icon": "inv_magemount_fire",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Severe TemperaturesTalentRequires MageFrostfire Empowerment stacks 1 additional time and it causes Frostfire Bolt to explode for an additional 20% of its damage."
+            }
+          ]
+        },
+        {
+          "id": 94634,
+          "name": "Dualcasting Adept",
+          "type": "single",
+          "x": 15300,
+          "y": 2700,
+          "col": 8,
+          "row": 2,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94633
+          ],
+          "next": [
+            94637
+          ],
+          "entries": [
+            {
+              "id": 117237,
+              "spell_id": 1248014,
+              "name": "Dualcasting Adept",
+              "icon": "ability_dualwieldspecialization",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Dualcasting AdeptTalentRequires Mage Frost\nYour Fire spells deal 20% increased critical strike damage.\n\nShatter damage increased by 40%.\n\nBlizzard damage increased by 15%.\n\n Fire\nYour Frost spells deal 20% increased critical strike damage.\n\nPyroblast damage increased by 15%.\n\nFlamestrike damage increased by 15%."
+            }
+          ]
+        },
+        {
+          "id": 109671,
+          "name": "Molten Chill",
+          "type": "single",
+          "x": 15900,
+          "y": 2700,
+          "col": 9,
+          "row": 2,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109672
+          ],
+          "next": [
+            109670
+          ],
+          "entries": [
+            {
+              "id": 135922,
+              "spell_id": 1262844,
+              "name": "Molten Chill",
+              "icon": "spell_fire_incinerate",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Molten ChillTalentRequires Mage Fire\nYour Frostfire spells apply Ignite at 10% increased effectiveness.\n\n Frost\nYour Frostfire spells apply Ignite, dealing an additional 30% of their damage over 9 sec."
+            }
+          ]
+        },
+        {
+          "id": 94639,
+          "name": "Frostfire Infusion",
+          "type": "single",
+          "x": 14100,
+          "y": 3300,
+          "col": 5,
+          "row": 3,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94638
+          ],
+          "next": [
+            94635
+          ],
+          "entries": [
+            {
+              "id": 117242,
+              "spell_id": 431166,
+              "name": "Frostfire Infusion",
+              "icon": "inv_10_blacksmithing_craftedbar_frostfirealloy",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Frostfire InfusionTalentRequires Mage Frost\nFrostfire Bolt has an additional 5% chance to grant Brain Freeze.\n\nThe damage of your Frost spells and Fire spells are increased by 4%.\n\n Fire\nFrostfire Bolt's critical strike chance is increased by 15%..\n\nThe damage of your Frost spells and Fire spells are increased by 4%."
+            }
+          ]
+        },
+        {
+          "id": 94632,
+          "name": "Flash Freezeburn",
+          "type": "single",
+          "x": 14700,
+          "y": 3300,
+          "col": 6,
+          "row": 3,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94640
+          ],
+          "next": [
+            94635
+          ],
+          "entries": [
+            {
+              "id": 117235,
+              "spell_id": 431178,
+              "name": "Flash Freezeburn",
+              "icon": "spell_fire_elementaldevastation",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Flash FreezeburnTalentRequires Mage Frost\nGlacial Spike damage increased by 15% and it now explodes on impact, dealing 25% of its damage to up to 5 nearby enemies.\n\nAdditionally, Glacial Spike now grants Frostfire Empowerment.\n\n Fire\nMeteor's damage is increased by 25%.\n\nMeteor now grants Frostfire Empowerment."
+            }
+          ]
+        },
+        {
+          "id": 94637,
+          "name": "Blast Radius",
+          "type": "single",
+          "x": 15300,
+          "y": 3300,
+          "col": 8,
+          "row": 3,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94634
+          ],
+          "next": [
+            94635
+          ],
+          "entries": [
+            {
+              "id": 117240,
+              "spell_id": 1248016,
+              "name": "Blast Radius",
+              "icon": "spell_frostresistancetotem_01",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Blast RadiusTalentRequires Mage Frost\nComet Storm damage increased by 50%.\n\nMeteor damage increased by 20%.\n\n Fire\nMeteor damage increased by 20%.\n\nComet Storm damage increased by 20%."
+            }
+          ]
+        },
+        {
+          "id": 109670,
+          "name": "Elemental Conduit",
+          "type": "single",
+          "x": 15900,
+          "y": 3300,
+          "col": 9,
+          "row": 3,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109671
+          ],
+          "next": [
+            94635
+          ],
+          "entries": [
+            {
+              "id": 135921,
+              "spell_id": 1262845,
+              "name": "Elemental Conduit",
+              "icon": "inv_ability_shaman_primordialwave",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Elemental ConduitTalentRequires Mage Fire\nComet Storm and Glacial Spike now apply Ignite.\n\nYour Haste is increased by 2%.\n\n Frost\nMeteor and Pyroblast now apply Ignite.\n\nYour Haste is increased by 2%."
+            }
+          ]
+        },
+        {
+          "id": 94635,
+          "name": "Isothermic Core",
+          "type": "single",
+          "x": 15000,
+          "y": 3900,
+          "col": 7,
+          "row": 4,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94632,
+            94639,
+            94637,
+            109670
+          ],
+          "next": [],
+          "entries": [
+            {
+              "id": 117238,
+              "spell_id": 431095,
+              "name": "Isothermic Core",
+              "icon": "inv12_ability_mage_isothermiccore",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Isothermic CoreTalentRequires Mage Frost\nComet Storm now also calls down a Meteor, dealing (900% of Spell Power) Fire damage to nearby enemies. Damage reduced beyond 8 targets.\n\nDamage from Meteor Shatters 1 stacks of Freezing.\n\n Fire\nMeteor now also calls down a Comet Storm, dealing [(92.8% of Spell Power) * 7] Frost damage to nearby enemies."
+            }
+          ]
+        },
+        {
+          "id": 94647,
+          "name": "Spellfire Spheres",
+          "type": "single",
+          "x": 7800,
+          "y": 5100,
+          "col": 2,
+          "row": 5,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": true,
+          "is_apex": false,
+          "free": true,
+          "prev": [],
+          "next": [
+            94653,
+            94652,
+            94644,
+            109675
+          ],
+          "entries": [
+            {
+              "id": 117250,
+              "spell_id": 448601,
+              "name": "Spellfire Spheres",
+              "icon": "inv_1115_mage_spellfirespheresgeneration",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Spellfire SpheresTalentRequires Mage Arcane\nCasting a damaging spell has a 6% chance to conjure a Spellfire Sphere.\n\nWhile you're out of combat, you will slowly conjure Spellfire Spheres over time.\n\n Spellfire Sphere\nIncreases your spell damage by 1.0%. Stacks up to 3 times.\n\n Fire\nConsuming Hot Streak has a 12% chance to conjure a Spellfire Sphere.\n\nWhile you're out of combat, you will slowly conjure Spellfire Spheres over time.\n\n Spellfire Sphere\nIncreases your spell damage by 1.0%. Stacks up to 3 times."
+            }
+          ]
+        },
+        {
+          "id": 94653,
+          "name": "Mana Cascade",
+          "type": "single",
+          "x": 6900,
+          "y": 5700,
+          "col": 0,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94647
+          ],
+          "next": [
+            94649
+          ],
+          "entries": [
+            {
+              "id": 117256,
+              "spell_id": 449293,
+              "name": "Mana Cascade",
+              "icon": "spell_frost_manarecharge",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Mana CascadeTalentRequires Mage Arcane\nCasting Arcane Blast, Arcane Pulse, Arcane Barrage, or Prismatic Bolt grants you 0.5% Haste for 6 sec. Multiple applications may overlap.\n\n Fire\nConsuming Hot Streak grants you 0.5% Haste for 6 sec. Multiple applications may overlap."
+            }
+          ]
+        },
+        {
+          "id": 94652,
+          "name": "Invocation: Arcane Phoenix",
+          "type": "single",
+          "x": 7500,
+          "y": 5700,
+          "col": 1,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94647
+          ],
+          "next": [
+            94645
+          ],
+          "entries": [
+            {
+              "id": 117255,
+              "spell_id": 448658,
+              "name": "Invocation: Arcane Phoenix",
+              "icon": "inv_misc_phoenixegg",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Invocation: Arcane PhoenixTalentRequires Mage Arcane\nWhen you cast Arcane Surge, summon an Arcane Phoenix to aid you in battle.\n\n Arcane Phoenix\nYour Arcane Phoenix aids you for the duration of your Arcane Surge, casting random Arcane and Fire spells.\n\n Fire\nWhen you cast Combustion, summon an Arcane Phoenix to aid you in battle.\n\n Arcane Phoenix\nYour Arcane Phoenix aids you for the duration of your Combustion, casting random Arcane and Fire spells."
+            }
+          ]
+        },
+        {
+          "id": 94644,
+          "name": "Burden of Power",
+          "type": "single",
+          "x": 8100,
+          "y": 5700,
+          "col": 3,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94647
+          ],
+          "next": [
+            94651
+          ],
+          "entries": [
+            {
+              "id": 117247,
+              "spell_id": 451035,
+              "name": "Burden of Power",
+              "icon": "inv_ragnaros_heart",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Burden of PowerTalentRequires Mage Arcane\nArcane Blast damage increased by 30%.\n\nArcane Pulse damage increased by 20%.\n\n Fire\nPyroblast damage increased by 3%.\n\nFlamestrike damage increased by 6%."
+            }
+          ]
+        },
+        {
+          "id": 109675,
+          "name": "Glorious Incandescence",
+          "type": "single",
+          "x": 8700,
+          "y": 5700,
+          "col": 4,
+          "row": 6,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94647
+          ],
+          "next": [
+            109674
+          ],
+          "entries": [
+            {
+              "id": 135926,
+              "spell_id": 449394,
+              "name": "Glorious Incandescence",
+              "icon": "spell_burningsoul",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Glorious IncandescenceTalentRequires Mage Arcane\nArcane Barrage summons 1 Meteorite for every 5 Arcane Salvo stacks consumed.\n\n Meteorite\nCalls down a meteorite which lands at the target location after 3 sec, dealing (102% of Spell Power) Fire damage to all enemies hit, reduced beyond 8 targets.\n\n Fire\nGenerating a Spellfire Sphere causes your next cast of Fire Blast to call down a storm of 4 Meteorites on its target.\n\n Meteorite\nCalls down a meteorite which lands at the target location after 3 sec, dealing (102% of Spell Power) Fire damage to all enemies hit, reduced beyond 8 targets."
+            }
+          ]
+        },
+        {
+          "id": 94649,
+          "name": "Merely a Setback / Time Twist",
+          "type": "choice",
+          "x": 6900,
+          "y": 6300,
+          "col": 0,
+          "row": 7,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94653
+          ],
+          "next": [
+            94650
+          ],
+          "entries": [
+            {
+              "id": 117252,
+              "spell_id": 449330,
+              "name": "Merely a Setback",
+              "icon": "inv_helm_robe_raidmage_i_01",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Merely a SetbackTalentRequires Mage Arcane\nThe bonuses provided by your Barrier spells persist at 100% effectiveness for an additional 8 sec after your Barrier is removed.\n\n Fire\nThe bonuses provided by your Barrier spells persist at 100% effectiveness for an additional 8 sec after your Barrier is removed.\n\nAdditionally, Cauterize no longer deals damage to you."
+            },
+            {
+              "id": 135598,
+              "spell_id": 1255166,
+              "name": "Time Twist",
+              "icon": "spell_holy_borrowedtime",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Time TwistTalentRequires MageThe cooldown of Alter Time is reduced by 10 sec."
+            }
+          ]
+        },
+        {
+          "id": 94645,
+          "name": "Codex of the Sunstriders",
+          "type": "single",
+          "x": 7500,
+          "y": 6300,
+          "col": 1,
+          "row": 7,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94652
+          ],
+          "next": [
+            94643
+          ],
+          "entries": [
+            {
+              "id": 117248,
+              "spell_id": 449382,
+              "name": "Codex of the Sunstriders",
+              "icon": "inv_10_inscription2_book3_color1",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Codex of the SunstridersTalentRequires Mage Arcane\nWhen your Arcane Phoenix is summoned, it consumes all your Spellfire Spheres.\n\nEach Sphere consumed increases your spell damage during Arcane Surge by 1% and causes your Arcane Phoenix to cast an exceptional Arcane or Fire spell over its duration.\n\n Fire\nWhen your Arcane Phoenix is summoned, it consumes all your Spellfire Spheres.\n\nEach Sphere consumed increases your spell damage during Combustion by 1% and causes your Arcane Phoenix to cast an exceptional Arcane or Fire spell over its duration."
+            }
+          ]
+        },
+        {
+          "id": 94651,
+          "name": "Lessons in Debilitation / Explosive Potential",
+          "type": "choice",
+          "x": 8100,
+          "y": 6300,
+          "col": 3,
+          "row": 7,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94644
+          ],
+          "next": [
+            94648
+          ],
+          "entries": [
+            {
+              "id": 117254,
+              "spell_id": 449627,
+              "name": "Lessons in Debilitation",
+              "icon": "ability_paladin_handoflight",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Lessons in DebilitationTalentRequires MageYour Arcane Phoenix has picked up a few tricks, and will Spellsteal when it is summoned and when it expires."
+            },
+            {
+              "id": 134249,
+              "spell_id": 1246030,
+              "name": "Explosive Potential",
+              "icon": "6bf_explosive_shard",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Explosive PotentialTalentRequires Mage Arcane\nAfter casting Arcane Surge, your next Blink will cause a Blast Wave at your previous location, dealing (54.3375% of Spell Power) Fire damage, knocking enemies back 8 yds, and slowing them by 70% for 6 sec.\n\n Fire\nAfter casting Combustion, your next Blink will cause a Blast Wave at your previous location, dealing (54.3375% of Spell Power) Fire damage, knocking enemies back 8 yds, and slowing them by 70% for 6 sec."
+            }
+          ]
+        },
+        {
+          "id": 109674,
+          "name": "Pyrocosm",
+          "type": "single",
+          "x": 8700,
+          "y": 6300,
+          "col": 4,
+          "row": 7,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109675
+          ],
+          "next": [
+            109673
+          ],
+          "entries": [
+            {
+              "id": 135925,
+              "spell_id": 1260673,
+              "name": "Pyrocosm",
+              "icon": "spell_fire_meteorstorm",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "PyrocosmTalentRequires Mage Fire\nDamage from Fireball has a 20% chance to summon a Meteorite.\n\nWhen a Meteorite lands, the cooldown of Fire Blast is reduced by 0.5 sec.\n\n Arcane\nEach wave of Arcane Missiles has a 10% chance to summon a Meteorite.\n\nWhen a Meteorite lands, you have a 5% chance to gain Clearcasting."
+            }
+          ]
+        },
+        {
+          "id": 94650,
+          "name": "Savor the Moment / Sunfury Execution",
+          "type": "choice",
+          "x": 6900,
+          "y": 6900,
+          "col": 0,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94649
+          ],
+          "next": [
+            94646
+          ],
+          "entries": [
+            {
+              "id": 117253,
+              "spell_id": 449412,
+              "name": "Savor the Moment",
+              "icon": "spell_fire_masterofelements",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Savor the MomentTalentRequires Mage Arcane\nWhen you cast Arcane Surge, its duration is extended by 0.8 sec for each Spellfire Sphere you have, up to 2.4 sec.\n\n Fire\nWhen you cast Combustion, its duration is extended by 0.8 sec for each Spellfire Sphere you have, up to 2.4 sec."
+            },
+            {
+              "id": 123867,
+              "spell_id": 449349,
+              "name": "Sunfury Execution",
+              "icon": "spell_shadow_shadowandflame",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Sunfury ExecutionTalentRequires Mage Arcane\nArcane Barrage deals 5% increased damage to enemies affected by your Touch of the Magi.\n\n Fire\nPyroclasm's damage bonus is increased by 20% and Meteor grants Pyroclasm if talented."
+            }
+          ]
+        },
+        {
+          "id": 94643,
+          "name": "Ashes of Inspiration",
+          "type": "single",
+          "x": 7500,
+          "y": 6900,
+          "col": 1,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94645
+          ],
+          "next": [
+            94646
+          ],
+          "entries": [
+            {
+              "id": 117246,
+              "spell_id": 1260272,
+              "name": "Ashes of Inspiration",
+              "icon": "inv_misc_powder_copper",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Ashes of InspirationTalentRequires MageEach time your Phoenix casts a spell, gain 1 stack of Mana Cascade.\n\nExceptional spells grant 1 additional stack."
+            }
+          ]
+        },
+        {
+          "id": 94648,
+          "name": "Rondurmancy",
+          "type": "single",
+          "x": 8100,
+          "y": 6900,
+          "col": 3,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94651
+          ],
+          "next": [
+            94646
+          ],
+          "entries": [
+            {
+              "id": 117251,
+              "spell_id": 449596,
+              "name": "Rondurmancy",
+              "icon": "spell_arcane_focusedpower",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "RondurmancyTalentRequires Mage Fire\nYour chance to generate a Spellfire Sphere is increased by 12%.\n\nSpellfire Spheres grant an additional 1% spell damage.\n\n Arcane\nYour chance to generate a Spellfire Sphere is increased by 6%.\n\nSpellfire Spheres grant an additional 1% spell damage."
+            }
+          ]
+        },
+        {
+          "id": 109673,
+          "name": "Spellfire Salvo",
+          "type": "single",
+          "x": 8700,
+          "y": 6900,
+          "col": 4,
+          "row": 8,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            109674
+          ],
+          "next": [
+            94646
+          ],
+          "entries": [
+            {
+              "id": 135924,
+              "spell_id": 1260616,
+              "name": "Spellfire Salvo",
+              "icon": "shaman_talent_elementalblast",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Spellfire SalvoTalentRequires Mage Arcane\nArcane Salvo can stack 5 additional times.\n\nMeteorite damage increased by 15%.\n\n Fire\nFire Blast cooldown reduced by 1.0 sec.\n\nMeteorite damage increased by 15%."
+            }
+          ]
+        },
+        {
+          "id": 94646,
+          "name": "Memory of Al'ar",
+          "type": "single",
+          "x": 7800,
+          "y": 7500,
+          "col": 2,
+          "row": 9,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": false,
+          "is_apex": false,
+          "free": false,
+          "prev": [
+            94643,
+            94650,
+            94648,
+            109673
+          ],
+          "next": [],
+          "entries": [
+            {
+              "id": 117249,
+              "spell_id": 449619,
+              "name": "Memory of Al'ar",
+              "icon": "inv_ability_sunfurymage_spellfirespheres",
+              "type": "passive",
+              "max_ranks": 1,
+              "description": "Memory of Al'arTalentRequires Mage Arcane\nWhen your Arcane Phoenix expires it empowers you, granting Arcane Soul for 4.0 sec.\n\nArcane Soul:\nArcane Barrage grants Clearcasting and generates 4 Arcane Charges.\n\nEach cast of Arcane Barrage grants 5 stacks of Arcane Salvo and casting Arcane Barrage does not consume Arcane Salvo.\n\n Fire\nWhen your Arcane Phoenix expires it empowers you, granting Hyperthermia for 4.0 sec.\n\n Hyperthermia:\nPyroblast and Flamestrike have no cast time, are guaranteed to critically strike, and increase the damage of Pyroblast and Flamestrike by 15%."
+            }
+          ]
+        },
+        {
+          "id": 99829,
+          "name": "Frostfire / Sunfury",
+          "type": "subtree",
+          "x": 7800,
+          "y": 1500,
+          "col": 2,
+          "row": 0,
+          "max_ranks": 1,
+          "req_points": null,
+          "entry_node": true,
+          "is_apex": false,
+          "free": true,
+          "prev": [],
+          "next": [],
+          "entries": [
+            {
+              "id": 123343,
+              "spell_id": null,
+              "name": "Frostfire",
+              "icon": "",
+              "type": "subtree",
+              "max_ranks": 1,
+              "description": "Commit to the Frostfire hero talent tree."
+            },
+            {
+              "id": 123340,
+              "spell_id": null,
+              "name": "Sunfury",
+              "icon": "",
+              "type": "subtree",
+              "max_ranks": 1,
+              "description": "Commit to the Sunfury hero talent tree."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

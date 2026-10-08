@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "source": "NorthernSkyRaidTools",
+    "addon_version": "12.1.10",
+    "extracted_at": "2026-08-25T08:30:32Z",
+    "zone": "venomous-abyss",
+    "notes": [
+      "BigWigs cross-check (2026-08-25) against the locally installed BigWigs_TheVenomousAbyss addon, not a source download -- BigWigs has no absolute timers to diff directly, only duration-keyed gap constants, so cadence (interval between hits) is what's comparable.",
+      "AGREE: Vashnik 'TankHits' (Dripping Fangs, spell 1280935), Heroic. NSRT's absolute timers (10.1, 39.1, 66.1, 94.1, ...) have successive gaps of 27-29s throughout. Vashnik.lua's gapTimer table hardcodes a flat 29s gap for this spell after both the pull-duration(~8s) and repeat-duration(~28s) timeline events. The dominant cadence matches; the 1-2s jitter is expected (BigWigs keys off whole-second-rounded live event durations, NSRT's dataset carries decimal precision from real logs).",
+      "DISAGREE: Nek'zali 'HungeringPyre' (spell 1289855 in NSRT; BigWigs keys the same ability's gap under spell 1305421 -- a cast-vs-effect spellId split that recurs across this addon pair and isn't itself a disagreement). NSRT's phaseTimers give the SAME value (35s into phase 1.5) for BOTH difficulty 15 (Heroic) and difficulty 16 (Mythic). Nekzali.lua's gapTimer table distinguishes them explicitly: timersMythic[1305421][1.5] = {[11] = 35} but timersOther[1305421][1.5] = {[11] = 30} -- BigWigs believes Heroic's gap is 30, not 35. Left as-is per this task's rule (no winner picked silently); a consumer snapping the timeline editor to NSRT's Heroic value for this ability should know it may run ~5s ahead of BigWigs' own model."
+    ],
+    "encounter": "sszorak"
+  },
+  "encounter": {
+    "dungeon_encounter_id": 3420,
+    "slug": "sszorak",
+    "abilities": [
+      {
+        "internal_id": "TankCombo",
+        "group": "Sszorak",
+        "name": "Tank Combo",
+        "short_text": "Tank Combo",
+        "spell_id": 1277002,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            5.5,
+            57.7,
+            143.7,
+            196,
+            282,
+            334
+          ],
+          "16": [
+            4.9,
+            52,
+            132,
+            179,
+            259,
+            306.1
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "DamageAmp",
+        "group": "Sszorak",
+        "name": "Damage Amp",
+        "short_text": "Damage Amp",
+        "spell_id": 1286033,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            111.1,
+            249.3,
+            387.5
+          ],
+          "16": [
+            100,
+            227.1,
+            354.2
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Bait",
+        "group": "Sszorak",
+        "name": null,
+        "short_text": "Bait",
+        "spell_id": 1305959,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 8,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            32.2,
+            84.4,
+            170.4,
+            222.6,
+            308.5,
+            360.8
+          ],
+          "16": [
+            28.8,
+            76.8,
+            156,
+            203,
+            282.2,
+            330.2
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "WindDebuffs",
+        "group": "Sszorak",
+        "name": null,
+        "short_text": "Wind-Debuffs",
+        "spell_id": 1285419,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            44,
+            96,
+            182,
+            234,
+            320,
+            372
+          ],
+          "16": [
+            39.7,
+            86.7,
+            166.8,
+            213.8,
+            293.9,
+            340.9
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Debuffs",
+        "group": "Sszorak",
+        "name": null,
+        "short_text": "Debuffs",
+        "spell_id": 1305963,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            37.2,
+            89.5,
+            175.4,
+            227.6,
+            313.5,
+            365.8
+          ],
+          "16": [
+            32,
+            79.8,
+            159,
+            206.8,
+            286,
+            333.8
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "SerpentsFury",
+        "group": "Sszorak",
+        "name": "Serpent's Fury",
+        "short_text": "Stack Up",
+        "spell_id": null,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": "Stack",
+        "stub": false,
+        "timers": {
+          "16": [
+            25,
+            74,
+            153,
+            202,
+            281,
+            330
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "WindsHelper",
+        "group": "Sszorak",
+        "name": "Winds Helper",
+        "short_text": null,
+        "spell_id": null,
+        "phase": null,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": true,
+        "timers": {},
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "VenomousSurgeTargets",
+        "group": "Sszorak",
+        "name": "Debuff Targets",
+        "short_text": null,
+        "spell_id": 1305959,
+        "phase": null,
+        "display_type": "Bar",
+        "duration": 10,
+        "tts": false,
+        "stub": true,
+        "timers": {},
+        "phase_timers": null,
+        "unresolved_fields": {}
+      }
+    ]
+  }
+}

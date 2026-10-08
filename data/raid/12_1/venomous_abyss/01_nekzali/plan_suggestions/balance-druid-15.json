@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "spec": "balance-druid",
+    "difficulty": 15,
+    "wclDifficulty": 4,
+    "class": "Druid",
+    "specName": "Balance",
+    "generatedAt": "2026-09-09T12:34:01+00:00",
+    "generator": "tools/warcraftlogs/plan_suggestion_sync.py",
+    "catalog": "data/classes/druid/balance/12_1_cooldowns.json",
+    "parameters": {
+      "sample": 22,
+      "minRechargeSeconds": 25.0,
+      "tightIqrSeconds": 8.0,
+      "minSupport": 0.4,
+      "anchorWindowSeconds": 15.0
+    },
+    "readMe": "Suggestions, not decisions. Every row carries the spread and the pull count behind it; a wide spread means the field disagrees, which is information about the fight rather than a number to copy. Times are phase-relative because kill times are not comparable.",
+    "encounter": "nekzali"
+  },
+  "encounter": {
+    "slug": "nekzali",
+    "wclEncounterId": 3470,
+    "encounterName": "Nek'zali the Soulcoiler",
+    "sample": {
+      "requested": 22,
+      "readable": 21,
+      "used": 21,
+      "unreadable": [
+        {
+          "skipped": "SystemExit: Player \"Anonymous\" not found in report a:RbMmcKWza2dNGADn",
+          "code": "a:RbMmcKWza2dNGADn",
+          "fight": 8,
+          "player": "Anonymous"
+        }
+      ],
+      "excludedForPhaseStructure": [],
+      "medianDuration": 280.0,
+      "durationRange": [
+        212.9,
+        316.2
+      ]
+    },
+    "phaseModel": [
+      0.0,
+      113.3,
+      182.7
+    ],
+    "cooldowns": [
+      {
+        "spellId": 102560,
+        "name": "Incarnation: Chosen of Elune",
+        "role": "offensive",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 4,
+        "medianGapSeconds": 78.3,
+        "seenInPulls": 21,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 4.5,
+            "atSeconds": 4.5,
+            "spread": {
+              "median": 4.5,
+              "p25": 3.6,
+              "p75": 6.7,
+              "iqr": 3.2,
+              "min": 2.8,
+              "max": 12.3
+            },
+            "support": {
+              "pulls": 21,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Soulcoil Ignition",
+              "occurrence": 3,
+              "offsetSeconds": 1.7,
+              "agreement": 19,
+              "of": 21
+            }
+          },
+          {
+            "phase": 1,
+            "ordinal": 2,
+            "atPhaseSeconds": 59.0,
+            "atSeconds": 59.0,
+            "spread": {
+              "median": 59.0,
+              "p25": 56.5,
+              "p75": 61.8,
+              "iqr": 5.3,
+              "min": 49.0,
+              "max": 124.7
+            },
+            "support": {
+              "pulls": 19,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Possession Barrage",
+              "occurrence": 3,
+              "offsetSeconds": -5.0,
+              "agreement": 17,
+              "of": 19
+            }
+          },
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 43.5,
+            "atSeconds": 154.3,
+            "spread": {
+              "median": 43.5,
+              "p25": 38.4,
+              "p75": 45.8,
+              "iqr": 7.4,
+              "min": 13.3,
+              "max": 56.9
+            },
+            "support": {
+              "pulls": 15,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Soul Transfer",
+              "occurrence": 8,
+              "offsetSeconds": -1.5,
+              "agreement": 8,
+              "of": 15
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1293316,
+        "name": "Empowering Venom",
+        "role": "trinket",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 146.5,
+        "seenInPulls": 20,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 4.4,
+            "atSeconds": 4.4,
+            "spread": {
+              "median": 4.4,
+              "p25": 3.5,
+              "p75": 6.8,
+              "iqr": 3.3,
+              "min": 2.8,
+              "max": 12.3
+            },
+            "support": {
+              "pulls": 20,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Soulcoil Ignition",
+              "occurrence": 3,
+              "offsetSeconds": 1.6,
+              "agreement": 18,
+              "of": 20
+            }
+          },
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 44.0,
+            "atSeconds": 154.4,
+            "spread": {
+              "median": 44.0,
+              "p25": 39.4,
+              "p75": 46.3,
+              "iqr": 6.9,
+              "min": 13.3,
+              "max": 56.6
+            },
+            "support": {
+              "pulls": 14,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Soul Transfer",
+              "occurrence": 8,
+              "offsetSeconds": -1.3,
+              "agreement": 8,
+              "of": 14
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 1236994,
+        "name": "Potion of Recklessness",
+        "role": "consumable",
+        "verdict": "scheduled",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": null,
+        "seenInPulls": 12,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 5.2,
+            "atSeconds": 5.2,
+            "spread": {
+              "median": 5.2,
+              "p25": 4.5,
+              "p75": 8.9,
+              "iqr": 4.4,
+              "min": 2.0,
+              "max": 61.0
+            },
+            "support": {
+              "pulls": 12,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Soulcoil Ignition",
+              "occurrence": 3,
+              "offsetSeconds": 2.3,
+              "agreement": 10,
+              "of": 12
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 102383,
+        "name": "Wild Charge",
+        "role": "movement",
+        "verdict": "situational",
+        "medianUsesPerPull": 2.0,
+        "medianGapSeconds": 43.2,
+        "seenInPulls": 18,
+        "suggestions": [
+          {
+            "phase": 1,
+            "ordinal": 1,
+            "atPhaseSeconds": 56.5,
+            "atSeconds": 56.5,
+            "spread": {
+              "median": 56.5,
+              "p25": 45.8,
+              "p75": 96.3,
+              "iqr": 50.6,
+              "min": 16.9,
+              "max": 119.8
+            },
+            "support": {
+              "pulls": 14,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Soul Transfer",
+              "occurrence": 4,
+              "offsetSeconds": 2.4,
+              "agreement": 5,
+              "of": 14
+            }
+          },
+          {
+            "phase": 2,
+            "ordinal": 1,
+            "atPhaseSeconds": 28.2,
+            "atSeconds": 144.1,
+            "spread": {
+              "median": 28.2,
+              "p25": 19.0,
+              "p75": 36.5,
+              "iqr": 17.6,
+              "min": 15.0,
+              "max": 48.2
+            },
+            "support": {
+              "pulls": 12,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Soul Transfer",
+              "occurrence": 7,
+              "offsetSeconds": 2.2,
+              "agreement": 5,
+              "of": 12
+            }
+          },
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 50.1,
+            "atSeconds": 229.1,
+            "spread": {
+              "median": 50.1,
+              "p25": 42.8,
+              "p75": 64.1,
+              "iqr": 21.3,
+              "min": 31.2,
+              "max": 79.0
+            },
+            "support": {
+              "pulls": 9,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Possession Barrage",
+              "occurrence": 5,
+              "offsetSeconds": -2.3,
+              "agreement": 3,
+              "of": 9
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 22812,
+        "name": "Barkskin",
+        "role": "defensive",
+        "verdict": "situational",
+        "medianUsesPerPull": 2,
+        "medianGapSeconds": 78.1,
+        "seenInPulls": 11,
+        "suggestions": [
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 18.6,
+            "atSeconds": 199.7,
+            "spread": {
+              "median": 18.6,
+              "p25": 11.0,
+              "p75": 58.3,
+              "iqr": 47.3,
+              "min": 5.3,
+              "max": 90.5
+            },
+            "support": {
+              "pulls": 8,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Invoke",
+              "occurrence": 1,
+              "offsetSeconds": -3.5,
+              "agreement": 2,
+              "of": 8
+            }
+          }
+        ]
+      },
+      {
+        "spellId": 61391,
+        "name": "Typhoon",
+        "role": "utility",
+        "verdict": "situational",
+        "medianUsesPerPull": 1.0,
+        "medianGapSeconds": 59.6,
+        "seenInPulls": 14,
+        "suggestions": [
+          {
+            "phase": 3,
+            "ordinal": 1,
+            "atPhaseSeconds": 49.4,
+            "atSeconds": 227.6,
+            "spread": {
+              "median": 49.4,
+              "p25": 27.6,
+              "p75": 72.7,
+              "iqr": 45.1,
+              "min": 0.8,
+              "max": 93.8
+            },
+            "support": {
+              "pulls": 11,
+              "of": 21
+            },
+            "anchor": {
+              "ability": "Invoke",
+              "occurrence": 5,
+              "offsetSeconds": -0.9,
+              "agreement": 3,
+              "of": 11
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

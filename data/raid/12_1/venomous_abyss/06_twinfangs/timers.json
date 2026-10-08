@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "source": "NorthernSkyRaidTools",
+    "addon_version": "12.1.10",
+    "extracted_at": "2026-08-25T08:30:32Z",
+    "zone": "venomous-abyss",
+    "notes": [
+      "BigWigs cross-check (2026-08-25) against the locally installed BigWigs_TheVenomousAbyss addon, not a source download -- BigWigs has no absolute timers to diff directly, only duration-keyed gap constants, so cadence (interval between hits) is what's comparable.",
+      "AGREE: Vashnik 'TankHits' (Dripping Fangs, spell 1280935), Heroic. NSRT's absolute timers (10.1, 39.1, 66.1, 94.1, ...) have successive gaps of 27-29s throughout. Vashnik.lua's gapTimer table hardcodes a flat 29s gap for this spell after both the pull-duration(~8s) and repeat-duration(~28s) timeline events. The dominant cadence matches; the 1-2s jitter is expected (BigWigs keys off whole-second-rounded live event durations, NSRT's dataset carries decimal precision from real logs).",
+      "DISAGREE: Nek'zali 'HungeringPyre' (spell 1289855 in NSRT; BigWigs keys the same ability's gap under spell 1305421 -- a cast-vs-effect spellId split that recurs across this addon pair and isn't itself a disagreement). NSRT's phaseTimers give the SAME value (35s into phase 1.5) for BOTH difficulty 15 (Heroic) and difficulty 16 (Mythic). Nekzali.lua's gapTimer table distinguishes them explicitly: timersMythic[1305421][1.5] = {[11] = 35} but timersOther[1305421][1.5] = {[11] = 30} -- BigWigs believes Heroic's gap is 30, not 35. Left as-is per this task's rule (no winner picked silently); a consumer snapping the timeline editor to NSRT's Heroic value for this ability should know it may run ~5s ahead of BigWigs' own model."
+    ],
+    "encounter": "twinfangs"
+  },
+  "encounter": {
+    "dungeon_encounter_id": 3421,
+    "slug": "twinfangs",
+    "abilities": [
+      {
+        "internal_id": "Defensives",
+        "group": "Twin Fangs",
+        "name": null,
+        "short_text": "Defensives",
+        "spell_id": 1290956,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": false,
+        "stub": false,
+        "timers": {
+          "15": [
+            52.3,
+            120,
+            221.7,
+            289.5,
+            391.2,
+            458.9
+          ],
+          "16": [
+            46.9,
+            107.9,
+            202,
+            263.1,
+            357.1,
+            418
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Soak",
+        "group": "Twin Fangs",
+        "name": null,
+        "short_text": "Soak",
+        "spell_id": 1290516,
+        "phase": 1,
+        "display_type": "Bar",
+        "duration": 8,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            71.4,
+            139.1,
+            240.8,
+            308.6,
+            410.3,
+            478.1
+          ],
+          "16": [
+            64.7,
+            125.7,
+            216.1,
+            277.1,
+            371.1,
+            432.1
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "PreSpread",
+        "group": "Twin Fangs",
+        "name": "Pre-Spread",
+        "short_text": "Pre-Spread",
+        "spell_id": 1290809,
+        "phase": 1,
+        "display_type": "Circle",
+        "duration": 6,
+        "tts": "Spread",
+        "stub": false,
+        "timers": {
+          "15": [
+            48.5,
+            116.2,
+            218,
+            285.7,
+            387.4,
+            455.1
+          ],
+          "16": [
+            43.8,
+            104.8,
+            198.7,
+            259.6,
+            353.7,
+            414.6
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "WatchSide",
+        "group": "Twin Fangs",
+        "name": "Watch Side",
+        "short_text": "Watch Side",
+        "spell_id": 1294293,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            150.5,
+            319.9
+          ],
+          "16": [
+            136,
+            290.9
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Adds",
+        "group": "Twin Fangs",
+        "name": null,
+        "short_text": "Adds",
+        "spell_id": 1291404,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            39.7,
+            107.5,
+            209.2,
+            276.9,
+            378.6,
+            446.4
+          ],
+          "16": [
+            35.8,
+            96.8,
+            190.8,
+            251.7,
+            345.7,
+            406.8
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Orbs",
+        "group": "Twin Fangs",
+        "name": null,
+        "short_text": "Orbs",
+        "spell_id": 1289994,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 5,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            12.9,
+            80.7,
+            182.4,
+            250.2,
+            351.8,
+            419.6
+          ],
+          "16": [
+            11.9,
+            72.9,
+            166.7,
+            227.7,
+            321.6,
+            382.6
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "TankSoak",
+        "group": "Twin Fangs",
+        "name": "Tank Soak",
+        "short_text": "Soak",
+        "spell_id": 1288538,
+        "phase": 1,
+        "display_type": "Bar",
+        "duration": 12,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            32.5,
+            100.3,
+            202,
+            269.8,
+            371.4,
+            439.2
+          ],
+          "16": [
+            30.3,
+            91.3,
+            184.3,
+            245.3,
+            339.3,
+            400.3
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "WatchSpawns",
+        "group": "Twin Fangs",
+        "name": "Watch Spawns",
+        "short_text": "Watch Spawns",
+        "spell_id": 1288538,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            20.5,
+            88.3,
+            190,
+            257.8,
+            359.4,
+            427.2
+          ],
+          "16": [
+            18.3,
+            79.3,
+            172.3,
+            233.3,
+            327.3,
+            388.3
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      },
+      {
+        "internal_id": "Knock",
+        "group": "Twin Fangs",
+        "name": null,
+        "short_text": "Knock",
+        "spell_id": 1289192,
+        "phase": 1,
+        "display_type": "Text",
+        "duration": 6,
+        "tts": true,
+        "stub": false,
+        "timers": {
+          "15": [
+            9.9,
+            77.7,
+            179.4,
+            247.2,
+            348.8,
+            416.6
+          ],
+          "16": [
+            9,
+            70,
+            164,
+            225,
+            318.9,
+            379.9
+          ]
+        },
+        "phase_timers": null,
+        "unresolved_fields": {}
+      }
+    ]
+  }
+}

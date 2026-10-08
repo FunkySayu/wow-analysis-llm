@@ -1,0 +1,453 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "source": "Blizzard Game Data journal-encounter + Wowhead tooltip API",
+    "buildNamespace": "static-12.1.0_68914-eu",
+    "generatedAt": "2026-09-09T18:19:40+00:00",
+    "generator": "tools/game_knowledge/journal_sync.py",
+    "readMe": "Ability text and damage magnitudes come from Wowhead's tooltip endpoint, which is the only source carrying tuned numbers for this tier -- Blizzard's /data/wow/spell/<id> returns 404 for these ids and the in-game journal text ships 'X' placeholders. A magnitude here is ONE difficulty's value and the endpoint does not say which; cross-check against measured damage taken in profiles/<spec>-<difficulty>.json before quoting it as a Mythic number.",
+    "encounter": "sszorak"
+  },
+  "encounter": {
+    "slug": "sszorak",
+    "journalEncounterId": 2871,
+    "name": "Sszorak",
+    "description": "A horrifying creature, warped by Ula'tek's toxic venom, Sszorak is a brutal instrument of vengeance. Calling upon the winds that howl deep within Atal'Utek, it tears apart any living creature it encounters.",
+    "creatures": [
+      {
+        "id": 6128,
+        "name": "Sszorak"
+      }
+    ],
+    "modes": [
+      "LFR",
+      "NORMAL",
+      "HEROIC",
+      "MYTHIC"
+    ],
+    "notes": [
+      {
+        "title": "Overview",
+        "bodyText": "Sszorak relentlessly assaults players with [Apex Predator] combination attacks and noxious [Venomous Surge] globs. The Altar of the Six Winds unleashes [Raging Crosswinds] and eventually builds to a massive [Howling Maelstrom] that pushes players around the arena.",
+        "bullets": [
+          "Sszorak relentlessly assaults players with [Apex Predator] combination attacks and noxious [Venomous Surge] globs. The Altar of the Six Winds unleashes [Raging Crosswinds] and eventually builds to a massive [Howling Maelstrom] that pushes players around the arena."
+        ]
+      },
+      {
+        "title": "Damage Dealers",
+        "bodyText": "$bullet;[Venomous Surge] inflicts raid-wide damage. Players farther from the affected player receive less damage.\r\n$bullet;[Raging Crosswinds] inflicts damage over time before knocking affected players in the indicated direction.\r\n$bullet;[Dig In] increases Sszorak's damage taken during [Howling Maelstrom].",
+        "bullets": [
+          "[Venomous Surge] inflicts raid-wide damage. Players farther from the affected player receive less damage.",
+          "[Raging Crosswinds] inflicts damage over time before knocking affected players in the indicated direction.",
+          "[Dig In] increases Sszorak's damage taken during [Howling Maelstrom]."
+        ]
+      },
+      {
+        "title": "Healers",
+        "bodyText": "$bullet;[Venomous Surge] inflicts raid-wide damage. Players farther from the affected player receive less damage.\r\n$bullet;[Raging Crosswinds] inflicts damage over time before knocking affected players in the indicated direction.\r\n$bullet;When the winds in the Altar of Six Winds build to a [Howling Maelstrom], players are pushed in the wind's direction.",
+        "bullets": [
+          "[Venomous Surge] inflicts raid-wide damage. Players farther from the affected player receive less damage.",
+          "[Raging Crosswinds] inflicts damage over time before knocking affected players in the indicated direction.",
+          "When the winds in the Altar of Six Winds build to a [Howling Maelstrom], players are pushed in the wind's direction."
+        ]
+      },
+      {
+        "title": "Tanks",
+        "bodyText": "$bullet;During [Apex Predator], Sszorak casts a combination of [Ravage] and [Mutilate].\r\n$bullet;[Corroding Venom] increases Physical damage taken. This effect stacks.\r\n$bullet;When the winds in the Altar of Six Winds build to a [Howling Maelstrom], players are pushed in the wind's direction.",
+        "bullets": [
+          "During [Apex Predator], Sszorak casts a combination of [Ravage] and [Mutilate].",
+          "[Corroding Venom] increases Physical damage taken. This effect stacks.",
+          "When the winds in the Altar of Six Winds build to a [Howling Maelstrom], players are pushed in the wind's direction."
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "spellId": 1285732,
+        "title": "Howling Maelstrom",
+        "journalSpellName": "Howling Maelstrom",
+        "tooltipName": "Howling Maelstrom",
+        "icon": "spell_nature_cyclone",
+        "cast": "Instant",
+        "description": "The Altar of the Six Winds unleashes a succession of gales across the arena. Each gale pushes players in its indicated direction.",
+        "damage": [],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35421,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1286033,
+        "title": "Dig In",
+        "journalSpellName": "Dig In",
+        "tooltipName": "Dig In",
+        "icon": "ability_ghoulfrenzy",
+        "cast": "Channeled (25 sec cast)",
+        "description": "Sszorak hunkers down during Howling Maelstrom, increasing his damage taken by 30% for 25 sec.",
+        "damage": [],
+        "parentTitle": "Howling Maelstrom",
+        "parentSpellId": 1285732,
+        "depth": 1,
+        "sectionId": 35431,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1297367,
+        "title": "Serpent's Fury",
+        "journalSpellName": "Serpent's Fury",
+        "tooltipName": "Serpent's Fury",
+        "icon": "ability_evoker_dragonrage2",
+        "cast": "Instant",
+        "description": "Sszorak marks a player and gains rage over time. When at least 14 players are within 8 yards of the marked player, Sszorak casts To the Slaughter and consumes his rage.\n\nUpon reaching 100 rage, Sszorak gains Unbound Ferocity and begins slaughtering players.",
+        "damage": [],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 36008,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1296898,
+        "title": "Unbound Ferocity",
+        "journalSpellName": "Unbound Ferocity",
+        "tooltipName": "Unbound Ferocity",
+        "icon": "spell_shadow_unholyfrenzy",
+        "cast": "Instant",
+        "description": "Sszorak flies into a killing frenzy, increasing his damage done by 500% and attack speed by 50% until all his foes are left dead or dying.",
+        "damage": [],
+        "parentTitle": "Serpent's Fury",
+        "parentSpellId": 1297367,
+        "depth": 1,
+        "sectionId": 36009,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1297414,
+        "title": "To the Slaughter",
+        "journalSpellName": "To the Slaughter",
+        "tooltipName": "To the Slaughter",
+        "icon": "spell_warrior_dragoncharge",
+        "cast": "Instant",
+        "description": "Sszorak consumes his rage and charges toward the player marked by Serpent's Fury, inflicting 333363 Physical damage to players struck and applying Virulence.",
+        "damage": [
+          {
+            "amount": 333363,
+            "school": "Physical",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Serpent's Fury",
+        "parentSpellId": 1297367,
+        "depth": 1,
+        "sectionId": 36046,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1297707,
+        "title": "Virulence",
+        "journalSpellName": "Virulence",
+        "tooltipName": "Virulence",
+        "icon": "ability_creature_poison_03",
+        "cast": "Instant",
+        "description": "Toxifies a target for 5 sec, inflicting 125011 Nature damage every 1 sec.\n\nUpon removal the toxin bursts, inflicting 833407 Nature damage to players struck and afflicting them with Virulence.",
+        "damage": [
+          {
+            "amount": 125011,
+            "school": "Nature",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 833407,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "To the Slaughter",
+        "parentSpellId": 1297414,
+        "depth": 2,
+        "sectionId": 36058,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1277025,
+        "title": "Apex Predator",
+        "journalSpellName": "Apex Predator",
+        "tooltipName": "Apex Predator",
+        "icon": "ability_hunter_aspectoftheviper",
+        "cast": "Instant",
+        "description": "Sszorak executes multiple attacks in rapid succession. Taunt effects can change his current target while casting.",
+        "damage": [],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 37046,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1277002,
+        "title": "Ravage",
+        "journalSpellName": "Ravage",
+        "tooltipName": "Ravage",
+        "icon": "inv_10_specialreagentfoozles_tuskclaw-black",
+        "cast": "3 sec cast",
+        "description": "Sszorak slashes repeatedly, inflicting 3500308 Physical damage to all players in a frontal cone and increasing their damage taken from Ravage by 600% for 25 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 3500308,
+            "school": "Physical",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Apex Predator",
+        "parentSpellId": 1277025,
+        "depth": 1,
+        "sectionId": 37047,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1277027,
+        "title": "Mutilate",
+        "journalSpellName": "Mutilate",
+        "tooltipName": "Mutilate",
+        "icon": "inv_ability_poison_missile",
+        "cast": "3 sec cast",
+        "description": "Sszorak rakes his venom-coated claws in a frontal cone, inflicting 4792088 Nature damage split evenly among players struck and afflicting them with Mutilated Gash.\n\nIf Mutilate strikes 5 or fewer players, it inflicts deadly damage.",
+        "damage": [
+          {
+            "amount": 4792088,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Apex Predator",
+        "parentSpellId": 1277025,
+        "depth": 1,
+        "sectionId": 37048,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1277051,
+        "title": "Mutilated Gash",
+        "journalSpellName": "Mutilated Gash",
+        "tooltipName": "Mutilated Gash",
+        "icon": "ability_rogue_venomouswounds",
+        "cast": "Instant",
+        "description": "Players struck by Mutilate are lacerated with toxic wounds, suffering 875077 Nature damage every 1 sec for 22 sec. This effect is split evenly among players struck.\n\nIncreases the damage taken from Mutilate by 0%.",
+        "damage": [
+          {
+            "amount": 875077,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Mutilate",
+        "parentSpellId": 1277027,
+        "depth": 2,
+        "sectionId": 37049,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1287072,
+        "title": "Tempest",
+        "journalSpellName": "Tempest",
+        "tooltipName": "Tempest",
+        "icon": "inv_ability_poison_beam",
+        "cast": "3.5 sec cast",
+        "description": "Sszorak forms vortices of poisonous wind which spiral around the arena. These inflict 500044 Nature damage plus an additional 208352 Nature damage every 1 sec and reduce movement speed by 30% for 6 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 500044,
+            "school": "Nature",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 208352,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Apex Predator",
+        "parentSpellId": 1277025,
+        "depth": 1,
+        "sectionId": 37050,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1305959,
+        "title": "Venomous Surge",
+        "journalSpellName": "Venomous Surge",
+        "tooltipName": "Venomous Surge",
+        "icon": "ability_creature_poison_06",
+        "cast": "Channeled (4 sec cast)",
+        "description": "Sszorak heaves fresh venom onto several players, inflicting 100009 Nature damage every 1 sec for 10 sec.\n\nUpon expiration, the venom detonates forming a Viscous Cyst and inflicting 500044 Nature damage to all players, decreasing in damage as distance increases.",
+        "damage": [
+          {
+            "amount": 100009,
+            "school": "Nature",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 500044,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 36606,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1287008,
+        "title": "Viscous Cyst",
+        "journalSpellName": "Viscous Cyst",
+        "tooltipName": "Viscous Cyst",
+        "icon": "inv_ability_poison_orb",
+        "cast": "Instant",
+        "description": "A glob of unstable toxin forms for 2 min. Upon contact or expiration, the glob bursts, knocking all players away and inflicting 500044 Nature damage. The toxin then inflicts 50004 Nature damage every 1 sec and reduces movement speed by 30% for 5 sec. This effect stacks.\n\nThe toxins cling to players, allowing them to better adhere to the ground while it persists.",
+        "damage": [
+          {
+            "amount": 500044,
+            "school": "Nature",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 50004,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Venomous Surge",
+        "parentSpellId": 1305959,
+        "depth": 1,
+        "sectionId": 36607,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1305998,
+        "title": "Caustic Claws",
+        "journalSpellName": "Caustic Claws",
+        "tooltipName": "Caustic Claws",
+        "icon": "inv_121_trinket_raid_ulatek_ulatekclaw",
+        "cast": "Instant",
+        "description": "Sszorak flings toxin from his claws, inflicting 750066 Nature damage to players within 6 yards of impact and forming a pool of Caustic Residue.",
+        "damage": [
+          {
+            "amount": 750066,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Venomous Surge",
+        "parentSpellId": 1305959,
+        "depth": 1,
+        "sectionId": 36550,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1296602,
+        "title": "Caustic Residue",
+        "journalSpellName": "Caustic Residue",
+        "tooltipName": "Caustic Residue",
+        "icon": "inv_ability_poison_groundstate",
+        "cast": "Instant",
+        "description": "The pool of sizzling acid corrodes players within it, inflicting 41670 Nature damage every 1 sec and increasing their damage taken by 30%.",
+        "damage": [
+          {
+            "amount": 41670,
+            "school": "Nature",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": "Caustic Claws",
+        "parentSpellId": 1305998,
+        "depth": 2,
+        "sectionId": 36583,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1285419,
+        "title": "Raging Crosswinds",
+        "journalSpellName": "Raging Crosswinds",
+        "tooltipName": "Raging Crosswinds",
+        "icon": "ability_skyreach_wind",
+        "cast": "Instant",
+        "description": "The Altar of the Six Winds imbues several players with roiling winds, inflicting 20835 Nature damage every 1 sec for 8 sec.\n\nUpon expiration, the winds inflict 500044 Nature damage to players within 6 yards. The winds then knock each affected player in the indicated direction and apply Turbulent Gusts.",
+        "damage": [
+          {
+            "amount": 20835,
+            "school": "Nature",
+            "everySeconds": 1.0
+          },
+          {
+            "amount": 500044,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35415,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1285447,
+        "title": "Turbulent Gusts",
+        "journalSpellName": "Turbulent Gusts",
+        "tooltipName": "Turbulent Gusts",
+        "icon": "ability_skyreach_four_wind",
+        "cast": "Instant",
+        "description": "Turbulent winds hold the target aloft, reducing their falling speed for 10 sec. Contacting another player affected by Turbulent Gusts causes the winds to dissipate.",
+        "damage": [],
+        "parentTitle": "Raging Crosswinds",
+        "parentSpellId": 1285419,
+        "depth": 1,
+        "sectionId": 35416,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1282869,
+        "title": "Corroding Venom",
+        "journalSpellName": "Corroding Venom",
+        "tooltipName": "Corroding Venom",
+        "icon": "ability_druid_infectedwound",
+        "cast": "Instant",
+        "description": "Sszorak's venom-laced claws corrode his target's armor, causing melee attacks to increase Physical damage taken by the target by 3% for 25 sec. This effect stacks.",
+        "damage": [],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35405,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1285961,
+        "title": "Ula'tek's Presence",
+        "journalSpellName": "Ula'tek's Presence",
+        "tooltipName": "Ula'tek's Presence",
+        "icon": "achievement_dungeon_templeofsethraliss",
+        "cast": "Instant",
+        "description": "The Altar of the Six Winds emits a caustic mist, inflicting 83341 Nature damage to all players every 2 sec.",
+        "damage": [
+          {
+            "amount": 83341,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35429,
+        "repeatedSections": 0
+      }
+    ],
+    "journalInstance": {
+      "id": 1320,
+      "name": "The Venomous Abyss"
+    }
+  }
+}

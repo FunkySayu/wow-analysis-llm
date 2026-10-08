@@ -1,0 +1,672 @@
+{
+  "meta": {
+    "zone": "venomous-abyss",
+    "source": "Blizzard Game Data journal-encounter + Wowhead tooltip API",
+    "buildNamespace": "static-12.1.0_68914-eu",
+    "generatedAt": "2026-09-09T18:19:40+00:00",
+    "generator": "tools/game_knowledge/journal_sync.py",
+    "readMe": "Ability text and damage magnitudes come from Wowhead's tooltip endpoint, which is the only source carrying tuned numbers for this tier -- Blizzard's /data/wow/spell/<id> returns 404 for these ids and the in-game journal text ships 'X' placeholders. A magnitude here is ONE difficulty's value and the endpoint does not say which; cross-check against measured damage taken in profiles/<spec>-<difficulty>.json before quoting it as a Mythic number.",
+    "encounter": "vashnik"
+  },
+  "encounter": {
+    "slug": "vashnik",
+    "journalEncounterId": 2882,
+    "name": "Vashnik the Malignant",
+    "description": "Within The Chamber of Virulence, Vashnik the Malignant distills Ula'tek's venoms into ever more lethal forms. The creature lurks in its noxious chamber, brewing foul toxins to empower its brood.",
+    "creatures": [
+      {
+        "id": 6170,
+        "name": "Vashnik the Malignant"
+      },
+      {
+        "id": 6168,
+        "name": "Clotting Venom"
+      },
+      {
+        "id": 6171,
+        "name": "Shrouded Venom"
+      },
+      {
+        "id": 6169,
+        "name": "Burning Venom"
+      }
+    ],
+    "modes": [
+      "LFR",
+      "NORMAL",
+      "HEROIC",
+      "MYTHIC"
+    ],
+    "notes": [
+      {
+        "title": "Overview",
+        "bodyText": "Upon reaching 100 energy, Vashnik [Imbibes] from the nearest two fountains, increasing his affinity to them. These fountains erupt with vapor, bringing forth living venom that crawl toward the Malignant Cavity in the center of the chamber.\r\n\r\nShould a living venom reach its destination, a [Malignant Burst] occurs.",
+        "bullets": [
+          "Upon reaching 100 energy, Vashnik [Imbibes] from the nearest two fountains, increasing his affinity to them. These fountains erupt with vapor, bringing forth living venom that crawl toward the Malignant Cavity in the center of the chamber.\r\n\r\nShould a living venom reach its destination, a [Malignant Burst] occurs."
+        ]
+      },
+      {
+        "title": "Damage Dealers",
+        "bodyText": "$bullet; [Imbibe] creates living venom from two nearby fountains.\r\n\r\n$bullet; Living venoms explode in [Malignant Bursts] unless destroyed.\r\n\r\n$bullet; The initial Clotting Venom is protected by [Sanguineous Fortitude].",
+        "bullets": [
+          "[Imbibe] creates living venom from two nearby fountains.",
+          "Living venoms explode in [Malignant Bursts] unless destroyed.",
+          "The initial Clotting Venom is protected by [Sanguineous Fortitude]."
+        ]
+      },
+      {
+        "title": "Healers",
+        "bodyText": "$bullet; [Imbibe] inflicts heavy damage to all players.\r\n\r\n$bullet; Vashnik's chamber fills with increasing [Toxic Vapor] each time he [Imbibes].\r\n\r\n$bullet; [Siphoning Infection] absorbs a large amount of incoming healing.",
+        "bullets": [
+          "[Imbibe] inflicts heavy damage to all players.",
+          "Vashnik's chamber fills with increasing [Toxic Vapor] each time he [Imbibes].",
+          "[Siphoning Infection] absorbs a large amount of incoming healing."
+        ]
+      },
+      {
+        "title": "Tanks",
+        "bodyText": "$bullet; [Dripping Fangs] inflicts increasing damage over time.\r\n\r\n$bullet; [Imbibe] infuses Vashnik with the power of two nearby fountains.",
+        "bullets": [
+          "[Dripping Fangs] inflicts increasing damage over time.",
+          "[Imbibe] infuses Vashnik with the power of two nearby fountains."
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "spellId": 1283164,
+        "title": "Imbibe",
+        "journalSpellName": "Imbibe",
+        "tooltipName": "Imbibe",
+        "icon": "spell_nature_poisoncleansingtotem",
+        "cast": "Instant",
+        "description": "Vashnik draws power from two nearby fountains, infusing himself with their power and gaining an application of Toxic Vapor.\n\nEach fountain bursts forth in an expulsion of toxins and creates living venoms that crawl toward the Malignant Cavity.",
+        "damage": [],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35941,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1304459,
+        "title": "Malignance",
+        "journalSpellName": "Malignance",
+        "tooltipName": "Malignance",
+        "icon": "ability_creature_disease_02",
+        "cast": "1.417 min cast",
+        "description": "The totem sends a wave of poison, inflicting 666725 Nature damage and an additional 208352 Nature damage every 2 sec for 1 min to all players. This effect stacks.",
+        "damage": [
+          {
+            "amount": 666725,
+            "school": "Nature",
+            "everySeconds": 2.0
+          },
+          {
+            "amount": 208352,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Malignant Totem",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36629,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1293969,
+        "title": "Blood Infusion",
+        "journalSpellName": "Blood Infusion",
+        "tooltipName": "Blood Infusion",
+        "icon": "spell_animarevendreth_buff",
+        "cast": "Instant",
+        "description": "Vashnik empowers himself with blood venom, bolstering his next cast of Imbibe. \n\nIncreases the damage of Hemo Expulsion by 100% and the maximum health of Clotting Venoms by 50% for 1.5 min. This effect stacks.",
+        "damage": [],
+        "parentTitle": "Fountain of Blood",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36473,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1298582,
+        "title": "Hemo Expulsion",
+        "journalSpellName": "Hemo Expulsion",
+        "tooltipName": "Hemo Expulsion",
+        "icon": "inv_artifact_bloodoftheassassinated",
+        "cast": "Instant",
+        "description": "Vashnik draws venom from the Fountain of Blood, inflicting 108343 Shadow damage to all players.",
+        "damage": [
+          {
+            "amount": 108343,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Fountain of Blood",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36474,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1291530,
+        "title": "Sanguineous Fortitude",
+        "journalSpellName": "Sanguineous Fortitude",
+        "tooltipName": "Sanguineous Fortitude",
+        "icon": "inv_10_elementalcombinedfoozles_blood",
+        "cast": "Instant",
+        "description": "Clotting Venom is fortified as it emerges, protecting it from crowd control effects until destroyed.",
+        "damage": [],
+        "parentTitle": "Clotting Venom",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 36469,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1286631,
+        "title": "Splitting Clot",
+        "journalSpellName": "Splitting Clot",
+        "tooltipName": "Splitting Clot",
+        "icon": "inv_10_elementalshardfoozles_blood",
+        "cast": "Instant",
+        "description": "Clotting Venom splits upon dying, creating smaller Clotting Venom.",
+        "damage": [],
+        "parentTitle": "Clotting Venom",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 35944,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1293968,
+        "title": "Shadow Infusion",
+        "journalSpellName": "Shadow Infusion",
+        "tooltipName": "Shadow Infusion",
+        "icon": "spell_warlock_demonsoul",
+        "cast": "Instant",
+        "description": "Vashnik empowers himself with shadow venom, bolstering his next cast of Imbibe.\n\nIncreases the damage of Gloom Expulsion by 100% and the maximum health of Shrouded Venoms by 50% for 1.5 min. This effect stacks.",
+        "damage": [],
+        "parentTitle": "Fountain of Shadow",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36475,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1298583,
+        "title": "Gloom Expulsion",
+        "journalSpellName": "Gloom Expulsion",
+        "tooltipName": "Gloom Expulsion",
+        "icon": "inv_elemental_primal_shadow",
+        "cast": "Instant",
+        "description": "Vashnik draws venom from the Fountain of Shadow, inflicting 108343 Shadow damage to all players.",
+        "damage": [
+          {
+            "amount": 108343,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Fountain of Shadow",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36476,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1312366,
+        "title": "Miasmic Coating",
+        "journalSpellName": "Miasmic Coating",
+        "tooltipName": "Miasmic Coating",
+        "icon": "inv12_apextalent_priest_voidshield",
+        "cast": "Instant",
+        "description": "Shrouded Venom is protected by a Miasmic Coating that absorbs 100% of its max health in damage.",
+        "damage": [],
+        "parentTitle": "Shrouded Venom",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 36789,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1286737,
+        "title": "Umbral Ejection",
+        "journalSpellName": "Umbral Ejection",
+        "tooltipName": "Umbral Ejection",
+        "icon": "ability_ironmaidens_convulsiveshadows",
+        "cast": "Instant",
+        "description": "Shrouded Venoms burst when destroyed, spraying shadow venom that inflicts 541714 Shadow damage to players within 3 yards of its impact locations.",
+        "damage": [
+          {
+            "amount": 541714,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Shrouded Venom",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 35947,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1293971,
+        "title": "Flame Infusion",
+        "journalSpellName": "Flame Infusion",
+        "tooltipName": "Flame Infusion",
+        "icon": "ability_mage_livingbomb",
+        "cast": "Instant",
+        "description": "Vashnik empowers himself with flame venom, bolstering his next cast of Imbibe. \n\nIncreases the damage of Conflagrating Expulsion by 100% and the maximum health of Burning Venoms by 50% for 1.5 min. This effect stacks.",
+        "damage": [],
+        "parentTitle": "Fountain of Flame",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36477,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1298587,
+        "title": "Conflagrating Expulsion",
+        "journalSpellName": "Conflagrating Expulsion",
+        "tooltipName": "Conflagrating Expulsion",
+        "icon": "ability_evoker_firestorm",
+        "cast": "Instant",
+        "description": "Vashnik draws venom from the Fountain of Flame, inflicting 108343 Fire damage to all players.",
+        "damage": [
+          {
+            "amount": 108343,
+            "school": "Fire",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Fountain of Flame",
+        "parentSpellId": null,
+        "depth": 2,
+        "sectionId": 36478,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1305902,
+        "title": "Burning Presence",
+        "journalSpellName": "Burning Presence",
+        "tooltipName": "Burning Presence",
+        "icon": "ability_rhyolith_magmaflow_wave",
+        "cast": "Instant",
+        "description": "Burning Venom pulses with flame, inflicting 33336 Fire damage to all players every 3 sec.",
+        "damage": [
+          {
+            "amount": 33336,
+            "school": "Fire",
+            "everySeconds": 3.0
+          }
+        ],
+        "parentTitle": "Burning Venom",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 36788,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1285979,
+        "title": "Caustic Surge",
+        "journalSpellName": "Caustic Surge",
+        "tooltipName": "Caustic Surge",
+        "icon": "spell_shaman_firenova",
+        "cast": null,
+        "description": "Burning Venoms explode when destroyed, inflicting 100009 Fire damage to all players3 sec. This effect stacks. [.]",
+        "damage": [
+          {
+            "amount": 100009,
+            "school": "Fire",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Burning Venom",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 37149,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1314837,
+        "title": "Hardened Venom",
+        "journalSpellName": "Hardened Venom",
+        "tooltipName": "Hardened Venom",
+        "icon": "inv_maldraxxusslime_plague",
+        "cast": "Instant",
+        "description": "The venom hardens after sixty seconds, and becomes immune to crowd control effects, and gains 50% increased movement speed.",
+        "damage": [],
+        "parentTitle": "Burning Venom",
+        "parentSpellId": null,
+        "depth": 3,
+        "sectionId": 37279,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1284561,
+        "title": "Toxic Vapor",
+        "journalSpellName": "Toxic Vapor",
+        "tooltipName": "Toxic Vapor",
+        "icon": "ability_creature_poison_06",
+        "cast": "Instant",
+        "description": "Toxic vapor fills the dank air of the chamber, inflicting 10001 Nature damage every 2 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 10001,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": "Imbibe",
+        "parentSpellId": 1283164,
+        "depth": 1,
+        "sectionId": 37145,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1280189,
+        "title": "Malignant Burst",
+        "journalSpellName": "Malignant Burst",
+        "tooltipName": "Malignant Burst",
+        "icon": "ability_rogue_deviouspoisons",
+        "cast": "1.5 sec cast",
+        "description": "Living venoms burst upon reaching the Malignant Cavity, inflicting 1666813 Nature damage to all players and an additional 333363 Nature damage every 3 sec for 30 sec. This effect stacks.",
+        "damage": [
+          {
+            "amount": 1666813,
+            "school": "Nature",
+            "everySeconds": null
+          },
+          {
+            "amount": 333363,
+            "school": "Nature",
+            "everySeconds": 3.0
+          }
+        ],
+        "parentTitle": "Imbibe",
+        "parentSpellId": 1283164,
+        "depth": 1,
+        "sectionId": 35943,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1282525,
+        "title": "Malignant Catalyst",
+        "journalSpellName": "Malignant Catalyst",
+        "tooltipName": "Malignant Catalyst",
+        "icon": "inv_ability_poison_groundstate",
+        "cast": "Instant",
+        "description": "Vashnik congeals an orb of venom above the Malignant Cavity and then explodes it, inflicting 320862 Nature damage to all players and launching Catalytic Bile.",
+        "damage": [
+          {
+            "amount": 320862,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35931,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1282601,
+        "title": "Catalytic Bile",
+        "journalSpellName": "Catalytic Bile",
+        "tooltipName": "Catalytic Bile",
+        "icon": "inv_ability_poison_missile",
+        "cast": "Instant",
+        "description": "A toxic spray that inflicts 283224 Nature damage to players within 6 yards of the impact locations. \n\nIf Catalytic Bile fails to hit at least one player, 666725 Nature damage is inflicted to all players instead.",
+        "damage": [
+          {
+            "amount": 283224,
+            "school": "Nature",
+            "everySeconds": null
+          },
+          {
+            "amount": 666725,
+            "school": "Nature",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Malignant Catalyst",
+        "parentSpellId": 1282525,
+        "depth": 1,
+        "sectionId": 35932,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1281907,
+        "title": "Plague Froth",
+        "journalSpellName": "Plague Froth",
+        "tooltipName": "Plague Froth",
+        "icon": "inv_ability_poison_debuff",
+        "cast": "Instant",
+        "description": "Vashnik coats his victims in a corrosive venom that inflicts 166681 Plague damage to players within 4.5 yards every 1 sec for 6 sec. When the aura expires, Plague Waves erupt from the target in cardinal directions.",
+        "damage": [
+          {
+            "amount": 166681,
+            "school": "Plague",
+            "everySeconds": 1.0
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35939,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295798,
+        "title": "Plague Wave",
+        "journalSpellName": "Plague Wave",
+        "tooltipName": "Plague Wave",
+        "icon": "inv_ability_poison_wave",
+        "cast": "Instant",
+        "description": "Waves of plague venom erupt from the target, inflicting 666725 Plague damage to players hit.",
+        "damage": [
+          {
+            "amount": 666725,
+            "school": "Plague",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Plague Froth",
+        "parentSpellId": 1281907,
+        "depth": 1,
+        "sectionId": 36176,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1280935,
+        "title": "Dripping Fangs",
+        "journalSpellName": "Dripping Fangs",
+        "tooltipName": "Dripping Fangs",
+        "icon": "ability_creature_poison_01",
+        "cast": "2 sec cast",
+        "description": "Vashnik bites into his current target, inflicting 2083517 Physical damage and an additional 250022 Nature damage every 2 sec for 32 sec. Increases Physical damage taken by 200%. This effect stacks.",
+        "damage": [
+          {
+            "amount": 2083517,
+            "school": "Physical",
+            "everySeconds": 2.0
+          },
+          {
+            "amount": 250022,
+            "school": "Nature",
+            "everySeconds": 2.0
+          }
+        ],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35940,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1282117,
+        "title": "Adaptive Infection",
+        "journalSpellName": "Adaptive Infection",
+        "tooltipName": "Adaptive Infection",
+        "icon": "inv_ability_poison_buff",
+        "cast": "Instant",
+        "description": "Vashnik infects several players with toxins, according to his current infusions.",
+        "damage": [],
+        "parentTitle": null,
+        "parentSpellId": null,
+        "depth": 0,
+        "sectionId": 35935,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1299941,
+        "title": "Siphoning Infection",
+        "journalSpellName": "Siphoning Infection",
+        "tooltipName": "Siphoning Infection",
+        "icon": "ability_ironmaidens_whirlofblood",
+        "cast": "Instant",
+        "description": "Vashnik infects several players with a blood venom that inflicts 58338 Shadow damage every 1.5 sec and absorbs the next 1065737  healing.\n\nWhile the infection lasts, healing received is reduced by 100%, and the target periodically casts Siphon Blood to nearby players.",
+        "damage": [
+          {
+            "amount": 58338,
+            "school": "Shadow",
+            "everySeconds": 1.5
+          }
+        ],
+        "parentTitle": "Adaptive Infection",
+        "parentSpellId": 1282117,
+        "depth": 1,
+        "sectionId": 35936,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295229,
+        "title": "Siphon Blood",
+        "journalSpellName": "Siphon Blood",
+        "tooltipName": "Siphon Blood",
+        "icon": "spell_animarevendreth_beam",
+        "cast": "Instant",
+        "description": "Inflicting 125011 Shadow damage to nearby allies, and healing 28420 for each ally hit every 1.5 sec.",
+        "damage": [
+          {
+            "amount": 125011,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Siphoning Infection",
+        "parentSpellId": 1299941,
+        "depth": 2,
+        "sectionId": 36262,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1314273,
+        "title": "Thinned Blood",
+        "journalSpellName": "Thinned Blood",
+        "tooltipName": "Thinned Blood",
+        "icon": "ability_creature_cursed_02",
+        "cast": "Instant",
+        "description": "Your blood is being drained faster than expected, increasing damage taken from Siphon Blood by 500%.",
+        "damage": [],
+        "parentTitle": "Siphoning Infection",
+        "parentSpellId": 1299941,
+        "depth": 2,
+        "sectionId": 37277,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1295173,
+        "title": "Exploding Infection",
+        "journalSpellName": "Exploding Infection",
+        "tooltipName": "Exploding Infection",
+        "icon": "spell_fire_incinerate",
+        "cast": "Instant",
+        "description": "Vashnik infects players with a flame venom that inflicts 25002 Fire damage every 1.5 sec. Upon removal, the infected player will erupt in a Caustic Explosion.",
+        "damage": [
+          {
+            "amount": 25002,
+            "school": "Fire",
+            "everySeconds": 1.5
+          }
+        ],
+        "parentTitle": "Adaptive Infection",
+        "parentSpellId": 1282117,
+        "depth": 1,
+        "sectionId": 37228,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1295209,
+        "title": "Caustic Explosion",
+        "journalSpellName": "Caustic Explosion",
+        "tooltipName": "Caustic Explosion",
+        "icon": "spell_shaman_improvedfirenova",
+        "cast": "Instant",
+        "description": "The infected player explodes, inflicting 233354 Fire damage to all players.",
+        "damage": [
+          {
+            "amount": 233354,
+            "school": "Fire",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Exploding Infection",
+        "parentSpellId": 1295173,
+        "depth": 2,
+        "sectionId": 37229,
+        "repeatedSections": 1
+      },
+      {
+        "spellId": 1294994,
+        "title": "Stygian Infection",
+        "journalSpellName": "Stygian Infection",
+        "tooltipName": "Stygian Infection",
+        "icon": "ability_rogue_envelopingshadows",
+        "cast": "Instant",
+        "description": "Vashnik infects several players with a shadow venom that inflicts 58338 Shadow damage every 1.5 sec and absorbs the next 1420983 healing. While the infection lasts, the infected player periodically casts Stygian Burst.",
+        "damage": [
+          {
+            "amount": 58338,
+            "school": "Shadow",
+            "everySeconds": 1.5
+          }
+        ],
+        "parentTitle": "Adaptive Infection",
+        "parentSpellId": 1282117,
+        "depth": 1,
+        "sectionId": 35938,
+        "repeatedSections": 0
+      },
+      {
+        "spellId": 1302489,
+        "title": "Stygian Burst",
+        "journalSpellName": "Stygian Burst",
+        "tooltipName": "Stygian Burst",
+        "icon": "spell_priest_divinestar_shadow2",
+        "cast": "Instant",
+        "description": "An eruption of dark venom that inflicts 583385 Shadow damage to players within 3.5 yards of the impact location.",
+        "damage": [
+          {
+            "amount": 583385,
+            "school": "Shadow",
+            "everySeconds": null
+          }
+        ],
+        "parentTitle": "Stygian Infection",
+        "parentSpellId": 1294994,
+        "depth": 2,
+        "sectionId": 36261,
+        "repeatedSections": 0
+      }
+    ],
+    "journalInstance": {
+      "id": 1320,
+      "name": "The Venomous Abyss"
+    }
+  }
+}
