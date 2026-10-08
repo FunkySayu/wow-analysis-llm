@@ -110,11 +110,11 @@ all share it. That is the cadence to build the whole plan around.
 
 ### Corrections to the Heroic knowledge file
 
-Both found by cross-checking rather than assuming, and both matter:
+Both found by cross-checking rather than assuming, and both are now carried back into
+[venomous-abyss-12.1.md](venomous-abyss-12.1.md):
 
-- **Sszorak's Dig In is 127.0s on Mythic** (IQR 0.1 over 94 pulls), not the "100 M" recorded
-  in `venomous-abyss-12.1.md`. That file's cadence table was sourced from BigWigs constants
-  one day into the tier.
+- **Sszorak's Dig In is a 127.0s cadence on Mythic** (IQR 0.1 over 94 pulls); the "100 M" first
+  recorded was the first window's start, from BigWigs constants one day into the tier.
 - **Rage of the Shackled now reads 500,044 Nature every 4 sec**, not the 416,703 recorded on
   2026-08-19. The ability was retuned. Any tooltip magnitude captured during the first week
   of a tier should be treated as expired.
@@ -160,7 +160,10 @@ of damage coming from three auras.
 
 The dataset records this rather than hiding it — those abilities appear in `journalOnly` with
 the reason `applied rather than cast`. Closing the gap needs a damage-intake curve measured
-from `DamageTaken` *events*, not from the cast stream. That is not built yet.
+from `DamageTaken` *events* or debuff applications, not from the cast stream. That is not
+built as a tool yet; how it was done by hand for Vashnik, and the helper to build, are in
+[boss-death-timelines.md](../../../method/boss-death-timelines.md) ("The measurement that
+matters most").
 
 ## Sourcing, corrected
 
@@ -191,7 +194,8 @@ from `DamageTaken` *events*, not from the cast stream. That is not built yet.
 ## The Lost Explorers — what the top-10% Balance field does (measured 2026-09-17)
 
 39 Mythic pulls, one per 0.25% rank slice from #6 to #412 of 4,173, plus Funkitty's p89 kill.
-Working files: `scratch/lost-explorers/`.
+The general techniques this case produced (per-phase benchmarking, sizing a finding in parse
+terms, `run.py displaced`) are in [analysing-a-pull.md](../../../method/analysing-a-pull.md).
 
 - **Phase kinds.** `phaseTransitions` id 1 is the Final Ascension build-up (all three explorers
   possessed), ids 2–4 are a 60s Mor'zahi's Command channel on one explorer. The empowered
@@ -231,14 +235,16 @@ Working files: `scratch/lost-explorers/`.
 - **Holding the last Incarnation to ~5:00 with the potion is not supported** by a per-second
   re-timing of that pull: −1.5 to −3.0k DPS at a realistic Incarnation multiplier (×1.5–1.8),
   positive only at the pooling-inflated ×2.16, and it would push the on-use trinket (Empowering
-  Venom, 120s) past the kill. Scripts: `scratch/lost-explorers/potion_ca.py`, `potion_ca_sens.txt`.
+  Venom, 120s) past the kill.
 
 ## The Twin Fangs — Spawn of Vexhul and the boss geometry (measured 2026-10-06)
 
 Measured from 30 kills sampled out of the 178 unique pulls in the top-200 Mythic world
-character rankings (all classes), plus Shidann's kill `vP4RTacqbCNzd9JV#9`. The fight
-script and the full method are in
-[scratch/bdruid/twinfangs/README.md](../../../../../scratch/bdruid/twinfangs/README.md).
+character rankings (all classes), plus Shidann's kill `vP4RTacqbCNzd9JV#9`. These
+measurements are what the simc fight script encodes: the script is in
+`data/raid/12_1/venomous_abyss/06_twinfangs/sim/`, its reference card is
+[twin-fangs-sim-profile.md](twin-fangs-sim-profile.md), and the method is
+[modelling-a-fight-in-simc.md](../../../method/modelling-a-fight-in-simc.md).
 
 - **Spawn waves run on a fixed clock.** The Venomous Emergence begincast lands at **33.0 /
   94.0 / 188.0 / 249.0 / 343.1s** (sd 0.08s), a cadence of 61/94/61/94s. A sixth wave
@@ -269,7 +275,8 @@ script and the full method are in
 Measured from 40 Balance Druid kills, rank-stratified p76–p100, with positions taken from
 `includeResources` events. Method notes are in
 [tools/warcraftlogs/README.md](../../../../../tools/warcraftlogs/README.md#positions-and-resource-snapshots-the-data-behind-the-replay).
-Scripts are in `scratch/bdruid/funkitty_wipes/` (`track.py`, `p1move.py`, `inter.py`).
+What the Balance field *chooses* on this clock (utility assignments, Incarnation timing, grading
+a wipe) is in [balance-druid-12.1.md](../../../classes/druid/balance-druid-12.1.md).
 
 **The 61s cycle**, as seconds from cycle start. Cycles start at 0 / 61 / 155 / 216 / 310 / 371s,
 and every pull matches to within 0.1s:

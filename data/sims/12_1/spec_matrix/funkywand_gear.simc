@@ -1,0 +1,27 @@
+# Funkywand gear -- CombatantInfo of HfGDg1K3bRzcqPkN fight 6 (Ula'tek, 2026-09-30), avg ilvl 324.9, 4pc set 2060.
+# Shared by every Mage spec: armor/weapon/trinkets are all Intellect, so only spec + talents change.
+# Corrections (same as funkitty_current.simc, see twin-fangs-sim-profile.md):
+#  - Aqirbane Reliquary (neck): simc gives 404 crit; in game 101 of each -> stats= override.
+#  - Crafted stat pairs come from 879x bonus ids (wrist 8793 mastery/haste, off-hand 8790 crit/haste).
+#  - Rite of the Hash'ey (main-hand enchant 8689) is not modelled by simc: enchant_id=0 and its measured
+#    average uptime on 25 top users as constant rating (+68 crit/+38 mastery/+20 haste/+5 vers).
+enchant_crit_rating=68
+enchant_mastery_rating=38
+enchant_haste_rating=20
+enchant_versatility_rating=5
+head=,id=271564,bonus_id=13334/6652/13846/13696/13692/13698/12850,enchant_id=8017
+neck=,id=268265,bonus_id=6652/13668/13334/13987/12854,gem_id=240967/240900,stats=2199sta_101crit_101haste_101vers_101mastery
+shoulder=,id=271562,bonus_id=6652/13440/13694/13697/12846,enchant_id=8031
+chest=,id=251147,bonus_id=13440/6652/13662/12699/12846,enchant_id=7987
+waist=,id=193691,bonus_id=13440/6652/13695/13662/12699/12846,gem_id=240900
+legs=,id=271563,bonus_id=6652/13440/13693/13698/12846,enchant_id=7937
+feet=,id=251137,bonus_id=13440/6652/13662/12699/12846,enchant_id=7993
+wrist=,id=239648,bonus_id=12214/13667/12497/13751/14001/8960/12384/8793/13836/13696
+hands=,id=271565,bonus_id=6652/13440/13691/13697/12846
+finger1=,id=252258,bonus_id=13440/6652/13668/12699/12846,enchant_id=7967,gem_id=240900
+finger2=,id=251148,bonus_id=13440/6652/13668/12699/12846,enchant_id=7967,gem_id=240900
+trinket1=,id=250215,bonus_id=13440/6652/12699/12854
+trinket2=,id=270164,bonus_id=6652/13334/12854
+back=,id=159288,bonus_id=13440/42/13662/12699/12845
+main_hand=,id=268203,bonus_id=6652/13335/12852,enchant_id=0
+off_hand=,id=245769,bonus_id=12214/13667/12497/13751/14001/13771/8960/8790/13836

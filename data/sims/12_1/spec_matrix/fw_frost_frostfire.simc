@@ -1,0 +1,12 @@
+mage="FW_frost_frostfire"
+level=90
+race=mechagnome
+role=spell
+position=ranged_back
+spec=frost
+omnium_talents=136822:1/136816:1/136817:1/136818:1/136814:1
+potion=lights_potential_2
+flask=flask_of_the_shattered_sun_2
+food=silvermoon_parade
+augmentation=void_touched_augment_rune
+temporary_enchant=main_hand:thalassian_phoenix_oil_2

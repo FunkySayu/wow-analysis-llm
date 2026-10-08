@@ -1,0 +1,20 @@
+# Sim-wide options shared by every spec-profile run in data/sims/12_1/spec_matrix.
+# Same raid-buff set as data/raid/12_1/venomous_abyss/06_twinfangs/sim/twinfangs.simc (Droptimizer buffs minus Power Infusion),
+# so DPS here is comparable with the Balance Druid work. Override fight shape on the command line.
+max_time=300
+vary_combat_length=0.2
+desired_targets=1
+override.bloodlust=1
+override.arcane_intellect=1
+override.power_word_fortitude=1
+override.battle_shout=1
+override.mystic_touch=1
+override.chaos_brand=1
+override.skyfury=1
+override.mark_of_the_wild=1
+override.hunters_mark=1
+override.bleeding=1
+midnight.crucible_of_erratic_energies_violence=1
+midnight.crucible_of_erratic_energies_sustenance=1
+midnight.crucible_of_erratic_energies_predation=1
+optimize_expressions=1

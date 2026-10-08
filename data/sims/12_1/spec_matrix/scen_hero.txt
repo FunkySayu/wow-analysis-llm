@@ -1,0 +1,6 @@
+st300|desired_targets=1
+t2|desired_targets=2
+t3|desired_targets=3
+t5|desired_targets=5
+fixed300|vary_combat_length=0
+adds60|raid_events+=/adds,count=3,first=30,cooldown=60,duration=15

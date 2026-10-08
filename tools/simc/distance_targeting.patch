@@ -1,0 +1,76 @@
+diff --git a/engine/action/action.cpp b/engine/action/action.cpp
+index 72555b9bb7..cbfafddbed 100644
+--- a/engine/action/action.cpp
++++ b/engine/action/action.cpp
+@@ -5372,16 +5372,13 @@ player_t* action_t::select_target_if_target()
+   std::vector<player_t*> master_list;
+   if ( sim->distance_targeting_enabled )
+   {
+-    if ( !target_cache.is_valid )
+-    {
+-      available_targets( target_cache.list );
+-      master_list = targets_in_range_list( target_cache.list );
+-      target_cache.is_valid = true;
+-    }
+-    else
+-    {
+-      master_list = target_cache.list;
+-    }
++    // Vendored fix (wow-analysis): candidates are every target in range of the player,
++    // built locally. The stock code reused target_cache, which target_list() filters by
++    // splash radius around the *current* target -- so an AoE spell could never target_if
++    // onto a separate group -- and when it rebuilt the cache it stored this unfiltered
++    // list as valid, so the spell's next AoE silently ignored its radius.
++    available_targets( master_list );
++    master_list = targets_in_range_list( master_list );
+ 
+     sim->print_debug( "{} Number of targets found in range: {}", *player, master_list.size() );
+ 
+diff --git a/engine/class_modules/sc_druid.cpp b/engine/class_modules/sc_druid.cpp
+index d15883904e..068dff6bc1 100644
+--- a/engine/class_modules/sc_druid.cpp
++++ b/engine/class_modules/sc_druid.cpp
+@@ -6144,6 +6144,8 @@ struct efflorescence_t final : public druid_heal_t
+     druid_heal_t::execute();
+ 
+     params.start_time( timespan_t::min() )  // reset start time
++      .x( target->x_position )  // vendored fix (wow-analysis): params persist across casts and
++      .y( target->y_position )  // target() only sets x/y while they are -1, so re-aim every cast
+       .target( target );
+ 
+     make_event<ground_aoe_event_t>( *sim, p(), params );
+@@ -7425,6 +7427,8 @@ struct fury_of_elune_t final : public druid_spell_t
+     energize_buff->trigger( params.duration() );
+ 
+     params.start_time( timespan_t::min() )  // reset start time
++      .x( target->x_position )  // vendored fix (wow-analysis): params persist across casts and
++      .y( target->y_position )  // target() only sets x/y while they are -1, so re-aim every cast
+       .target( target );
+ 
+     make_event<ground_aoe_event_t>( *sim, p(), params );
+diff --git a/engine/player/ground_aoe.cpp b/engine/player/ground_aoe.cpp
+index 4e625914ba..eaee528a61 100644
+--- a/engine/player/ground_aoe.cpp
++++ b/engine/player/ground_aoe.cpp
+@@ -220,6 +220,21 @@ void ground_aoe_event_t::execute()
+                          pulse_time( false ).total_seconds() );
+     }
+ 
++    // Vendored fix (wow-analysis): with distance targeting the pulse action's target
++    // cache is filtered against its *previous* execute_state position, so a ground
++    // effect re-cast somewhere else kept hitting the old spot's targets. Rebuild the
++    // list from this pulse's own coordinates.
++    if ( sim().distance_targeting_enabled )
++    {
++      spell_->set_target( params->target() );
++      if ( spell_->execute_state )
++      {
++        spell_->execute_state->original_x = params->x();
++        spell_->execute_state->original_y = params->y();
++      }
++      spell_->target_cache.is_valid = false;
++    }
++
+     // Compute nd initialize number of targets hit for amount multipliers based on it
+     std::vector<player_t*>& tl = spell_->target_list();
+     const int max_targets      = as<int>( tl.size() );

@@ -2,8 +2,10 @@
 
 Method notes, written after building a phase-1 script for Ula'tek heroic from a raid log.
 Deliberately encounter- and spec-agnostic; the Ula'tek numbers are illustration, not the
-point. The worked case lives in
-[scratch/bdruid/ulatek/README.md](../../../scratch/bdruid/ulatek/README.md).
+point. The Ula'tek script itself was not kept; the worked case that *is* in the repo, ready to
+run, is Twin Fangs Mythic — files in `data/raid/12_1/venomous_abyss/06_twinfangs/sim/`, card in
+[twin-fangs-sim-profile.md](../raid/12_1/venomous_abyss/twin-fangs-sim-profile.md). Running
+simc at all: the `simc-simulation` skill; profile syntax: `simc-profile-syntax`.
 
 Companion to [analysing-a-pull.md](analysing-a-pull.md). That file is for *what went wrong
 in this pull*. This one is for *what is better in general* — when the question stops being
@@ -134,8 +136,8 @@ Express it with distance targeting:
 - `move_enemy` for temporary splits, e.g. Vile Flood separating the bosses for ~24s
 
 Then confirm every ability's target set in a trace. Distance targeting is where simc's
-silent bugs live (see the traps table). Worked case:
-[scratch/bdruid/twinfangs/README.md](../../../scratch/bdruid/twinfangs/README.md).
+silent bugs live (see the traps table; the fixes are the patches in `tools/simc/`). Worked
+case: [twin-fangs-sim-profile.md](../raid/12_1/venomous_abyss/twin-fangs-sim-profile.md).
 
 **Price the add/boss exchange rate.** Bosses can carry raid-applied debuffs that
 short-lived adds never collect. On Twin Fangs the bosses took 1.135x what a Spawn took,
@@ -191,7 +193,7 @@ data, not an error.**
 |---|---|
 | `raid_events` with `last == first` | event never fires, sim runs fine, no add ever spawns |
 | `fight_style=Patchwerk` alongside `raid_events` | the style resets the raid-event list: no add spawns, no error, header says `fight_style=Patchwerk`. Omit `fight_style` (the header then reads `None`) — confirmed 2026-09-30 on the Vashnik trinket sims |
-| `vulnerable` / `invulnerable` with `target=` | resolves in the *constructor*, before raid-event adds exist; on a miss it **silently applies to the boss instead** — the exact opposite of what you asked. Needed a vendored simc patch |
+| `vulnerable` / `invulnerable` with `target=` | resolves in the *constructor*, before raid-event adds exist; on a miss it **silently applies to the boss instead** — the exact opposite of what you asked. Fixed by `tools/simc/vulnerable_runtime_target.patch` |
 | `fixed_time=1` | `target.time_to_die` returns remaining *fight* time for every add, so APL lines gated on it will dot adds a real player would not |
 | add names | adds are pets of the enemy: the runtime name is `<master>_<event name><index>`, e.g. `Fluffy_Pillow_venomous_heart1`, not what you typed |
 | `bloodlust_time=` | silently ignored unless `override.bloodlust=1` is also set — sim.cpp only schedules the Bloodlust Check event `if ( overrides.bloodlust )`. Parses fine, runs fine, no buff, no error |
@@ -200,10 +202,10 @@ data, not an error.**
 | `vulnerable,multiplier=` | it is the damage-taken **increase**, not the factor: `player.cpp` applies `m *= 1 + value`. `multiplier=1.135` gave **2.135x**, and every bucket came out ~1.9x the log (Twin Fangs, 2026-10-06). The Ula'tek script's `multiplier=2` for a measured 2x Heart is therefore **3x** |
 | fight file declaring `enemy=` | options and `actions=` lines attach to the most recently declared actor. Put the fight file **before** the actor and its APL, or the APL lands on an enemy |
 | invulnerable as "dead" | an invulnerable target still takes 0-damage hits, so it still counts toward AoE target-count scaling. Also `move_enemy` it out of range |
-| distance targeting + ground AoE | **needs the vendored patch.** A reused `ground_aoe_params_t` keeps the first cast's coordinates forever, so Fury of Elune cast on an add landed on the boss. The pulse's target cache is also filtered against the *previous* pulse's position |
+| distance targeting + ground AoE | **needs `tools/simc/distance_targeting.patch`.** A reused `ground_aoe_params_t` keeps the first cast's coordinates forever, so Fury of Elune cast on an add landed on the boss. The pulse's target cache is also filtered against the *previous* pulse's position |
 | profilesets with enemies declared in the fight file | profilesets edit **actor 0** by default and enemies count, so every profileset silently re-geared the boss. Set `profileset_main_actor_index` to the player's index among all actors. `profileset_report_player_index` counts players only |
 | a `.` in a profileset name | the profileset is dropped with a "Trivial: Warning: Unknown option". Count results against profilesets sent |
-| distance targeting + `target_if` | **needs the vendored patch.** Candidates came from the action's splash-filtered cache, so an AoE spell could never `target_if` onto a separate group (Starfire saw 2 of 5 enemies). Rebuilding that cache stored an unfiltered list as valid, so the spell's next AoE ignored its radius |
+| distance targeting + `target_if` | **needs `tools/simc/distance_targeting.patch`.** Candidates came from the action's splash-filtered cache, so an AoE spell could never `target_if` onto a separate group (Starfire saw 2 of 5 enemies). Rebuilding that cache stored an unfiltered list as valid, so the spell's next AoE ignored its radius |
 
 ## Step 6: validate per bucket, never on the total
 

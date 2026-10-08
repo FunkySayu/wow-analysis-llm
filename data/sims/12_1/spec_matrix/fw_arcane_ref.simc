@@ -1,0 +1,13 @@
+mage="FW_arcane_sunfury"
+level=90
+race=mechagnome
+role=spell
+position=ranged_back
+spec=arcane
+talents=C4DAAAAAAAAAAAAAAAAAAAAAAYGGLzMzswMDamZGAAAGAwMz0sssMDAEbAAAzMzM2sMzMzyMGjZmBLMjZmZAAGAAgBYmBMDAGmZG
+omnium_talents=136822:1/136817:1/136815:1/136814:1
+potion=lights_potential_2
+flask=flask_of_the_blood_knights_2
+food=silvermoon_parade
+augmentation=void_touched_augment_rune
+temporary_enchant=main_hand:thalassian_phoenix_oil_2

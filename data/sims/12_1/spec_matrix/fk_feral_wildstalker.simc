@@ -1,0 +1,5 @@
+druid="FK_feral_wildstalker"
+spec=feral
+role=attack
+position=back
+timeofday=night

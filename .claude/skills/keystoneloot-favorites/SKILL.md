@@ -14,8 +14,11 @@ drop source) and packaging it as something an HTML Artifact can embed with zero 
 fetches — either a flat favorites list, or a full "here's everything this spec can get from
 each dungeon/raid boss, with my picks marked" table.
 
-Four scripts in `scripts/`. The first two are shared; then pick a branch depending on
-whether you want a flat list or a full per-zone table:
+Five Perl scripts in `tools/keystoneloot/`. The first two are shared; then pick a branch
+depending on whether you want a flat list or a full per-zone table.
+`keystoneloot_sources_sync.py` in the same folder is a Python port of
+`extract_source_data.pl` (same output; defaults to Balance Druid, `--class-id`/`--spec-id`
+for others) — use whichever interpreter is to hand, not both.
 
 ```
 export string --[parse_export.pl]--> favorites.json (spec/tier/itemId)
@@ -27,9 +30,9 @@ item IDs ------[fetch_item_info.pl]--> data/items/12_1/items.json (cached, durab
                 --[build_zone_table_js.pl]--> KEYSTONE_LOOT_ZONES
 ```
 
-All four are plain Perl using only core modules plus `Compress::Zlib`, `MIME::Base64`,
+All five are plain Perl using only core modules plus `Compress::Zlib`, `MIME::Base64`,
 `JSON::PP` — all present in the Perl bundled with Git for Windows, the same interpreter
-`.claude/skills/wowhead-blueposts` already relies on. **They shell out to `curl` for HTTP,
+`tools/wowhead/extract_bluepost.pl` relies on. **They shell out to `curl` for HTTP,
 not `LWP::UserAgent`** — this environment's Perl has no `LWP::Protocol::https`, so any
 `https://` GET through LWP fails with "protocol scheme not supported"; curl handles TLS
 natively and is already this project's standard fetch tool.
@@ -165,9 +168,16 @@ specs, e.g. `{62, 63}` without 64). Writes `data/classes/<class>/<spec>/12_1_loo
              items: [ {itemId, slotId}, ... ] }, ... ] }
 ```
 
-`slotId` is the addon's own numeric equip-slot code (0=Head..13=Trinket,14=Other — see
-`favorites.lua`'s `EQUIP_LOC_SLOT`), carried through so a later sort can use canonical
-in-game slot order instead of alphabetizing Wowhead's English slot text.
+`slotId` is the addon's own numeric equip-slot code (`favorites.lua`'s `EQUIP_LOC_SLOT`),
+carried through so a later sort can use canonical in-game slot order instead of
+alphabetizing Wowhead's English slot text: `0 head, 1 neck, 2 shoulder, 3 back, 4 chest,
+5 wrist, 6 hands, 7 waist, 8 legs, 9 feet, 10 weapon, 11 off-hand, 12 finger, 13 trinket,
+14 other`. **Slot 10 mixes one-hand, two-hand and ranged**, so a naive "one BiS per slot"
+check cannot see a staff-plus-off-hand conflict.
+
+**Tier set pieces are in no boss loot table** — they live in the addon's `data/catalyst.lua`
+(`[271564]={classId=8,slotId=0}` etc.). A table built only from boss loot silently omits the
+whole tier set; a zone-derived report shows tier pieces with no source.
 
 **Zone/boss display names are not in the addon's data files.** `dungeons.lua`/`raids.lua`
 only carry a `--[[name = "..."]]` Lua *comment*, auto-generated in whatever locale the
@@ -212,7 +222,7 @@ or `\`, and never hand-paste generated data into prose). Concretely, for this pi
 
 1. Hand-write an HTML template with a `/*ZONEDATA*/` (or `/*FAVORITESDATA*/` for Branch A)
    placeholder inside a `<script>` tag, plus a second `<script>` that reads the payload and
-   renders. See `scratch/keystoneloot_favorites_demo/template.html`, this skill's own
+   renders. See `tools/keystoneloot/zone_table_template.html`, this skill's own
    worked example (built into the "Arcane Loot Ledger" artifact) for a full reference
    implementation of the Branch B table: a toolbar (a coarse **category** select — All /
    Dungeons / Raid, filtering on `zone.type` rather than listing all 17 individual
@@ -221,9 +231,8 @@ or `\`, and never hand-paste generated data into prose). Concretely, for this pi
    wrapping icon strip, a small corner badge per favorited item (heart=Best in Slot,
    star=Must have, thumbs-up=Nice to have — an unfavorited item gets no badge and a
    dimmed/desaturated icon so its lower priority reads at a glance), and a pointer-tracked
-   tooltip rendering the item's real `tooltipHtml`. That `scratch/` copy is a working
-   extract tied to this one build, not a durable template — copy from it rather than
-   pointing future reports at that exact path.
+   tooltip rendering the item's real `tooltipHtml`. Copy it into the new report's own
+   working folder rather than building into it in place.
    - **For a raid row, lead with the boss, not the raid.** The boss (and its position in
      the fight) is what a reader scanning the table actually needs; the raid name is
      context. Compute `primary = zone.bossName || zone.zoneName` and
@@ -249,6 +258,18 @@ or `\`, and never hand-paste generated data into prose). Concretely, for this pi
    rare cases where hardcoding colors instead of theming them is the *correct* call, not a
    theming bug (see `artifact-design` skill's carve-out for a deliberately single-look
    component).
+
+## Building an export string (encoding, not just decoding)
+
+To hand the user a list they can import in game (e.g. a recommended BiS list), mirror the
+addon's `Favorites:Export` exactly:
+
+```python
+obj = {"62": [{"itemId": i, "tier": t}, ...]}          # tier 3 = BiS, 2 = Must have
+"KeystoneLoot:v3," + base64.b64encode(zlib.compress(json.dumps(obj, separators=(',', ':')).encode(), 9)).decode()
+```
+
+Round-trip it through `parse_export.pl` before shipping it.
 
 ## Gotchas specific to this pipeline
 

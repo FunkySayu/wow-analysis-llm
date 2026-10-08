@@ -10,9 +10,10 @@ the `data/` layout ([data/README.md](../data/README.md)).
 | [warcraftlogs/](warcraftlogs/) | WCL API v2: reusable log checks, and the ranking-pool dataset builders | `run.py`, `encounter_profile_sync.py`, `plan_suggestion_sync.py`, `guild_progress_sample.py`, `wipe_death_profile.py` |
 | [game_knowledge/](game_knowledge/) | encounter facts from Blizzard's journal, Wowhead and NSRT | `journal_sync.py`, `nsrt_timer_import.py` |
 | [raidbots/](raidbots/) | Raidbots' static talent feed -> validated talent trees, plus tree art | `talent_tree_sync.py`, `talent_background_sync.py` |
-| [keystoneloot/](keystoneloot/) | KeystoneLoot addon export and loot DB -> item/loot data (used by the `keystoneloot-favorites` skill) | `keystoneloot_sources_sync.py`, `*.pl` |
+| [keystoneloot/](keystoneloot/) | KeystoneLoot addon export and loot DB -> item/loot data, and the loot-table page template (used by the `keystoneloot-favorites` skill) | `keystoneloot_sources_sync.py`, `*.pl`, `zone_table_template.html` |
 | [wowhead/](wowhead/) | blue-post text extraction (used by the `wowhead-blueposts` skill) | `extract_bluepost.pl` |
 | [reporting/](reporting/) | the React presentation layer for check payloads, and report -> site-seed extraction | `build_report.py`, `extract_report_content.py` |
+| [simc/](simc/) | patches to the vendored simc for bugs that return wrong data (distance targeting, targeted vulnerability) | `*.patch`, see its README |
 
 Shared: `.env` (credentials) and `.wclcache/` (API cache) sit at the repo root. Tests:
 `cd tools && python -m pytest` (ruff/mypy scope is set in `pyproject.toml`).

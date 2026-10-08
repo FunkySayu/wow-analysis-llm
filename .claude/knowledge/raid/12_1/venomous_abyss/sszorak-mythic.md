@@ -1,10 +1,28 @@
 # Sszorak, Mythic — the mechanic model and what the field actually does
 
 Measured 2026-09-24 from **30 guilds at progress ranks 250–750, 451 pulls, all with kills**,
-sampled across each guild's own first/middle/last third. Working files in
-`scratch/sszorak/`; published report `reports/sszorak_winds_and_venom.html`. Rerun the whole
-analysis with `py scratch/sszorak/run_all.py` — the stage order is load-bearing and that
-script is the only place it is written down.
+sampled across each guild's own first/middle/last third (stages 1–2 of the pipeline in
+[boss-death-timelines.md](../../../method/boss-death-timelines.md):
+`tools/warcraftlogs/guild_progress_sample.py` and `wipe_death_profile.py`). Published report
+`reports/sszorak_winds_and_venom.html`.
+
+The analysis scripts after that stayed in the local working area, not the repo. Their stage
+order is load-bearing — each stage adds to one shared payload, and running them out of order
+silently drops a section rather than failing — so it is recorded here:
+
+1. fetch the pulls and the deaths stream (API, slow, resumable; once by hand)
+2. re-reduce the cached cast stream **by target** (externals: Rescue, Leap of Faith, mitigation
+   cooldowns on carriers)
+3. reduce per-pull records into one roll-up
+4. findings → payload (**rebuilds the payload from scratch**, so everything below must follow it)
+5. partner-assignment permutation test
+6. immunities, externals and the race question
+7. grade floats by consequence rather than pair rate
+8. bomb drops in **room** coordinates, filtered to before the pull's third death
+9. what a vortex breaks when it catches a job holder
+10. binned series for the figures
+11. the token table the prose quotes
+12. template + payloads → report, then a DOM smoke test
 
 Read [boss-death-timelines.md](../../../method/boss-death-timelines.md) and
 [analysing-a-pull.md](../../../method/analysing-a-pull.md) first for method; this file is data plus the
@@ -33,7 +51,7 @@ the journal id and the firing id differ for most of the kit:
 **`Debilitating Venom` (1295123) is a trinket, not a mechanic.** It presents exactly like
 one — three players at a time, ~128s cadence, absent from the Adventure Journal — and its
 Wowhead tooltip reads "Take a small sip of venom, gaining 518 of a random secondary stat".
-Trap 10 of the death-timeline notes in a new costume. **To the Slaughter emits no damage and
+Trap 10 of [boss-death-timelines.md](../../../method/boss-death-timelines.md) in a new costume. **To the Slaughter emits no damage and
 no cast event**; use the `Serpent's Fury` debuff *removal* as its timestamp.
 
 ## The mechanics, as they actually behave
@@ -205,15 +223,17 @@ Tight overlaps, every pull: the wind marks eight a median **4.2s after the bombs
 
 ## Two results that were wrong first
 
-0. **`slib.deaths()` read the embedded Deaths TABLE, not the per-fight stream, until
-   2026-09-27.** fetch_deaths.py fixed the stream and analyse.py used it, but the shared
-   helper every other consumer called did not -- so `bomb_instances`' `diedBefore` was
-   computed from a table that is **empty on 255 of the 451 pulls**. Published figures moved:
+0. **The shared deaths helper read the embedded Deaths TABLE, not the per-fight stream, until
+   2026-09-27.** The fetch stage fixed the stream and the roll-up used it, but the shared
+   helper every other consumer called did not -- so each bomb's `diedBefore` was
+   computed from a table that is **empty on 255 of the 451 pulls** (the truncation is
+   documented in `tools/warcraftlogs/README.md`). Published figures moved:
    carriers dying 6.4% -> **11.4%**, the progression curve 19.7%->2.9% to **25.8%->6.8%**,
    Virulence lift 5.05x -> **3.63x**, mark-holder 3.4x -> **5.5x** (Caustic Residue stays
    disconfirmed at 0.45). For a freshly fetched single report the table is empty outright,
-   so a guild comparison read every carrier as a survivor. `slib.register_deaths()` exists
-   for reports outside the benchmark. **Fix a data source in the helper, not in one caller.**
+   so a guild comparison read every carrier as a survivor; deaths for a report outside the
+   benchmark must be fetched from the stream explicitly. **Fix a data source in the helper,
+   not in one caller.**
 1. **A bomb carrier's death is logged up to tens of ms *after* the aura falls off the
    corpse.** Testing `death <= aura removal` missed four in five of them. Test instead that
    the aura ended early *and* a death sits within ~1.5s of that ending.

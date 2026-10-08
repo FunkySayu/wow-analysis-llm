@@ -5,13 +5,11 @@ The patch is live, so the plain (non-`/ptr/`) Wowhead tooltip endpoint is correc
 
 Data behind every number here:
 
-| file | what |
+| source | what |
 |---|---|
 | [data/classes/druid/feral/12_1_talents.json](../../../../data/classes/druid/feral/12_1_talents.json) | full tree with live tooltip text (`tools/raidbots/talent_tree_sync.py --class 11 --spec 103`) |
-| `scratch/specs/census_feral.json` | 139 top Mythic pulls (~20 per boss × 7 bosses): gear, stats, talents, damage by ability and target |
-| `scratch/specs/census_feral_report.txt` | the census summarised |
-| `scratch/specs/burst_sszorak.json` | per-second damage of 12 top Mythic Sszorak pulls |
-| `scratch/specs/sims/` | profiles and the scenario matrix |
+| [data/sims/12_1/spec_matrix/](../../../../data/sims/12_1/spec_matrix/) | profiles and the scenario matrix |
+| census, 2026-10-08 (not kept in the repo) | 139 top Mythic pulls (~20 per boss × 7 bosses): gear, stats, talents, damage by ability and target; per-second damage of 12 top Mythic Sszorak pulls |
 
 The cross-spec comparison is in [dps-specs-boss-profile-12.1.md](../dps-specs-boss-profile-12.1.md).
 The class tree is shared with Balance: see [balance-druid-12.1.md](balance-druid-12.1.md) for the
@@ -151,12 +149,13 @@ like Balance's Shooting Stars ÷ Moonfire ratio can be built (a bleed tick ÷ a 
 ## The sim profiles
 
 ```
-cd scratch/specs/sims
-../../../vendor/simc/build/Release/simc.exe base.simc fk_feral_wildstalker.simc tal_feral_wildstalker.simc funkitty_feral_gear.simc
+cd data/sims/12_1/spec_matrix
+../../../../vendor/simc/build/Release/simc.exe base.simc fk_feral_wildstalker.simc tal_feral_wildstalker.simc funkitty_feral_gear.simc
 ```
 
-`funkitty_feral_gear.simc` is Funkitty's armor, neck and rings from `funkitty_current.simc`, with all
-of its corrections. Leather swaps its primary stat to Agility, so it carries over unchanged. Three
+`funkitty_feral_gear.simc` is Funkitty's armor, neck and rings from the Twin Fangs actor
+(`data/raid/12_1/venomous_abyss/06_twinfangs/sim/funkitty_current.simc`), with all of its
+corrections. Leather swaps its primary stat to Agility, so it carries over unchanged. Three
 swaps at Funkitty's 334 track:
 
 - the field's Bardiche, with the off-hand removed;

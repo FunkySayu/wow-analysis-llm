@@ -1,8 +1,11 @@
 # The Venomous Abyss — 12.1 raid, Balance Druid view
 
-Tier opened 2026-08-18. Research/sims dated 2026-08-19 (one day in). Report artifact:
-"Coiled Isle Fight Book". Working data in `scratch/venomous_abyss/` (encounter research,
-`empirical_shape.md`) and `scratch/bdruid/vabyss/` (talent resolution, sims, proofread).
+Tier opened 2026-08-18. Research/sims dated 2026-08-19 (one day in), on Heroic. Report
+artifact: "Coiled Isle Fight Book". **Mythic, measured three weeks later, is in
+[venomous-abyss-mythic.md](venomous-abyss-mythic.md) and supersedes this file where they
+differ.** The per-boss datasets — journal, NSRT timers, measured profiles, plan suggestions —
+are under `data/raid/12_1/venomous_abyss/<nn>_<boss>/`, and `general.json` there holds the
+encounter order and every id (journal, dungeon encounter, WCL).
 
 ## Canonical encounter list
 
@@ -25,7 +28,7 @@ spell DB has no damage fields populated for these IDs, and Icy Veins omits them 
 
 | Need | Source | Notes |
 |---|---|---|
-| **Damage magnitudes** | **Wowhead's tooltip API** — `nether.wowhead.com/tooltip/spell/<id>` | **Serves fully tuned values** (e.g. Rage of the Shackled = 416,703 Nature every 4 sec). This is the correction: the *database pages* and guide sites have nothing, which made two research passes conclude no numbers existed anywhere. They were looking in the wrong place. |
+| **Damage magnitudes** | **Wowhead's tooltip API** — `nether.wowhead.com/tooltip/spell/<id>` | **Serves fully tuned values** (e.g. Rage of the Shackled = 416,703 Nature every 4 sec on 2026-08-19; 500,044 by 2026-09-09 — retuned, so treat a first-week magnitude as expired). This is the correction: the *database pages* and guide sites have nothing, which made two research passes conclude no numbers existed anywhere. They were looking in the wrong place. `data/raid/.../journal.json` caches these per ability. |
 | **Aggregate damage totals** | **WCL API v2 `raidDamageTakenByAbility`** | total / totalReduced / hitCount / tickCount / per-target. Cross-checks the tooltips. |
 | **Where damage went (output shape)** | **WCL API v2 `enemyDamageTaken`** | Per-NPC totals; lets you compute boss vs off-boss share and count concurrent add instances. |
 | **Ability cadence in mm:ss** | **BigWigs boss modules** on GitHub (`BigWigsMods/BigWigs/TheVenomousAbyss/`) | Encounter-timeline duration constants straight from the game, commented by difficulty (mythic/heroic/normal). Best cadence source by far. Encodes *when*, never *how much*. |
@@ -63,7 +66,9 @@ share of any raid boss and is still a sequential single-target fight. Always sep
 "how much damage went off-boss" from "how many targets were alive at once."
 
 ### Burn windows worth planning cooldowns around
-- **Sszorak — Dig In**: +30% damage taken, 25s, every **111s Heroic** (100 M / 125 N).
+- **Sszorak — Dig In**: +30% damage taken, 25s, every **111s Heroic** (125 N; BigWigs
+  constants, day one). **Mythic, measured: windows at 100.0 / 227.0 / 354.0s, a 127.0s
+  cadence** — the "100 M" originally recorded here was the first window, not the cadence.
 - **Coiled Altar — intermission**: Zul'jan at **+100%** while Ghastly Regeneration heals
   him. A race against a heal, not just an amp.
 - **Ula'tek — Venomous Heart**: exposed 20s at **+100%**, in all three stages. Absorbed
@@ -74,7 +79,8 @@ share of any raid boss and is still a sequential single-target fight. Always sep
 
 **Elune's Chosen wins at every target count from 2 up and leads at 1.** Across 5 builds ×
 11 fight shapes the hero-tree ordering never changed; Keeper of the Grove was not best in
-any scenario. Full numbers in `scratch/bdruid/vabyss/shape_findings.md`.
+any scenario. (The full per-scenario table stayed in the local working area; rerun the
+sustained-target matrix with the `simc-simulation` skill to reproduce it.)
 
 - 1 target: whole field spans **1.5%** — build barely matters.
 - 3 targets: field spans **16.3%** — almost entirely hero tree, not individual picks.
@@ -83,7 +89,9 @@ Two builds cover the raid: an EC **Lunation + Radiant Moonlight** variant for an
 cleaves, and an EC **Power of Goldrinn** variant for anything that doesn't. Keeper of the
 Grove is only defensible on **Sszorak**, where it's within 900 DPS at one target and
 **Control of the Dream** (banks 15s of Force of Nature / Convoke the Spirits) is the
-mechanism for reaching the off-grid 111s Dig In window.
+mechanism for reaching the off-grid 111s Dig In window. (On Mythic, the top Balance pulls
+reached every Dig In window through Incarnation charges and converted it at 2.82× — see
+[dps-specs-boss-profile-12.1.md](../../../classes/dps-specs-boss-profile-12.1.md).)
 
 ### Cooldown sequences (traced from 1-iteration combat logs)
 - **Keeper of the Grove** — Force of Nature → Celestial Alignment → Convoke the Spirits in
@@ -107,7 +115,8 @@ castable pre-emptively, unlike Blooming Infusion which needs five Regrowths.
 ## Sim caveat carried forward
 
 `raid_events+=/adds` with a fixed `duration` gives adds a **lifetime, not health** — they
-despawn rather than die. Results reproduce to 0.1% but are **non-monotonic in cadence**
+despawn rather than die (why that is still the right default for a single-player sim is in
+[modelling-a-fight-in-simc.md](../../../method/modelling-a-fight-in-simc.md), step 5). Results reproduce to 0.1% but are **non-monotonic in cadence**
 (Early Spring best at 60s waves, worst at 45s and 90s, the opposite of what its 45s Force
 of Nature predicts). Do not draw within-hero-tree conclusions from these until the adds are
 given real health. The sustained `desired_targets` matrix is clean and is what the

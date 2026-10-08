@@ -16,6 +16,7 @@ data/
         timers.json                          NSRT ability timers
         profiles/<spec>-<difficulty>.json    the boss measured from the ranking pool
         plan_suggestions/<spec>-<difficulty>.json
+        sim/                                 simc fight script + reference actor, when one exists
   classes/
     specs.json                               Blizzard class/spec ids -> directory names
     talents.schema.json                      schema for every <patch>_talents.json
@@ -25,8 +26,13 @@ data/
       <patch>_loot_sources.json              KeystoneLoot: zone -> items this spec can use
       apl/                                   simc APL snapshots
   items/<patch>/items.json                   item tooltip cache (Wowhead), itemId-keyed
+  sims/<patch>/spec_matrix/                  cross-spec sim profiles + scenario runner
   external/                                  third-party API specs
 ```
+
+Sim folders are inputs only: `run.sh` / a sim's own `out*` files are gitignored where they
+are written. Running them needs a built simc, and the fight scripts need the patches in
+`tools/simc/`.
 
 Conventions:
 

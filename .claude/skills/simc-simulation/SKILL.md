@@ -134,6 +134,28 @@ vendor/simc/build/Release/simc.exe vendor/simc/profiles/MID1/MID1_Druid_Balance.
 runs one of simc's own bundled example profiles (a level-90 Balance Druid) for a quick
 smoke test that the build works end to end.
 
+### Ready-made profiles in this repo
+
+Before writing a profile from scratch, check for one that was already validated against logs:
+
+- `data/sims/12_1/spec_matrix/` — Fire, Frost, Feral, Arcane and Balance on real gear, with a
+  scenario runner (targets, fight length, movement, add waves, vulnerability windows, scale
+  factors). Its README has the commands and baseline numbers.
+- `data/raid/<patch>/<tier>/<nn>_<boss>/sim/` — encounter fight scripts (Twin Fangs so far),
+  each with its reference card under `.claude/knowledge/raid/`.
+
+Building a new fight script from a log is its own method:
+`.claude/knowledge/method/modelling-a-fight-in-simc.md` (and its table of simc traps that
+return wrong data instead of an error).
+
+## Local patches
+
+`tools/simc/` holds two patches for simc bugs that silently misplace damage under distance
+targeting and targeted `vulnerable`/`invulnerable` events. Stock simc is fine for Patchwerk and
+`desired_targets` work; any fight script that positions enemies needs them. See
+`tools/simc/README.md` for what each fixes and how to apply and verify them — and re-apply after
+every submodule bump, before rebuilding.
+
 ## Common pitfalls
 
 - **Forgetting to rebuild after moving the submodule pointer.** The binary is a snapshot;
@@ -145,3 +167,12 @@ smoke test that the build works end to end.
   question before trusting the numbers.
 - **`-DBUILD_GUI=ON` (the CMake default) dragging in a Qt requirement you don't need.**
   Always pass `-DBUILD_GUI=OFF` explicitly for CLI-only work.
+- **Git Bash rewrites `raid_events+=/...` into a Windows path** ("Invalid raid event type
+  'C:'"). `export MSYS_NO_PATHCONV=1`, or put sim options in a file rather than on the command
+  line.
+- **Never `2>&1` simc from PowerShell.** simc writes routine "Trivial:" notices to stderr, and
+  Windows PowerShell turns each stderr line into an error record with a failure exit code.
+  Run it from Git Bash, or don't redirect stderr (see
+  `.claude/knowledge/method/building-reports.md`, toolchain traps).
+- **Appending a UTF-8-with-BOM file to a profile injects a BOM mid-stream**, and simc silently
+  skips the line it lands on (a whole profileset disappears). Write profile fragments as ASCII.

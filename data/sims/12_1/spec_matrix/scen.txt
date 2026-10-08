@@ -1,0 +1,12 @@
+st300|desired_targets=1
+t2|desired_targets=2
+t3|desired_targets=3
+t5|desired_targets=5
+len60|max_time=60 vary_combat_length=0
+len120|max_time=120 vary_combat_length=0
+len450|max_time=450 vary_combat_length=0
+fixed300|vary_combat_length=0
+move10|raid_events+=/movement,first=10,cooldown=30,duration=3
+move20|raid_events+=/movement,first=10,cooldown=15,duration=3
+adds60|raid_events+=/adds,count=3,first=30,cooldown=60,duration=15
+adds2_90|raid_events+=/adds,count=1,first=20,cooldown=90,duration=30

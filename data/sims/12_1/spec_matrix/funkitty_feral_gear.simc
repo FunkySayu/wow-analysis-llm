@@ -1,0 +1,34 @@
+# Funkitty as FERAL -- armor/neck/rings verbatim from data/raid/12_1/venomous_abyss/06_twinfangs/sim/funkitty_current.simc (2026-10-07
+# export, with its corrections: Aqirbane stats override, 879x crafted pairs, food + Rite of the Hash'ey + Vantus as
+# constant rating). Leather armor swaps its primary stat to Agility, so it carries over unchanged.
+# Swapped for the Feral field (census_feral.json, top Mythic pulls 2026-10-08), at Funkitty's track (334):
+#  - main_hand: Abyssal Broodfiend's Bardiche (268215), the field's weapon in ~92% of pulls; off-hand removed.
+#    Weapon enchant = Rite of the Hash'ey in the field too -> enchant_id=0, same constant-rating stand-in.
+#  - trinkets: Voracious Heart of Ula'tek (270175) + Zul'jin's Guillotine Technique (270173), the field's pair.
+#  - legs: Agility armor kit (8159) instead of the Intellect spellthread (7935).
+level=90
+race=night_elf
+potion=recklessness_2
+flask=magisters_2
+food=disabled
+augmentation=void_touched
+temporary_enchant=main_hand:thalassian_phoenix_oil_2
+enchant_haste_rating=91
+enchant_crit_rating=68
+enchant_mastery_rating=38
+enchant_versatility_rating=167
+head=,id=271528,enchant_id=8017,bonus_id=13334/6652/12854/13696/13847/13692/13698/1587,redirected_base_stats=271875
+neck=,id=268265,gem_id=240983/240900,bonus_id=6652/13668/13334/13987/12854,stats=2199sta_101crit_101haste_101vers_101mastery
+shoulder=,id=271526,enchant_id=8001,bonus_id=12854/13335/13694/6652/13697
+back=,id=268248,bonus_id=6652/13662/13335/12854
+chest=,id=271531,enchant_id=7987,bonus_id=6652/13335/13690/13698/12854,redirected_base_stats=268235
+wrist=,id=244576,bonus_id=12214/13667/12497/13751/14001/8960/12384/8791/13836/13696,content_tuning=3615
+hands=,id=271529,bonus_id=6652/13440/13691/13697/12846,redirected_base_stats=159312
+waist=,id=159301,bonus_id=13440/6652/13696/13662/12699/12846,content_tuning=1279
+feet=,id=268247,enchant_id=7963,bonus_id=6652/13662/13335/12854
+finger1=,id=268249,enchant_id=7967,gem_id=240900,bonus_id=6652/13668/13335/12854
+finger2=,id=251136,enchant_id=7967,gem_id=240900,bonus_id=13440/6652/13668/12699/12846,content_tuning=1279
+legs=,id=271527,enchant_id=8159,bonus_id=13334/6652/13693/13698/12852,redirected_base_stats=268225
+main_hand=,id=268215,enchant_id=0,bonus_id=6652/13334/13846/12854
+trinket1=,id=270175,bonus_id=6652/13334/12854
+trinket2=,id=270173,bonus_id=6652/13334/12854
