@@ -73,8 +73,10 @@ a community-stated number) before building on it.
   name; talents get redesigned under the same name. When a character's talents aren't
   exposed, confirm them from empirical evidence and say "confirmed via X" or "unverifiable":
   [method/resource-economy.md](.claude/knowledge/method/resource-economy.md).
-- GCD, off-GCD, casts vs channels, and why target count decides which APL branches are
-  reachable: [game/combat-system.md](.claude/knowledge/game/combat-system.md).
+- What a spell, talent or item does in combat, and why a damage event reads the way it does
+  (spell data, auras, procs, stats, schools, absorbs, WCL's damage fields):
+  [game/combat-system.md](.claude/knowledge/game/combat-system.md). Read it before
+  interpreting a talent or a hit size.
 
 ## Workflow this project follows for a report
 

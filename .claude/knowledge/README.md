@@ -13,8 +13,13 @@ tools that produce it under `tools/`. Each folder answers one kind of question:
 
 ## game/
 
-- [combat-system.md](game/combat-system.md) — GCD, off-GCD, casts vs channels, and why fight
-  configuration decides which APL branches are reachable.
+- [combat-system.md](game/combat-system.md) — what a spell does and why a log line reads the
+  way it does: reading spell data with `simc spell_query` (attributes, effects, `Affecting
+  Spells`), cast types and movement, auras (pandemic, snapshot vs dynamic, caster-scoped vs
+  shared amps), passives and procs, stats, the damage pipeline, **WCL's damage fields as
+  measured** (`mitigated` is absent on crits; `unmitigatedAmount` means different things on
+  damage taken and damage done), spell schools as masks, absorbs, items and consumables, and
+  two checklists: reading a damage event, and resolving what a talent does.
 - The **itemization** set — read before any claim about gear, loot, upgrades or crafting,
   because gearing systems change on four clocks (expansion, season, scheduled unlock, hotfix)
   and earlier sessions got them wrong by reasoning from a remembered system:
