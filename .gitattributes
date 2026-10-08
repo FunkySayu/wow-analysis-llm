@@ -1,0 +1,4 @@
+# Shell scripts and simc patches must stay LF on every checkout: bash chokes on a carriage
+# return, and a CRLF patch does not apply to simc's LF sources (tools/simc/README.md).
+*.sh text eol=lf
+*.patch text eol=lf
