@@ -107,23 +107,16 @@ not a one-directional bias.
   Phoenix at ~2.8–2.9%. simc's PTR model of the Sunfury capstone is incomplete here — don't
   read Phoenix's share across sim/log as like-for-like.
 - **Correction to an earlier version of this note**, which claimed "Arcane Orb at 0.06%" in
-  the sim. That figure was itself a data-reading bug, of exactly the kind this file warns
-  about elsewhere: simc's `stats` list splits some abilities into a parent "cast wrapper"
-  entry with **no damage fields at all** (Arcane Orb's top-level entry, id 153626, has
-  `total_amount: null`) and a separate nested `children[]` entry that carries the real
-  `total_amount`/`portion_amount` (id 153640, "arcane_orb_bolt"). Reading only the top level
-  reports 0% for Arcane Orb and Touch of the Magi alike; both are wrapper-shaped. Once the
-  children are included, the sim shows Arcane Orb at **~3.1%** — matching the logged ~3.2–3.4%
-  closely. Re-verified against raidbots report `38BorEbHSzMrsQmgug8J2B` in
-  `backend/wow_analysis/raidbots_client.py` (`_flatten_stats`). Arcane Orb is *not* a
-  meaningfully mis-simmed ability; Arcane Phoenix still is.
+  the sim. That was a data-reading bug: simc's `stats` list puts Arcane Orb's damage in a
+  nested `children[]` entry under an empty cast wrapper (see the `raidbots-reports` skill).
+  With children included the sim shows Arcane Orb at **~3.1%** against ~3.2–3.4% logged
+  (re-verified on report `38BorEbHSzMrsQmgug8J2B`). Arcane Orb is *not* a meaningfully
+  mis-simmed ability; Arcane Phoenix still is.
 - WCL `Buffs`/`Casts` events carry no Arcane Charge resource data; charge state must be
   inferred, so avoid claims that depend on exact charge counts.
-- **PowerShell gotcha that silently corrupted two analysis passes:** variables are
-  case-insensitive, so a loop counter `$soul` overwrites a spell-ID constant `$SOUL`. Also
-  `,@(...)` around a returned array nests it and silently disables downstream
-  `Where-Object` filters. Sanity-check every extract against a known cast count before
-  drawing conclusions from it.
+- Two PowerShell traps (case-insensitive variables, `,@(...)` nesting) silently corrupted two
+  analysis passes here; they are in [building-reports.md](../../method/building-reports.md),
+  toolchain traps.
 
 ---
 
@@ -239,31 +232,10 @@ Find peers via `worldData.encounter(id:).characterRankings(className:"Mage", spe
 difficulty:, metric: dps)`. **`bracketData` is not equipped item level** — it disagreed with
 the computed average by 30+ levels on one player. Compute ilvl yourself from `CombatantInfo`.
 
-## Building a KeystoneLoot export (not just parsing one)
-
-The skill only decodes. To **encode**, mirror `Favorites:Export` exactly:
-
-```python
-obj = {"62": [{"itemId": i, "tier": t}, ...]}          # tier 3 = BiS, 2 = Must have
-"KeystoneLoot:v3," + base64.b64encode(zlib.compress(json.dumps(obj,separators=(',',':')).encode(),9)).decode()
-```
-
-Round-trip through the skill's own parser before shipping it. Two things that matter:
-- Tier set pieces are **not in any boss loot table** — they live in `data/catalyst.lua`
-  (`[271564]={classId=8,slotId=0}` etc.). That is why a zone-derived report shows them with
-  no source and a report built only from boss tables silently omits the whole tier set.
-- `data/classes/druid/balance/12_1_loot_sources.json` slot IDs use the addon's `EQUIP_LOC_SLOT`:
-  `0 head, 1 neck, 2 shoulder, 3 back, 4 chest, 5 wrist, 6 hands, 7 waist, 8 legs, 9 feet,
-  10 weapon (1H/2H/ranged all share this), 11 off-hand, 12 finger, 13 trinket`.
-  Slot 10 mixing 1H and 2H is why a naive "one BiS per slot" check can't see a
-  staff-plus-off-hand conflict.
-
-## Environment note
-
-Windows Python is only the Store stub and `backend/` is a **WSL** venv (`home = /usr/bin`),
-unusable from Git Bash. Working combination: `wsl.exe -d Ubuntu -e python3 <script>` from the
-Bash tool — the repo is mounted at the same relative path, so `scratch/...` just works. Run
-`simc.exe` from PowerShell (and never redirect its stderr; see building-reports.md).
+A recommended BiS list can be handed back as a KeystoneLoot import string; how to encode one,
+and the tier-set and slot-10 traps that bit this audit, are in the `keystoneloot-favorites`
+skill. Which Python and shell to run scripts from on this machine is in
+[building-reports.md](../../method/building-reports.md), toolchain traps.
 
 ## Run the checks, don't re-derive them (added 2026-08-23)
 
@@ -307,7 +279,9 @@ Multi-target *bosses* are where the raid loss concentrates — Lost Explorers 46
 **Measure lust coverage as buff overlap, not "was the cast inside the window."** A Surge
 cast one second before lust lands is perfectly aligned; a cast-based test scores it as a
 miss and makes good play look random. This exact bug produced a "NOT aligned — roughly
-random" verdict on a first pass that the overlap metric then contradicted.
+random" verdict on a first pass that the overlap metric then contradicted. And detect lust
+from the buff the player *received*, across all eight lust ids — see "Lust is eight buffs,
+not four" in [balance-druid-12.1.md](../druid/balance-druid-12.1.md).
 
 Second trap: **Arcane Surge lasts ~18s against a 40s lust, so ~45% coverage is the
 ceiling.** 43% is a perfect window, not a half-failure.
@@ -355,7 +329,8 @@ dungeon 1298s of 9489s (13.7%) with **636**.
 
 Report `JX1Vd49kL63QPwbY`, Funkywand, ilvl 316, 14-man Heroic. Tooling:
 `tools/warcraftlogs/checks/mage_peers.py` (`bar` → `peers-arc` → `peers-buffs`), written from this
-investigation. Working extracts in `scratch/coiled_altar/`.
+investigation. The general method this case was distilled into is
+[analysing-a-pull.md](../../method/analysing-a-pull.md).
 
 ## A parse percentile is not comparable between bosses
 
@@ -370,11 +345,7 @@ and a second permanent target, and Sszorak has provably zero adds. The comparabl
 is DPS against that encounter's own pool median: the real regression is ~17 points, not
 56. **Always establish the bar before diagnosing the player.**
 
-The amplify window is directly visible in raw hit sizes and is worth measuring that way:
-non-crit Arcane Blast on that pull sat at 47–66k for the whole fight and jumped to
-122–175k for exactly 233.9–268.8s, which is precisely the `Ghastly Regeneration`
-(1304033 / 1304498) window on Zul'jan. A fixed-size ability's own hits are a cheaper
-amp-window detector than hunting for a vulnerability debuff by name.
+The amplify window is directly visible in raw hit sizes — see "Windows of opportunity" below.
 
 ## Split DPS into hits/min × damage/hit before blaming anything
 
@@ -538,7 +509,8 @@ forced, and its cost is arithmetic:
   window. The field: 1 / 121 / 213 / 307 — a 30s hold taken *earlier*, at the first
   opportunity, so nothing drifts later. Same cast count per minute either way; the earlier,
   smaller hold is strictly better because the fight cannot end during it.
-- **Sszorak, the cross-check.** Dig In is a fixed +30% at 111–136s and 249–274s.
+- **Sszorak, the cross-check (Heroic).** Dig In is a fixed +30% at 111–136s and 249–274s
+  on Heroic (Mythic: 100 / 227 / 354s, see the raid files).
   Your Surges 13/113/212/306 catch window 1 and miss window 2 → **1.40× against a peer
   median of 1.59×** (range 0.93–2.08). The two peers who deliberately take **three** Surges
   instead of four — Unholyarc 10/108/**249** and Vicmage 3/112/**249**, both a ~51s hold —
@@ -570,8 +542,8 @@ bosses on the same night.**
 # Correcting the window findings against a stratified sample (2026-09-04)
 
 The section above compared against 10-14 logs drawn from the **top 500**, i.e. a median of
-the 99th percentile. Re-run against 26 pulls rank-stratified across 13 bands. Working data:
-`scratch/coiled_altar/burn.py`, `burn_report.py`, `burn_profiles.json`.
+the 99th percentile. Re-run against 26 pulls rank-stratified across 13 bands (the sampling
+rule this produced is in [analysing-a-pull.md](../../method/analysing-a-pull.md), "Sampling").
 
 ## How deep the API actually lets you sample
 
@@ -622,14 +594,8 @@ field median **80 Missiles waves** against this pull's **68** — and even that 
 only weakly with DPS (r = +0.28) and barely at all with the window multiplier (r = +0.17).
 Burn entry is entered on cadence, not set up.
 
-## Report build note
-
-The published page carries **no charset declaration of its own** — the Artifact wrapper
-supplies one, a local file reader does not — so a single non-ASCII byte renders as mojibake
-for anyone opening the built file directly (`2.63Ã—`, `weak â€" not`). `build_report.py`
-now emits payloads with `ensure_ascii=True`, the template uses HTML entities above the
-`<script>` boundary and `\uXXXX` escapes below it, and the build **fails** if any non-ASCII
-survives into the output.
+The report built from this section hit a charset trap (mojibake when the page is opened
+outside the Artifact wrapper); the fix is in [building-reports.md](../../method/building-reports.md).
 
 
 # WoWAnalyzer vs. the simc APL — where they drift (2026-09-05)

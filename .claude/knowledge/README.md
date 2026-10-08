@@ -39,7 +39,7 @@ tools that produce it under `tools/`. Each folder answers one kind of question:
 One file per spec: the spec's resource engine, how to read its APL, the field's
 build/gear/stats from ~130 top Mythic pulls, and a sim profile validated against logs
 (Fire/Frost on Funkywand's gear, Feral on Funkitty's armor; run files in
-`scratch/specs/sims/`).
+`data/sims/12_1/spec_matrix/`).
 
 - [druid/balance-druid-12.1.md](classes/druid/balance-druid-12.1.md)
 - [druid/feral-druid-12.1.md](classes/druid/feral-druid-12.1.md)
@@ -76,7 +76,8 @@ build/gear/stats from ~130 top Mythic pulls, and a sim profile validated against
   before touching this encounter.
 - [twin-fangs-sim-profile.md](raid/12_1/venomous_abyss/twin-fangs-sim-profile.md) — **the
   ready-to-run Twin Fangs Mythic profile** (fight script + Funkitty's current actor + the
-  player's own Incarnation schedule): the one-line run command, what is and is not modelled,
+  player's own Incarnation schedule, in `data/raid/12_1/venomous_abyss/06_twinfangs/sim/`):
+  the one-line run command, what is and is not modelled,
   the gear corrections, validation bias, and reference deltas. Its key trap: on-use trinkets
   fire only inside Incarnation, so a trinket ranking is only as good as the cooldown schedule
   simmed.
@@ -110,8 +111,8 @@ build/gear/stats from ~130 top Mythic pulls, and a sim profile validated against
   agree), the simc traps that return wrong data instead of an error, and why validation has
   to be per damage bucket rather than on the total. It also covers **cleave geometry**: who
   splashes onto whom, expressed with distance targeting. That path needs the vendored simc
-  patch in `scratch/bdruid/twinfangs/`, because stock simc mis-places re-cast ground effects
-  and cannot `target_if` across groups. Note also that `vulnerable,multiplier=` is the
+  patches in `tools/simc/`, because stock simc mis-places re-cast ground effects and cannot
+  `target_if` across groups. Note also that `vulnerable,multiplier=` is the
   *increase*, not the factor. **Read it before modelling any new encounter.**
 - [boss-death-timelines.md](method/boss-death-timelines.md) — how to build the "where should
   progression attention go" report for a boss: a timeline of the measured fight schedule over
@@ -126,10 +127,42 @@ build/gear/stats from ~130 top Mythic pulls, and a sim profile validated against
   itself (payload injection, inline spell tooltips, clipboard, and the PowerShell/shell traps
   that silently corrupt a run).
 
+## Where the evidence lives
+
+A finding here should be checkable from what is in the repository:
+
+- **Datasets** a finding rests on, and anything a file tells you to *run* (sim profiles, fight
+  scripts, simc patches), live in `data/` and `tools/` — e.g.
+  `data/sims/12_1/spec_matrix/`, `data/raid/12_1/venomous_abyss/06_twinfangs/sim/`,
+  `tools/simc/`.
+- **`scratch/` is gitignored working space.** Never make a knowledge file depend on a path
+  there. When the working files behind a finding were not kept, say so ("not kept in the
+  repo") and record what is needed to redo it — the stage order, the query, the
+  normalisation — in the knowledge file itself.
+- `site/`, `backend/` and `vendor/` are their own projects; mention them only where a finding
+  is about them (a site validator, the simc submodule).
+
+## Shared material — one home each
+
+To keep files from carrying their own copies, these live in exactly one place and are linked
+from everywhere else:
+
+| topic | home |
+|---|---|
+| WCL API traps that return wrong data | `warcraftlogs-reports` skill (index) and `tools/warcraftlogs/README.md` |
+| simc traps when scripting a fight | [modelling-a-fight-in-simc.md](method/modelling-a-fight-in-simc.md) |
+| simc gear facts (bonus-id tracks, crafted stat pairs, mis-resolved items) | `simc-profile-syntax` skill |
+| simc talent overrides enforcing no rules | [balance-druid-12.1.md](classes/druid/balance-druid-12.1.md) |
+| PowerShell / shell / Python toolchain traps | [building-reports.md](method/building-reports.md) |
+| Wowhead `/ptr/` vs live vs `/ptr-2/` | `wow-ptr-research` skill (CLAUDE.md keeps the one-line warning) |
+| Lust detection (eight buffs) | [balance-druid-12.1.md](classes/druid/balance-druid-12.1.md) |
+| sampling a comparison pool | [analysing-a-pull.md](method/analysing-a-pull.md) |
+
 ## Adding a file
 
 Put it in the folder for the question it answers, not the session that produced it. A boss
 gets its own file under `raid/<patch>/<tier>/` once it has findings beyond the tier file; a
 method doc stays in `method/` even when its worked example is one boss. Add a line here, and
 link data by its `data/...` path rather than copying numbers that a regenerated dataset would
-silently contradict.
+silently contradict. When a later file corrects an earlier one, fix the earlier one too and
+say where the correction came from.

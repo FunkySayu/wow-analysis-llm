@@ -1,0 +1,360 @@
+<title>Arcane Loot Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  color-scheme: light;
+  --ground:#F1ECE1; --surface:#FFFFFF; --surface-2:#F8F4EA; --surface-3:#EFE7D6;
+  --ink:#211B12; --ink-2:#4A3F2E; --muted:#8A7C64;
+  --rule:#E1D7C0; --rule-strong:#CDBFA0;
+  --accent:#5646BE; --accent-soft:#ECE9FA;
+
+  --tier-bis:#B9862B;     --tier-bis-soft:#F7EEDA;
+  --tier-must:#5646BE;    --tier-must-soft:#ECE9FA;
+  --tier-nice:#3F7A5C;    --tier-nice-soft:#E4F1EA;
+
+  --shadow:0 1px 2px rgba(33,27,18,.06), 0 14px 30px -20px rgba(33,27,18,.4);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#14110A; --surface:#1C1810; --surface-2:#221D13; --surface-3:#2A2417;
+    --ink:#EFE8D8; --ink-2:#C9BFA8; --muted:#93876D;
+    --rule:#2E2818; --rule-strong:#443B23;
+    --accent:#A395F0; --accent-soft:#1E1A35;
+
+    --tier-bis:#D9A73F;     --tier-bis-soft:#2A2110;
+    --tier-must:#A395F0;    --tier-must-soft:#1E1A35;
+    --tier-nice:#5FB68C;    --tier-nice-soft:#12261C;
+
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 14px 30px -20px rgba(0,0,0,.85);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#14110A; --surface:#1C1810; --surface-2:#221D13; --surface-3:#2A2417;
+  --ink:#EFE8D8; --ink-2:#C9BFA8; --muted:#93876D;
+  --rule:#2E2818; --rule-strong:#443B23;
+  --accent:#A395F0; --accent-soft:#1E1A35;
+
+  --tier-bis:#D9A73F;     --tier-bis-soft:#2A2110;
+  --tier-must:#A395F0;    --tier-must-soft:#1E1A35;
+  --tier-nice:#5FB68C;    --tier-nice-soft:#12261C;
+
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 14px 30px -20px rgba(0,0,0,.85);
+}
+
+/* WoW item-quality colors are a fixed genre convention, not a page token. */
+:root{ --q1:#9d9d9d; --q2:#1eff00; --q3:#0070dd; --q4:#a335ee; --q5:#ff8000; }
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink); margin:0;
+  font-family:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:78rem; margin:0 auto; padding:3.2rem 1.6rem 6rem}
+h1,h2{font-family:"Fraunces","Iowan Old Style",Georgia,serif; margin:0; text-wrap:balance; font-weight:600}
+h1{font-size:clamp(2.1rem,1.5rem + 2.4vw,3.1rem); line-height:1.05; letter-spacing:-.02em; font-weight:700}
+p{margin:0}
+a{color:var(--accent)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+.eyebrow{font-family:"IBM Plex Mono",monospace; font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 .6rem}
+.lede{max-width:44rem; color:var(--ink-2); font-size:1.02rem; margin-top:.9rem}
+
+/* Legend - the badge shapes are load-bearing (heart/star/thumbs-up), so
+   spell out what they mean once, up top, rather than relying on hover. */
+.legend{display:flex; gap:1.2rem; flex-wrap:wrap; margin-top:1.6rem; font-size:.82rem; color:var(--ink-2)}
+.legend .li{display:flex; align-items:center; gap:.4rem}
+.badge{display:inline-flex; align-items:center; justify-content:center; width:1.35rem; height:1.35rem;
+  border-radius:50%; font-size:.78rem; line-height:1; flex:none; box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.badge.bis{background:var(--tier-bis); color:#241800}
+.badge.must{background:var(--tier-must); color:#160f38}
+.badge.nice{background:var(--tier-nice); color:#08150e}
+
+/* Toolbar: dungeon/raid select, slot select, search - the three controls
+   that gate which rows/items are visible. */
+.toolbar{display:flex; gap:.7rem; align-items:center; margin-top:2rem; flex-wrap:wrap;
+  background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:.7rem .85rem;
+  box-shadow:var(--shadow); position:sticky; top:.8rem; z-index:10}
+.toolbar select, .toolbar input{
+  background:var(--surface-2); border:1px solid var(--rule); border-radius:7px;
+  padding:.5rem .7rem; color:var(--ink); font:inherit; font-size:.87rem}
+.toolbar select:focus-visible, .toolbar input:focus-visible{border-color:var(--accent)}
+.toolbar input::placeholder{color:var(--muted)}
+#search{flex:1; min-width:12rem}
+.count{font-family:"IBM Plex Mono",monospace; font-size:.72rem; color:var(--muted); white-space:nowrap}
+
+/* Zone rows - the "table". Label column + wrapping icon strip, styled
+   tabular (shared left rail, hairline separators) without an actual
+   <table>, since a wide fixed-column table forces sideways scrolling for
+   what's really a wrapping icon strip. */
+.table{margin-top:1.6rem; border:1px solid var(--rule); border-radius:12px; overflow:hidden;
+  background:var(--surface); box-shadow:var(--shadow)}
+.zone-row{display:flex; gap:1.1rem; align-items:flex-start; padding:.85rem 1rem;
+  border-bottom:1px solid var(--rule)}
+.zone-row:last-child{border-bottom:none}
+.zone-row:nth-child(even){background:var(--surface-2)}
+.zone-label{flex:0 0 12.5rem; padding-top:.15rem}
+.zone-label .zn{font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:1rem; line-height:1.25}
+.zone-label .bn{font-size:.76rem; color:var(--muted); margin-top:.1rem}
+.zone-label .kind{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); margin-top:.3rem; display:inline-block}
+.zone-items{flex:1; display:flex; flex-wrap:wrap; gap:.5rem; align-content:flex-start}
+.empty-row{color:var(--muted); font-size:.85rem; padding:.3rem 0}
+
+.item{position:relative; width:42px; height:42px; flex:none}
+.item img{width:100%; height:100%; border-radius:7px; border:2px solid var(--card-q,var(--rule-strong));
+  display:block; object-fit:cover; transition:transform .12s ease, box-shadow .12s ease}
+.item.dim img{opacity:.5; filter:saturate(.35)}
+.item:hover img,.item:focus-visible img{transform:translateY(-2px); box-shadow:0 6px 14px -6px rgba(0,0,0,.5)}
+.item .badge{position:absolute; left:-5px; bottom:-5px; width:1.15rem; height:1.15rem; font-size:.62rem;
+  border:1.5px solid var(--surface)}
+
+footer{margin-top:3rem; padding-top:1.6rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.82rem}
+footer .pipeline{margin-top:.6rem; display:flex; gap:.5rem; flex-wrap:wrap; align-items:center}
+footer code{font-family:"IBM Plex Mono",monospace; font-size:.76rem; background:var(--surface-2); border:1px solid var(--rule);
+  border-radius:5px; padding:.15rem .45rem}
+footer .arrow{color:var(--rule-strong)}
+
+/* Native WoW tooltip facsimile - deliberately a fixed dark look regardless
+   of page theme, matching the in-game convention this data was pulled from. */
+#wowtip{position:fixed; z-index:50; pointer-events:none; max-width:320px;
+  background:#0d0b13; border:1px solid #3b3255; border-radius:6px; padding:.55rem .75rem;
+  box-shadow:0 10px 30px -10px rgba(0,0,0,.7); opacity:0; transition:opacity .08s ease;
+  font-family:"Arial",ui-sans-serif,sans-serif; font-size:12.5px; line-height:1.45; color:#c9c2d8;
+  top:0; left:0;}
+#wowtip.show{opacity:1}
+#wowtip table{border-collapse:collapse}
+#wowtip td{padding:0}
+#wowtip b.q4,#wowtip .q4{color:var(--q4)}
+#wowtip .q0,#wowtip .q{color:#9d9d9d}
+#wowtip .q1{color:#fff}
+#wowtip .q2{color:var(--q2)}
+#wowtip .q3{color:var(--q3)}
+#wowtip .q5{color:var(--q5)}
+#wowtip a{color:#6f8ff0; text-decoration:none}
+#wowtip .whtt-extra{color:#9d9d9d; font-size:11.5px}
+#wowtip .whtt-sellprice{color:#9d9d9d; font-size:11px; margin-top:.2rem}
+#wowtip .moneygold{color:#ffd700}
+#wowtip .moneysilver{color:#c7c7c7}
+#wowtip .moneycopper{color:#c67a41}
+#wowtip .tip-tier{margin-top:.35rem; padding-top:.3rem; border-top:1px solid #2c2440; font-size:11.5px}
+
+@media (prefers-reduced-motion: reduce){ .item img,#wowtip{transition:none} }
+@media (max-width:640px){
+  .zone-row{flex-direction:column}
+  .zone-label{flex:none}
+}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">KeystoneLoot export &middot; live Wowhead data</p>
+  <h1>Arcane Loot Ledger</h1>
+  <p class="lede">Every item Arcane Mage can equip from this season's eight Mythic+ dungeons
+    and The Venomous Abyss, with Funkysayu's own KeystoneLoot favorites marked on top &mdash;
+    decoded straight from the addon's export string and its bundled loot databases, no
+    manual re-typing of item IDs.</p>
+
+  <div class="legend">
+    <span class="li"><span class="badge bis">&#9829;</span> Best in Slot</span>
+    <span class="li"><span class="badge must">&#9733;</span> Must have</span>
+    <span class="li"><span class="badge nice">&#128077;</span> Nice to have</span>
+    <span class="li">plain icon &mdash; not favorited</span>
+  </div>
+
+  <div class="toolbar">
+    <select id="zone-filter" aria-label="Filter by dungeon or raid"></select>
+    <select id="slot-filter" aria-label="Filter by item slot"></select>
+    <input id="search" type="text" placeholder="Search item name&hellip;" autocomplete="off">
+    <span class="count" id="visible-count"></span>
+  </div>
+
+  <div class="table" id="zone-table"></div>
+
+  <footer>
+    <p>Built from a KeystoneLoot <code class="mono">:v3</code> export string and the addon's
+      own loot databases, via four scripts in
+      <code class="mono">.claude/skills/keystoneloot-favorites/</code>:</p>
+    <div class="pipeline">
+      <code>parse_export.pl</code><span class="arrow">&rarr;</span>
+      <code>extract_source_data.pl</code><span class="arrow">&rarr;</span>
+      <code>fetch_item_info.pl</code><span class="arrow">&rarr;</span>
+      <code>build_zone_table_js.pl</code><span class="arrow">&rarr;</span>
+      <code>KEYSTONE_LOOT_ZONES</code>
+    </div>
+  </footer>
+</div>
+
+<div id="wowtip" role="tooltip" aria-hidden="true"></div>
+
+<script>
+/*ZONEDATA*/
+</script>
+<script>
+(function(){
+  var IMPORTANCE_ICON = {bis:'&#9829;', must:'&#9733;', nice:'&#128077;'};
+  var IMPORTANCE_LABEL = {bis:'Best in Slot', must:'Must have', nice:'Nice to have', none:'Not favorited'};
+  var QUALITY_VAR = {0:'#9d9d9d',1:'#fff',2:'var(--q2)',3:'var(--q3)',4:'var(--q4)',5:'var(--q5)'};
+
+  var data = KEYSTONE_LOOT_ZONES;
+  var zones = data.zones || [];
+
+  // --- toolbar: zone-type select (category, not individual encounter) ---
+  var zoneSel = document.getElementById('zone-filter');
+  [['', 'All'], ['dungeon', 'Dungeons'], ['raid', 'Raid']].forEach(function(pair){
+    var opt = document.createElement('option');
+    opt.value = pair[0]; opt.textContent = pair[1];
+    zoneSel.appendChild(opt);
+  });
+
+  // --- toolbar: slot select, built from the data actually present,
+  // ordered by the addon's own canonical slotId rather than alphabetically ---
+  var slotOrder = [];
+  var seenSlot = {};
+  zones.forEach(function(z){
+    z.items.forEach(function(it){
+      if (it.slot && !seenSlot[it.slot]) { seenSlot[it.slot] = true; slotOrder.push({slot:it.slot, slotId:it.slotId}); }
+    });
+  });
+  slotOrder.sort(function(a,b){ return (a.slotId||0) - (b.slotId||0); });
+  var slotSel = document.getElementById('slot-filter');
+  var allSlotOpt = document.createElement('option');
+  allSlotOpt.value = ''; allSlotOpt.textContent = 'All slots';
+  slotSel.appendChild(allSlotOpt);
+  slotOrder.forEach(function(s){
+    var opt = document.createElement('option');
+    opt.value = s.slot; opt.textContent = s.slot;
+    slotSel.appendChild(opt);
+  });
+
+  // --- build rows ---
+  var tableEl = document.getElementById('zone-table');
+  var tip = document.getElementById('wowtip');
+
+  function positionTip(x, y){
+    var pad = 16;
+    var rect = tip.getBoundingClientRect();
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var tx = x + pad, ty = y + pad;
+    if (tx + rect.width > vw - 8) tx = x - rect.width - pad;
+    if (ty + rect.height > vh - 8) ty = y - rect.height - pad;
+    tip.style.transform = 'translate('+Math.max(8,tx)+'px,'+Math.max(8,ty)+'px)';
+  }
+  function showTip(it, x, y){
+    var tierLine = it.importance !== 'none'
+      ? '<div class="tip-tier">'+IMPORTANCE_ICON[it.importance]+' '+IMPORTANCE_LABEL[it.importance]+' &mdash; Arcane Mage</div>'
+      : '';
+    tip.innerHTML = (it.tooltipHtml||'').replace(/href="\//g, 'href="https://www.wowhead.com/') + tierLine;
+    tip.classList.add('show');
+    tip.setAttribute('aria-hidden','false');
+    positionTip(x, y);
+  }
+  function hideTip(){ tip.classList.remove('show'); tip.setAttribute('aria-hidden','true'); }
+
+  var rowEls = [];
+  zones.forEach(function(zone){
+    var row = document.createElement('div');
+    row.className = 'zone-row';
+    row.dataset.zoneType = zone.type;
+
+    // For a raid row, the boss (and its position in the fight) is the
+    // information that matters - the raid name is context, not the
+    // headline. Dungeons have no boss to lead with, so the zone name stays
+    // primary there.
+    var primary = zone.bossName || zone.zoneName;
+    var secondary = zone.bossName ? zone.zoneName : null;
+
+    var label = document.createElement('div');
+    label.className = 'zone-label';
+    label.innerHTML = '<div class="zn">'+primary+'</div>'+
+      (secondary ? '<div class="bn">'+secondary+'</div>' : '')+
+      '<span class="kind">'+(zone.type === 'raid' ? 'Raid' : 'Mythic+')+'</span>';
+    row.appendChild(label);
+
+    var itemsEl = document.createElement('div');
+    itemsEl.className = 'zone-items';
+
+    if (!zone.items.length) {
+      var empty = document.createElement('div');
+      empty.className = 'empty-row';
+      empty.textContent = 'No Arcane Mage items tracked here.';
+      itemsEl.appendChild(empty);
+    }
+
+    zone.items.forEach(function(it){
+      var wrap = document.createElement('a');
+      wrap.className = 'item' + (it.importance === 'none' ? ' dim' : '');
+      wrap.href = it.wowheadUrl;
+      wrap.target = '_blank';
+      wrap.rel = 'noopener';
+      wrap.style.setProperty('--card-q', QUALITY_VAR[it.quality] || '#fff');
+      wrap.dataset.slot = it.slot || '';
+      wrap.dataset.search = (it.name || '').toLowerCase();
+      wrap.setAttribute('aria-label', it.name + (it.importance !== 'none' ? ' (' + IMPORTANCE_LABEL[it.importance] + ')' : ''));
+
+      var img = document.createElement('img');
+      img.src = it.iconDataUri;
+      img.alt = '';
+      img.loading = 'lazy';
+      wrap.appendChild(img);
+
+      if (it.importance !== 'none') {
+        var badge = document.createElement('span');
+        badge.className = 'badge ' + it.importance;
+        badge.innerHTML = IMPORTANCE_ICON[it.importance];
+        wrap.appendChild(badge);
+      }
+
+      wrap.addEventListener('pointerenter', function(e){ showTip(it, e.clientX, e.clientY); });
+      wrap.addEventListener('pointermove', function(e){ positionTip(e.clientX, e.clientY); });
+      wrap.addEventListener('pointerleave', hideTip);
+      wrap.addEventListener('focus', function(){ var r = wrap.getBoundingClientRect(); showTip(it, r.right, r.top); });
+      wrap.addEventListener('blur', hideTip);
+
+      itemsEl.appendChild(wrap);
+    });
+
+    row.appendChild(itemsEl);
+    tableEl.appendChild(row);
+    rowEls.push(row);
+  });
+
+  // --- filtering ---
+  var visibleCountEl = document.getElementById('visible-count');
+  function applyFilters(){
+    var zoneType = zoneSel.value;
+    var slot = slotSel.value;
+    var q = document.getElementById('search').value.trim().toLowerCase();
+    var totalVisible = 0, totalItems = 0;
+
+    rowEls.forEach(function(row){
+      var rowMatches = !zoneType || row.dataset.zoneType === zoneType;
+      var anyVisible = false;
+      row.querySelectorAll('.item').forEach(function(el){
+        totalItems++;
+        var match = rowMatches
+          && (!slot || el.dataset.slot === slot)
+          && (!q || el.dataset.search.indexOf(q) !== -1);
+        el.style.display = match ? '' : 'none';
+        if (match) { anyVisible = true; totalVisible++; }
+      });
+      var hasEmptyNotice = row.querySelector('.empty-row');
+      row.style.display = (rowMatches && (anyVisible || hasEmptyNotice)) ? '' : 'none';
+    });
+
+    visibleCountEl.textContent = (zoneType || slot || q)
+      ? (totalVisible + ' of ' + totalItems + ' items shown')
+      : (totalItems + ' items across ' + zones.length + ' encounters');
+  }
+  zoneSel.addEventListener('change', applyFilters);
+  slotSel.addEventListener('change', applyFilters);
+  document.getElementById('search').addEventListener('input', applyFilters);
+  applyFilters();
+})();
+</script>

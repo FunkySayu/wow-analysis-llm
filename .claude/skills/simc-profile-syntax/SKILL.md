@@ -14,8 +14,18 @@ just concatenated into one stream before parsing.
 This skill covers *writing/editing a profile*: character declaration, gear, talents,
 consumables, and sim-wide options. For *reading an action priority list* (the rotation
 logic itself) and the trap of misreading a condition's direction, see
-`.claude/knowledge/method/reading-an-apl.md` — that content isn't repeated here. To actually build and run simc against a profile, see
-[[simc-simulation]].
+`.claude/knowledge/method/reading-an-apl.md` — that content isn't repeated here. To actually
+build and run simc against a profile, see [[simc-simulation]]. For raid events, enemies,
+distance targeting and the options that fail silently when scripting an encounter
+(`raid_events` with `last == first`, `fight_style` resetting raid events,
+`vulnerable,multiplier=` being the *increase*, `bloodlust_time=` without the override), see
+the traps table in `.claude/knowledge/method/modelling-a-fight-in-simc.md`.
+
+Talent overrides (`class_talents=` etc.) **enforce no game rules** — choice nodes, point
+gates, connectivity and hero-tree membership are all unchecked, and the result is a plausible
+wrong number. The four ways it fails, with measured examples, are in
+`.claude/knowledge/classes/druid/balance-druid-12.1.md` ("simc talent overrides enforce NO game
+rules"); resolve any loadout with `debug=1` before trusting it.
 
 Source of truth for everything below: the [simc wiki](https://github.com/simulationcraft/simc/wiki)
 (`TextualConfigurationInterface`, `Characters`, `Equipment`, `Options`, `Output`,
@@ -117,6 +127,19 @@ A full real example is any file under `vendor/simc/profiles/**/*.simc` — e.g.
 `vendor/simc/profiles/MID1/MID1_Druid_Balance.simc` has a complete character block, gear
 list, and APL together, and is a good template to copy from.
 
+Gear facts that `id=` lookups get wrong, each found by comparing simc's stat sheet against a
+log (details and the full list in
+`.claude/knowledge/raid/12_1/venomous_abyss/twin-fangs-sim-profile.md`, "The actor"):
+
+- **Upgrade track and rank are bonus ids** (Myth 1–6/6 = 12849–12854, Hero 1–6/6 =
+  12841–12846). A wrong one does not fail; it sims a different item level.
+- **Crafted stat pairs are bonus ids** (8790–8795) and override `crafted_stats=`, which is then
+  ignored. To sim a recraft, swap the bonus id.
+- Some items carry stats simc resolves wrongly (12.1: the Aqirbane Reliquary neck gets all its
+  secondary rating as crit) — override with `stats=`.
+- An item or enchant with no simc handler sims as nothing at all (12.1: Rite of the Hash'ey).
+  Model it as measured constant stats and say so.
+
 ## Sim-wide options (not character-scoped)
 
 These configure the simulation itself, and typically go at the top of a file or as trailing
@@ -147,6 +170,11 @@ Covered fully in [[simc-simulation]]; option summary:
 - `save=<file>` / `save_gear=<file>` / `save_talents=<file>` / `save_actions=<file>` →
   export the (possibly armory-imported, then hand-edited) resolved profile back out as
   `.simc` text — useful for turning an armory import into a durable, diffable file.
+
+Profilesets (many variants in one run) fail silently in two ways: a name containing `.` is
+dropped with only a "Trivial" warning, and when the profile declares `enemy=` actors the
+variants edit **actor 0** (an enemy) unless `profileset_main_actor_index=` points at the
+player. Count results against variants sent.
 
 Exit code `0` = success. Nonzero codes are specific failure classes (invalid APL: `30`,
 invalid talent string: `81`, invalid item string: `82`, unsupported spec: `72`, ...) — check

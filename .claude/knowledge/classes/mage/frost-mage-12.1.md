@@ -5,13 +5,11 @@ The patch is live, so the plain (non-`/ptr/`) Wowhead tooltip endpoint is correc
 
 Data behind every number here:
 
-| file | what |
+| source | what |
 |---|---|
 | [data/classes/mage/frost/12_1_talents.json](../../../../data/classes/mage/frost/12_1_talents.json) | full tree with live tooltip text (`tools/raidbots/talent_tree_sync.py --class 8 --spec 64`) |
-| `scratch/specs/census_frost.json` | 140 top Mythic pulls (20 per boss × 7 bosses): gear, stats, talents, damage by ability and target |
-| `scratch/specs/census_frost_report.txt` | the census summarised |
-| `scratch/specs/burst_sszorak.json` | per-second damage of 12 top Mythic Sszorak pulls |
-| `scratch/specs/sims/` | profiles and the scenario matrix |
+| [data/sims/12_1/spec_matrix/](../../../../data/sims/12_1/spec_matrix/) | profiles and the scenario matrix |
+| census, 2026-10-08 (not kept in the repo) | 140 top Mythic pulls (20 per boss × 7 bosses): gear, stats, talents, damage by ability and target; per-second damage of 12 top Mythic Sszorak pulls |
 
 The cross-spec comparison is in [dps-specs-boss-profile-12.1.md](../dps-specs-boss-profile-12.1.md).
 
@@ -137,9 +135,9 @@ actions+=/run_action_list,name=spellslinger
 ## The sim profiles
 
 ```
-cd scratch/specs/sims
-../../../vendor/simc/build/Release/simc.exe base.simc fw_frost_spellslinger.simc tal_frost_spellslinger.simc funkywand_gear.simc
-../../../vendor/simc/build/Release/simc.exe base.simc fw_frost_frostfire.simc   tal_frost_frostfire.simc   funkywand_gear.simc
+cd data/sims/12_1/spec_matrix
+../../../../vendor/simc/build/Release/simc.exe base.simc fw_frost_spellslinger.simc tal_frost_spellslinger.simc funkywand_gear.simc
+../../../../vendor/simc/build/Release/simc.exe base.simc fw_frost_frostfire.simc   tal_frost_frostfire.simc   funkywand_gear.simc
 ```
 
 Same gear file as Fire (Funkywand, 2026-09-30, ilvl 324.9), the field's node-majority loadout per

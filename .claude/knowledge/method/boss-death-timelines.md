@@ -2,7 +2,10 @@
 
 Method notes, written after producing the Vashnik the Malignant Mythic report. Deliberately
 encounter-agnostic; Vashnik numbers appear only as illustration of a trap or a threshold.
-The worked output lives in `scratch/vashnik_deaths/` and the published artifact.
+The worked output is the published artifact; its stage 3–5 scripts stayed in the local working
+area. A second, larger case on the same pipeline is
+[sszorak-mythic.md](../raid/12_1/venomous_abyss/sszorak-mythic.md), which records its stage
+order.
 
 **Read [building-reports.md](building-reports.md) first.** It already covers the parts of
 this that are not specific to death timelines: template plus injected payload, inlined
@@ -42,8 +45,12 @@ the API.
 
 Stages 1 and 2 are already generic: [`tools/warcraftlogs/guild_progress_sample.py`](../../../tools/warcraftlogs/guild_progress_sample.py)
 and [`tools/warcraftlogs/wipe_death_profile.py`](../../../tools/warcraftlogs/wipe_death_profile.py) take any encounter id
-and difficulty. **Stages 3 to 5 are still encounter-specific scripts in `scratch/` and that
-is the single biggest cost to repeat this.** Promote them first next time; the generalisation
+and difficulty. **Known issue in stage 2:** `wipe_death_profile.py` reads deaths from one
+Deaths-*table* query across a report's fights, which `tools/warcraftlogs/README.md` documents
+as silently empty after the first few fights of a long report (77 of 120 Sszorak pulls). Check
+its per-pull death counts against a second source, or port it to per-fight `Deaths` events,
+before relying on it. **Stages 3 to 5 are still encounter-specific scripts that were never
+promoted out of the local working area, and that is the single biggest cost to repeat this.** Promote them first next time; the generalisation
 boundary is small and is described under "What to build before the next boss".
 
 ## The traps
@@ -125,9 +132,9 @@ Every one of these returns **wrong or empty data rather than an error**. Each co
     `medium` (36px) icons are enough — this report used `large` (56px) for 20px circles,
     which wastes bytes for no visible gain.
 
-14. **An exact-match regex on the injected `const` line breaks silently.**
-    `scratch/vashnik_deaths/inject.py` matches `^const D = .*;$` literally, which is the
-    form [building-reports.md](building-reports.md) warns against: realigning the line for
+14. **An exact-match regex on the injected `const` line breaks silently.** The Vashnik
+    injector matched `^const D = .*;$` literally, which is the form
+    [building-reports.md](building-reports.md) warns against: realigning the line for
     readability stops the payload landing, and the page keeps rendering the previous run's
     numbers. Match whitespace-tolerantly (`^const\s+D\s*=`) when promoting it.
 
@@ -203,8 +210,9 @@ then asserts is enough to catch everything that actually went wrong:
 - no two markers in a lane overlap by more than 1px
 - every icon `href` is a real data URI
 
-`scratch/vashnik_deaths/smoke.js` is that stub for the populated-element check. The overlap
-and bounds checks were one-off inline scripts built on the same stub; they found 11
+The Vashnik and Sszorak builds each had such a stub (`smoke.js`, not yet in `tools/`) for the
+populated-element check. The overlap and bounds checks were one-off inline scripts built on the
+same stub; they found 11
 overlapping marker pairs that looked fine in the code. Fold both into one reusable checker,
 and update its list of expected element ids whenever the page changes — a stale list reports
 a healthy page as broken.
@@ -240,8 +248,9 @@ In priority order. The first two are most of the saving.
    encounter-specific inputs are small and can be a per-boss JSON: the cluster map
    (killing blow name to journal parent, derivable from the journal's `parentTitle` chain
    rather than typed), the abilities to draw on the schedule, and the prose for each cluster.
-   Everything else in `build_payload.py` and `build_timeline.py` is generic.
-2. **An `applied-aura schedule` measurement helper**, generalising `measure_froth.py`: given
+   Everything else in the Vashnik payload and timeline builders was generic.
+2. **An `applied-aura schedule` measurement helper**, generalising the Vashnik Plague Froth
+   measurement: given
    an ability name, resolve its log ids from `masterData`, pull applications across the N
    longest pulls, collapse into events, and emit marks with support and variance. This is
    the step that makes the timeline complete rather than cast-only.

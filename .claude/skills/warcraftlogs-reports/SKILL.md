@@ -24,8 +24,15 @@ curl -s -X POST https://www.warcraftlogs.com/oauth/token \
 ```
 
 Returns `{"token_type":"Bearer","expires_in":31104000,"access_token":"..."}`.
-`expires_in` is ~360 days for a client-credentials app token — cache it (e.g. write
-to a scratch file) instead of re-requesting per query.
+`expires_in` is ~360 days for a client-credentials app token — cache it instead of
+re-requesting per query (`tools/warcraftlogs/lib/wclapi.py` already caches the token and
+every response in `.wclcache/`).
+
+**Before hand-writing a query, check `tools/warcraftlogs/`.** It has ~35 reusable checks
+(`run.py <check|group> -r <report> -a <actor> -f raid|dungeon|<ids>`) covering rotation,
+cooldowns, consumables, peers and fight structure. Its README lists them and the API traps
+they already work around. Add a new question there as a check rather than as a one-off
+script.
 
 ## Step 2 — query the GraphQL API
 
@@ -69,6 +76,49 @@ before trusting any further analysis of this report.
   see where your rotation deviated from optimal play.
 - `reportData.report(code: "...").playerDetails(fightIDs: [...])` to resolve
   actor names/IDs to `sourceID` for the queries above.
+
+### Comparing against other players
+
+`worldData.encounter(id:).characterRankings(className:, specName:, difficulty:, metric: dps,
+page:, includeCombatantInfo: true)` returns ranked parses with each player's gear and talents —
+no per-report calls needed. `filter: "date.<startMs>.<endMs>"` (undocumented, verified)
+restricts to a time window. Three things it does not do:
+
+- **It paginates to page 20 at most** (2,000 parses). On a popular spec that floor sits around
+  the 84th percentile, so "compare against average players" is not possible; a rare spec's list
+  can end early (page 13 on Mythic Twin Fangs Balance) and then covers the whole field.
+- **It carries no percentile.** Read `rankPercent` from each sampled report's own
+  `reportData.report.rankings` (one extra query per log).
+- **`bracketData` is not equipped item level.** Compute ilvl from `CombatantInfo` gear.
+
+How to sample a comparison pool (stratify, report `n`, check the metric tracks rank) is in
+`.claude/knowledge/method/analysing-a-pull.md`.
+
+`events(dataType: CombatantInfo)` gives a player's gear (with `permanentEnchant` and `gems`
+per slot), auras at pull, and a `talentTree` of `{nodeID, id, rank}` that maps 1:1 onto the
+entry ids in `data/classes/<class>/<spec>/<patch>_talents.json` — the loadout string never
+needs decoding.
+
+## Silent traps
+
+Each of these returns wrong or empty data with no error. The evidence for each is in the
+file named; `tools/warcraftlogs/README.md` ("Traps these checks had to work around") has
+more.
+
+| trap | where it is documented |
+|---|---|
+| `sourceID` + `hostilityType: Enemies` in one events query returns zero rows | tools README |
+| `targetID` (or `filterExpression: "target.id = N"`) on `DamageTaken` drops enemy-sourced hits or returns nothing — query the window unfiltered, filter client-side | `method/boss-death-timelines.md` trap 1 |
+| debuff apply/refresh/remove events are keyed on the aura on the target, not the caster — rebuild one player's DoT uptime from damage ticks | `classes/druid/balance-druid-12.1.md` |
+| the Casts *table* keeps only the top 5 abilities per player — utility never appears; use `events` | `dungeons/12_1/midnight-s2-dungeons.md` |
+| `table(dataType: Dispels)` rows are at `data.entries[0].entries` | `dungeons/12_1/midnight-s2-dungeons.md` |
+| one ability is several spell ids, and the journal / tooltip id is often not the logged one — resolve by name from `masterData.abilities` | `raid/12_1/venomous_abyss/sszorak-mythic.md` |
+| a buff check on the cast misses lust that landed from someone else (eight lust ids, not four) — check the buff received | `classes/druid/balance-druid-12.1.md` |
+| the Deaths table's `events` are capped at three and its window is adaptive; `overkill` appears only on the killing blow | `method/boss-death-timelines.md` traps 3–4 |
+| `includeResources: true` is what attaches `hitPoints`, `x`/`y` and the source's buffs to events | tools README |
+| the `graph` endpoint smooths to ~40s buckets; target-view `activeTime` saturates whenever a DoT ticks | `classes/dps-specs-boss-profile-12.1.md` |
+
+(Knowledge paths are under `.claude/knowledge/`.)
 
 ## Rate limits
 

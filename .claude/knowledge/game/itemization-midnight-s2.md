@@ -7,11 +7,10 @@ Venomstones)** — both change the answers below. Concepts are in
 [crafting-midnight-s2.md](crafting-midnight-s2.md); how to re-check in
 [itemization-staying-current.md](itemization-staying-current.md).
 
-Source research: `scratch/itemization/` — `A_acquisition.md`, `B_upgrades.md`,
-`C_bonus_rolls.md`, `D_crafting.md`, `F_wcl_gear.md` (measured), `transcripts/distilled_*.md`
-(creators), Blizzard texts in `scratch/itemization/blueposts/`. Tags: **[blue]** official,
+The research tracks and saved primary texts behind this file stayed in the local working
+area (not in the repo); this file is their reconciled result. Tags: **[blue]** official,
 **[db]** game data / wiki, **[guide]** Wowhead/Icy Veins/Method, **[creator]** SignsOfKelani /
-Tettles video, **[measured]** counted from WarcraftLogs gear of top players, **[inferred]**.
+Tettles, **[measured]** counted from WarcraftLogs gear of top players, **[inferred]**.
 Wowhead returned 403 to scripted fetches during this research, so some Wowhead claims were
 read via other sites quoting them.
 
@@ -219,7 +218,8 @@ trinkets and neck to 6/6 before Oct 20**; Hero 6/6 trinkets you plan to keep bec
 
 From 1,879 top-100 Mythic raiders and 1,343 high-key (18–23) M+ players across six specs
 (Balance, Arcane, Fury, BM, Shadow, Resto Shaman), WarcraftLogs rankings with combatant gear,
-2026-09-22 → 10-06. Method and caveats in `scratch/itemization/F_wcl_gear.md`.
+2026-09-22 → 10-06. Method in [itemization-staying-current.md](itemization-staying-current.md)
+("Grounding in logs").
 
 - **Median ilvl 327.9**; best 337.6. Item mix: Myth 6/6 38.5%, Hero 6/6 36.8%, crafted 15.7%,
   Myth 9 1.2%. Partial ranks are rare — **the lever is the track, not the rank**.
@@ -293,7 +293,7 @@ a gold-for-gear option. Rings at Hero 6/6 are normal even at the top.
    **Kith'ix Mythic roll ilvl (checked 2026-10-07):**
    - **Not stated anywhere official.** Checked the 12.1.5 content notes (full article, news
      24304162), the 12.1.5 PTR dev notes, the raid-testing thread (2346119) and the Oct 6
-     hotfix thread; dumps are in `scratch/blueposts/1215-*`.
+     hotfix thread.
    - **The governing blue rule** (curse-of-ulatek-endgame-reward-changes): Mythic vault =
      Myth 6/6, *except* Very Rare and "penultimate and final bosses" = Myth 9. Voidcore
      items = the vault equivalent. Whether a standalone one-boss raid counts as a "final

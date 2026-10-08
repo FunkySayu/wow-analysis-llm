@@ -1,0 +1,12 @@
+mage="FW_fire_sunfury"
+level=90
+race=mechagnome
+role=spell
+position=ranged_back
+spec=fire
+omnium_talents=136822:1/136816:1/136817:1/136820:1/136814:1
+potion=lights_potential_2
+flask=flask_of_thalassian_resistance_2
+food=silvermoon_parade
+augmentation=void_touched_augment_rune
+temporary_enchant=main_hand:thalassian_phoenix_oil_2

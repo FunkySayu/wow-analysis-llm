@@ -13,9 +13,9 @@ the "read before" lines are not optional.
 |---|---|---|
 | `.claude/skills/` | how to pull data from each source | the skill, before guessing an endpoint |
 | `.claude/knowledge/` | durable findings: `game/`, `classes/`, `raid/<patch>/<tier>/`, `dungeons/<patch>/`, `method/` | [its README](.claude/knowledge/README.md) — the index |
-| `data/` | long-term datasets: `raid/<patch>/<tier>/<nn>_<boss>/`, `classes/<class>/<spec>/`, `items/<patch>/` | [data/README.md](data/README.md) before regenerating anything |
-| `tools/` | analysis tooling, one folder per source: `warcraftlogs/`, `game_knowledge/`, `raidbots/`, `keystoneloot/`, `wowhead/`, `reporting/` | [tools/README.md](tools/README.md) before writing a script |
-| `scratch/` | per-report working extracts; not meant to stay current | — |
+| `data/` | long-term datasets: `raid/<patch>/<tier>/<nn>_<boss>/`, `classes/<class>/<spec>/`, `items/<patch>/`, validated sim profiles in `sims/` and `raid/.../sim/` | [data/README.md](data/README.md) before regenerating anything |
+| `tools/` | analysis tooling, one folder per source: `warcraftlogs/`, `game_knowledge/`, `raidbots/`, `keystoneloot/`, `wowhead/`, `reporting/`, `simc/` (patches) | [tools/README.md](tools/README.md) before writing a script |
+| `scratch/` | per-report working extracts; gitignored and not meant to stay current — never the only copy of something a knowledge file tells you to read or run | — |
 | `site/`, `docs/design/` | the planning website and its design record | — |
 
 **Read before the task, every time:**

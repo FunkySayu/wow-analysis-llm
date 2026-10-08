@@ -10,12 +10,16 @@ Do not paste generated data into the HTML. Write a template with comment placeho
 a build script that substitutes them:
 
 ```
-reports/_audit_template.html      # hand-written, checked in, no data
-scratch/<topic>/icons.json        # generated payload
+reports/_audit_template.html      # hand-written, no data
+scratch/<topic>/icons.json        # generated payload (local working area, gitignored)
 scratch/<topic>/builds_payload.json
 scratch/<topic>/apl_payload.json
-scratch/.../build_report.ps1      # template + payloads -> reports/<name>.html
+scratch/<topic>/build_report.ps1  # template + payloads -> reports/<name>.html
 ```
+
+For reports built from `tools/warcraftlogs` check payloads, `tools/reporting/` already does
+this end to end (React components per check, `build_report.py` inlines bundle + JSON into
+`reports/_checks_template.html`) — see its README before writing a new build script.
 
 Placeholders as `/*ICONDATA*/`, `/*APLDATA*/`, `/*BUILDDATA*/` inside a `<script>` block,
 replaced with `.Replace()` (a literal replace — **not** `-replace`, which treats the payload
@@ -39,6 +43,13 @@ Cheap checks that caught real bugs:
 
 Match the const line with a **whitespace-tolerant** regex (`^const\s+NAME\s*=`). Aligning
 `const APLS   =` for readability silently broke an exact-match validator.
+
+**Keep the built page ASCII.** The published page carries no charset declaration of its own
+— the Artifact wrapper supplies one, a local file reader does not — so a single non-ASCII
+byte renders as mojibake for anyone opening the built file directly (`2.63Ã—`). Emit payloads
+with `ensure_ascii=True` (or the PowerShell equivalent), use HTML entities in the template
+above the `<script>` boundary and `\uXXXX` escapes below it, and **fail the build** if any
+non-ASCII survives into the output (`tools/reporting/build_report.py` does).
 
 ## Icons and tooltips
 
@@ -85,6 +96,16 @@ should have a copy button rather than being something they select by hand.
 
 ## Toolchain traps that cost time
 
+These apply to every script in this repo, not only report builds; they are collected here
+so the class and dungeon files do not each carry their own copy.
+
+**Which Python**
+
+- On Windows, a bare `python` is the Microsoft Store stub and fails with "Python was not
+  found". Use the `py` launcher (every `tools/` script runs under it) or
+  `wsl.exe -d Ubuntu -e python3 <script>` from the repo root — the repo is mounted at the same
+  relative path, so relative paths work in both.
+
 **PowerShell + native executables**
 
 - Never `2>&1` a native exe. Windows PowerShell wraps each stderr line in an ErrorRecord,
@@ -96,6 +117,22 @@ should have a copy button rather than being something they select by hand.
   a cascade of misleading "The '<' operator is reserved" errors. Fix: put prose in a JSON
   file written with the `Write` tool, and let PowerShell merge only numbers into it. This
   also makes the narrative diffable.
+
+**PowerShell as an analysis language** — each of these silently corrupted a published
+number before it was caught:
+
+- **Variables are case-insensitive.** A loop counter `$soul` overwrites a spell-id constant
+  `$SOUL`; a `$W` window constant and a `$w` events array are the same variable (that one
+  inverted the Shadowmeld headline in the M+ file). Never let two names differ only by case,
+  and avoid single-letter names.
+- **`,@(...)` around a returned array nests it**, and a downstream `Where-Object` then filters
+  the outer one-element array and silently passes everything.
+- **`ConvertFrom-Json` does not enumerate when piped** (5.1): `Get-Content x | ConvertFrom-Json
+  | Sort-Object t` sorts one object, the whole array. Assign first, then pipe.
+- **`Invoke-WebRequest` needs `-UseBasicParsing`** or it blocks in a non-interactive session.
+
+Sanity-check every extract against a known count (casts in one fight, the report's own
+damage total) before drawing conclusions from it.
 
 **Shell**
 

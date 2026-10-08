@@ -6,8 +6,9 @@ old answer. **This file holds mechanisms, not current numbers** — numbers quot
 illustrations from Midnight S2 (data build 12.1.0.69299) to make the mechanism concrete. The
 current season lives in [itemization-midnight-s2.md](itemization-midnight-s2.md) and
 [crafting-midnight-s2.md](crafting-midnight-s2.md); how to re-validate in
-[itemization-staying-current.md](itemization-staying-current.md). Derivations:
-`scratch/itemization/` (tracks A–F; stat budget in `G_stat_budget.md`).
+[itemization-staying-current.md](itemization-staying-current.md). The stat-budget numbers
+below are reproducible from simc's own item code (`item_database::scaled_stat`) at the build
+named; re-derive them there rather than trusting this file after a patch.
 
 ## Why this file exists
 
@@ -45,7 +46,7 @@ table (simc: `random_suffix_type` / "point allocation budget"), which is the ter
       secondary/tertiary:     M = CombatRatingMultiplier[ilvl][category]
 
 Verified to ±1 against live tooltips for eight S2 items across every slot type (simc
-`item_database::scaled_stat`, build 12.1.0.69299; derivation in `G_stat_budget.md`).
+`item_database::scaled_stat`, build 12.1.0.69299).
 
 ### Slot types — the budget fraction a slot gets
 

@@ -28,9 +28,9 @@ The first argument is either a single check name or a **group**: `common`, `mage
 (Arcane), `druid` (Balance) run one module's whole suite; `all` runs literally
 everything and mixes specs, which is rarely what you want.
 
-Windows note: the repo's `backend/` venv is a WSL venv and Windows `python` is only
-the Store stub, so **run everything through `wsl.exe -d Ubuntu -e python3`** from the
-repo root. The repo is mounted at the same relative path, so `tools/...` just works.
+Windows note: a bare `python` is the Microsoft Store stub. Run scripts with the `py`
+launcher, or through `wsl.exe -d Ubuntu -e python3` from the repo root (the repo is mounted
+at the same relative path, so `tools/...` works in both).
 
 - `-r` report code — the last path segment of a warcraftlogs.com/reports/<code> URL
 - `-a` character name, e.g. `Funkywand`
@@ -516,8 +516,10 @@ the first few fights and **empty for the rest, with no error and no truncation f
 Measured on the Sszorak sample, **77 of 120 pulls carried zero entries** while the raid-wide
 2s damage tick showed 14 to 18 players stopping in those same pulls. Query `dataType:
 Deaths` as *events*, per fight: it is not capped that way and carries `killerID` and
-`killingAbilityGameID` directly. `scratch/sszorak/fetch_deaths.py` does this and
-cross-checks each fight's count against the tick detector.
+`killingAbilityGameID` directly. The Sszorak analysis did this and cross-checked each
+fight's count against the tick detector. **`wipe_death_profile.py` still uses the
+multi-fight table query** (`deaths_table`, one request per report) and is exposed to this
+on long reports — port it to per-fight events before trusting its counts there.
 
 The cost of not catching it is not a missing section, it is a *wrong* one: a bomb-carrier
 mortality rate read 0.7% against a true 6.4%, and a soak-failure comparison showed a

@@ -1,7 +1,10 @@
 # Midnight Season 2 M+ — Balance Druid utility view
 
 Season opened 2026-08-18; this analysis dated 2026-08-21 (3 days in). Artifact:
-"Moonkin Utility Book". Working data in `scratch/s2dungeons/` (see "Pipeline" below).
+"Moonkin Utility Book" (`reports/s2_druid_utility.html`). How the pipeline ran is under
+"Pipeline" below. The season's gearing side (M+ chest and vault item levels, crests) is in
+[itemization-midnight-s2.md](../../game/itemization-midnight-s2.md); the loot each dungeon drops
+for a spec is in `data/classes/<class>/<spec>/12_1_loot_sources.json`.
 
 ## Canonical dungeon pool
 
@@ -44,10 +47,9 @@ These cost real time and all fail silently.
    ability.id in (...)")` instead.
 5. **`table(dataType: Dispels)` nests one level deeper than it looks**: the rows are at
    `data.entries[0].entries`, not `data.entries`.
-6. **PowerShell 5.1 `ConvertFrom-Json` does not enumerate when piped.** `Get-Content x |
-   ConvertFrom-Json | Sort-Object t` passes the *whole array* as one object; the result is a
-   1-element jagged array. Assign first, then sort. Also: `Invoke-WebRequest` needs
-   `-UseBasicParsing` or it blocks in non-interactive mode.
+6. **Two PowerShell traps** (`ConvertFrom-Json` not enumerating when piped;
+   `Invoke-WebRequest` blocking without `-UseBasicParsing`) — now with the other toolchain
+   traps in [building-reports.md](../../method/building-reports.md).
 
 ## Deriving dispel type without a database
 
@@ -100,16 +102,16 @@ Voidscar Arena it is 0% across twenty runs.
 
 ## Pipeline
 
-`scratch/s2dungeons/` — run in this order:
-1. `pull_deep.ps1` — rankings sorted by **keystone level** (not DPS), then one batched query
-   per run: masterData actors, `fights{dungeonPulls}`, filtered druid casts, dispel events,
+The PowerShell scripts stayed in the local working area; the stages, in order:
+1. **Pull** — rankings re-sorted by **keystone level** (not DPS), then one batched query per
+   run: masterData actors, `fights{dungeonPulls}`, filtered druid casts, dispel events,
    interrupt events, playerDetails. 160 runs ≈ 1,000 rate-limit points of 3,600/hr.
-2. `analyse_deep.ps1` → `deep_casts/dispels/interrupts/runs.csv`, mapping every cast to its
+2. **Analyse** — casts, dispels, interrupts and runs as CSV, mapping every cast to its
    `dungeonPull` and target NPC.
-3. `beam_coverage.ps1` / `beam_prepost.ps1` — enemy `begincast` events filtered to the
-   interruptible-spell set, windowed ±8s around each beam.
-4. `build_payload.ps1` → tooltips + base64 icons; `make_data.ps1` → `payload_data.json`;
-   `build_report.ps1` → `reports/s2_druid_utility.html` with validation.
+3. **Beam coverage** — enemy `begincast` events filtered to the interruptible-spell set,
+   windowed ±8s around each beam.
+4. **Report** — tooltips + base64 icons, payload, template build with validation
+   ([building-reports.md](../../method/building-reports.md)).
 
 `dungeonPulls` is coarser than a pack — WCL groups consecutive trash into one segment named
 after a representative NPC. Good for boss-vs-trash and rough sectioning, not for "which pack".
@@ -144,8 +146,8 @@ Berserking (109 / 14 runs, a throughput cooldown), War Stomp (4 / 2 runs).
 ### Two more traps found here
 7. **`dataType: DamageTaken` silently returns zero events when filtered by `targetID`** (or by
    `filterExpression: target.id = N`), even though the actor plainly appears in the unfiltered
-   result. Query a time window unfiltered and filter client-side.
-8. **PowerShell variables are case-insensitive.** A `$W` window constant and a `$w` events
-   array are the *same variable*; the collision silently inverted the Shadowmeld headline
-   (reported 81% "idle" when the true figure is 76% under fire) before it was caught. Any
-   single-letter loop/constant name in these scripts is a hazard.
+   result. Query a time window unfiltered and filter client-side. (Same trap, found again
+   independently, as trap 1 in [boss-death-timelines.md](../../method/boss-death-timelines.md).)
+8. **PowerShell variables are case-insensitive** — a `$W`/`$w` collision silently inverted the
+   Shadowmeld headline (reported 81% "idle" when the true figure is 76% under fire) before it
+   was caught. Detail in [building-reports.md](../../method/building-reports.md).

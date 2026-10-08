@@ -1,0 +1,4 @@
+base380|max_time=380 vary_combat_length=0
+digin|max_time=380 vary_combat_length=0 raid_events+=/vulnerable,first=100,cooldown=127,duration=25,multiplier=0.3
+amp120|max_time=380 vary_combat_length=0 raid_events+=/vulnerable,first=60,cooldown=120,duration=20,multiplier=1.0
+amp90|max_time=380 vary_combat_length=0 raid_events+=/vulnerable,first=45,cooldown=90,duration=20,multiplier=1.0

@@ -9,6 +9,18 @@ Raidbots publishes the exact talent-tree data its talent calculator (and the
 simc talent-string encoder) runs on, as one static JSON file per game version —
 no auth needed.
 
+**Check `data/classes/<class>/<spec>/<patch>_talents.json` first.** Validated trees
+(Balance, Feral, Fire, Frost for 12.1) are already built there by
+`tools/raidbots/talent_tree_sync.py --class <id> --spec <id> --out <path>` (`--list`
+prints the ids; class/spec ids and folder names are in `data/classes/specs.json`). That
+tool fetches this same feed, merges tooltip text, splits the hero trees and validates
+against `data/classes/talents.schema.json` — use it to add a spec rather than the manual
+steps below, which remain the reference for what the feed contains.
+
+**Live or PTR is a per-patch decision, not a default.** Use the `/ptr/` feed and tooltip
+path only while the patch you are studying is on the PTR; once it ships, the plain
+endpoints are correct and `/ptr/` describes a *future* build.
+
 ## The source
 
 ```
@@ -89,9 +101,15 @@ effectiveness"). Always use the `/ptr/` path when describing PTR data. One
 request per spell ID — for ~130 talent entries that's ~130 sequential curl
 calls, a few seconds total, no batching endpoint found.
 
+**Trap — the feed's spell id is not always the id the combat log uses.** The tree's
+Incarnation (394013) and Celestial Alignment (395022) are not the cast ids in a log
+(102560 / 194223), and an apex's ranks are separate entry ids. Filtering a log on a tree id
+can match nothing with no error; resolve log abilities by name.
+
 ## Worked example — Arcane Mage, 12.1 PTR (classId 8, specId 62)
 
-Already extracted and saved at
+The only Arcane tree in the repo is this older raw-format dump (not yet rebuilt with
+`talent_tree_sync.py`), saved at
 [data/classes/mage/arcane/12_1_ptr_talents_raidbots.json](../../../data/classes/mage/arcane/12_1_ptr_talents_raidbots.json):
 43 class-tree nodes, 38 spec-tree nodes (apex talent flagged as `isApex: true`
 — currently "Prismatic Bolt"), and both hero subtrees split out

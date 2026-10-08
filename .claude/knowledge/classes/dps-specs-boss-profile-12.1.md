@@ -4,8 +4,12 @@ Valid as of **2026-10-08**: simc 1210-01 / 12.1.0.69299, rankings pulled the sam
 
 This is the comparison layer for [fire-mage-12.1.md](mage/fire-mage-12.1.md),
 [frost-mage-12.1.md](mage/frost-mage-12.1.md) and [feral-druid-12.1.md](druid/feral-druid-12.1.md). Arcane and
-Balance are carried as references, because they are the two specs the project already understands.
-It is about **damage** only, not utility.
+Balance ([arcane-mage-12.1-ptr.md](mage/arcane-mage-12.1-ptr.md),
+[balance-druid-12.1.md](druid/balance-druid-12.1.md)) are carried as references, because they are
+the two specs the project already understands. It is about **damage** only, not utility. The
+bosses' own measured shapes (adds, cadences, windows) are in
+[venomous-abyss-12.1.md](../raid/12_1/venomous_abyss/venomous-abyss-12.1.md) and its Mythic
+companion.
 
 ## The axes, and how each one was measured
 
@@ -118,18 +122,24 @@ average, popularity bias included.
 | Ula'tek | 0.94 | 0.94 | 1.01 | 0.96 | **1.13** |
 | level | 0.85 | 0.99 | 0.94 | 1.09 | 1.12 |
 
-**Mythic** (same shape where samples exist; Fire, Feral and Frost run out on the last three bosses):
+**Mythic** (same shape where samples exist; Fire, Feral and Frost run out on the last three
+bosses). Parses per cell are 100 unless noted; a dash is a spec with no usable sample, left out
+of that boss's five-spec mean.
 
 | boss | Fire | Frost | Feral | Balance | Arcane |
 |---|---|---|---|---|---|
 | Nymrissa | 0.91 | 0.87 | 0.93 | **1.29** | 1.02 |
-| Vashnik | **1.17** | 0.89 | 0.98 | 0.97 | 1.08 |
+| Nek'zali | 1.02 | 0.97 | 1.02 | 0.99 | 1.07 |
+| Sentinels | 0.95 (n=79) | 1.08 | 1.00 | 1.09 | 0.95 |
+| Vashnik | **1.17** (n=87) | 0.89 | 0.98 | 0.97 | 1.08 |
 | Explorers | 0.89 | **1.14** | 0.94 | 1.09 | 0.98 |
-| Sszorak | 1.07 | 0.90 | **1.17** | 0.96 | 1.00 |
-| Twin Fangs | — (8 parses) | 1.13 | 0.95 | 0.91 | 0.93 |
+| Sszorak | 1.07 (n=47) | 0.90 | **1.17** | 0.96 | 1.00 |
+| Twin Fangs | — (8 parses) | 1.13 | 0.95 (n=53) | 0.91 | 0.93 |
+| Coiled Altar | — | 1.01 (n=20) | — | 0.89 | 0.95 |
+| Ula'tek | — | — | — | 0.82 | 1.02 |
 
-The full table, with Nek'zali, Sentinels, Coiled Altar and Ula'tek, comes from
-`scratch/specs/rank_summary.json`.
+Read the last three rows with care: with two or three specs in the mean, a cell says less about
+the boss and more about which specs reached it.
 
 Off-boss share of damage in the census (median of 20 top Mythic pulls), which is what the add
 bosses reward:
@@ -170,27 +180,28 @@ stat split for Frost**, even though every piece is shared.
 
 ## Reproduce
 
+The sim half is in the repo:
+
 ```bash
-cd scratch/specs/sims
+cd data/sims/12_1/spec_matrix
 ./run.sh <tag> <actor>.simc <talents>.simc <gear>.simc                    # scen.txt: targets, length, movement, adds
 SCEN=scen_vuln.txt ./run.sh <tag> ...                                      # Dig In / +100% windows, fixed 380s
 SCEN=scen_sw.txt ITER=3000 ./run.sh <tag> ...                              # scale factors, 1T and 3T
-wsl.exe -d Ubuntu -e python3 parse.py                                      # every table above
+py parse.py                                                                # every sim table above
 ```
 
-From the repo root:
-
-```bash
-wsl.exe -d Ubuntu -e python3 scratch/specs/burst_summary.py       # log burst table
-wsl.exe -d Ubuntu -e python3 scratch/specs/rank_summary.py        # ranking medians
-wsl.exe -d Ubuntu -e python3 scratch/specs/analyze_census.py <fire|frost|feral>
-wsl.exe -d Ubuntu -e python3 scratch/specs/sim_vs_log.py <sim tag> <spec> <boss> [scenario]
-```
+The log half (census of top pulls, ranking medians, per-second burst profiles, sim-vs-log
+damage shares) was built by one-off scripts that were not kept. To rebuild it, use
+`characterRankings` with `includeCombatantInfo` for gear/talents (the `warcraftlogs-reports`
+skill), per-second binned `DamageDone` events for burst, and the double normalisation
+described under "The ranking boards".
 
 ## Traps hit while building this
 
 - **Git Bash rewrites `raid_events+=/movement` into a Windows path** ("Invalid raid event type 'C:'").
-  `run.sh` exports `MSYS_NO_PATHCONV=1`. Any simc call from Git Bash with a `+=/` option needs it.
+  `run.sh` exports `MSYS_NO_PATHCONV=1` (also in the `simc-simulation` skill).
+- WCL's `graph` endpoint smooths to ~40s buckets and is useless for burst. Bin `DamageDone` events
+  per second instead.
 - **Validate a cleave build against a cleave sim.** Frostfire against a 1-target sim read Shatter 32%
   vs 42% logged and looked like a broken model. Against the 2-target sim it matches to 1.5 points.
 - **A loadout majority from a thin, skewed sample is a different build.** Druid of the Claw's 9 pulls
@@ -199,4 +210,4 @@ wsl.exe -d Ubuntu -e python3 scratch/specs/sim_vs_log.py <sim tag> <spec> <boss>
 - **Normalise the ranking table twice.** Spec ÷ boss mean alone still mixes in popularity: a rare
   spec's top 100 is shallower.
 - WCL target-view `activeTime` reads ~99.7% for every spec on every boss whenever a DoT ticks. It is
-  not an uptime measure.
+  not an uptime or mobility measure.

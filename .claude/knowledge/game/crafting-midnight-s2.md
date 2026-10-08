@@ -1,10 +1,9 @@
 # Crafting for gear in Midnight Season 2 (patch 12.1)
 
 **Valid as of 2026-10-07.** Companion to [itemization-midnight-s2.md](itemization-midnight-s2.md);
-concepts in [itemization-fundamentals.md](itemization-fundamentals.md). Source research:
-`scratch/itemization/D_crafting.md` (+ measured adoption in `F_wcl_gear.md`, creator notes in
-`transcripts/distilled_kelani_2.md`). Tags as in the S2 file. **Re-validate on 2026-10-20**
-(Venomstones make max-quality crafts upgradeable; crest cap lifts).
+concepts in [itemization-fundamentals.md](itemization-fundamentals.md). Measured adoption comes
+from the same WCL gear census as the S2 file. Tags as in the S2 file. **Re-validate on
+2026-10-20** (Venomstones make max-quality crafts upgradeable; crest cap lifts).
 
 ## Why craft at all
 
@@ -74,7 +73,8 @@ last-boss loot. [db]/[blue]
   relative value as the item's ilvl rises — re-sim after each recraft.
 - Ritual Stone is Blacksmithing-weapon-only and its recipe is a Prey-renown unlock. New 12.1
   reagents: Hunter's Ritual Stone, Adorned Fang, Snakeskin Lining, Polished Ammolite, Coiled
-  Snake-Eye (Engineering guns). Full reagent list with item ids: `D_crafting.md` §3.2.
+  Snake-Eye (Engineering guns). Item ids: look them up on Wowhead's tooltip API rather than
+  from memory.
 
 ## Getting a max-quality craft without the profession
 

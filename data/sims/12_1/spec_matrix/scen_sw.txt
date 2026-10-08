@@ -1,0 +1,2 @@
+sw1|calculate_scale_factors=1 scale_only=intellect,agility,crit,haste,mastery,versatility
+sw3|desired_targets=3 calculate_scale_factors=1 scale_only=intellect,agility,crit,haste,mastery,versatility

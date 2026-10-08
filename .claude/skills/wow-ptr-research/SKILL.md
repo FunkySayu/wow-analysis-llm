@@ -5,17 +5,18 @@ description: Find out what changed for a class/spec on the current WoW PTR — e
 
 # WoW PTR Class/Ability Research
 
-As of writing, live is patch 12.0.7 and the active PTR is **patch 12.1**
-(expansion "Midnight"). Patch numbers move fast during a PTR cycle — always
-confirm the current patch banner on the source before trusting a cached number.
+As of 2026-10-08, live is **patch 12.1.0** (expansion "Midnight", Season 2, live since
+2026-08-11) and **12.1.5** is on the PTR, shipping 2026-10-13. Patch numbers move fast —
+always confirm the current patch banner on the source before trusting a cached number.
 
 ## Confirm which PTR build you're looking at
 
-Wowhead reuses the `/ptr` subdomain for whichever cycle is *currently* active
-and demotes the previous one to `/ptr-2` (e.g. right now `wowhead.com/ptr` =
-12.1, `wowhead.com/ptr-2` = the older 12.0.7 PTR). Check
-https://www.wowhead.com/ptr for the current patch banner before using either
-domain.
+Wowhead runs two PTR environments, `/ptr` and `/ptr-2`, and **which one holds the newest
+build is not fixed** — check each banner. During the 12.0.7 → 12.1 cycle `/ptr` was the
+newer one; on 2026-10-07 the 12.1.5 data was on **`/ptr-2`** while `/ptr` still served
+12.1.0 (`nether.wowhead.com/ptr-2/tooltip/item/<id>` returned 12.1.5 items). The tooltip
+API follows the same split: a request to the wrong environment returns a plausible tooltip
+for the wrong build, with no error.
 
 ## Sources, roughly in the order to reach for them
 
@@ -50,8 +51,12 @@ domain.
    suspect the Raidbots-side build is lagging.
 7. **Icy Veins guides** (e.g. https://www.icy-veins.com/wow/arcane-mage-pve-dps-guide)
    — good for baseline live rotation logic, but guides are usually still
-   written for the previous patch (currently 12.0.7) while PTR (12.1) is
-   active — don't treat them as PTR-current.
+   written for the live patch while a PTR is active — don't treat them as
+   PTR-current.
+
+For official commentary beyond the PTR category, [[wowhead-blueposts]] dumps full post
+text locally. For gearing systems specifically (loot, crests, bonus rolls, crafting),
+`.claude/knowledge/game/itemization-staying-current.md` lists the sources and their traps.
 
 ## Suggested workflow when a benchmark looks off
 

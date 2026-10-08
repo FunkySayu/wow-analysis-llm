@@ -1,0 +1,62 @@
+diff --git a/engine/sim/raid_event.cpp b/engine/sim/raid_event.cpp
+index 17b729708a..9e2b55d28f 100644
+--- a/engine/sim/raid_event.cpp
++++ b/engine/sim/raid_event.cpp
+@@ -1632,10 +1632,12 @@ struct vulnerable_event_t final : public raid_event_t
+   {
+     add_option( opt_float( "multiplier", multiplier ) );
+ 
+-    if ( sim->fight_style == FIGHT_STYLE_DUNGEON_ROUTE )
+-      add_option( opt_string( "target", target_str ) );
+-    else
+-      add_option( opt_func( "target", [ this ]( auto, auto, util::string_view v ) { return parse_target( v ); } ) );
++    // Always store the name and resolve it in _start(). Resolving in the ctor
++    // (the old non-DungeonRoute path) searched sim->target_list before any
++    // raid_event add exists, so `target=<an add>` could never match; worse, the
++    // miss only logged and left target==nullptr, which silently applied the
++    // vulnerability to sim->target -- the exact opposite of what was asked for.
++    add_option( opt_string( "target", target_str ) );
+ 
+     parse_options( options_str );
+ 
+@@ -1643,32 +1645,21 @@ struct vulnerable_event_t final : public raid_event_t
+       target_str = "Pull_" + util::to_string( pull ) + "_" + target_str;
+   }
+ 
+-  bool parse_target( std::string_view value )
+-  {
+-    auto it = range::find_if( sim->target_list, [ &value ]( const player_t* target ) {
+-      return util::str_compare_ci( value, target->name() );
+-    } );
+-
+-    if ( it != sim->target_list.end() )
+-    {
+-      target = *it;
+-      return true;
+-    }
+-    else
+-    {
+-      sim->error( "Unknown vulnerability raid event target '{}'", value );
+-      return true;
+-    }
+-  }
+-
+   void _start() override
+   {
+-    if ( sim->fight_style == FIGHT_STYLE_DUNGEON_ROUTE )
++    if ( !target_str.empty() )
+     {
++      // Runtime lookup: a raid_event add only exists once it has spawned, so a
++      // name may refer to one of them. Fail loudly rather than falling through
++      // to sim->target.
+       target = sim->find_player( target_str );
+       if ( !target )
+         throw std::invalid_argument( fmt::format( "Unknown vulnerability raid event target '{}'", target_str ) );
+     }
++    else
++    {
++      target = nullptr;
++    }
+ 
+     if ( target )
+       target->debuffs.vulnerable->increment( 1, multiplier );

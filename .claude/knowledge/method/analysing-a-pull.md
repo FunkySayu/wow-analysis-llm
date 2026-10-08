@@ -4,7 +4,16 @@ Method notes, written after a session that started as "why is my parse low" and 
 useful once it stopped being about the rotation. This file is deliberately spec- and
 encounter-agnostic; the examples are illustration, not the point. Companion files carry the
 worked cases ([arcane-mage-12.1-ptr.md](../classes/mage/arcane-mage-12.1-ptr.md) for the one this was
-distilled from).
+distilled from; [balance-druid-12.1.md](../classes/druid/balance-druid-12.1.md) and the
+Lost Explorers / Twin Fangs sections of
+[venomous-abyss-mythic.md](../raid/12_1/venomous_abyss/venomous-abyss-mythic.md) for later
+ones). Before any of it, run the checks in `tools/warcraftlogs/` — most of the measurements
+below already exist there.
+
+Related method: when the question is "which of two plans is better on this boss" rather than
+"what went wrong in this pull", see [modelling-a-fight-in-simc.md](modelling-a-fight-in-simc.md).
+Reading the priority list that decisions are audited against:
+[reading-an-apl.md](reading-an-apl.md).
 
 ## The core idea
 
@@ -155,7 +164,16 @@ this pull and not a grade — say so, and keep it for locating the problem rathe
 the player.
 
 Know the sampling floor: rankings APIs typically cap pagination, and the cap may sit well
-above the median player. State the floor rather than implying full coverage.
+above the median player. State the floor rather than implying full coverage. WCL's limits
+(page 20 ≈ p84 on a popular spec, no percentile field, `bracketData` is not item level) are
+in the `warcraftlogs-reports` skill.
+
+Sample size rule this project works to: **~20 logs per scenario at minimum**, selected by the
+highest difficulty available (keystone level for M+ — rankings are sorted by DPS, so re-sort
+by `hardModeLevel` first — or rankings for raid, stratified as above when grading a player).
+Record *when and where* each utility or cooldown fired (map events to `fights{dungeonPulls}`
+and the target NPC), not just how often. Budget the rate limit first and cache every raw
+response, so re-analysis costs nothing.
 
 ### Beware medians over multi-modal distributions
 
@@ -221,6 +239,21 @@ baseline depressed. The Incarnation re-timing on the reference pull flipped sign
 assumed x1.5 and the measured x2.16. Report the sensitivity table, and prefer a variant that
 does not depend on the uncertain term (moving only the potion did not: +0.45-0.49M at every
 multiplier).
+
+### Grading a wipe
+
+A wipe has no parse, so grade it by projecting it onto the kill pool. Cut the pull at the
+start of the death cascade (3rd raid death − 2s) — after that, the seconds belong to the
+wipe, not the player. Multiply the player's damage-to-date per second by the pool's median
+of `final ranked DPS / pace at the same second`, and quote the interquartile range of that
+ratio, not just the point estimate.
+
+Check how much a projection can say before quoting it: correlate pool pace at second *t*
+with final DPS. On Mythic Twin Fangs that was 0.57–0.61 at 140–168s and 0.17–0.23 under
+105s, so a projection from a ~60s wipe barely constrains anything. Two things that inflate
+the pool: ranked DPS has Augmentation support removed (85–99% of raw damage per second), so
+scale each pool player by their own `amount / raw` before comparing against a raid without
+an Augmentation Evoker.
 
 ### Separate what was controllable
 

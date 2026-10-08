@@ -193,8 +193,9 @@ all four of the following ways. Every one of these produced a large, plausible-l
    Chosen loadout is **−6.6%**. To swap trees, zero each node of the old tree by token
    and add each node of the new one, then validate.
 
-A validator that implements rules 2 and 3 lives in the session scratch work; the pattern
-is: BFS from `entryNode` following `prev` edges only, then for each node with
+No validator for rules 2 and 3 is kept in `tools/` yet (the site has one for its talent
+editor, `site/backend/app/services/tree_validate.py`, against the same tree files). The
+pattern: BFS from `entryNode` following `prev` edges only, then for each node with
 `reqPoints=R` check that points in nodes with `reqPoints < R` total at least R.
 
 ### The 12.1 Balance spec tree is exactly gate-tight
@@ -397,14 +398,8 @@ and AP/min line up almost monotonically:
 | Попопелапой | 1.275s | 560 | — |
 | Cotti (rank 1) | 1.229s | 614 | 22.23 |
 
-**Measure haste from the log, never from the rating.** Three probes, in decreasing
-order of trustworthiness: **Starfire hardcast time** (pair `begincast`/`cast`
-*sequentially* — begincast carries `targetID: -1` while cast carries the real
-target, so pairing on target silently returns nothing, and drop pairs under 0.15s
-which are instant proc casts); **modal rotational cast gap**; and **DoT tick
-interval** (weakest — talents alter tick rate independently). The stat sheet said
-haste 624 vs a peer median of 829, which reads as −25%; the measured Starfire gap
-to the peer median was ~12%.
+**Measure haste from the log, never from the rating** — see the next section for the probes
+and how far the rating misleads.
 
 ### Aetherial Kindling makes hand-refreshing Moonfire a real, common leak
 
@@ -460,16 +455,18 @@ Equal activity, different allocation.
 ### Rating gaps are not effective-stat gaps — measure haste from the log
 
 `peers-stats` on that log showed haste 624 against a peer median of 829 (p8, 22.0% of the
-secondary budget vs 28.6%), which reads as a 25% deficit. Measured directly from the log it
-was ~4%: modal cast gap 1.171s vs a peer median of 1.126s, and Moonfire tick interval 1.148s
-vs 1.143s for the nearest peer. Raid buffs, procs and the rating->percent curve compress the
-raw ratings hard.
+secondary budget vs 28.6%), which reads as a 25% deficit. Raid buffs, procs and the
+rating->percent curve compress raw ratings hard, and every log-side probe read far less:
 
-Two empirical haste probes that need no rating conversion, both from data already cached:
-**Moonfire tick interval** (median of per-target tick deltas) and **modal cast gap** (median
-of consecutive rotational cast gaps in the 0.6-2.2s band). Use them before sizing any stat
-finding — and remember a stat gap only explains DPS if damage *per cast* is also low. There
-it was within 2% of the field, so the deficit was volume.
+| probe (most to least trustworthy) | how | gap to peers |
+|---|---|---|
+| **Starfire hardcast time** | pair `begincast`/`cast` *sequentially* — begincast carries `targetID: -1` while cast carries the real target, so pairing on target silently returns nothing; drop pairs under 0.15s (instant procs) | ~12% vs the peer median |
+| **modal rotational cast gap** | median of consecutive rotational cast gaps in the 0.6–2.2s band | ~4% (1.171s vs 1.126s) |
+| **DoT tick interval** | median of per-target Moonfire tick deltas; weakest, talents alter tick rate independently | ~0.4% vs the nearest peer (1.148s vs 1.143s) |
+
+The probes disagree with each other in size but all say the rating overstates the gap. Use
+them before sizing any stat finding — and remember a stat gap only explains DPS if damage
+*per cast* is also low. There it was within 2% of the field, so the deficit was volume.
 
 ### WCL trap: DoT uptime must come from ticks, not from debuff events
 
@@ -516,8 +513,7 @@ damage). 4-piece — +10% damage in any Eclipse, waning to 2% at the midpoint an
 **Fury of Elune's cooldown is exactly `45s − 1.5s × (Starfire + Moonfire + Starsurge + Starfall
 casts)`** with Radiant Moonlight + Lunation. Validated on 562 Fury casts over 40 Mythic pulls:
 zero casts before the reconstructed ready time, tightest at 0.0s; dropping any one of the four
-spells from the set makes 119+ casts impossible. Experienced cooldown median 22.5s. Model:
-`scratch/lost-explorers/foe_model.py`.
+spells from the set makes 119+ casts impossible. Experienced cooldown median 22.5s.
 
 **Starfall is one stacking aura.** Each cast adds a stack and refreshes (applybuffstack +
 refreshbuff), and each tick event carries all stacks — tick size ≈ proportional to stacks. Any
@@ -552,7 +548,8 @@ values as ±noise.
 "could this Starfall have gone earlier" pass counted swaps as affordable because AP covered 50
 at the earlier slot, ignoring the Starsurges and Starfalls cast between the two slots, and
 counted a free proc that the Starfire itself created on completion. Both inflated the answer
-~4×. `scratch/lost-explorers/sf_windows.py` has the corrected check.
+~4×. The corrected check walks AP forward through every cast between the two slots and
+excludes procs created by the cast being moved; it is not yet a `tools/warcraftlogs` check.
 
 ### Mythic Vashnik: the field's build is Rattle the Stars + Meteor Storm (2026-10-05)
 
@@ -574,12 +571,13 @@ Starweaver also changes how the spender checks read: free Starsurges from Starfa
 10.9 Starsurge/min against the field's 6.9, including during add windows, where the field
 spends almost nothing but Starfall (median 0.15 Starsurge/min while Shrouded Venom is up). Under
 Starweaver part of that is the proc firing, not a targeting decision, so don't grade it as one.
-Worked case: `HfGDg1K3bRzcqPkN` fight 31 (Funkitty, 306.9k, 423s). Scripts are in `scratch/vashnik_89/`.
+Worked case: `HfGDg1K3bRzcqPkN` fight 31 (Funkitty, 306.9k, 423s).
 
 ### Mythic Twin Fangs: the field's gear, and what simc cannot price (2026-10-06)
 
-Measured on 199 of the top-200 Mythic Twin Fangs Balance parses. Full detail is in
-[scratch/bdruid/twinfangs/gear/README.md](../../../../scratch/bdruid/twinfangs/gear/README.md).
+Measured on 199 of the top-200 Mythic Twin Fangs Balance parses. The sim profile these
+weights and deltas come from, with every gear correction it needed, is
+[twin-fangs-sim-profile.md](../../raid/12_1/venomous_abyss/twin-fangs-sim-profile.md).
 
 - **Stat balance:** median buffed secondaries are 39.7% mastery, 28.2% crit, 27.9% haste,
   3.3% vers. Flask of the Magisters is used by 171/199.
@@ -604,30 +602,26 @@ Measured on 199 of the top-200 Mythic Twin Fangs Balance parses. Full detail is 
 - **Embellishments, field standard:** Hunter's Ritual Stone on Aln'hara Lantern
   (150/199) and Arcanoweave Lining on Silvermoon Agent's Deflectors (108) or Sneakers
   (48).
-- **Two simc gear traps, both silent, both found by comparing simc's stat sheet with the log's:**
-  - **Aqirbane Reliquary** (268265, Ula'tek neck, 192/199 wear it): simc gives all 404
-    secondary rating as crit. In game it is 101 of each secondary. Override with
-    `stats=2199sta_101crit_101haste_101vers_101mastery`.
-  - **Crafted stat pairs are bonus ids**: 8790 crit/haste, 8791 crit/mastery, 8792
-    haste/vers, 8793 mastery/haste, 8794 mastery/vers, 8795 crit/vers. They override
-    `crafted_stats=`, which is then ignored. To sim a recraft, swap the bonus id.
+- **Two simc gear traps, both silent, both found by comparing simc's stat sheet with the
+  log's:** the Aqirbane Reliquary (268265, worn by 192/199) sims all its secondaries as crit,
+  and crafted stat pairs are bonus ids that override `crafted_stats=`. The overrides are on the
+  sim card and in the `simc-profile-syntax` skill.
 - **Rite of the Hash'ey vs Arcane Mastery** is not sim bait in either direction:
   - Arcane Mastery's proc (Genius Insight, 124 mastery, 15s) is up 61.5% in a real log
     against 58.4% in simc.
   - Rite's four Loa buffs (120 each) total 109% uptime across 25 top users.
 - **On-use trinkets must be simmed on the Incarnation schedule actually played.** The APL
   fires `use_items` only while `ca_inc` is up, so the trinket ranking follows wherever the APL
-  happens to put Incarnation. On the Twin Fangs script, the APL's own schedule (pull / wave 1 /
-  wave 3 / wave 4) leaves Freightrunner's Flask (90s) with 3 uses, and Vile Vial wins by +0.8k.
-  On the player's schedule (pull / wave 2 / wave 3 / wave 5 / 6:00) the Flask gets 4 uses and
-  wins by +0.6k. That same change moves Hex Lord's Dooming Idol 334 from +2.3k to +4.2k.
-  Pin the schedule with `ca_hold` (`apl_plan.simc`) before ranking any on-use trinket.
+  puts Incarnation — on Twin Fangs it flips Vile Vial vs Freightrunner's Flask. The numbers and
+  the `ca_hold` fix are on the sim card ("Why the schedule matters").
 
 ### Mythic Twin Fangs: what the field does on the clock, and grading a wipe (2026-10-08)
 
 Measured on 40 kills rank-stratified over ranks 1–300 (p76–p100) of the **full** Balance field.
-Funkitty's wipes `ZvwYhTV74g9bMdL2` 20/22/25/26 are the worked case. Scripts and extracts are in
-`scratch/bdruid/funkitty_wipes/`.
+Funkitty's wipes `ZvwYhTV74g9bMdL2` 20/22/25/26 are the worked case. The fight's own clock
+(Spawn waves, intermission, the 61s cycle) and how Balance moves through it are in
+[venomous-abyss-mythic.md](../../raid/12_1/venomous_abyss/venomous-abyss-mythic.md); this
+section is what the Balance field *chooses* on that clock.
 
 - **The ranking list is not capped here.** `characterRankings` ends at page 13: 1,232 parses.
   So percentiles can be read straight off it: p99 302.4k, p95 289.1k, p90 282.4k, p85 278.0k,
@@ -636,8 +630,6 @@ Funkitty's wipes `ZvwYhTV74g9bMdL2` 20/22/25/26 are the worked case. Scripts and
   Ranked DPS ran 85–99% of each player's raw damage per second. A raw-damage pool is therefore
   inflated against a raid with no Aug. Scale each pool player by their own `amount / raw` before
   comparing any window.
-- **The clock is identical in every pull** (sd < 0.1s): Spawn waves at 33.0 / 94.0s, Sanguine
-  Storm + Vile Flood at 136.0s. Windows can be compared on absolute fight time.
 - **Field-wide utility assignments, not choices:**
   - Incapacitating Roar at ~15s and ~75s: 31/40 players.
   - Solar Beam at 39–47s and 100–108s, on the Spawns: 29/40.
@@ -650,8 +642,6 @@ Funkitty's wipes `ZvwYhTV74g9bMdL2` 20/22/25/26 are the worked case. Scripts and
   Starfire/Starsurge/FoE on Spawns did less total in wave 1 (7.06M vs 8.16M) and more in wave 2
   (6.79M vs 5.43M), at the same median percentile both times. The 2 Moonfire + 1 Sunfire dot
   routine is universal.
-- **Projecting a wipe onto a kill parse.** Cut the pull at the start of the death cascade
-  (3rd raid death − 2s). Then multiply the player's damage-to-date per second by the pool's
-  median of `final ranked DPS / pace at the same second`. Correlation of pace with final DPS is
-  0.57–0.61 at 140–168s and 0.17–0.23 under 105s, so a projection from a ~60s wipe barely
-  constrains anything. Quote the interquartile range, not just the point estimate.
+- **Grading these wipes** used the wipe-projection method in
+  [analysing-a-pull.md](../../method/analysing-a-pull.md) ("Grading a wipe"); on this boss a
+  projection from a ~60s wipe barely constrains anything.

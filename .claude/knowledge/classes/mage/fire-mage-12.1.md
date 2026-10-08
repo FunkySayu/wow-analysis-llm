@@ -6,14 +6,11 @@ A `/ptr/` pull would describe a future build.
 
 Data behind every number here:
 
-| file | what |
+| source | what |
 |---|---|
 | [data/classes/mage/fire/12_1_talents.json](../../../../data/classes/mage/fire/12_1_talents.json) | full tree with live tooltip text (`tools/raidbots/talent_tree_sync.py --class 8 --spec 63`) |
-| `scratch/specs/census_fire.json` | 120 top Mythic pulls (20 per boss × 6 bosses): gear, stats, talents, auras, damage by ability and by target |
-| `scratch/specs/census_fire_report.txt` | the census summarised (`analyze_census.py fire`) |
-| `scratch/specs/rankings/` | top-100 rankings per boss × difficulty × spec (Fire, Frost, Feral, Balance, Arcane) |
-| `scratch/specs/burst_sszorak.json` | per-second damage of 12 top Mythic Sszorak pulls per spec |
-| `scratch/specs/sims/` | the profiles and the scenario matrix (see [dps-specs-boss-profile-12.1.md](../dps-specs-boss-profile-12.1.md)) |
+| [data/sims/12_1/spec_matrix/](../../../../data/sims/12_1/spec_matrix/) | the sim profiles and the scenario matrix (see [dps-specs-boss-profile-12.1.md](../dps-specs-boss-profile-12.1.md)) |
+| census, 2026-10-08 (not kept in the repo) | 120 top Mythic pulls (20 per boss × 6 bosses): gear, stats, talents, auras, damage by ability and by target; top-100 rankings per boss × difficulty × spec; per-second damage of 12 top Mythic Sszorak pulls per spec |
 
 Cross-spec comparison (what Fire is good and bad at, against Frost, Feral, Arcane and Balance) is
 in [dps-specs-boss-profile-12.1.md](../dps-specs-boss-profile-12.1.md). This file is the spec itself.
@@ -140,8 +137,8 @@ actions+=/run_action_list,name=sf_filler
 ## The sim profile
 
 ```
-cd scratch/specs/sims
-../../../vendor/simc/build/Release/simc.exe base.simc fw_fire_field.simc tal_fire_sunfury.simc funkywand_gear.simc
+cd data/sims/12_1/spec_matrix
+../../../../vendor/simc/build/Release/simc.exe base.simc fw_fire_field.simc tal_fire_sunfury.simc funkywand_gear.simc
 ```
 
 | piece | what |
@@ -235,9 +232,7 @@ Buffs: Hot Streak 48108, Heating Up 48107, Combustion 190319.
 - **The apex is a tiered node whose ranks are separate entry ids.** A loadout builder that keeps
   "the best entry per node" silently keeps one rank of four. Keep every tier above the threshold,
   then verify with `debug=1`.
-- WCL's `graph` endpoint smooths to ~40s buckets and is useless for burst. Bin `DamageDone` events
-  per second instead.
-- WCL target-view `activeTime` saturates near 99.7% whenever a DoT is ticking (Ignite always is),
-  so it is not a mobility or uptime measure.
+- Two WCL measures are useless here (the `graph` endpoint's ~40s smoothing, target-view
+  `activeTime` saturating whenever Ignite ticks); see the cross-spec file's traps.
 - The `midnight.crucible_of_erratic_energies_*` sim options from the Twin Fangs script are
   "Unknown option, ignoring" for these actors. They are inert unless that trinket is equipped.
